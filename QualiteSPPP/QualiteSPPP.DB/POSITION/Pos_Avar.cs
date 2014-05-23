@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace QualiteSPPP.DB
 {
-    public class ConstructeurDB
+    public class Pos_Avar
     {
+        public int Identifiant { get; set; }
+        public string Position { get; set; }
     }
 }

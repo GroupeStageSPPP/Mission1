@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace QualiteSPPP.DB
 {
-    public class Projet
+    public class Test_Piece
     {
         public int Identifiant { get; set; }
-        public string Nom { get; set; }
 
+        public int Min { get; set; }
+        public int Moy { get; set; }
+        public int Max { get; set; }
+        public string Norme { get; set; }
+
+        public Test Test { get; set; }
         public Piece Piece { get; set; }
-        public Pos_Avar Pos_Avar { get; set; }
-        public Pos_Gd Pos_Gd { get; set; }
     }
 }

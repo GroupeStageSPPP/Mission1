@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QualiteSPPP.DB
 {
-    public class TypeDB
+    public class SousCat
     {
     }
 }
