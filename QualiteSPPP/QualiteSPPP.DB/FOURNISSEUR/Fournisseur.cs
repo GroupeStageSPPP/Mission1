@@ -8,5 +8,17 @@ namespace QualiteSPPP.DB
 {
     public class Fournisseur
     {
+        public int Identifiant { get; set; }
+        public string Libelle { get; set; }
+        public string Telephone { get; set; }        
+        public string Mail { get; set; }        
+        public string Responsable { get; set; }        
+        public string Adresse { get; set; }    
+
+
+
+
+
+    
     }
 }

@@ -8,5 +8,12 @@ namespace QualiteSPPP.DB
 {
     public class Peinture
     {
+        public int Identifiant { get; set; }
+        public string Nom { get; set; }
+
+        public Appret Appret { get; set; }
+        public Base Base { get; set; }
+        public Vernis Vernis { get; set; }
+
     }
 }

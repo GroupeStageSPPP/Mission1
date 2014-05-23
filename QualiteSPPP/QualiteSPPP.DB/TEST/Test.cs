@@ -8,5 +8,9 @@ namespace QualiteSPPP.DB
 {
     public class Test
     {
+        public int Identifiant { get; set; }
+        public string Nom { get; set; }
+        public string Description { get; set; }
+        public char TypeTest { get; set; }
     }
 }
