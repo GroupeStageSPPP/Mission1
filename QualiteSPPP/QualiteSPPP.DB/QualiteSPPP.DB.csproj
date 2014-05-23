@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{58A510D7-F617-4DBB-8AFE-35A6782BAE64}</ProjectGuid>
+    <ProjectGuid>{BDC5D2BA-1754-4002-A038-1B0CDA42701F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>QualiteSPPP.DB</RootNamespace>
