@@ -39,9 +39,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="APPRET\Appret.cs" />
+    <Compile Include="APPRET\AppretDB.cs" />
+    <Compile Include="BASE\Base.cs" />
+    <Compile Include="BASE\BaseDB.cs" />
+    <Compile Include="CATEGORIE\Categorie.cs" />
+    <Compile Include="CATEGORIE\CategorieDB.cs" />
+    <Compile Include="CLIENT\ClientDB.cs" />
+    <Compile Include="CLIENT\Client.cs" />
+    <Compile Include="CONSTRUCTEUR\ConstructeurDB.cs" />
+    <Compile Include="CONSTRUCTEUR\Constructeur.cs" />
+    <Compile Include="ECHANTILLON\Echantillon.cs" />
+    <Compile Include="ECHANTILLON\EchantillonDB.cs" />
+    <Compile Include="FOURNISSEUR\Fournisseur.cs" />
+    <Compile Include="FOURNISSEUR\FournisseurDB.cs" />
+    <Compile Include="PEINTURE\Peinture.cs" />
+    <Compile Include="PEINTURE\PeintureDB.cs" />
+    <Compile Include="PEINTURE_PROJET\Peinture_Projet.cs" />
+    <Compile Include="PEINTURE_PROJET\Peinture_ProjetDB.cs" />
+    <Compile Include="PIECE\Piece.cs" />
+    <Compile Include="PIECE\PieceDB.cs" />
+    <Compile Include="POS_AVAR\Pos_Avar.cs" />
+    <Compile Include="POS_AVAR\Pos_AvarDB.cs" />
+    <Compile Include="POS_GD\Pos_Gd.cs" />
+    <Compile Include="POS_GD\Pos_GdDB.cs" />
+    <Compile Include="PROJET\Projet.cs" />
+    <Compile Include="PROJET\ProjetDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TEST\Test.cs" />
+    <Compile Include="TEST\TestDB.cs" />
+    <Compile Include="TEST_ECHANTILLON\Test_Echantillon.cs" />
+    <Compile Include="TEST_ECHANTILLON\Test_EchantillonDB.cs" />
+    <Compile Include="TEST_PIECE\Test_Piece.cs" />
+    <Compile Include="TEST_PIECE\Test_PieceDB.cs" />
+    <Compile Include="TYPE\Type.cs" />
+    <Compile Include="TYPE\TypeDB.cs" />
+    <Compile Include="VEHICULE\Vehicule.cs" />
+    <Compile Include="VEHICULE\VehiculeDB.cs" />
+    <Compile Include="VERNIS\Vernis.cs" />
+    <Compile Include="VERNIS\VernisDB.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
