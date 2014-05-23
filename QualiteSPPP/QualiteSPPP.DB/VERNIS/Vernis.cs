@@ -8,5 +8,13 @@ namespace QualiteSPPP.DB
 {
     public class Vernis
     {
+        public int Identifiant { get; set; }
+        public string reference { get; set; }
+
+        public int Min { get; set; }
+        public int Moy { get; set; }
+        public int Max { get; set; }
+
+        public Fournisseur Fournisseur { get; set; }
     }
 }

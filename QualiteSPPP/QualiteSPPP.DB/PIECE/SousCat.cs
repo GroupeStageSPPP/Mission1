@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace QualiteSPPP.DB
 {
-    public class Pos_Avar
+    public class SousCat
     {
+        public int Identifiant { get; set; }
+        public string Nom { get; set; }
+
+        public Categorie Categorie { get; set; }
     }
 }

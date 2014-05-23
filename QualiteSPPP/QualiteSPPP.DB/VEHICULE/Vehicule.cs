@@ -8,5 +8,10 @@ namespace QualiteSPPP.DB
 {
     public class Vehicule
     {
+        public int Identifiant { get; set; }
+        public int Nom { get; set; }
+
+        public Constructeur Constructeur { get; set; }
+        public Client Client { get; set; }
     }
 }
