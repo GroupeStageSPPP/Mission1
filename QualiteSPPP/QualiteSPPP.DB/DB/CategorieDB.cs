@@ -18,7 +18,7 @@ namespace QualiteSPPP.DB
         public static List<Categorie> List()
         {
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             String requete = "SELECT Identifiant, Libelle FROM Categorie";
             
@@ -56,7 +56,7 @@ namespace QualiteSPPP.DB
         public static Categorie Get(Int32 Identifiant)
         {
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             String requete = @"SELECT Identifiant, Libelle FROM Categorie
                                 WHERE Identifiant=@Identifiant";
@@ -90,7 +90,7 @@ namespace QualiteSPPP.DB
         public static void Insert(Categorie categorie)
         {
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             String requete = @"INSERT INTO Categorie(Libelle) VALUES(@Libelle)";
             connection.Open();
@@ -108,7 +108,7 @@ namespace QualiteSPPP.DB
         public static void Update( Categorie categorie)
         {
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             String requete = @"UPDATE Categorie  
                                SETLibelle=@Libelle  
@@ -130,7 +130,7 @@ namespace QualiteSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             
             String requete = @"DELETE FROM Categorie 

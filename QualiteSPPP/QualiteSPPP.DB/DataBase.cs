@@ -8,7 +8,7 @@ using System.Configuration;
 
 namespace QualiteSPPP.DB
 {
-    public static class Datacolor
+    public static class DataBase
     {
         public static SqlConnection Connection = new SqlConnection("Data Source=PC-PORTABLE_JB;Initial Catalog=QualiteSPPP;Integrated Security=True");
     }

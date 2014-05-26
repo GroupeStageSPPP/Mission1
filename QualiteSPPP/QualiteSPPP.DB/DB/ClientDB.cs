@@ -19,7 +19,7 @@ namespace QualiteSPPP.DB
         {
 
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             
             String requete = "SELECT Identifiant, Libelle, Mail, Telephone, Responsable, Adresse FROM Client;";
@@ -62,7 +62,7 @@ namespace QualiteSPPP.DB
         public static Client Get(Int32 Identifiant)
         {
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             
             String requete = @"SELECT Identifiant, Libelle, Mail, Telephone, Responsable, Adresse 
@@ -97,7 +97,7 @@ namespace QualiteSPPP.DB
         public static void Insert(Client client)
         {
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             
             String requete = @"INSERT INTO Client(Libelle, Mail, Telephone, Responsable, Adresse) 
@@ -123,7 +123,7 @@ namespace QualiteSPPP.DB
         public static void Update( Client client)
         {
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             String requete = @"UPDATE Client  
                              SET Libelle=@Libelle, Mail=@Mail, Telephone=@Telephone, Responsable=@Responsable, Adresse=@Adresse                                  WHERE Identifiant=@Identifiant;";
@@ -147,7 +147,7 @@ namespace QualiteSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
              
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             
             String requete = @"DELETE Client WHERE Identifiant=@Identifiant;";

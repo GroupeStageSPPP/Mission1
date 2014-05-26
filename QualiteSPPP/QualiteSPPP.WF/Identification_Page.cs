@@ -50,7 +50,7 @@ namespace QualiteSPPP.WinForm
             //Sinon l'accès est refuser et un message d'erreur s'affiche.
             else
             {
-                textBoxMotDePasse.Text = "";
+                textBoxMotDePasse.Text = ""; 
                 MessageBox.Show("Identifiants incorrect !");
             }
         }

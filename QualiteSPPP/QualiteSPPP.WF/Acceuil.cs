@@ -197,7 +197,7 @@ namespace QualiteSPPP.WinForm
                     {
                         panelCommencerTest.Enabled = false;
                         panelAjouterTest.Enabled = true;
-                        textBoxDescriptionTest.Text = "";
+                        textBoxDescriptionTest.Text = "";  
                     }
                     else
                     {
@@ -334,7 +334,7 @@ namespace QualiteSPPP.WinForm
                         else
                         {
                             comboBoxGchDrt.Enabled = false;
-                            comboBoxGchDrt.Text = "";
+                            comboBoxGchDrt.Text = ""; 
                         }
                     }
                     private void checkBoxAvantArriere_CheckedChanged(object sender, EventArgs e)
@@ -346,7 +346,7 @@ namespace QualiteSPPP.WinForm
                         else
                         {
                             comboBoxAvtArr.Enabled = false;
-                            comboBoxAvtArr.Text = "";
+                            comboBoxAvtArr.Text = ""; 
                         }
                     }
                 #endregion

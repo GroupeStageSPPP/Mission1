@@ -20,7 +20,7 @@ namespace QualiteSPPP.DB
 
             
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             String requete = "SELECT Identifiant, Valeur, IdentifiantEchantillon, IdentifiantTest Libelle FROM Resultat_Test";
             connection.Open();
@@ -70,7 +70,7 @@ namespace QualiteSPPP.DB
         {
             
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             String requete = @"SELECT Identifiant, Valeur, IdentifiantEchantillon, IdentifiantTest FROM Resultat_Test
                                 WHERE Identifiant = @Identifiant";
@@ -112,7 +112,7 @@ namespace QualiteSPPP.DB
         {
              
 
-           SqlConnection connection = Datacolor.Connection;
+           SqlConnection connection = DataBase.Connection;
 
             connection.Open();
 
@@ -136,7 +136,7 @@ namespace QualiteSPPP.DB
         public static void Insert(Resultat_Test resultatTest)
         {
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             connection.Open();
             
@@ -155,7 +155,7 @@ namespace QualiteSPPP.DB
         public static void Update( Resultat_Test resultatTest)
         {
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             connection.Open();
             SqlCommand commande = new SqlCommand(requete,connection);

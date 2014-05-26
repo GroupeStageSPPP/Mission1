@@ -34,7 +34,7 @@ namespace QualiteSPPP.DB
                 appret.Identifiant = dataReader.GetInt32(0);
                 appret.Reference = dataReader.GetString(1);
                 appret.Min = dataReader.GetFloat(2);
-                appret.Moy = dataReader.GetFLoat(3);
+                appret.Moy = dataReader.GetFloat(3);
                 appret.Max = dataReader.GetFloat(4);
 
 
@@ -75,7 +75,7 @@ namespace QualiteSPPP.DB
             appret.Identifiant = dataReader.GetInt32(0);
             appret.Reference = dataReader.GetString(1);
             appret.Min = dataReader.GetFloat(2);
-            appret.Moy = dataReader.GetFLoat(3);
+            appret.Moy = dataReader.GetFloat(3);
             appret.Max = dataReader.GetFloat(4);
 
             dataReader.Close();

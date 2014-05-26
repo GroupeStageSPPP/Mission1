@@ -17,7 +17,7 @@
             {
                 components.Dispose();
             }
-            color.Dispose(disposing);
+            base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
