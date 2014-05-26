@@ -55,14 +55,16 @@
     <Compile Include="DB\EchantillonDB.cs" />
     <Compile Include="CS\Identification.cs" />
     <Compile Include="DB\IdentificationDB.cs" />
-    <Compile Include="CS\Parametre.cs" />
-    <Compile Include="DB\ParametreDB.cs" />
     <Compile Include="CS\Peinture.cs" />
     <Compile Include="DB\PeintureDB.cs" />
     <Compile Include="CS\Piece.cs" />
     <Compile Include="DB\PieceDB.cs" />
     <Compile Include="CS\Projet.cs" />
     <Compile Include="DB\ProjetDB.cs" />
+    <Compile Include="Pos_AvAr.cs" />
+    <Compile Include="Pos_AvArDB.cs" />
+    <Compile Include="Pos_Gd.cs" />
+    <Compile Include="Pos_GdDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CS\Test.cs" />
     <Compile Include="DB\TestDB.cs" />
@@ -75,6 +77,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NN\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
