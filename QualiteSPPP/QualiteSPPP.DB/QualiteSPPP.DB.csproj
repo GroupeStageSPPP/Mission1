@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CS\Alerte.cs" />
-    <Compile Include="CS\Test_Echantillon.cs" />
+    <Compile Include="NN\Test_Echantillon.cs" />
     <Compile Include="DB\AlerteDB.cs" />
     <Compile Include="CS\Appret.cs" />
     <Compile Include="DB\AppretDB.cs" />
@@ -77,14 +77,18 @@
     <Compile Include="DB\VehiculeDB.cs" />
     <Compile Include="CS\Vernis.cs" />
     <Compile Include="DB\VernisDB.cs" />
-    <Compile Include="DB\Test_EchantillonDB.cs" />
+    <Compile Include="NN\Test_EchantillonDB.cs" />
+    <Compile Include="NN\Test_Peinture_Piece.cs" />
+    <Compile Include="NN\Test_Peinture_PieceDB.cs" />
+    <Compile Include="NN\Test_Piece.cs" />
+    <Compile Include="NN\Test_PieceDB.cs" />
+    <Compile Include="NN\Peinture_Piece.cs" />
+    <Compile Include="NN\Peinture_PieceDB.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NN\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

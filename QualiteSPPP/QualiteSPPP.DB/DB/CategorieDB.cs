@@ -111,7 +111,7 @@ namespace QualiteSPPP.DB
             SqlConnection connection = DataBase.Connection;
             
             String requete = @"UPDATE Categorie  
-                               SETLibelle=@Libelle  
+                               SET Libelle=@Libelle  
                                WHERE Identifiant=@Identifiant;";
            
             connection.Open();
