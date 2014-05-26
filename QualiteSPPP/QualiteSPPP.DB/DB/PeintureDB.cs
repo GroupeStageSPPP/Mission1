@@ -20,7 +20,7 @@ namespace QualiteSPPP.DB
 
 
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
 
             String requete = @"SELECT Identifiant, Nom, RisqueTeinte, IdentifiantAppret, IdentifiantColor, IdentifiantVernis 
                                FROM Peinture";
@@ -59,7 +59,7 @@ namespace QualiteSPPP.DB
         {
 
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
 
             String requete = @"SELECT Identifiant, Nom, RisqueTeinte, IdentifiantAppret, IdentifiantColor, IdentifiantVernis 
                                FROM Peinture WHERE Identifiant=@Identifiant";
@@ -94,7 +94,7 @@ namespace QualiteSPPP.DB
         {
 
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
 
             connection.Open();
             String requete = "DELETE Peinture WHERE Identifiant = @Identifiant";
@@ -119,7 +119,7 @@ namespace QualiteSPPP.DB
         public static void Insert(Peinture peinture)
         {
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             String requete = @"INSERT INTO Peinture(Nom, RisqueTeinte, IdentifiantAppret, IdentifiantColor, IdentifiantVernis)   
                                VALUES(@Nom, @RisqueTeinte, @IdentifiantAppret, @IdentifiantColor, @IdentifiantVernis);";
             connection.Open();
@@ -140,7 +140,7 @@ namespace QualiteSPPP.DB
 
         public static void Update(Peinture peinture)
         {
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             String requete = @"UPDATE Peinture
                                SET Nom=@Nom, RisqueTeinte=@RisqueTeinte, IdentifiantAppret=@IdentifiantAppret, IdentifiantColor=@IdentifiantColor, IdentifiantVernis=@IdentifiantVernis
                                WHERE Identifiant=@Identifiant;";

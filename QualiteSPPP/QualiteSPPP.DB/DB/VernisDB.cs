@@ -34,7 +34,7 @@ namespace QualiteSPPP.DB
                 vernis.Identifiant = dataReader.GetInt32(0);
                 vernis.Reference = dataReader.GetString(1);
                 vernis.Min = dataReader.GetFloat(2);
-                vernis.Moy = dataReader.GetFLoat(3);
+                vernis.Moy = dataReader.GetFloat(3);
                 vernis.Max = dataReader.GetFloat(4);
 
 
@@ -75,7 +75,7 @@ namespace QualiteSPPP.DB
             vernis.Identifiant = dataReader.GetInt32(0);
             vernis.Reference = dataReader.GetString(1);
             vernis.Min = dataReader.GetFloat(2);
-            vernis.Moy = dataReader.GetFLoat(3);
+            vernis.Moy = dataReader.GetFloat(3);
             vernis.Max = dataReader.GetFloat(4);
 
             dataReader.Close();

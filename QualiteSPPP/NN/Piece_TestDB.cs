@@ -20,7 +20,7 @@ namespace QualiteSPPP.DB
 
             
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             String requete = "SELECT Identifiant, IdentifiantPiece, IdentifiantTest, Min, Max, Moy FROM Piece_Test";
             connection.Open();
@@ -59,7 +59,7 @@ namespace QualiteSPPP.DB
         {
             
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             String requete = @"SELECT Identifiant, IdentifiantPiece, IdentifiantTest, Min, Moy, Max FROM Piece_Test
                                 WHERE Identifiant=@Identifiant";
@@ -93,8 +93,8 @@ namespace QualiteSPPP.DB
         {
              
 
-           SqlConnection connection = Datacolor.Connection;
-
+            SqlConnection connection = DataBase.Connection;
+            String requete = "DELETE Piece_Test WHERE Identifiant=@Identifiant";
             connection.Open();
 
              
@@ -104,7 +104,7 @@ namespace QualiteSPPP.DB
 
             
 
-            String requete = "DELETE Piece_Test WHERE Identifiant=@Identifiant";
+            
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
             
 
@@ -118,7 +118,7 @@ namespace QualiteSPPP.DB
         public static void Insert(Piece_Test pieceTest)
         {
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             connection.Open();
             
@@ -139,7 +139,7 @@ namespace QualiteSPPP.DB
         public static void Update( Piece_Test pieceTest)
         {
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             connection.Open();
             SqlCommand commande = new SqlCommand(requete,connection);

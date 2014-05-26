@@ -20,7 +20,7 @@ namespace QualiteSPPP.DB
 
             
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             String requete = "SELECT Identifiant, IdentifiantVehicule, IdentifiantSousCat FROM Piece";
             connection.Open();
@@ -58,7 +58,7 @@ namespace QualiteSPPP.DB
         {
             
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
 
             String requete = @"SELECT Identifiant, IdentifiantVehicule, IdentifiantSousCat FROM Piece
                                 WHERE Identifiant = @Identifiant";
@@ -91,7 +91,7 @@ namespace QualiteSPPP.DB
         public static void Insert(Piece piece)
         {
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             String requete = @"INSERT INTO Piece(IdentifiantVehicule , IdentifiantSousCat )
                                VALUES (@IdentifiantVehicule, @IdentifiantSousCat);";
             connection.Open();
@@ -108,7 +108,7 @@ namespace QualiteSPPP.DB
         public static void Update( Piece piece)
         {
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             String requete = @"UPDATE Piece
                                SET IdentifiantVehicule=@IdentifiantVehicule, IdentifiantSousCat=@IdentifiantSousCat
                                WHERE Identifiant=@Identifiant;";
@@ -127,7 +127,7 @@ namespace QualiteSPPP.DB
         {
              
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             String requete = @"DELETE Piece WHERE Identifiant = @Identifiant;";
 
             connection.Open();

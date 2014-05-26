@@ -21,7 +21,7 @@ namespace QualiteSPPP.DB
 
             
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             String requete = @"SELECT Identifiant, PositionGD, PositionAVAR , IdentifiantPiece, IdentifiantPeinture 
                               FROM Projet;";
@@ -60,7 +60,7 @@ namespace QualiteSPPP.DB
         {
             
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             String requete = @"SELECT Identifiant, PositionGD, PositionAVAR, IdentifiantPiece, IdentifiantPeinture FROM Projet
                                 WHERE Identifiant = @Identifiant;";
@@ -95,7 +95,7 @@ namespace QualiteSPPP.DB
         {
              
 
-           SqlConnection connection = Datacolor.Connection;
+           SqlConnection connection = DataBase.Connection;
            String requete = @"DELETE Projet WHERE Identifiant = @Identifiant;";
 
            connection.Open();
@@ -113,7 +113,7 @@ namespace QualiteSPPP.DB
         public static void Insert(Projet Projet)
         {
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             String requete = @"INSERT INTO Projet(PositionGD, PositionAVAR, IdentifiantPiece, IdentifiantPeinture) VALUES(@PositionGD, @PositionAVAR ,@IdentifiantPiece ,@IdentifiantPeinture);";
             connection.Open();
             
@@ -132,7 +132,7 @@ namespace QualiteSPPP.DB
         public static void Update( Projet Projet)
         {
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             String requete = @"UPDATE Projet  
                                SET PositionGD=@PositionGD, PositionAVAR=@PositionAVAR ,IdentifiantPiece=@IdentifiantPiece ,IdentifiantPeinture=@IdentifiantPeinture  
                                WHERE Identifiant=@Identifiant;";
