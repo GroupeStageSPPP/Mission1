@@ -1,0 +1,12 @@
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\bin\Release\QualiteSPPP.WinForm.exe.config
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Release\QualiteSPPP.WF.csprojResolveAssemblyReference.cache
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Release\QualiteSPPP.WinForm.Acceuil.resources
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Release\QualiteSPPP.WinForm.AjouterConstructeur.resources
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Release\QualiteSPPP.WinForm.AjouterUnEchantillon.resources
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Release\QualiteSPPP.WinForm.GraphiquePeinture.resources
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Release\QualiteSPPP.WinForm.Identification_Page.resources
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Release\QualiteSPPP.WinForm.NouveauTestNonNumerique.resources
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Release\QualiteSPPP.WinForm.NouveauTestNumerique.resources
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Release\QualiteSPPP.WinForm.Properties.Resources.resources
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Release\QualiteSPPP.WinForm.QuitterConfirmation.resources
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Release\QualiteSPPP.WF.csproj.GenerateResource.Cache
