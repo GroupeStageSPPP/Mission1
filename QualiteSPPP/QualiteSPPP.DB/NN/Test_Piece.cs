@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QualiteSPPP.DB
 {
-    class Test_Piece
+    public class Test_Piece
     {
         public Int32 Identifiant { get; set; }
         public Test test { get; set; }

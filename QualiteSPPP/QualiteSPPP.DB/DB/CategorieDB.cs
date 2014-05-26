@@ -20,7 +20,7 @@ namespace QualiteSPPP.DB
             
             SqlConnection connection = DataBase.Connection;
             
-            String requete = "SELECT Identifiant, Libelle FROM Categorie";
+            String requete = "SELECT Identifiant, Nom FROM Categorie";
             
             connection.Open();
             
@@ -37,7 +37,7 @@ namespace QualiteSPPP.DB
                 //1 - Créer un groupe à partir des donner de la ligne du dataReader
                 Categorie categorie = new Categorie();
                 categorie.Identifiant = dataReader.GetInt32(0);
-                categorie.Libelle = dataReader.GetString(1);
+                categorie.Nom = dataReader.GetString(1);
 
 
                 //2 - Ajouter cette civilité à la list de civilité
@@ -58,7 +58,7 @@ namespace QualiteSPPP.DB
             
             SqlConnection connection = DataBase.Connection;
             
-            String requete = @"SELECT Identifiant, Libelle FROM Categorie
+            String requete = @"SELECT Identifiant, Nom FROM Categorie
                                 WHERE Identifiant=@Identifiant";
             
             SqlCommand commande = new SqlCommand(requete, connection);
@@ -75,7 +75,7 @@ namespace QualiteSPPP.DB
             Categorie categorie = new Categorie();
 
             categorie.Identifiant = dataReader.GetInt32(0);
-            categorie.Libelle = dataReader.GetString(1);
+            categorie.Nom = dataReader.GetString(1);
             
             dataReader.Close();
             connection.Close();
@@ -92,12 +92,12 @@ namespace QualiteSPPP.DB
             
             SqlConnection connection = DataBase.Connection;
             
-            String requete = @"INSERT INTO Categorie(Libelle) VALUES(@Libelle)";
+            String requete = @"INSERT INTO Categorie(Nom) VALUES(@Nom)";
             connection.Open();
             
             SqlCommand commande = new SqlCommand(requete,connection);
             
-            commande.Parameters.AddWithValue("Libelle", categorie.Libelle);
+            commande.Parameters.AddWithValue("Nom", categorie.Nom);
 
              
             commande.ExecuteNonQuery();
@@ -111,7 +111,7 @@ namespace QualiteSPPP.DB
             SqlConnection connection = DataBase.Connection;
             
             String requete = @"UPDATE Categorie  
-                               SET Libelle=@Libelle  
+                               SET Nom=@Nom  
                                WHERE Identifiant=@Identifiant;";
            
             connection.Open();
@@ -120,7 +120,7 @@ namespace QualiteSPPP.DB
             SqlCommand commande = new SqlCommand(requete,connection);
             
             commande.Parameters.AddWithValue("Identifiant", categorie.Identifiant);
-            commande.Parameters.AddWithValue("Libelle", categorie.Libelle);
+            commande.Parameters.AddWithValue("Nom", categorie.Nom);
             
             commande.ExecuteNonQuery();
 
