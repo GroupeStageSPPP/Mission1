@@ -7,8 +7,8 @@
     <ProjectGuid>{E00A9A39-CF59-4A93-9F57-CCB7FC3F8280}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QualiteSPPP.WF</RootNamespace>
-    <AssemblyName>QualiteSPPP.WF</AssemblyName>
+    <RootNamespace>QualiteSPPP.WinForm</RootNamespace>
+    <AssemblyName>QualiteSPPP.WinForm</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,8 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,16 +45,82 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph">
+      <HintPath>..\..\..\..\zedgraph_dll_v515\zedgraph_dll_v515\zedgraph_dll_v5.1.5\ZedGraph.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Acceuil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Acceuil.Designer.cs">
+      <DependentUpon>Acceuil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterConstructeur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterConstructeur.Designer.cs">
+      <DependentUpon>AjouterConstructeur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterUnEchantillon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterUnEchantillon.Designer.cs">
+      <DependentUpon>AjouterUnEchantillon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphiquePeinture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GraphiquePeinture.Designer.cs">
+      <DependentUpon>GraphiquePeinture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Identification_Page.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Identification_Page.Designer.cs">
+      <DependentUpon>Identification_Page.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NouveauTestNonNumerique.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NouveauTestNonNumerique.Designer.cs">
+      <DependentUpon>NouveauTestNonNumerique.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NouveauTestNumerique.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NouveauTestNumerique.Designer.cs">
+      <DependentUpon>NouveauTestNumerique.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuitterConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuitterConfirmation.Designer.cs">
+      <DependentUpon>QuitterConfirmation.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Acceuil.resx">
+      <DependentUpon>Acceuil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterConstructeur.resx">
+      <DependentUpon>AjouterConstructeur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterUnEchantillon.resx">
+      <DependentUpon>AjouterUnEchantillon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraphiquePeinture.resx">
+      <DependentUpon>GraphiquePeinture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Identification_Page.resx">
+      <DependentUpon>Identification_Page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NouveauTestNonNumerique.resx">
+      <DependentUpon>NouveauTestNonNumerique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NouveauTestNumerique.resx">
+      <DependentUpon>NouveauTestNumerique.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -60,7 +129,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="QuitterConfirmation.resx">
+      <DependentUpon>QuitterConfirmation.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -73,6 +146,38 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fermer-croix-supprimer-erreurs-sortie-icone-4368-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SPPP+Nom-.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QualiteSPPP.DB\QualiteSPPP.DB.csproj">
+      <Project>{5e0c25b6-8eec-49e7-9c9a-eeea3f6d3017}</Project>
+      <Name>QualiteSPPP.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QualiteSPPP.Library\QualiteSPPP.Library.csproj">
+      <Project>{3caefaca-1612-448f-a972-4952f46af498}</Project>
+      <Name>QualiteSPPP.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoLabo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoLabo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FLORENT\" />
+    <Folder Include="JB\" />
+    <Folder Include="JEOFFREY\" />
+    <Folder Include="MANU\" />
+    <Folder Include="PIERRE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,1 +1,3 @@
-C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\bin\Debug\QualiteSPPP.WF.exe.config
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\bin\Debug\QualiteSPPP.WinForm.exe.config
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.exe
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.pdb
