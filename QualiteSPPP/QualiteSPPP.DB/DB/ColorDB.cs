@@ -38,7 +38,7 @@ namespace QualiteSPPP.DB
                 color.A = dataReader.GetInt16(3);
                 color.B = dataReader.GetInt16(4);
                 color.Min = dataReader.GetFloat(5);
-                color.Moy = dataReader.GetFLoat(6);
+                color.Moy = dataReader.GetFloat(6);
                 color.Max = dataReader.GetFloat(7);
 
 
@@ -83,7 +83,7 @@ namespace QualiteSPPP.DB
             color.A = dataReader.GetInt16(3);
             color.B = dataReader.GetInt16(4);
             color.Min = dataReader.GetFloat(5);
-            color.Moy = dataReader.GetFLoat(6);
+            color.Moy = dataReader.GetFloat(6);
             color.Max = dataReader.GetFloat(7);
 
             dataReader.Close();

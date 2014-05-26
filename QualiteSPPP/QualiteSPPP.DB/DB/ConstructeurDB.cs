@@ -19,7 +19,7 @@ namespace QualiteSPPP.DB
         {
 
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             
             String requete = "SELECT Identifiant, Libelle, Mail, Telephone, Responsable, Adresse  FROM Constructeur";
@@ -62,7 +62,7 @@ namespace QualiteSPPP.DB
         public static Constructeur Get(Int32 Identifiant)
         {
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
   
             
             String requete = @"SELECT Identifiant, Libelle, Mail, Telephone, Responsable, Adresse FROM Constructeur
@@ -101,7 +101,7 @@ namespace QualiteSPPP.DB
         public static void Insert(Constructeur constructeur)
         {
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             
             String requete = @"INSERT INTO Constructeur(Libelle, Mail, Telephone, Responsable, Adresse) 
@@ -111,7 +111,7 @@ namespace QualiteSPPP.DB
             
             SqlCommand commande = new SqlCommand(requete,connection);
             
-             = "";
+             
             commande.Parameters.AddWithValue("Libelle", constructeur.Libelle);
             commande.Parameters.AddWithValue("Mail", constructeur.Mail);
             commande.Parameters.AddWithValue("Telephone", constructeur.Telephone);
@@ -127,7 +127,7 @@ namespace QualiteSPPP.DB
         public static void Update( Constructeur constructeur)
         {
             
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
            
             
             String requete = @"UPDATE Constructeur  
@@ -153,7 +153,7 @@ namespace QualiteSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
              
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             
             String requete = @"DELETE Constructeur WHERE Identifiant=@Identifiant;";

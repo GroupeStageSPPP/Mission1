@@ -20,7 +20,7 @@ namespace QualiteSPPP.DB
 
             
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             String requete = "SELECT Identifiant FROM Parametre";
             connection.Open();
@@ -55,7 +55,7 @@ namespace QualiteSPPP.DB
         {
             
 
-            SqlConnection connection = Datacolor.Connection;
+            SqlConnection connection = DataBase.Connection;
             
             String requete = @"SELECT Identifiant FROM Parametre
                                 WHERE Identifiant = @Identifiant";
