@@ -37,10 +37,10 @@ namespace QualiteSPPP.DB
                 //1 - Créer un groupe à partir des donner de la ligne du dataReader
                 Test_Peinture_Piece test_peinture_piece = new Test_Peinture_Piece();
                 test_peinture_piece.Identifiant = dataReader.GetInt32(0);
-                test_peinture_piece.Min = dataReader.GetInt32(1);
-                test_peinture_piece.Moy = dataReader.GetInt32(1);
-                test_peinture_piece.Max = dataReader.GetInt32(1);
-                test_peinture_piece.Norme = dataReader.GetString(1);
+                test_peinture_piece.Min = dataReader.GetFloat(1);
+                test_peinture_piece.Moy = dataReader.GetFloat(2);
+                test_peinture_piece.Max = dataReader.GetFloat(3);
+                test_peinture_piece.Norme = dataReader.GetString(4);
 
                 //2 - Ajouter cette civilité à la list de civilité
                 list.Add(test_peinture_piece);
@@ -77,10 +77,10 @@ namespace QualiteSPPP.DB
             Test_Peinture_Piece test_peinture_piece = new Test_Peinture_Piece();
 
             test_peinture_piece.Identifiant = dataReader.GetInt32(0);
-            test_peinture_piece.Min = dataReader.GetInt32(1);
-            test_peinture_piece.Moy = dataReader.GetInt32(1);
-            test_peinture_piece.Max = dataReader.GetInt32(1);
-            test_peinture_piece.Norme = dataReader.GetString(1);
+            test_peinture_piece.Min = dataReader.GetFloat(1);
+            test_peinture_piece.Moy = dataReader.GetFloat(2);
+            test_peinture_piece.Max = dataReader.GetFloat(3);
+            test_peinture_piece.Norme = dataReader.GetString(4);
 
             dataReader.Close();
             connection.Close();

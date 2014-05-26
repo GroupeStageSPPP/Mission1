@@ -53,7 +53,7 @@
     <Compile Include="DB\ClientDB.cs" />
     <Compile Include="CS\Constructeur.cs" />
     <Compile Include="DB\ConstructeurDB.cs" />
-    <Compile Include="DataBase.cs" />
+    <Compile Include="ALGO\DataBase.cs" />
     <Compile Include="CS\Echantillon.cs" />
     <Compile Include="DB\EchantillonDB.cs" />
     <Compile Include="CS\Identification.cs" />
