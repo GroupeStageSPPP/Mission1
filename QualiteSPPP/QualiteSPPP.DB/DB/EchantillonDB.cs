@@ -20,8 +20,8 @@ namespace QualiteSPPP.DB
 
             
             SqlConnection connection = DataBase.Connection;
-            
-            String requete = "SELECT Identifiant, Libelle, NumLot, DatePeinture, IdentifiantProjet FROM Echantillon";
+
+            String requete = "SELECT Identifiant, NumLot, DatePeinture, NumSerie, ISconforme, IdentifiantProjet FROM Echantillon";
            
             connection.Open();
             
@@ -40,8 +40,10 @@ namespace QualiteSPPP.DB
                 echantillon.Identifiant = dataReader.GetInt32(0);
                 echantillon.NumLot = dataReader.GetString(1);
                 echantillon.DatePeinture = dataReader.GetDateTime(2);
-                echantillon.projet.Identifiant = dataReader.GetInt32(3);
-                
+                echantillon.NumSerie = dataReader.GetInt16(3);
+                echantillon.ISconforme = dataReader.GetChar(4);
+                echantillon.projet.Identifiant = dataReader.GetInt32(5);
+                echantillon.peinture.Identifiant = dataReader.GetInt32(6);
 
                 //2 - Ajouter ce Echantillon à la list de client
                 list.Add(echantillon);
@@ -62,8 +64,8 @@ namespace QualiteSPPP.DB
             
 
             SqlConnection connection = DataBase.Connection;
-            
-            String requete = @"SELECT Identifiant, Libelle, NumLot, DatePeinture, IdentifiantProjet FROM Echantillon
+
+            String requete = @"SELECT Identifiant, NumLot, DatePeinture, NumSerie, ISconforme, IdentifiantProjet FROM Echantillon
                                 WHERE Identifiant = @Identifiant";
             
             connection.Open();
@@ -81,8 +83,10 @@ namespace QualiteSPPP.DB
             echantillon.Identifiant = dataReader.GetInt32(0);
             echantillon.NumLot = dataReader.GetString(1);
             echantillon.DatePeinture = dataReader.GetDateTime(2);
-            echantillon.projet.Identifiant = dataReader.GetInt32(3);
-            echantillon.peinture.Identifiant = dataReader.GetInt32(4);
+            echantillon.NumSerie = dataReader.GetInt16(3);
+            echantillon.ISconforme = dataReader.GetChar(4);
+            echantillon.projet.Identifiant = dataReader.GetInt32(5);
+            echantillon.peinture.Identifiant = dataReader.GetInt32(6);
             dataReader.Close();
             connection.Close();
             return echantillon;
@@ -93,14 +97,16 @@ namespace QualiteSPPP.DB
 
             
             SqlConnection connection = DataBase.Connection;
-            String requete = @"INSERT INTO Echantillon( NumLot, DatePeinture, IdentifiantProjet, IdentifiantPeinture) 
-                              VALUES(@NumLot, @DatePeinture, @IdentifiantProjet, @IdentifiantPeinture);";
+            String requete = @"INSERT INTO Echantillon( NumLot, DatePeinture, NumSerie, ISconforme, IdentifiantProjet, IdentifiantPeinture) 
+                              VALUES(@NumLot, @DatePeinture, NumSerie, @IdentifiantProjet, @IdentifiantPeinture);";
             connection.Open();
             
             SqlCommand commande = new SqlCommand(requete,connection);
 
-            commande.Parameters.AddWithValue("Libelle", echantillon.NumLot);
+            commande.Parameters.AddWithValue("", echantillon.NumLot);
             commande.Parameters.AddWithValue("DatePeinture", echantillon.DatePeinture);
+            commande.Parameters.AddWithValue("NumSerie", echantillon.NumSerie);
+            commande.Parameters.AddWithValue("ISconforme", echantillon.ISconforme);
             commande.Parameters.AddWithValue("IdentifiantProjet", echantillon.projet.Identifiant);
             commande.Parameters.AddWithValue("IdentifiantPeinture", echantillon.peinture.Identifiant); 
             commande.ExecuteNonQuery();
@@ -113,14 +119,16 @@ namespace QualiteSPPP.DB
 
             SqlConnection connection = DataBase.Connection;
             String requete = @"UPDATE Echantillon  
-                               SET NumLot=@NumLot, DatePeinture=@DatePeinture, IdentifiantProjet=@IdentifiantProjet, IdentifiantPeinture=@IdentifiantPeinture 
+                               SET NumLot=@NumLot, DatePeinture=@DatePeinture, NumSerie=@NumSerie, ISconforme=@ISconforme, IdentifiantProjet=@IdentifiantProjet, IdentifiantPeinture=@IdentifiantPeinture 
                                WHERE Identifiant=@Identifiant;";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete,connection);
             
             commande.Parameters.AddWithValue("Identifiant", echantillon.Identifiant);
-            commande.Parameters.AddWithValue("Libelle", echantillon.NumLot);
+            commande.Parameters.AddWithValue("", echantillon.NumLot);
             commande.Parameters.AddWithValue("DatePeinture", echantillon.DatePeinture);
+            commande.Parameters.AddWithValue("NumSerie", echantillon.NumSerie);
+            commande.Parameters.AddWithValue("ISconforme", echantillon.ISconforme);
             commande.Parameters.AddWithValue("IdentifiantProjet", echantillon.projet.Identifiant);
             commande.Parameters.AddWithValue("IdentifiantPeinture", echantillon.peinture.Identifiant);
             

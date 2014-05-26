@@ -30,3 +30,6 @@ C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\bin\Debug\sv\Z
 C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\bin\Debug\tr\ZedGraph.resources.dll
 C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\bin\Debug\zh-cn\ZedGraph.resources.dll
 C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\bin\Debug\zh-tw\ZedGraph.resources.dll
+C:\Users\jb\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\bin\Debug\QualiteSPPP.WinForm.exe.config
+C:\Users\jb\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.exe
+C:\Users\jb\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.pdb
