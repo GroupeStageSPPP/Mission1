@@ -20,7 +20,7 @@ namespace QualiteSPPP.DB
 
             SqlConnection connection = DataBase.Connection;
 
-            String requete = "SELECT Identifiant, DateAlerte, Message, Type, IdentifiantTest_Echantillon FROM Alerte";
+            String requete = "SELECT IdentifiantEchantillon, DateAlerte, Message, Type, IdentifiantTest_Echantillon FROM Alerte;";
 
             connection.Open();
 
@@ -34,15 +34,12 @@ namespace QualiteSPPP.DB
             while (dataReader.Read())
             {
 
-                //1 - Créer un groupe à partir des donner de la ligne du dataReader
                 Alerte alerte = new Alerte();
-                alerte.Identifiant = dataReader.GetInt32(0);
+                alerte.IdentifiantEchantillon = dataReader.GetInt32(0);
                 alerte.DateAlerte = dataReader.GetDateTime(1);
                 alerte.Message = dataReader.GetString(2);
                 alerte.Type = dataReader.GetChar(3);
-                alerte.test_echantillon.Identifiant = dataReader.GetInt32(4);
 
-                //2 - Ajouter cette civilité à la list de civilité
                 list.Add(alerte);
             }
             dataReader.Close();
@@ -60,27 +57,25 @@ namespace QualiteSPPP.DB
 
             SqlConnection connection = DataBase.Connection;
 
-            String requete = @"SELECT Identifiant, DateAlerte, Message, Type, IdentifiantTest_Echantillon FROM Alerte
-                                WHERE Identifiant=@Identifiant";
+            String requete = @"SELECT IdentifiantEchantillon, DateAlerte, Message, Type, IdentifiantTest_Echantillon FROM Alerte
+                                WHERE IdentifiantEchantillon=@IdentifiantEchantillon;";
 
             SqlCommand commande = new SqlCommand(requete, connection);
 
 
-            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantEchantillon", Identifiant);
 
 
             connection.Open();
             SqlDataReader dataReader = commande.ExecuteReader();
             dataReader.Read();
 
-            //1 - Création de la civilite
             Alerte alerte = new Alerte();
 
-            alerte.Identifiant               = dataReader.GetInt32(0);
+            alerte.IdentifiantEchantillon = dataReader.GetInt32(0);
             alerte.DateAlerte                = dataReader.GetDateTime(1);
             alerte.Message                   = dataReader.GetString(2);
             alerte.Type                      = dataReader.GetChar(3);
-            alerte.test_echantillon.Identifiant   = dataReader.GetInt32(4);
 
             dataReader.Close();
             connection.Close();
@@ -97,15 +92,15 @@ namespace QualiteSPPP.DB
 
             SqlConnection connection = DataBase.Connection;
 
-            String requete = @"INSERT INTO Alerte(DateAlerte, Message, Type, IdentifiantTest_Echantillon) 
-                               VALUES(@DateAlerte, @Message, @Type, @IdentifiantTest_Echantillon)";
+            String requete = @"INSERT INTO Alerte(IdentifiantEchantillon, DateAlerte, Message, Type, IdentifiantTest_Echantillon) 
+                               VALUES(@DateAlerte, @Message, @Type, @IdentifiantTest_Echantillon);";
             connection.Open();
 
-            SqlCommand commande = new SqlCommand(requete, connection);           
-            commande.Parameters.AddWithValue("DateAlerte", alerte.DateAlerte             );
-            commande.Parameters.AddWithValue("Message", alerte.Message                );
-            commande.Parameters.AddWithValue("Type", alerte.Type                   );
-            commande.Parameters.AddWithValue("IdentifiantTest_Echantillon", alerte.test_echantillon.Identifiant);
+            SqlCommand commande = new SqlCommand(requete, connection);
+            commande.Parameters.AddWithValue("IdentifiantEchantillon", alerte.IdentifiantEchantillon);
+            commande.Parameters.AddWithValue("DateAlerte", alerte.DateAlerte);
+            commande.Parameters.AddWithValue("Message", alerte.Message);
+            commande.Parameters.AddWithValue("Type", alerte.Type);
             commande.ExecuteNonQuery();
 
             connection.Close();
@@ -117,14 +112,14 @@ namespace QualiteSPPP.DB
 
             String requete = @"UPDATE Alerte 
                                SET(DateAlerte=@DateAlerte, Message=@Message, Type=@Type, IdentifiantTest_Echantillon=@IdentifiantTest_Echantillon) 
-                               WHERE Identifiant=@Identifiant,";
+                               WHERE IdentifiantEchantillon=@IdentifiantEchantillon;";
             connection.Open();
 
             SqlCommand commande = new SqlCommand(requete, connection);
+            commande.Parameters.AddWithValue("IdentifiantEchantillon", alerte.IdentifiantEchantillon);
             commande.Parameters.AddWithValue("DateAlerte", alerte.DateAlerte);
             commande.Parameters.AddWithValue("Message", alerte.Message);
             commande.Parameters.AddWithValue("Type", alerte.Type);
-            commande.Parameters.AddWithValue("IdentifiantTest_Echantillon", alerte.test_echantillon.Identifiant);
             commande.ExecuteNonQuery();
 
             connection.Close();
@@ -137,7 +132,7 @@ namespace QualiteSPPP.DB
 
 
             String requete = @"DELETE FROM Alerte 
-                               WHERE Identifiant=@Identifiant";
+                               WHERE IdentifiantEchantillon=@IdentifiantEchantillon;";
 
             connection.Open();
 
@@ -145,7 +140,7 @@ namespace QualiteSPPP.DB
             SqlCommand commande = new SqlCommand(requete, connection);
 
 
-            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantEchantillon", Identifiant);
 
             commande.ExecuteNonQuery();
 

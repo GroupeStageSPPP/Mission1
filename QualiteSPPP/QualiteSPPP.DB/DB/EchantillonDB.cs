@@ -35,7 +35,6 @@ namespace QualiteSPPP.DB
             while (dataReader.Read())
             {
 
-                //1 - Créer un Echantillon à partir des donner de la ligne du dataReader
                 Echantillon echantillon = new Echantillon();
                 echantillon.Identifiant = dataReader.GetInt32(0);
                 echantillon.NumLot = dataReader.GetString(1);
@@ -45,7 +44,6 @@ namespace QualiteSPPP.DB
                 echantillon.projet.Identifiant = dataReader.GetInt32(5);
                 echantillon.peinture.Identifiant = dataReader.GetInt32(6);
 
-                //2 - Ajouter ce Echantillon à la list de client
                 list.Add(echantillon);
             }
 

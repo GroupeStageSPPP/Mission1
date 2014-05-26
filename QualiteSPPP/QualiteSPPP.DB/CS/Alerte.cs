@@ -8,10 +8,10 @@ namespace QualiteSPPP.DB
 {
     public class Alerte
     {
-        public Int32 Identifiant { get; set; }
+        public Int32 IdentifiantEchantillon { get; set; }
         public DateTime DateAlerte { get; set; }
         public String Message { get; set; }
         public Char Type { get; set; }
-        public Test_Echantillon test_echantillon { get; set; }
+
     }
 }
