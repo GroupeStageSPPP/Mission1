@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ALGO\AlerteGen.cs" />
     <Compile Include="CS\Alerte.cs" />
     <Compile Include="NN\Test_Echantillon.cs" />
     <Compile Include="DB\AlerteDB.cs" />
