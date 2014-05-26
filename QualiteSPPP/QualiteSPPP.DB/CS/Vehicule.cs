@@ -14,10 +14,10 @@ namespace QualiteSPPP.DB
         #region Propriété
 
         public Int32 Identifiant { get; set; }
-        public string Libelle { get; set; }
+        public string Nom { get; set; }
         public string Version { get; set; }
         public Constructeur constructeur { get; set; }
-
+        public Client client { get; set; }
         #endregion
 
         #region Constructeurs
