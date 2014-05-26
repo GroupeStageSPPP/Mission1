@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CS\Alerte.cs" />
+    <Compile Include="CS\Test_Echantillon.cs" />
+    <Compile Include="DB\AlerteDB.cs" />
     <Compile Include="CS\Appret.cs" />
     <Compile Include="DB\AppretDB.cs" />
     <Compile Include="CS\Color.cs" />
@@ -61,10 +64,10 @@
     <Compile Include="DB\PieceDB.cs" />
     <Compile Include="CS\Projet.cs" />
     <Compile Include="DB\ProjetDB.cs" />
-    <Compile Include="Pos_AvAr.cs" />
-    <Compile Include="Pos_AvArDB.cs" />
-    <Compile Include="Pos_Gd.cs" />
-    <Compile Include="Pos_GdDB.cs" />
+    <Compile Include="CS\Pos_AvAr.cs" />
+    <Compile Include="DB\Pos_AvArDB.cs" />
+    <Compile Include="CS\Pos_Gd.cs" />
+    <Compile Include="DB\Pos_GdDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CS\Test.cs" />
     <Compile Include="DB\TestDB.cs" />
@@ -74,6 +77,7 @@
     <Compile Include="DB\VehiculeDB.cs" />
     <Compile Include="CS\Vernis.cs" />
     <Compile Include="DB\VernisDB.cs" />
+    <Compile Include="DB\Test_EchantillonDB.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\App.config" />
