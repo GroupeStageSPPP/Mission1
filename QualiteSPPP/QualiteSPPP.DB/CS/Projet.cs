@@ -12,7 +12,7 @@ namespace QualiteSPPP.DB
         #endregion
 
         #region Propriété
-        public int Identifiant { get; set; }
+        public Int32 Identifiant { get; set; }
         public string PositionGD { get; set; }
         public string PositionAVAR { get; set; }
         public Piece piece { get; set; }

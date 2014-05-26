@@ -13,7 +13,7 @@ namespace QualiteSPPP.DB
 
         #region Propriété
 
-        public int Identifiant { get; set; }
+        public Int32 Identifiant { get; set; }
         public string Libelle { get; set; }
         public string Version { get; set; }
         public Constructeur constructeur { get; set; }
