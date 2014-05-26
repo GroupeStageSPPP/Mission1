@@ -9,9 +9,9 @@ namespace QualiteSPPP.DB
     class Test_Peinture_Piece
     {
         public Int32 Identifiant { get; set; }
-        public Int32 Min { get; set; }
-        public Int32 Moy { get; set; }
-        public Int32 Max { get; set; }
+        public float Min { get; set; }
+        public float Moy { get; set; }
+        public float Max { get; set; }
         public String Norme { get; set; }
 
         public Test test { get; set; }
