@@ -39,47 +39,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="APPRET\Appret.cs" />
-    <Compile Include="APPRET\AppretDB.cs" />
-    <Compile Include="BASE\Base.cs" />
-    <Compile Include="BASE\BaseDB.cs" />
-    <Compile Include="PIECE\Categorie.cs" />
-    <Compile Include="PIECE\CategorieDB.cs" />
-    <Compile Include="VEHICULE\ClientDB.cs" />
-    <Compile Include="VEHICULE\Client.cs" />
-    <Compile Include="VEHICULE\ConstructeurDB.cs" />
-    <Compile Include="VEHICULE\Constructeur.cs" />
-    <Compile Include="ECHANTILLON\Echantillon.cs" />
-    <Compile Include="ECHANTILLON\EchantillonDB.cs" />
-    <Compile Include="FOURNISSEUR\Fournisseur.cs" />
-    <Compile Include="FOURNISSEUR\FournisseurDB.cs" />
-    <Compile Include="PEINTURE\Peinture.cs" />
-    <Compile Include="PEINTURE\PeintureDB.cs" />
-    <Compile Include="PEINTURE_PROJET\Peinture_Projet.cs" />
-    <Compile Include="PEINTURE_PROJET\Peinture_ProjetDB.cs" />
-    <Compile Include="PIECE\Piece.cs" />
-    <Compile Include="PIECE\PieceDB.cs" />
-    <Compile Include="POSITION\Pos_Avar.cs" />
-    <Compile Include="POSITION\Pos_AvarDB.cs" />
-    <Compile Include="POSITION\Pos_Gd.cs" />
-    <Compile Include="POSITION\Pos_GdDB.cs" />
-    <Compile Include="PROJET\Projet.cs" />
-    <Compile Include="PROJET\ProjetDB.cs" />
+    <Compile Include="CS\Appret.cs" />
+    <Compile Include="DB\AppretDB.cs" />
+    <Compile Include="CS\Color.cs" />
+    <Compile Include="DB\ColorDB.cs" />
+    <Compile Include="CS\Categorie.cs" />
+    <Compile Include="DB\CategorieDB.cs" />
+    <Compile Include="CS\Client.cs" />
+    <Compile Include="DB\ClientDB.cs" />
+    <Compile Include="CS\Constructeur.cs" />
+    <Compile Include="DB\ConstructeurDB.cs" />
+    <Compile Include="CS\DataBase.cs" />
+    <Compile Include="CS\Echantillon.cs" />
+    <Compile Include="DB\EchantillonDB.cs" />
+    <Compile Include="CS\Identification.cs" />
+    <Compile Include="DB\IdentificationDB.cs" />
+    <Compile Include="CS\Parametre.cs" />
+    <Compile Include="DB\ParametreDB.cs" />
+    <Compile Include="CS\Peinture.cs" />
+    <Compile Include="DB\PeintureDB.cs" />
+    <Compile Include="CS\Piece.cs" />
+    <Compile Include="DB\PieceDB.cs" />
+    <Compile Include="NN\Piece_Test.cs" />
+    <Compile Include="NN\Piece_TestDB.cs" />
+    <Compile Include="CS\Projet.cs" />
+    <Compile Include="DB\ProjetDB.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TEST\Test.cs" />
-    <Compile Include="TEST\TestDB.cs" />
-    <Compile Include="TEST\Test_Echantillon.cs" />
-    <Compile Include="TEST\Test_EchantillonDB.cs" />
-    <Compile Include="TEST\Test_Piece.cs" />
-    <Compile Include="TEST\Test_PieceDB.cs" />
-    <Compile Include="PIECE\SousCat.cs" />
-    <Compile Include="PIECE\SousCatDB.cs" />
-    <Compile Include="VEHICULE\Vehicule.cs" />
-    <Compile Include="VEHICULE\VehiculeDB.cs" />
-    <Compile Include="VERNIS\Vernis.cs" />
-    <Compile Include="VERNIS\VernisDB.cs" />
+    <Compile Include="NN\Resultat_Test.cs" />
+    <Compile Include="NN\Resultat_TestDB.cs" />
+    <Compile Include="CS\Test.cs" />
+    <Compile Include="DB\TestDB.cs" />
+    <Compile Include="DB\SousCatDB.cs" />
+    <Compile Include="CS\SousCat.cs" />
+    <Compile Include="CS\Vehicule.cs" />
+    <Compile Include="DB\VehiculeDB.cs" />
+    <Compile Include="CS\Vernis.cs" />
+    <Compile Include="DB\VernisDB.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Properties\App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
