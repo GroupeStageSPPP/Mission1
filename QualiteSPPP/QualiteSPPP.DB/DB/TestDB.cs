@@ -120,7 +120,7 @@ namespace QualiteSPPP.DB
             
             SqlConnection connection = DataBase.Connection;
             String requete = @"INSERT INTO Test( Nom, Description, TypeTest ) 
-                               VALUES(@Nom, @Description, @TypeTest )";
+                               VALUES(@Nom, @Description, @TypeTest ) SELECT SCOPE_IDENTITY() ";
 
             connection.Open();
             

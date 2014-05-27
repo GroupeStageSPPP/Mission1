@@ -96,7 +96,7 @@ namespace QualiteSPPP.DB
             
             SqlConnection connection = DataBase.Connection;
             String requete = @"INSERT INTO Echantillon( NumLot, DatePeinture, NumSerie, ISconforme, IdentifiantProjet, IdentifiantPeinture) 
-                              VALUES(@NumLot, @DatePeinture, NumSerie, @IdentifiantProjet, @IdentifiantPeinture);";
+                              VALUES(@NumLot, @DatePeinture, NumSerie, @IdentifiantProjet, @IdentifiantPeinture) SELECT SCOPE_IDENTITY() ;";
             connection.Open();
             
             SqlCommand commande = new SqlCommand(requete,connection);
