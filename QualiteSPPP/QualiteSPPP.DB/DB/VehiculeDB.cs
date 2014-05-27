@@ -22,7 +22,7 @@ namespace QualiteSPPP.DB
 
             SqlConnection connection = DataBase.Connection;
             
-            String requete = "SELECT Identifiant, Nom, Version, IdentifiantConstructeur, IdentifiantClient FROM Vehicule";
+            String requete = "SELECT Identifiant, Libelle, Version, IdentifiantConstructeur FROM Vehicule";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             
@@ -36,10 +36,9 @@ namespace QualiteSPPP.DB
                 //1 - Créer un Vehicule à partir des donner de la ligne du dataReader
                 Vehicule vehicule = new Vehicule();
                 vehicule.Identifiant = dataReader.GetInt32(0);
-                vehicule.Nom = dataReader.GetString(1);
+                vehicule.Libelle = dataReader.GetString(1);
                 vehicule.Version = dataReader.GetString(2);
                 vehicule.constructeur.Identifiant = dataReader.GetInt32(3);
-                vehicule.client.Identifiant = dataReader.GetInt32(4);
                 //2 - Ajouter ce Vehicule à la list de client
                 list.Add(vehicule);
             }
@@ -59,7 +58,7 @@ namespace QualiteSPPP.DB
 
             SqlConnection connection = DataBase.Connection;
 
-            String requete = @"SELECT Identifiant, Nom, Version, IdentifiantConstructeur, IdentifiantClient FROM Vehicule
+            String requete = @"SELECT Identifiant, Libelle, Version, IdentifiantConstructeur FROM Vehicule
                                 WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -76,10 +75,9 @@ namespace QualiteSPPP.DB
             Vehicule vehicule = new Vehicule();
 
             vehicule.Identifiant = dataReader.GetInt32(0);
-            vehicule.Nom = dataReader.GetString(1);
+            vehicule.Libelle = dataReader.GetString(1);
             vehicule.Version = dataReader.GetString(2);
             vehicule.constructeur.Identifiant = dataReader.GetInt32(3);
-            vehicule.client.Identifiant = dataReader.GetInt32(4);
 
             dataReader.Close();
             connection.Close();
@@ -109,16 +107,15 @@ namespace QualiteSPPP.DB
         {
             
             SqlConnection connection = DataBase.Connection;
-            String requete = "INSERT INTO Vehicule(Nom, Version, IdentifiantConstructeur, IdentifiantClient) VALUES(@Nom, @Version, @IdentifiantConstructeur, @IdentifiantClient) SELECT SCOPE_IDENTITY() ";
+            String requete = "INSERT INTO Vehicule(Libelle, Version, IdentifiantConstructeur) VALUES(@Libelle, @Version, @IdentifiantConstructeur)";
             connection.Open();
             
             SqlCommand commande = new SqlCommand(requete,connection);
             
              
-            commande.Parameters.AddWithValue("Nom", vehicule.Nom);
+            commande.Parameters.AddWithValue("Libelle", vehicule.Libelle);
             commande.Parameters.AddWithValue("Version", vehicule.Version);
             commande.Parameters.AddWithValue("IdentifiantConstructeur", vehicule.constructeur.Identifiant);
-            commande.Parameters.AddWithValue("IdentifiantClient", vehicule.client.Identifiant);
             commande.ExecuteNonQuery();
             connection.Close();
         }
@@ -128,16 +125,15 @@ namespace QualiteSPPP.DB
 
             SqlConnection connection = DataBase.Connection;
             String requete = @"UPDATE Vehicule 
-                               SET(Nom=@Nom, Version=@Version, IdentifiantConstructeur=@IdentifiantConstructeur, IdentifiantClient=@IdentifiantClient )                                    WHERE Identifiant=@Identifiant";
+                               SET(Libelle=@Libelle, Version=@Version, IdentifiantConstructeur=@IdentifiantConstructeur)                                    WHERE Identifiant=@Identifiant";
             
             connection.Open();
             SqlCommand commande = new SqlCommand(requete,connection);
             
             commande.Parameters.AddWithValue("Identifiant", vehicule.Identifiant);
-            commande.Parameters.AddWithValue("Nom", vehicule.Nom);
+            commande.Parameters.AddWithValue("Libelle", vehicule.Libelle);
             commande.Parameters.AddWithValue("Version", vehicule.Version);
             commande.Parameters.AddWithValue("IdentifiantConstructeur", vehicule.constructeur.Identifiant);
-            commande.Parameters.AddWithValue("IdentifiantClient", vehicule.client.Identifiant);
             
             commande.ExecuteNonQuery();
             connection.Close();

@@ -22,7 +22,7 @@ namespace QualiteSPPP.DB
 
             SqlConnection connection = DataBase.Connection;
             
-            String requete = "SELECT Identifiant, Nom, Description, TypeTest FROM Test";
+            String requete = "SELECT Identifiant, Libelle, Description, TypeTest FROM Test";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             
@@ -37,7 +37,7 @@ namespace QualiteSPPP.DB
 
                 Test test = new Test();
                 test.Identifiant = dataReader.GetInt32(0);
-                test.Nom = dataReader.GetString(1);
+                test.Libelle = dataReader.GetString(1);
                 test.Description = dataReader.GetString(2);
                 test.TypeTest = dataReader.GetChar(3);
 
@@ -61,7 +61,7 @@ namespace QualiteSPPP.DB
 
             SqlConnection connection = DataBase.Connection;
 
-            String requete = @"SELECT Identifiant, Nom, Description, TypeTest FROM Test
+            String requete = @"SELECT Identifiant, Libelle, Description, TypeTest FROM Test
                                 WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -78,7 +78,7 @@ namespace QualiteSPPP.DB
             Test test = new Test();
 
             test.Identifiant = dataReader.GetInt32(0);
-            test.Nom = dataReader.GetString(1);
+            test.Libelle = dataReader.GetString(1);
             test.Description = dataReader.GetString(2);
             test.TypeTest = dataReader.GetChar(3);
 
@@ -119,14 +119,14 @@ namespace QualiteSPPP.DB
         {
             
             SqlConnection connection = DataBase.Connection;
-            String requete = @"INSERT INTO Test( Nom, Description, TypeTest ) 
-                               VALUES(@Nom, @Description, @TypeTest ) SELECT SCOPE_IDENTITY() ";
+            String requete = @"INSERT INTO Test( Libelle, Description, TypeTest ) 
+                               VALUES(@Libelle, @Description, @TypeTest )";
 
             connection.Open();
             
             SqlCommand commande = new SqlCommand(requete,connection);
 
-            commande.Parameters.AddWithValue("Nom", test.Nom);
+            commande.Parameters.AddWithValue("Libelle", test.Libelle);
             commande.Parameters.AddWithValue("Description", test.Description);
             commande.Parameters.AddWithValue("TypeTest", test.TypeTest);       
             commande.ExecuteNonQuery();
@@ -138,7 +138,7 @@ namespace QualiteSPPP.DB
 
             SqlConnection connection = DataBase.Connection;
             String requete = @"UPDATE Test
-                               SET Nom=@Nom, Description=@Description, TypeTest=@TypeTest
+                               SET Libelle=@Libelle, Description=@Description, TypeTest=@TypeTest
                                WHERE Identifiant = @Identifiant;";
 
             connection.Open();
@@ -146,7 +146,7 @@ namespace QualiteSPPP.DB
             SqlCommand commande = new SqlCommand(requete, connection);
 
 
-            commande.Parameters.AddWithValue("Nom", test.Nom);
+            commande.Parameters.AddWithValue("Libelle", test.Libelle);
             commande.Parameters.AddWithValue("Description", test.Description);
             commande.Parameters.AddWithValue("TypeTest", test.TypeTest);
             commande.Parameters.AddWithValue("Identifiant", test.Identifiant);

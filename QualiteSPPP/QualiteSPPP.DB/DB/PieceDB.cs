@@ -93,7 +93,7 @@ namespace QualiteSPPP.DB
             
             SqlConnection connection = DataBase.Connection;
             String requete = @"INSERT INTO Piece(IdentifiantVehicule , IdentifiantSousCat )
-                               VALUES (@IdentifiantVehicule, @IdentifiantSousCat) SELECT SCOPE_IDENTITY() ;";
+                               VALUES (@IdentifiantVehicule, @IdentifiantSousCat);";
             connection.Open();
             
             SqlCommand commande = new SqlCommand(requete,connection);

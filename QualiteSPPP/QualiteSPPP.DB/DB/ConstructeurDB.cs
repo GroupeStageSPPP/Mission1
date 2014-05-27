@@ -105,7 +105,7 @@ namespace QualiteSPPP.DB
             
             
             String requete = @"INSERT INTO Constructeur(Libelle, Mail, Telephone, Responsable, Adresse) 
-                               VALUES(@Libelle, @Mail, @Telephone, @Responsable, @Adresse) SELECT SCOPE_IDENTITY() ";
+                               VALUES(@Libelle, @Mail, @Telephone, @Responsable, @Adresse)";
             connection.Open();
             
             

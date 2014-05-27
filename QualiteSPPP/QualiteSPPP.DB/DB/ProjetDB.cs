@@ -22,8 +22,8 @@ namespace QualiteSPPP.DB
             
 
             SqlConnection connection = DataBase.Connection;
-
-            String requete = @"SELECT Identifiant, IdentifiantPos_GD, IdentifiantPos_AvAr, FrequenceTest, IdentifiantPiece, IdentifiantPeinture 
+            
+            String requete = @"SELECT Identifiant, PositionGD, PositionAVAR , IdentifiantPiece, IdentifiantPeinture 
                               FROM Projet;";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
@@ -35,17 +35,16 @@ namespace QualiteSPPP.DB
             {
 
                 //1 - Créer un Projet à partir des donner de la ligne du dataReader
-                Projet projet = new Projet();
-                projet.Identifiant = dataReader.GetInt32(0);
-                projet.pos_AvAr.Identifiant = dataReader.GetInt32(1);
-                projet.pos_Gd.Identifiant = dataReader.GetInt32(2);
-                projet.FrequenceTest = dataReader.GetInt32(3);
-                projet.piece.Identifiant = dataReader.GetInt32(4);
-                projet.peinture.Identifiant = dataReader.GetInt32(5);
+                Projet Projet = new Projet();
+                Projet.Identifiant = dataReader.GetInt32(0);
+                Projet.PositionGD = dataReader.GetString(1);
+                Projet.PositionAVAR = dataReader.GetString(2);
+                Projet.piece.Identifiant = dataReader.GetInt32(3);
+                Projet.peinture.Identifiant = dataReader.GetInt32(4);
 
 
                 //2 - Ajouter ce Projet à la list de client
-                list.Add(projet);
+                list.Add(Projet);
             }
             dataReader.Close();
             connection.Close();
@@ -62,8 +61,8 @@ namespace QualiteSPPP.DB
             
 
             SqlConnection connection = DataBase.Connection;
-
-            String requete = @"SELECT Identifiant, IdentifiantPos_GD, IdentifiantPos_AvAr, FrequenceTest, IdentifiantPiece, IdentifiantPeinture FROM Projet
+            
+            String requete = @"SELECT Identifiant, PositionGD, PositionAVAR, IdentifiantPiece, IdentifiantPeinture FROM Projet
                                 WHERE Identifiant = @Identifiant;";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
@@ -78,17 +77,16 @@ namespace QualiteSPPP.DB
             dataReader.Read();
 
             //1 - Création du Projet
-            Projet projet = new Projet();
+            Projet Projet = new Projet();
 
-            projet.Identifiant = dataReader.GetInt32(0);
-            projet.pos_AvAr.Identifiant = dataReader.GetInt32(1);
-            projet.pos_Gd.Identifiant = dataReader.GetInt32(2);
-            projet.FrequenceTest = dataReader.GetInt32(3);
-            projet.piece.Identifiant = dataReader.GetInt32(4);
-            projet.peinture.Identifiant = dataReader.GetInt32(5);
+            Projet.Identifiant = dataReader.GetInt32(0);
+            Projet.PositionGD = dataReader.GetString(1);
+            Projet.PositionAVAR = dataReader.GetString(2);
+            Projet.piece.Identifiant = dataReader.GetInt32(3);
+            Projet.peinture.Identifiant = dataReader.GetInt32(4);
             dataReader.Close();
             connection.Close();
-            return projet;
+            return Projet;
         }
 
 
@@ -116,14 +114,13 @@ namespace QualiteSPPP.DB
         {
             
             SqlConnection connection = DataBase.Connection;
-            String requete = @"INSERT INTO Projet(IdentifiantPos_GD, IdentifiantPos_AvAr, FrequenceTest, IdentifiantPiece, IdentifiantPeinture) VALUES(@PositionGD, @PositionAVAR ,@IdentifiantPiece ,@IdentifiantPeinture) SELECT SCOPE_IDENTITY() ;";
+            String requete = @"INSERT INTO Projet(PositionGD, PositionAVAR, IdentifiantPiece, IdentifiantPeinture) VALUES(@PositionGD, @PositionAVAR ,@IdentifiantPiece ,@IdentifiantPeinture);";
             connection.Open();
             
             SqlCommand commande = new SqlCommand(requete,connection);
 
-            commande.Parameters.AddWithValue("IdentifiantPos_GD ", Projet.pos_Gd.Identifiant);
-            commande.Parameters.AddWithValue("IdentifiantPos_AvAr", Projet.pos_AvAr.Identifiant);
-            commande.Parameters.AddWithValue("FrequenceTest", Projet.FrequenceTest);
+            commande.Parameters.AddWithValue("PositionGD", Projet.PositionGD);
+            commande.Parameters.AddWithValue("PositionAVAR", Projet.PositionAVAR);
             commande.Parameters.AddWithValue("IdentifiantPiece", Projet.piece.Identifiant);
             commande.Parameters.AddWithValue("IdentifiantPeinture", Projet.peinture.Identifiant);
 
@@ -137,15 +134,14 @@ namespace QualiteSPPP.DB
 
             SqlConnection connection = DataBase.Connection;
             String requete = @"UPDATE Projet  
-                               SET IdentifiantPos_GD=@IdentifiantPos_GD, IdentifiantPos_AvAr=@IdentifiantPos_AvAr, FrequenceTest = @FrequenceTest, IdentifiantPiece=@IdentifiantPiece ,IdentifiantPeinture=@IdentifiantPeinture  
+                               SET PositionGD=@PositionGD, PositionAVAR=@PositionAVAR ,IdentifiantPiece=@IdentifiantPiece ,IdentifiantPeinture=@IdentifiantPeinture  
                                WHERE Identifiant=@Identifiant;";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete,connection);
             
             commande.Parameters.AddWithValue("Identifiant", Projet.Identifiant);
-            commande.Parameters.AddWithValue("IdentifiantPos_GD ", Projet.pos_Gd.Identifiant);
-            commande.Parameters.AddWithValue("IdentifiantPos_AvAr", Projet.pos_AvAr.Identifiant);
-            commande.Parameters.AddWithValue("FrequenceTest", Projet.FrequenceTest);
+            commande.Parameters.AddWithValue("PositionGD", Projet.PositionGD);
+            commande.Parameters.AddWithValue("PositionAVAR", Projet.PositionAVAR);
             commande.Parameters.AddWithValue("IdentifiantPiece", Projet.piece.Identifiant);
             commande.Parameters.AddWithValue("IdentifiantPeinture", Projet.peinture.Identifiant);
             

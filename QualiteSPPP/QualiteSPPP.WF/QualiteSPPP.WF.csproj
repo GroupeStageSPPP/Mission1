@@ -57,17 +57,53 @@
     <Compile Include="Acceuil.Designer.cs">
       <DependentUpon>Acceuil.cs</DependentUpon>
     </Compile>
+    <Compile Include="AjouterCategorie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterCategorie.Designer.cs">
+      <DependentUpon>AjouterCategorie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterClient.Designer.cs">
+      <DependentUpon>AjouterClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="AjouterConstructeur.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AjouterConstructeur.Designer.cs">
       <DependentUpon>AjouterConstructeur.cs</DependentUpon>
     </Compile>
+    <Compile Include="AjouterPeinture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterPeinture.Designer.cs">
+      <DependentUpon>AjouterPeinture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterPieces.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterPieces.Designer.cs">
+      <DependentUpon>AjouterPieces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterProjet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterProjet.Designer.cs">
+      <DependentUpon>AjouterProjet.cs</DependentUpon>
+    </Compile>
     <Compile Include="AjouterUnEchantillon.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AjouterUnEchantillon.Designer.cs">
       <DependentUpon>AjouterUnEchantillon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterVehicule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterVehicule.Designer.cs">
+      <DependentUpon>AjouterVehicule.cs</DependentUpon>
     </Compile>
     <Compile Include="GraphiquePeinture.cs">
       <SubType>Form</SubType>
@@ -104,11 +140,29 @@
     <EmbeddedResource Include="Acceuil.resx">
       <DependentUpon>Acceuil.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AjouterCategorie.resx">
+      <DependentUpon>AjouterCategorie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterClient.resx">
+      <DependentUpon>AjouterClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AjouterConstructeur.resx">
       <DependentUpon>AjouterConstructeur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AjouterPeinture.resx">
+      <DependentUpon>AjouterPeinture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterPieces.resx">
+      <DependentUpon>AjouterPieces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterProjet.resx">
+      <DependentUpon>AjouterProjet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AjouterUnEchantillon.resx">
       <DependentUpon>AjouterUnEchantillon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterVehicule.resx">
+      <DependentUpon>AjouterVehicule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GraphiquePeinture.resx">
       <DependentUpon>GraphiquePeinture.cs</DependentUpon>
