@@ -12,14 +12,11 @@ namespace QualiteSPPP.DB
         #endregion
 
         #region Propriété
-        public Int32 Identifiant { get; set; }
+        public int Identifiant { get; set; }
         public string NumLot { get; set; }
         public DateTime DatePeinture { get; set; }
-        public Int16 NumSerie { get; set; }
-        public Char ISconforme { get; set; }
         public Projet projet { get; set; }
         public Peinture peinture { get; set; }
-        
         #endregion
 
         #region Constructeurs

@@ -102,7 +102,7 @@ namespace QualiteSPPP.DB
             SqlConnection connection = DataBase.Connection;
 
             String requete = @"INSERT INTO Color(Reference, Min, Moy, Max) 
-                                VALUES(@Reference, @Min, @Moy, @Max) SELECT SCOPE_IDENTITY() ";
+                                VALUES(@Reference, @Min, @Moy, @Max)";
             connection.Open();
 
             SqlCommand commande = new SqlCommand(requete, connection);

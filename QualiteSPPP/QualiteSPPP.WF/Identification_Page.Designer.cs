@@ -32,9 +32,9 @@
             this.labelMotDePasse = new System.Windows.Forms.Label();
             this.labelIndentifiant = new System.Windows.Forms.Label();
             this.textBoxIdentifiant = new System.Windows.Forms.TextBox();
+            this.buttonSeConnecter = new System.Windows.Forms.Button();
             this.pictureBoxButtonClose = new System.Windows.Forms.PictureBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.buttonSeConnecter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
@@ -74,6 +74,19 @@
             this.textBoxIdentifiant.Size = new System.Drawing.Size(156, 20);
             this.textBoxIdentifiant.TabIndex = 9;
             // 
+            // buttonSeConnecter
+            // 
+            this.buttonSeConnecter.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.buttonSeConnecter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSeConnecter.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSeConnecter.Location = new System.Drawing.Point(143, 91);
+            this.buttonSeConnecter.Name = "buttonSeConnecter";
+            this.buttonSeConnecter.Size = new System.Drawing.Size(126, 23);
+            this.buttonSeConnecter.TabIndex = 16;
+            this.buttonSeConnecter.Text = "Se connecter";
+            this.buttonSeConnecter.UseVisualStyleBackColor = false;
+            this.buttonSeConnecter.Click += new System.EventHandler(this.pictureBoxButtonSeConnecter_Click);
+            // 
             // pictureBoxButtonClose
             // 
             this.pictureBoxButtonClose.BackgroundImage = global::QualiteSPPP.WinForm.Properties.Resources.fermer_croix_supprimer_erreurs_sortie_icone_4368_128;
@@ -91,27 +104,15 @@
             this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxLogo.BackgroundImage = global::QualiteSPPP.WinForm.Properties.Resources.SPPP_Nom_;
             this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 74);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(-2, 72);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(148, 71);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(148, 76);
             this.pictureBoxLogo.TabIndex = 14;
             this.pictureBoxLogo.TabStop = false;
             // 
-            // buttonSeConnecter
-            // 
-            this.buttonSeConnecter.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.buttonSeConnecter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSeConnecter.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSeConnecter.Location = new System.Drawing.Point(143, 91);
-            this.buttonSeConnecter.Name = "buttonSeConnecter";
-            this.buttonSeConnecter.Size = new System.Drawing.Size(126, 23);
-            this.buttonSeConnecter.TabIndex = 16;
-            this.buttonSeConnecter.Text = "Se connecter";
-            this.buttonSeConnecter.UseVisualStyleBackColor = false;
-            this.buttonSeConnecter.Click += new System.EventHandler(this.pictureBoxButtonSeConnecter_Click);
-            // 
             // Identification_Page
             // 
+            this.AcceptButton = this.buttonSeConnecter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
