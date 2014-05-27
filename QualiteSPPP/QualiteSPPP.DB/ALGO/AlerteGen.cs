@@ -9,9 +9,10 @@ namespace QualiteSPPP.DB
     static class AlerteGen
     {
 
+
+
+
         // Fonction de verification en fonction d'un test sur un enchantillon et sur le test d'une piece
-
-
         public static void VerificationTest(Test_Echantillon testEchantillon, Test_Peinture_Piece testPeinturePiece)
         {
             Test test = new Test();
@@ -92,7 +93,7 @@ namespace QualiteSPPP.DB
         }
 
 
-            // Fonction permettant  le retour d'une alerte si un test de  type numérique 2 ( Min Moy) est faux
+            // Fonction permettant  le retour d'une alerte si un test de  type numérique 2 (Min, Moy) est faux
 
         public static Alerte TestTypeTwo(Test_Echantillon testEchantillon, Test_Peinture_Piece testPeinturePiece)
         {
@@ -116,6 +117,7 @@ namespace QualiteSPPP.DB
                 alerte.Type = 'n';
                 alerte.IdentifiantEchantillon = testEchantillon.Identifiant;
                 return alerte;
+
 
         }
 

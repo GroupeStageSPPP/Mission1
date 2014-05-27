@@ -108,7 +108,7 @@ namespace QualiteSPPP.DB
             
             SqlConnection connection = DataBase.Connection;
             String requete = @"INSERT INTO Type(Nom, IdentifiantCategorie) 
-                               VALUES(@Nom, @IdentifiantCategorie);";
+                               VALUES(@Nom, @IdentifiantCategorie) SELECT SCOPE_IDENTITY() ;";
             
             connection.Open();
             

@@ -91,8 +91,8 @@ namespace QualiteSPPP.DB
         {
             
             SqlConnection connection = DataBase.Connection;
-            
-            String requete = @"INSERT INTO Categorie(Nom) VALUES(@Nom)";
+
+            String requete = @"INSERT INTO Categorie(Nom) VALUES(@Nom) SELECT SCOPE_IDENTITY() ";
             connection.Open();
             
             SqlCommand commande = new SqlCommand(requete,connection);
