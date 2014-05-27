@@ -22,7 +22,7 @@ namespace QualiteSPPP.DB
 
             SqlConnection connection = DataBase.Connection;
             
-            String requete = "SELECT Identifiant, Libelle, IdentifiantCategorie FROM Type";
+            String requete = "SELECT Identifiant, Nom, IdentifiantCategorie FROM Type";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             
@@ -36,7 +36,7 @@ namespace QualiteSPPP.DB
                 //1 - Créer un Type à partir des donner de la ligne du dataReader
                 SousCat type = new SousCat();
                 type.Identifiant = dataReader.GetInt32(0);
-                type.Libelle = dataReader.GetString(1);
+                type.Nom = dataReader.GetString(1);
                 type.categorie.Identifiant = dataReader.GetInt32(2);
 
 
@@ -59,7 +59,7 @@ namespace QualiteSPPP.DB
 
             SqlConnection connection = DataBase.Connection;
             
-            String requete = @"SELECT Identifiant, Libelle, IdentifiantCategorie FROM Type
+            String requete = @"SELECT Identifiant, Nom, IdentifiantCategorie FROM Type
                                 WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -76,7 +76,7 @@ namespace QualiteSPPP.DB
             SousCat type = new SousCat();
 
             type.Identifiant = dataReader.GetInt32(0);
-            type.Libelle = dataReader.GetString(1);
+            type.Nom = dataReader.GetString(1);
             type.categorie.Identifiant = dataReader.GetInt32(2);
             dataReader.Close();
             connection.Close();
@@ -107,14 +107,14 @@ namespace QualiteSPPP.DB
         {
             
             SqlConnection connection = DataBase.Connection;
-            String requete = @"INSERT INTO Type(Libelle, IdentifiantCategorie) 
-                               VALUES(@Libelle, @IdentifiantCategorie);";
+            String requete = @"INSERT INTO Type(Nom, IdentifiantCategorie) 
+                               VALUES(@Nom, @IdentifiantCategorie) SELECT SCOPE_IDENTITY() ;";
             
             connection.Open();
             
             SqlCommand commande = new SqlCommand(requete,connection);
 
-            commande.Parameters.AddWithValue("Libelle", type.Libelle);
+            commande.Parameters.AddWithValue("Nom", type.Nom);
             commande.Parameters.AddWithValue("IdentifiantCategorie", type.categorie.Identifiant);
 
              
@@ -127,7 +127,7 @@ namespace QualiteSPPP.DB
 
             SqlConnection connection = DataBase.Connection;
              String requete = @"UPDATE Type  
-                                SET Libelle=@Libelle IdentifiantCategorie=@IdentifiantCategorie  
+                                SET Nom=@Nom IdentifiantCategorie=@IdentifiantCategorie  
                                 WHERE Identifiant = @Identifiant;";
 
             connection.Open();
@@ -135,7 +135,7 @@ namespace QualiteSPPP.DB
             
              
             commande.Parameters.AddWithValue("Identifiant", type.Identifiant);
-            commande.Parameters.AddWithValue("Libelle", type.Libelle);
+            commande.Parameters.AddWithValue("Nom", type.Nom);
             commande.Parameters.AddWithValue("IdentifiantCategorie", type.categorie.Identifiant);
             
             commande.ExecuteNonQuery();

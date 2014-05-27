@@ -12,9 +12,15 @@ namespace QualiteSPPP.DB
         #endregion
 
         #region Propriété
-        public int Identifiant { get; set; }
-        public string Libelle { get; set; }
+        public Int32 Identifiant { get; set; }
+        public string Nom { get; set; }
         public string Description { get; set; }
+        
+        //'c'= code
+        //'1'=     Moy
+        //'2'= Min Moy
+        //'3'= Min Moy Max
+        //'4'=     Moy Max
         public char TypeTest { get; set; }
 
         #endregion

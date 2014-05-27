@@ -14,7 +14,7 @@ namespace QualiteSPPP.DB
         #endregion
 
         #region Propriété
-        public int Identifiant { get; set; }
+        public Int32 Identifiant { get; set; }
         public string Reference { get; set; }
         public Int16 L { get; set; }
         public Int16 A { get; set; }

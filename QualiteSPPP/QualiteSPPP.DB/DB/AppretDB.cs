@@ -93,7 +93,7 @@ namespace QualiteSPPP.DB
 
             SqlConnection connection = DataBase.Connection;
 
-            String requete = @"INSERT INTO Appret(Reference, Min, Moy, Max) VALUES(@Reference, @Min, @Moy, @Max)";
+            String requete = @"INSERT INTO Appret(Reference, Min, Moy, Max) VALUES(@Reference, @Min, @Moy, @Max) SELECT SCOPE_IDENTITY() ";
             connection.Open();
 
             SqlCommand commande = new SqlCommand(requete, connection);
