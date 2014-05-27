@@ -1,4 +1,5 @@
-*.bin
+*/bin
 *.tmp
 *.zip
 *.pdf
+*/obj
