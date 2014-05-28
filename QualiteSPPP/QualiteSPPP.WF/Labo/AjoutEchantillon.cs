@@ -27,5 +27,10 @@ namespace QualiteSPPP.WinForm
             this.Hide();
             RT.ShowDialog();
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxProjetsAjoutEchantillon = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxVehiculeAjoutEchantillon = new System.Windows.Forms.ComboBox();
+            this.comboBoxPieceAjoutEchantillon = new System.Windows.Forms.ComboBox();
+            this.comboBoxPeintureAjoutEchantillon = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listBoxEchantillonsAjoutEchantillon = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -57,13 +57,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Liste des Projets";
             // 
-            // listBox1
+            // listBoxProjetsAjoutEchantillon
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(15, 98);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 225);
-            this.listBox1.TabIndex = 1;
+            this.listBoxProjetsAjoutEchantillon.FormattingEnabled = true;
+            this.listBoxProjetsAjoutEchantillon.Location = new System.Drawing.Point(15, 98);
+            this.listBoxProjetsAjoutEchantillon.Name = "listBoxProjetsAjoutEchantillon";
+            this.listBoxProjetsAjoutEchantillon.Size = new System.Drawing.Size(120, 225);
+            this.listBoxProjetsAjoutEchantillon.TabIndex = 1;
             // 
             // label2
             // 
@@ -81,7 +81,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Piece";
+            this.label3.Text = "Pièce";
             // 
             // label4
             // 
@@ -92,29 +92,29 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Peinture";
             // 
-            // comboBox1
+            // comboBoxVehiculeAjoutEchantillon
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(67, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 3;
+            this.comboBoxVehiculeAjoutEchantillon.FormattingEnabled = true;
+            this.comboBoxVehiculeAjoutEchantillon.Location = new System.Drawing.Point(67, 22);
+            this.comboBoxVehiculeAjoutEchantillon.Name = "comboBoxVehiculeAjoutEchantillon";
+            this.comboBoxVehiculeAjoutEchantillon.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxVehiculeAjoutEchantillon.TabIndex = 3;
             // 
-            // comboBox2
+            // comboBoxPieceAjoutEchantillon
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(232, 22);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 3;
+            this.comboBoxPieceAjoutEchantillon.FormattingEnabled = true;
+            this.comboBoxPieceAjoutEchantillon.Location = new System.Drawing.Point(232, 22);
+            this.comboBoxPieceAjoutEchantillon.Name = "comboBoxPieceAjoutEchantillon";
+            this.comboBoxPieceAjoutEchantillon.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxPieceAjoutEchantillon.TabIndex = 3;
             // 
-            // comboBox3
+            // comboBoxPeintureAjoutEchantillon
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(419, 22);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 3;
+            this.comboBoxPeintureAjoutEchantillon.FormattingEnabled = true;
+            this.comboBoxPeintureAjoutEchantillon.Location = new System.Drawing.Point(419, 22);
+            this.comboBoxPeintureAjoutEchantillon.Name = "comboBoxPeintureAjoutEchantillon";
+            this.comboBoxPeintureAjoutEchantillon.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxPeintureAjoutEchantillon.TabIndex = 3;
             // 
             // button1
             // 
@@ -134,13 +134,13 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Liste des Echantillons";
             // 
-            // listBox2
+            // listBoxEchantillonsAjoutEchantillon
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(421, 95);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(120, 225);
-            this.listBox2.TabIndex = 1;
+            this.listBoxEchantillonsAjoutEchantillon.FormattingEnabled = true;
+            this.listBoxEchantillonsAjoutEchantillon.Location = new System.Drawing.Point(421, 95);
+            this.listBoxEchantillonsAjoutEchantillon.Name = "listBoxEchantillonsAjoutEchantillon";
+            this.listBoxEchantillonsAjoutEchantillon.Size = new System.Drawing.Size(120, 225);
+            this.listBoxEchantillonsAjoutEchantillon.TabIndex = 1;
             // 
             // button2
             // 
@@ -167,7 +167,8 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 13);
             this.label6.TabIndex = 5;
-            this.label6.Text = "Numero de lot";
+            this.label6.Text = "Numero du lot";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // textBox1
             // 
@@ -216,15 +217,15 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxPeintureAjoutEchantillon);
+            this.Controls.Add(this.comboBoxPieceAjoutEchantillon);
+            this.Controls.Add(this.comboBoxVehiculeAjoutEchantillon);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.listBoxEchantillonsAjoutEchantillon);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxProjetsAjoutEchantillon);
             this.Controls.Add(this.label1);
             this.Name = "AjoutEchantillon";
             this.Text = "AjoutEchantillon";
@@ -236,16 +237,16 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxProjetsAjoutEchantillon;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBoxVehiculeAjoutEchantillon;
+        private System.Windows.Forms.ComboBox comboBoxPieceAjoutEchantillon;
+        private System.Windows.Forms.ComboBox comboBoxPeintureAjoutEchantillon;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox listBoxEchantillonsAjoutEchantillon;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label6;

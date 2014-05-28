@@ -211,14 +211,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QualiteSPPP.WinForm.exe" size="867328">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QualiteSPPP.WinForm.exe" size="867840">
       <assemblyIdentity name="QualiteSPPP.WinForm" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>RHtsNbk2RgS/Bb4ADtzQds5Eolw=</dsig:DigestValue>
+        <dsig:DigestValue>fQ71GmbNq4mo5xbnB1fYC+OLpXQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
