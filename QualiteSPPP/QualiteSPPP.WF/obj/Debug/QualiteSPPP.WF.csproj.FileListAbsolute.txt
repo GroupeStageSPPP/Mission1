@@ -136,3 +136,4 @@ C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\Qual
 C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.PiecePeintureProjet.resources
 C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.TestPiecePeinture.resources
 C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.AjoutProduit.resources
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.ResultatTest.resources

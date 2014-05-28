@@ -480,8 +480,13 @@ namespace QualiteSPPP.WinForm
             private void button3_Click(object sender, EventArgs e)
             {
                 AjoutProjet AP = new AjoutProjet();
-                this.Hide();
                 AP.ShowDialog();
+            }
+
+            private void button4_Click(object sender, EventArgs e)
+            {
+                AjoutEchantillon AE = new AjoutEchantillon();
+                AE.ShowDialog();
             }
     }
 }
