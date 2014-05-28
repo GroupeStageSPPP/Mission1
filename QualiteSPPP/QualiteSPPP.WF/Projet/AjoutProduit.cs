@@ -9,23 +9,26 @@ using System.Windows.Forms;
 
 namespace QualiteSPPP.WinForm
 {
-    public partial class AjoutEchantillon : Form
+    public partial class AjoutProduit : Form
     {
-        public AjoutEchantillon()
+        public AjoutProduit()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void label12_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            ResultatTest RT = new ResultatTest();
-            this.Hide();
-            RT.ShowDialog();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

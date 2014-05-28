@@ -23,7 +23,9 @@ namespace QualiteSPPP.WinForm
 
         private void button10_Click(object sender, EventArgs e)
         {
-
+            AjoutProduit AP = new AjoutProduit();
+            this.Hide();
+            AP.ShowDialog();
         }
     }
 }

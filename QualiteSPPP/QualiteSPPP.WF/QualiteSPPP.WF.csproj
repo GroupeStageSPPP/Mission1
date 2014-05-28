@@ -135,6 +135,12 @@
     <Compile Include="Admnistration\AjouterVehicule.Designer.cs">
       <DependentUpon>AjouterVehicule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Projet\AjoutProduit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Projet\AjoutProduit.Designer.cs">
+      <DependentUpon>AjoutProduit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Labo\AjoutEchantillon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +197,12 @@
     <Compile Include="Projet\TestPiecePeinture.Designer.cs">
       <DependentUpon>TestPiecePeinture.cs</DependentUpon>
     </Compile>
+    <Compile Include="Labo\ResultatTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Labo\ResultatTest.Designer.cs">
+      <DependentUpon>ResultatTest.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admnistration\Acceuil.resx">
       <DependentUpon>Acceuil.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,11 +239,17 @@
     <EmbeddedResource Include="Labo\AjoutEchantillon.resx">
       <DependentUpon>AjoutEchantillon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Labo\ResultatTest.resx">
+      <DependentUpon>ResultatTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NouveauTestNonNumerique.resx">
       <DependentUpon>NouveauTestNonNumerique.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NouveauTestNumerique.resx">
       <DependentUpon>NouveauTestNumerique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Projet\AjoutProduit.resx">
+      <DependentUpon>AjoutProduit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Projet\AjoutProjet.resx">
       <DependentUpon>AjoutProjet.cs</DependentUpon>
