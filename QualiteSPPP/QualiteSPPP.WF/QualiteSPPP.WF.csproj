@@ -9,11 +9,29 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>QualiteSPPP.WinForm</RootNamespace>
     <AssemblyName>QualiteSPPP.WinForm</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\jbblois\Desktop\QualiteSPPP\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,13 +41,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>FB946BC6AB550B02E650764719E1DE188F17C608</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>QualiteSPPP.WF_CléTemporaire.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
@@ -51,59 +81,77 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Acceuil.cs">
+    <Compile Include="Admnistration\Acceuil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Acceuil.Designer.cs">
+    <Compile Include="Admnistration\Acceuil.Designer.cs">
       <DependentUpon>Acceuil.cs</DependentUpon>
     </Compile>
-    <Compile Include="AjouterCategorie.cs">
+    <Compile Include="Admnistration\AjouterCategorie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AjouterCategorie.Designer.cs">
+    <Compile Include="Admnistration\AjouterCategorie.Designer.cs">
       <DependentUpon>AjouterCategorie.cs</DependentUpon>
     </Compile>
-    <Compile Include="AjouterClient.cs">
+    <Compile Include="Admnistration\AjouterClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AjouterClient.Designer.cs">
+    <Compile Include="Admnistration\AjouterClient.Designer.cs">
       <DependentUpon>AjouterClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="AjouterConstructeur.cs">
+    <Compile Include="Admnistration\AjouterConstructeur.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AjouterConstructeur.Designer.cs">
+    <Compile Include="Admnistration\AjouterConstructeur.Designer.cs">
       <DependentUpon>AjouterConstructeur.cs</DependentUpon>
     </Compile>
-    <Compile Include="AjouterPeinture.cs">
+    <Compile Include="Admnistration\AjouterPeinture.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AjouterPeinture.Designer.cs">
+    <Compile Include="Admnistration\AjouterPeinture.Designer.cs">
       <DependentUpon>AjouterPeinture.cs</DependentUpon>
     </Compile>
-    <Compile Include="AjouterPieces.cs">
+    <Compile Include="Admnistration\AjouterPieces.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AjouterPieces.Designer.cs">
+    <Compile Include="Admnistration\AjouterPieces.Designer.cs">
       <DependentUpon>AjouterPieces.cs</DependentUpon>
     </Compile>
-    <Compile Include="AjouterProjet.cs">
+    <Compile Include="Admnistration\AjouterProjet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AjouterProjet.Designer.cs">
+    <Compile Include="Admnistration\AjouterProjet.Designer.cs">
       <DependentUpon>AjouterProjet.cs</DependentUpon>
     </Compile>
-    <Compile Include="AjouterUnEchantillon.cs">
+    <Compile Include="Admnistration\AjouterUnEchantillon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AjouterUnEchantillon.Designer.cs">
+    <Compile Include="Admnistration\AjouterUnEchantillon.Designer.cs">
       <DependentUpon>AjouterUnEchantillon.cs</DependentUpon>
     </Compile>
-    <Compile Include="AjouterVehicule.cs">
+    <Compile Include="Admnistration\AjouterVehicule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AjouterVehicule.Designer.cs">
+    <Compile Include="Admnistration\AjouterVehicule.Designer.cs">
       <DependentUpon>AjouterVehicule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Labo\AjoutEchantillon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Labo\AjoutEchantillon.Designer.cs">
+      <DependentUpon>AjoutEchantillon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Projet\PiecePeintureProjet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Projet\PiecePeintureProjet.Designer.cs">
+      <DependentUpon>PiecePeintureProjet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Projet\AjoutProjet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Projet\AjoutProjet.Designer.cs">
+      <DependentUpon>AjoutProjet.cs</DependentUpon>
     </Compile>
     <Compile Include="GraphiquePeinture.cs">
       <SubType>Form</SubType>
@@ -111,10 +159,10 @@
     <Compile Include="GraphiquePeinture.Designer.cs">
       <DependentUpon>GraphiquePeinture.cs</DependentUpon>
     </Compile>
-    <Compile Include="Identification_Page.cs">
+    <Compile Include="Admnistration\Identification_Page.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Identification_Page.Designer.cs">
+    <Compile Include="Admnistration\Identification_Page.Designer.cs">
       <DependentUpon>Identification_Page.cs</DependentUpon>
     </Compile>
     <Compile Include="NouveauTestNonNumerique.cs">
@@ -137,44 +185,62 @@
     <Compile Include="QuitterConfirmation.Designer.cs">
       <DependentUpon>QuitterConfirmation.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Acceuil.resx">
+    <Compile Include="Projet\TestPiecePeinture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Projet\TestPiecePeinture.Designer.cs">
+      <DependentUpon>TestPiecePeinture.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admnistration\Acceuil.resx">
       <DependentUpon>Acceuil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AjouterCategorie.resx">
+    <EmbeddedResource Include="Admnistration\AjouterCategorie.resx">
       <DependentUpon>AjouterCategorie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AjouterClient.resx">
+    <EmbeddedResource Include="Admnistration\AjouterClient.resx">
       <DependentUpon>AjouterClient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AjouterConstructeur.resx">
+    <EmbeddedResource Include="Admnistration\AjouterConstructeur.resx">
       <DependentUpon>AjouterConstructeur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AjouterPeinture.resx">
+    <EmbeddedResource Include="Admnistration\AjouterPeinture.resx">
       <DependentUpon>AjouterPeinture.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AjouterPieces.resx">
+    <EmbeddedResource Include="Admnistration\AjouterPieces.resx">
       <DependentUpon>AjouterPieces.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AjouterProjet.resx">
+    <EmbeddedResource Include="Admnistration\AjouterProjet.resx">
       <DependentUpon>AjouterProjet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AjouterUnEchantillon.resx">
+    <EmbeddedResource Include="Admnistration\AjouterUnEchantillon.resx">
       <DependentUpon>AjouterUnEchantillon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AjouterVehicule.resx">
+    <EmbeddedResource Include="Admnistration\AjouterVehicule.resx">
       <DependentUpon>AjouterVehicule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GraphiquePeinture.resx">
       <DependentUpon>GraphiquePeinture.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Identification_Page.resx">
+    <EmbeddedResource Include="Admnistration\Identification_Page.resx">
       <DependentUpon>Identification_Page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Labo\AjoutEchantillon.resx">
+      <DependentUpon>AjoutEchantillon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NouveauTestNonNumerique.resx">
       <DependentUpon>NouveauTestNonNumerique.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NouveauTestNumerique.resx">
       <DependentUpon>NouveauTestNumerique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Projet\AjoutProjet.resx">
+      <DependentUpon>AjoutProjet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Projet\PiecePeintureProjet.resx">
+      <DependentUpon>PiecePeintureProjet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Projet\TestPiecePeinture.resx">
+      <DependentUpon>TestPiecePeinture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -203,6 +269,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="QualiteSPPP.WF_CléTemporaire.pfx" />
     <None Include="Resources\fermer-croix-supprimer-erreurs-sortie-icone-4368-128.png" />
   </ItemGroup>
   <ItemGroup>
@@ -223,7 +290,23 @@
   <ItemGroup>
     <None Include="Resources\LogoLabo1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

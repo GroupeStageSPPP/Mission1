@@ -476,5 +476,12 @@ namespace QualiteSPPP.WinForm
                 AjouterVehicule ajouterVehicule = new AjouterVehicule();
                 ajouterVehicule.ShowDialog();
             }
+
+            private void button3_Click(object sender, EventArgs e)
+            {
+                AjoutProjet AP = new AjoutProjet();
+                this.Hide();
+                AP.ShowDialog();
+            }
     }
 }

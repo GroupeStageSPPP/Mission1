@@ -36,30 +36,6 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panelEcranPrincipal = new System.Windows.Forms.Panel();
-            this.panelAdministartionNouveauPeinture = new System.Windows.Forms.Panel();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
-            this.listBoxPeinture = new System.Windows.Forms.ListBox();
-            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.buttonModifierADMINISTRATIONPeinture = new System.Windows.Forms.Button();
-            this.buttonSupprimerADMINISTRATIONPeinture = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.numericUpDownBlancNoirADMINISTRATIONPeinture = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownRougeVertADMINISTRATIONPeinture = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownJauneBeuADMINISTRATIONPeinture = new System.Windows.Forms.NumericUpDown();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.buttonAjouterADMINISTRATIONPeinture = new System.Windows.Forms.Button();
-            this.label23 = new System.Windows.Forms.Label();
-            this.textBoxReferenceADMINISTRATIONPeinture = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
-            this.label25 = new System.Windows.Forms.Label();
             this.panelOptionAcceuil = new System.Windows.Forms.Panel();
             this.label46 = new System.Windows.Forms.Label();
             this.panelLABORATOIRENouvelEchantillon = new System.Windows.Forms.Panel();
@@ -119,6 +95,30 @@
             this.label58 = new System.Windows.Forms.Label();
             this.tableLayoutPanel34 = new System.Windows.Forms.TableLayoutPanel();
             this.label53 = new System.Windows.Forms.Label();
+            this.panelAdministartionNouveauPeinture = new System.Windows.Forms.Panel();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.listBoxPeinture = new System.Windows.Forms.ListBox();
+            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.buttonModifierADMINISTRATIONPeinture = new System.Windows.Forms.Button();
+            this.buttonSupprimerADMINISTRATIONPeinture = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.numericUpDownBlancNoirADMINISTRATIONPeinture = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownRougeVertADMINISTRATIONPeinture = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownJauneBeuADMINISTRATIONPeinture = new System.Windows.Forms.NumericUpDown();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.buttonAjouterADMINISTRATIONPeinture = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.textBoxReferenceADMINISTRATIONPeinture = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.label25 = new System.Windows.Forms.Label();
             this.panelAdministrationNouveauConstructeur = new System.Windows.Forms.Panel();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
@@ -273,6 +273,7 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -281,19 +282,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelEcranPrincipal.SuspendLayout();
-            this.panelAdministartionNouveauPeinture.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
-            this.splitContainer4.Panel1.SuspendLayout();
-            this.splitContainer4.Panel2.SuspendLayout();
-            this.splitContainer4.SuspendLayout();
-            this.tableLayoutPanel15.SuspendLayout();
-            this.tableLayoutPanel16.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlancNoirADMINISTRATIONPeinture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRougeVertADMINISTRATIONPeinture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownJauneBeuADMINISTRATIONPeinture)).BeginInit();
-            this.tableLayoutPanel17.SuspendLayout();
             this.panelOptionAcceuil.SuspendLayout();
             this.panelLABORATOIRENouvelEchantillon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
@@ -323,6 +311,19 @@
             this.tableLayoutPanel36.SuspendLayout();
             this.panel12.SuspendLayout();
             this.tableLayoutPanel34.SuspendLayout();
+            this.panelAdministartionNouveauPeinture.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
+            this.tableLayoutPanel15.SuspendLayout();
+            this.tableLayoutPanel16.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlancNoirADMINISTRATIONPeinture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRougeVertADMINISTRATIONPeinture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownJauneBeuADMINISTRATIONPeinture)).BeginInit();
+            this.tableLayoutPanel17.SuspendLayout();
             this.panelAdministrationNouveauConstructeur.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -511,271 +512,9 @@
             this.panelEcranPrincipal.Size = new System.Drawing.Size(1223, 585);
             this.panelEcranPrincipal.TabIndex = 6;
             // 
-            // panelAdministartionNouveauPeinture
-            // 
-            this.panelAdministartionNouveauPeinture.Controls.Add(this.splitContainer4);
-            this.panelAdministartionNouveauPeinture.Controls.Add(this.tableLayoutPanel17);
-            this.panelAdministartionNouveauPeinture.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAdministartionNouveauPeinture.Location = new System.Drawing.Point(0, 0);
-            this.panelAdministartionNouveauPeinture.Margin = new System.Windows.Forms.Padding(0);
-            this.panelAdministartionNouveauPeinture.Name = "panelAdministartionNouveauPeinture";
-            this.panelAdministartionNouveauPeinture.Size = new System.Drawing.Size(1223, 585);
-            this.panelAdministartionNouveauPeinture.TabIndex = 1;
-            // 
-            // splitContainer4
-            // 
-            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.Location = new System.Drawing.Point(0, 20);
-            this.splitContainer4.Margin = new System.Windows.Forms.Padding(0);
-            this.splitContainer4.Name = "splitContainer4";
-            // 
-            // splitContainer4.Panel1
-            // 
-            this.splitContainer4.Panel1.Controls.Add(this.tableLayoutPanel15);
-            // 
-            // splitContainer4.Panel2
-            // 
-            this.splitContainer4.Panel2.Controls.Add(this.tableLayoutPanel16);
-            this.splitContainer4.Size = new System.Drawing.Size(1223, 565);
-            this.splitContainer4.SplitterDistance = 951;
-            this.splitContainer4.SplitterWidth = 1;
-            this.splitContainer4.TabIndex = 87;
-            // 
-            // tableLayoutPanel15
-            // 
-            this.tableLayoutPanel15.ColumnCount = 3;
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel15.Controls.Add(this.listBoxPeinture, 1, 1);
-            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
-            this.tableLayoutPanel15.RowCount = 3;
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(951, 565);
-            this.tableLayoutPanel15.TabIndex = 1;
-            // 
-            // listBoxPeinture
-            // 
-            this.listBoxPeinture.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxPeinture.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxPeinture.FormattingEnabled = true;
-            this.listBoxPeinture.ItemHeight = 18;
-            this.listBoxPeinture.Location = new System.Drawing.Point(47, 28);
-            this.listBoxPeinture.Margin = new System.Windows.Forms.Padding(0);
-            this.listBoxPeinture.Name = "listBoxPeinture";
-            this.listBoxPeinture.Size = new System.Drawing.Size(855, 508);
-            this.listBoxPeinture.TabIndex = 0;
-            // 
-            // tableLayoutPanel16
-            // 
-            this.tableLayoutPanel16.ColumnCount = 3;
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel16.Controls.Add(this.panel5, 1, 1);
-            this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
-            this.tableLayoutPanel16.RowCount = 3;
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(271, 565);
-            this.tableLayoutPanel16.TabIndex = 0;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.comboBox2);
-            this.panel5.Controls.Add(this.comboBox1);
-            this.panel5.Controls.Add(this.buttonModifierADMINISTRATIONPeinture);
-            this.panel5.Controls.Add(this.buttonSupprimerADMINISTRATIONPeinture);
-            this.panel5.Controls.Add(this.groupBox2);
-            this.panel5.Controls.Add(this.label35);
-            this.panel5.Controls.Add(this.label19);
-            this.panel5.Controls.Add(this.buttonAjouterADMINISTRATIONPeinture);
-            this.panel5.Controls.Add(this.label23);
-            this.panel5.Controls.Add(this.textBoxReferenceADMINISTRATIONPeinture);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(27, 56);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(216, 452);
-            this.panel5.TabIndex = 0;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(3, 96);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(208, 21);
-            this.comboBox2.TabIndex = 34;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3, 55);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(208, 21);
-            this.comboBox1.TabIndex = 33;
-            // 
-            // buttonModifierADMINISTRATIONPeinture
-            // 
-            this.buttonModifierADMINISTRATIONPeinture.Location = new System.Drawing.Point(67, 264);
-            this.buttonModifierADMINISTRATIONPeinture.Name = "buttonModifierADMINISTRATIONPeinture";
-            this.buttonModifierADMINISTRATIONPeinture.Size = new System.Drawing.Size(75, 23);
-            this.buttonModifierADMINISTRATIONPeinture.TabIndex = 32;
-            this.buttonModifierADMINISTRATIONPeinture.Text = "Modifier";
-            this.buttonModifierADMINISTRATIONPeinture.UseVisualStyleBackColor = true;
-            // 
-            // buttonSupprimerADMINISTRATIONPeinture
-            // 
-            this.buttonSupprimerADMINISTRATIONPeinture.Location = new System.Drawing.Point(67, 286);
-            this.buttonSupprimerADMINISTRATIONPeinture.Name = "buttonSupprimerADMINISTRATIONPeinture";
-            this.buttonSupprimerADMINISTRATIONPeinture.Size = new System.Drawing.Size(75, 23);
-            this.buttonSupprimerADMINISTRATIONPeinture.TabIndex = 31;
-            this.buttonSupprimerADMINISTRATIONPeinture.Text = "Supprimer";
-            this.buttonSupprimerADMINISTRATIONPeinture.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.label22);
-            this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Controls.Add(this.numericUpDownBlancNoirADMINISTRATIONPeinture);
-            this.groupBox2.Controls.Add(this.numericUpDownRougeVertADMINISTRATIONPeinture);
-            this.groupBox2.Controls.Add(this.numericUpDownJauneBeuADMINISTRATIONPeinture);
-            this.groupBox2.Location = new System.Drawing.Point(3, 121);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(210, 100);
-            this.groupBox2.TabIndex = 30;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Couleur de la peinture";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(52, 24);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(58, 13);
-            this.label20.TabIndex = 21;
-            this.label20.Text = "Blanc/Noir";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(51, 76);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(62, 13);
-            this.label22.TabIndex = 19;
-            this.label22.Text = "Jaune/Bleu";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(52, 50);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(63, 13);
-            this.label21.TabIndex = 20;
-            this.label21.Text = "Rouge/Vert";
-            // 
-            // numericUpDownBlancNoirADMINISTRATIONPeinture
-            // 
-            this.numericUpDownBlancNoirADMINISTRATIONPeinture.Location = new System.Drawing.Point(127, 22);
-            this.numericUpDownBlancNoirADMINISTRATIONPeinture.Name = "numericUpDownBlancNoirADMINISTRATIONPeinture";
-            this.numericUpDownBlancNoirADMINISTRATIONPeinture.Size = new System.Drawing.Size(38, 20);
-            this.numericUpDownBlancNoirADMINISTRATIONPeinture.TabIndex = 23;
-            // 
-            // numericUpDownRougeVertADMINISTRATIONPeinture
-            // 
-            this.numericUpDownRougeVertADMINISTRATIONPeinture.Location = new System.Drawing.Point(127, 48);
-            this.numericUpDownRougeVertADMINISTRATIONPeinture.Name = "numericUpDownRougeVertADMINISTRATIONPeinture";
-            this.numericUpDownRougeVertADMINISTRATIONPeinture.Size = new System.Drawing.Size(38, 20);
-            this.numericUpDownRougeVertADMINISTRATIONPeinture.TabIndex = 24;
-            // 
-            // numericUpDownJauneBeuADMINISTRATIONPeinture
-            // 
-            this.numericUpDownJauneBeuADMINISTRATIONPeinture.Location = new System.Drawing.Point(127, 74);
-            this.numericUpDownJauneBeuADMINISTRATIONPeinture.Name = "numericUpDownJauneBeuADMINISTRATIONPeinture";
-            this.numericUpDownJauneBeuADMINISTRATIONPeinture.Size = new System.Drawing.Size(38, 20);
-            this.numericUpDownJauneBeuADMINISTRATIONPeinture.TabIndex = 25;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(-2, 39);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(38, 13);
-            this.label35.TabIndex = 29;
-            this.label35.Text = "Appret";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(-2, 79);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(36, 13);
-            this.label19.TabIndex = 27;
-            this.label19.Text = "Vernis";
-            // 
-            // buttonAjouterADMINISTRATIONPeinture
-            // 
-            this.buttonAjouterADMINISTRATIONPeinture.Location = new System.Drawing.Point(67, 242);
-            this.buttonAjouterADMINISTRATIONPeinture.Name = "buttonAjouterADMINISTRATIONPeinture";
-            this.buttonAjouterADMINISTRATIONPeinture.Size = new System.Drawing.Size(75, 23);
-            this.buttonAjouterADMINISTRATIONPeinture.TabIndex = 22;
-            this.buttonAjouterADMINISTRATIONPeinture.Text = "Ajouter";
-            this.buttonAjouterADMINISTRATIONPeinture.UseVisualStyleBackColor = true;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(-2, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(57, 13);
-            this.label23.TabIndex = 18;
-            this.label23.Text = "Reference";
-            // 
-            // textBoxReferenceADMINISTRATIONPeinture
-            // 
-            this.textBoxReferenceADMINISTRATIONPeinture.Location = new System.Drawing.Point(3, 16);
-            this.textBoxReferenceADMINISTRATIONPeinture.Name = "textBoxReferenceADMINISTRATIONPeinture";
-            this.textBoxReferenceADMINISTRATIONPeinture.Size = new System.Drawing.Size(210, 20);
-            this.textBoxReferenceADMINISTRATIONPeinture.TabIndex = 17;
-            // 
-            // tableLayoutPanel17
-            // 
-            this.tableLayoutPanel17.ColumnCount = 3;
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 176F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.Controls.Add(this.label25, 1, 0);
-            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
-            this.tableLayoutPanel17.RowCount = 1;
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(1223, 20);
-            this.tableLayoutPanel17.TabIndex = 90;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-            this.label25.Location = new System.Drawing.Point(526, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(170, 17);
-            this.label25.TabIndex = 69;
-            this.label25.Text = "Ajout d\'une peinture";
-            // 
             // panelOptionAcceuil
             // 
+            this.panelOptionAcceuil.Controls.Add(this.button3);
             this.panelOptionAcceuil.Controls.Add(this.label46);
             this.panelOptionAcceuil.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelOptionAcceuil.Location = new System.Drawing.Point(0, 0);
@@ -1463,6 +1202,269 @@
             this.label53.TabIndex = 69;
             this.label53.Text = "Ajout d\'une pièce";
             // 
+            // panelAdministartionNouveauPeinture
+            // 
+            this.panelAdministartionNouveauPeinture.Controls.Add(this.splitContainer4);
+            this.panelAdministartionNouveauPeinture.Controls.Add(this.tableLayoutPanel17);
+            this.panelAdministartionNouveauPeinture.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAdministartionNouveauPeinture.Location = new System.Drawing.Point(0, 0);
+            this.panelAdministartionNouveauPeinture.Margin = new System.Windows.Forms.Padding(0);
+            this.panelAdministartionNouveauPeinture.Name = "panelAdministartionNouveauPeinture";
+            this.panelAdministartionNouveauPeinture.Size = new System.Drawing.Size(1223, 585);
+            this.panelAdministartionNouveauPeinture.TabIndex = 1;
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(0, 20);
+            this.splitContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.splitContainer4.Name = "splitContainer4";
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.tableLayoutPanel15);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.tableLayoutPanel16);
+            this.splitContainer4.Size = new System.Drawing.Size(1223, 565);
+            this.splitContainer4.SplitterDistance = 951;
+            this.splitContainer4.SplitterWidth = 1;
+            this.splitContainer4.TabIndex = 87;
+            // 
+            // tableLayoutPanel15
+            // 
+            this.tableLayoutPanel15.ColumnCount = 3;
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel15.Controls.Add(this.listBoxPeinture, 1, 1);
+            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
+            this.tableLayoutPanel15.RowCount = 3;
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(951, 565);
+            this.tableLayoutPanel15.TabIndex = 1;
+            // 
+            // listBoxPeinture
+            // 
+            this.listBoxPeinture.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxPeinture.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxPeinture.FormattingEnabled = true;
+            this.listBoxPeinture.ItemHeight = 18;
+            this.listBoxPeinture.Location = new System.Drawing.Point(47, 28);
+            this.listBoxPeinture.Margin = new System.Windows.Forms.Padding(0);
+            this.listBoxPeinture.Name = "listBoxPeinture";
+            this.listBoxPeinture.Size = new System.Drawing.Size(855, 508);
+            this.listBoxPeinture.TabIndex = 0;
+            // 
+            // tableLayoutPanel16
+            // 
+            this.tableLayoutPanel16.ColumnCount = 3;
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel16.Controls.Add(this.panel5, 1, 1);
+            this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
+            this.tableLayoutPanel16.RowCount = 3;
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(271, 565);
+            this.tableLayoutPanel16.TabIndex = 0;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.comboBox2);
+            this.panel5.Controls.Add(this.comboBox1);
+            this.panel5.Controls.Add(this.buttonModifierADMINISTRATIONPeinture);
+            this.panel5.Controls.Add(this.buttonSupprimerADMINISTRATIONPeinture);
+            this.panel5.Controls.Add(this.groupBox2);
+            this.panel5.Controls.Add(this.label35);
+            this.panel5.Controls.Add(this.label19);
+            this.panel5.Controls.Add(this.buttonAjouterADMINISTRATIONPeinture);
+            this.panel5.Controls.Add(this.label23);
+            this.panel5.Controls.Add(this.textBoxReferenceADMINISTRATIONPeinture);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(27, 56);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(216, 452);
+            this.panel5.TabIndex = 0;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(3, 96);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(208, 21);
+            this.comboBox2.TabIndex = 34;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(3, 55);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(208, 21);
+            this.comboBox1.TabIndex = 33;
+            // 
+            // buttonModifierADMINISTRATIONPeinture
+            // 
+            this.buttonModifierADMINISTRATIONPeinture.Location = new System.Drawing.Point(67, 264);
+            this.buttonModifierADMINISTRATIONPeinture.Name = "buttonModifierADMINISTRATIONPeinture";
+            this.buttonModifierADMINISTRATIONPeinture.Size = new System.Drawing.Size(75, 23);
+            this.buttonModifierADMINISTRATIONPeinture.TabIndex = 32;
+            this.buttonModifierADMINISTRATIONPeinture.Text = "Modifier";
+            this.buttonModifierADMINISTRATIONPeinture.UseVisualStyleBackColor = true;
+            // 
+            // buttonSupprimerADMINISTRATIONPeinture
+            // 
+            this.buttonSupprimerADMINISTRATIONPeinture.Location = new System.Drawing.Point(67, 286);
+            this.buttonSupprimerADMINISTRATIONPeinture.Name = "buttonSupprimerADMINISTRATIONPeinture";
+            this.buttonSupprimerADMINISTRATIONPeinture.Size = new System.Drawing.Size(75, 23);
+            this.buttonSupprimerADMINISTRATIONPeinture.TabIndex = 31;
+            this.buttonSupprimerADMINISTRATIONPeinture.Text = "Supprimer";
+            this.buttonSupprimerADMINISTRATIONPeinture.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.label21);
+            this.groupBox2.Controls.Add(this.numericUpDownBlancNoirADMINISTRATIONPeinture);
+            this.groupBox2.Controls.Add(this.numericUpDownRougeVertADMINISTRATIONPeinture);
+            this.groupBox2.Controls.Add(this.numericUpDownJauneBeuADMINISTRATIONPeinture);
+            this.groupBox2.Location = new System.Drawing.Point(3, 121);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(210, 100);
+            this.groupBox2.TabIndex = 30;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Couleur de la peinture";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(52, 24);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(58, 13);
+            this.label20.TabIndex = 21;
+            this.label20.Text = "Blanc/Noir";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(51, 76);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(62, 13);
+            this.label22.TabIndex = 19;
+            this.label22.Text = "Jaune/Bleu";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(52, 50);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(63, 13);
+            this.label21.TabIndex = 20;
+            this.label21.Text = "Rouge/Vert";
+            // 
+            // numericUpDownBlancNoirADMINISTRATIONPeinture
+            // 
+            this.numericUpDownBlancNoirADMINISTRATIONPeinture.Location = new System.Drawing.Point(127, 22);
+            this.numericUpDownBlancNoirADMINISTRATIONPeinture.Name = "numericUpDownBlancNoirADMINISTRATIONPeinture";
+            this.numericUpDownBlancNoirADMINISTRATIONPeinture.Size = new System.Drawing.Size(38, 20);
+            this.numericUpDownBlancNoirADMINISTRATIONPeinture.TabIndex = 23;
+            // 
+            // numericUpDownRougeVertADMINISTRATIONPeinture
+            // 
+            this.numericUpDownRougeVertADMINISTRATIONPeinture.Location = new System.Drawing.Point(127, 48);
+            this.numericUpDownRougeVertADMINISTRATIONPeinture.Name = "numericUpDownRougeVertADMINISTRATIONPeinture";
+            this.numericUpDownRougeVertADMINISTRATIONPeinture.Size = new System.Drawing.Size(38, 20);
+            this.numericUpDownRougeVertADMINISTRATIONPeinture.TabIndex = 24;
+            // 
+            // numericUpDownJauneBeuADMINISTRATIONPeinture
+            // 
+            this.numericUpDownJauneBeuADMINISTRATIONPeinture.Location = new System.Drawing.Point(127, 74);
+            this.numericUpDownJauneBeuADMINISTRATIONPeinture.Name = "numericUpDownJauneBeuADMINISTRATIONPeinture";
+            this.numericUpDownJauneBeuADMINISTRATIONPeinture.Size = new System.Drawing.Size(38, 20);
+            this.numericUpDownJauneBeuADMINISTRATIONPeinture.TabIndex = 25;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(-2, 39);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(38, 13);
+            this.label35.TabIndex = 29;
+            this.label35.Text = "Appret";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(-2, 79);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(36, 13);
+            this.label19.TabIndex = 27;
+            this.label19.Text = "Vernis";
+            // 
+            // buttonAjouterADMINISTRATIONPeinture
+            // 
+            this.buttonAjouterADMINISTRATIONPeinture.Location = new System.Drawing.Point(67, 242);
+            this.buttonAjouterADMINISTRATIONPeinture.Name = "buttonAjouterADMINISTRATIONPeinture";
+            this.buttonAjouterADMINISTRATIONPeinture.Size = new System.Drawing.Size(75, 23);
+            this.buttonAjouterADMINISTRATIONPeinture.TabIndex = 22;
+            this.buttonAjouterADMINISTRATIONPeinture.Text = "Ajouter";
+            this.buttonAjouterADMINISTRATIONPeinture.UseVisualStyleBackColor = true;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(-2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(57, 13);
+            this.label23.TabIndex = 18;
+            this.label23.Text = "Reference";
+            // 
+            // textBoxReferenceADMINISTRATIONPeinture
+            // 
+            this.textBoxReferenceADMINISTRATIONPeinture.Location = new System.Drawing.Point(3, 16);
+            this.textBoxReferenceADMINISTRATIONPeinture.Name = "textBoxReferenceADMINISTRATIONPeinture";
+            this.textBoxReferenceADMINISTRATIONPeinture.Size = new System.Drawing.Size(210, 20);
+            this.textBoxReferenceADMINISTRATIONPeinture.TabIndex = 17;
+            // 
+            // tableLayoutPanel17
+            // 
+            this.tableLayoutPanel17.ColumnCount = 3;
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 176F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel17.Controls.Add(this.label25, 1, 0);
+            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
+            this.tableLayoutPanel17.RowCount = 1;
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(1223, 20);
+            this.tableLayoutPanel17.TabIndex = 90;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+            this.label25.Location = new System.Drawing.Point(526, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(170, 17);
+            this.label25.TabIndex = 69;
+            this.label25.Text = "Ajout d\'une peinture";
+            // 
             // panelAdministrationNouveauConstructeur
             // 
             this.panelAdministrationNouveauConstructeur.Controls.Add(this.splitContainer3);
@@ -1681,7 +1683,7 @@
             this.label10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(0, 40);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 13);
+            this.label10.Size = new System.Drawing.Size(65, 13);
             this.label10.TabIndex = 49;
             this.label10.Text = "Telephone";
             // 
@@ -2122,7 +2124,7 @@
             this.label43.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.Location = new System.Drawing.Point(3, 79);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(66, 13);
+            this.label43.Size = new System.Drawing.Size(65, 13);
             this.label43.TabIndex = 64;
             this.label43.Text = "Telephone";
             // 
@@ -2398,7 +2400,7 @@
             this.label2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 260);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 88;
             this.label2.Text = "Telephone";
             // 
@@ -3004,14 +3006,14 @@
             // vehiculeToolStripMenuItem
             // 
             this.vehiculeToolStripMenuItem.Name = "vehiculeToolStripMenuItem";
-            this.vehiculeToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.vehiculeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.vehiculeToolStripMenuItem.Text = "Vehicule";
             this.vehiculeToolStripMenuItem.Click += new System.EventHandler(this.vehiculeToolStripMenuItem_Click);
             // 
             // pieceToolStripMenuItem1
             // 
             this.pieceToolStripMenuItem1.Name = "pieceToolStripMenuItem1";
-            this.pieceToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
+            this.pieceToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.pieceToolStripMenuItem1.Text = "Piece";
             this.pieceToolStripMenuItem1.Click += new System.EventHandler(this.pieceToolStripMenuItem1_Click);
             // 
@@ -3231,6 +3233,16 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(163, 138);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(291, 138);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Ajouter un Projet";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Acceuil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3251,22 +3263,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelEcranPrincipal.ResumeLayout(false);
-            this.panelAdministartionNouveauPeinture.ResumeLayout(false);
-            this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
-            this.splitContainer4.ResumeLayout(false);
-            this.tableLayoutPanel15.ResumeLayout(false);
-            this.tableLayoutPanel16.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlancNoirADMINISTRATIONPeinture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRougeVertADMINISTRATIONPeinture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownJauneBeuADMINISTRATIONPeinture)).EndInit();
-            this.tableLayoutPanel17.ResumeLayout(false);
-            this.tableLayoutPanel17.PerformLayout();
             this.panelOptionAcceuil.ResumeLayout(false);
             this.panelOptionAcceuil.PerformLayout();
             this.panelLABORATOIRENouvelEchantillon.ResumeLayout(false);
@@ -3304,6 +3300,22 @@
             this.panel12.PerformLayout();
             this.tableLayoutPanel34.ResumeLayout(false);
             this.tableLayoutPanel34.PerformLayout();
+            this.panelAdministartionNouveauPeinture.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
+            this.tableLayoutPanel15.ResumeLayout(false);
+            this.tableLayoutPanel16.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlancNoirADMINISTRATIONPeinture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRougeVertADMINISTRATIONPeinture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownJauneBeuADMINISTRATIONPeinture)).EndInit();
+            this.tableLayoutPanel17.ResumeLayout(false);
+            this.tableLayoutPanel17.PerformLayout();
             this.panelAdministrationNouveauConstructeur.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
@@ -3631,6 +3643,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button button3;
 
 
     }
