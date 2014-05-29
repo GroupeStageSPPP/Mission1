@@ -48,8 +48,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listBox2
@@ -65,9 +63,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 13);
+            this.label5.Size = new System.Drawing.Size(108, 13);
             this.label5.TabIndex = 2;
-            this.label5.Text = "Liste des Echantillons";
+            this.label5.Text = "Liste des échantillons";
             // 
             // dateTimePicker1
             // 
@@ -100,7 +98,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 13);
             this.label6.TabIndex = 9;
-            this.label6.Text = "Numero de lot";
+            this.label6.Text = "Numero du lot";
             // 
             // label1
             // 
@@ -142,7 +140,8 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Moyenne";
+            this.label3.Text = "Nominatif";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // textBox3
             // 
@@ -174,7 +173,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 12;
-            this.label8.Text = "Resultat";
+            this.label8.Text = "Résultat";
             // 
             // textBox5
             // 
@@ -215,24 +214,8 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(104, 49);
             this.button2.TabIndex = 15;
-            this.button2.Text = "Suivant";
+            this.button2.Text = "Terminer";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(261, 282);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(58, 13);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Frequence";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(343, 275);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(54, 20);
-            this.textBox6.TabIndex = 10;
             // 
             // ResultatTest
             // 
@@ -252,10 +235,8 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label1);
@@ -291,7 +272,5 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox6;
     }
 }
