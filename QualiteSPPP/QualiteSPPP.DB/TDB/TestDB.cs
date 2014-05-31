@@ -18,7 +18,7 @@ namespace QualiteSPPP.DB
 	        List<Test> listeTest = new List<Test>();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+";";
@@ -39,7 +39,7 @@ namespace QualiteSPPP.DB
                test.Identifiant = dataReader.GetInt32(0);
                test.Nom = dataReader.GetString(1);
                test.Description = dataReader.GetString(2);
-               test.TypeTest = dataReader.GetByte(3);
+               test.TypeTest = dataReader.GetInt16(3);
 	           listeTest.Add(test);
             }
 
@@ -54,9 +54,8 @@ namespace QualiteSPPP.DB
 	        Test test = new Test();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
-	   
-	        //Requete  
+            SqlConnection connection = DataBase.Connection();
+            //Requete  
 	        String requete = select+" WHERE Identifiant = @Identifiant;";
 	   
 	        //Commande
@@ -69,10 +68,11 @@ namespace QualiteSPPP.DB
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
             test.Identifiant = dataReader.GetInt32(0);
             test.Nom         = dataReader.GetString(1);
             test.Description = dataReader.GetString(2);
-            test.TypeTest    = dataReader.GetByte(3);
+            test.TypeTest    = dataReader.GetInt16(3);
             dataReader.Close();
             connection.Close();
 
@@ -82,7 +82,7 @@ namespace QualiteSPPP.DB
         public static Boolean Insert(Test test)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"INSERT INTO Test ("+champs+") VALUES (@Nom,@Description,@TypeTest);"; 
@@ -105,7 +105,7 @@ namespace QualiteSPPP.DB
         public static Boolean Update(Test test)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"UPDATE Test
@@ -132,7 +132,7 @@ namespace QualiteSPPP.DB
         public static Boolean Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"DELETE Test
@@ -153,22 +153,23 @@ namespace QualiteSPPP.DB
             return true;
         }
 	
-	public static Int32 LastID()
-	{
-	    Int32 Identifiant = 0;
-	    //Connection
-            SqlConnection connection = DataBase.Connection;
-            //Requete
-            String requete = @"SELECT  MAX(Identifiant) FROM Test;";
+	    public static Int32 LastID()
+	    {
+	        Int32 Identifiant = 0;
+	        //Connection
+                SqlConnection connection = DataBase.Connection();
+                //Requete
+                String requete = @"SELECT  MAX(Identifiant) FROM Test;";
 
-            //Commande
-            SqlCommand commande = new SqlCommand(requete, connection);
+                //Commande
+                SqlCommand commande = new SqlCommand(requete, connection);
 	    
-	    connection.Open();
-            SqlDataReader dataReader = commande.ExecuteReader();
-	    Identifiant = dataReader.GetInt32(0);
-            connection.Close();
-	    return Identifiant; 
-	}    
+	        connection.Open();
+                SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
+	        Identifiant = dataReader.GetInt32(0);
+                connection.Close();
+	        return Identifiant; 
+	    }    
     }
 }

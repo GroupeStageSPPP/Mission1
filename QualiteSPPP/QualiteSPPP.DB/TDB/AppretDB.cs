@@ -18,7 +18,7 @@ namespace QualiteSPPP.DB
 	        List<Appret> listeAppret = new List<Appret>();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+";";
@@ -38,9 +38,9 @@ namespace QualiteSPPP.DB
                Appret appret = new Appret();
                appret.Identifiant = dataReader.GetInt32(0);
                appret.Reference   = dataReader.GetString(1);
-               appret.Min         = dataReader.GetFloat(2);
-               appret.Norme       = dataReader.GetFloat(3);
-               appret.Max         = dataReader.GetFloat(4);
+               appret.Min         = dataReader.GetDouble(2);
+               appret.Norme       = dataReader.GetDouble(3);
+               appret.Max         = dataReader.GetDouble(4);
 	           listeAppret.Add(appret);
             }
 
@@ -55,7 +55,7 @@ namespace QualiteSPPP.DB
 	        Appret appret = new Appret();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+" WHERE Identifiant = @Identifiant;";
@@ -70,11 +70,12 @@ namespace QualiteSPPP.DB
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
             appret.Identifiant = dataReader.GetInt32(0);
             appret.Reference = dataReader.GetString(1);
-            appret.Min = dataReader.GetFloat(2);
-            appret.Norme = dataReader.GetFloat(3);
-            appret.Max = dataReader.GetFloat(4);
+            appret.Min = dataReader.GetDouble(2);
+            appret.Norme = dataReader.GetDouble(3);
+            appret.Max = dataReader.GetDouble(4);
             dataReader.Close();
             connection.Close();
 
@@ -84,7 +85,7 @@ namespace QualiteSPPP.DB
         public static Boolean Insert(Appret appret)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"INSERT INTO Appret (" + champs + ") VALUES (@Reference,@Min,@Norme,@Max);"; 
@@ -109,7 +110,7 @@ namespace QualiteSPPP.DB
         public static Boolean Update(Appret appret)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"UPDATE Appret
@@ -137,7 +138,7 @@ namespace QualiteSPPP.DB
         public static Boolean Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"DELETE Appret
@@ -162,7 +163,7 @@ namespace QualiteSPPP.DB
 	{
 	    Int32 Identifiant = 0;
 	    //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
             //Requete
             String requete = @"SELECT  MAX(Identifiant) FROM Appret;";
 
@@ -171,6 +172,7 @@ namespace QualiteSPPP.DB
 	    
 	    connection.Open();
             SqlDataReader dataReader = commande.ExecuteReader();
+        dataReader.Read();
 	    Identifiant = dataReader.GetInt32(0);
             connection.Close();
 	    return Identifiant; 

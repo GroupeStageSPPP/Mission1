@@ -10,6 +10,11 @@ namespace QualiteSPPP.DB
 {
     public static class DataBase
     {
-        public static SqlConnection Connection = new SqlConnection("Data Source=PC-PORTABLE_JB;Initial Catalog=QualiteSPPP;Integrated Security=True");
+        public static SqlConnection Connection()
+        {
+            SqlConnection connection = (new SqlConnection("Data Source=PC-PORTABLE_JB;Initial Catalog=QualiteSPPP;Integrated Security=True"));
+            return connection;
+        }
+        
     }
 }

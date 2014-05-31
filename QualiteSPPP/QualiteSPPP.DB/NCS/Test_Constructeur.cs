@@ -8,7 +8,7 @@ namespace QualiteSPPP.DB
     public class Test_Constructeur
     {
         public Int32 Identifiant { get; set; }
-        
+        public String Nom { get; set; }
         public Double Min { get; set; }
         public Double Norme { get; set; }
         public Double Max { get; set; }

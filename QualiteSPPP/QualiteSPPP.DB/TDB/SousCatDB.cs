@@ -18,7 +18,7 @@ namespace QualiteSPPP.DB
 	        List<SousCat> listeSousCat = new List<SousCat>();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+";";
@@ -53,7 +53,7 @@ namespace QualiteSPPP.DB
 	        SousCat sousCat = new SousCat();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+" WHERE Identifiant = @Identifiant;";
@@ -68,6 +68,7 @@ namespace QualiteSPPP.DB
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
             sousCat.Identifiant = dataReader.GetInt32(0);
             sousCat.Nom         = dataReader.GetString(1);
             sousCat.ID_Categorie = dataReader.GetInt32(2);
@@ -81,7 +82,7 @@ namespace QualiteSPPP.DB
         public static Boolean Insert(SousCat sousCat)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"INSERT INTO SousCat (" + champs + ") VALUES (@Nom,@ID_Categorie);"; 
@@ -103,7 +104,7 @@ namespace QualiteSPPP.DB
         public static Boolean Update(SousCat sousCat)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"UPDATE SousCat
@@ -129,7 +130,7 @@ namespace QualiteSPPP.DB
         public static Boolean Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"DELETE SousCat
@@ -153,7 +154,7 @@ namespace QualiteSPPP.DB
 	    {
 	        Int32 Identifiant = 0;
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
             //Requete
             String requete = @"SELECT  MAX(Identifiant) FROM SousCat;";
 
@@ -162,6 +163,7 @@ namespace QualiteSPPP.DB
 	    
 	        connection.Open();
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
 	        Identifiant = dataReader.GetInt32(0);
             connection.Close();
             return Identifiant; 

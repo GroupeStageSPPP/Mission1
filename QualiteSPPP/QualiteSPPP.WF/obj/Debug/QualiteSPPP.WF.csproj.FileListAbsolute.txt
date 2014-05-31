@@ -124,7 +124,6 @@ C:\Users\jbblois\Desktop\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WF.csp
 C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\bin\Debug\QualiteSPPP.WinForm.exe.manifest
 C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\bin\Debug\QualiteSPPP.WinForm.application
 C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.AjouterCategorie.resources
-C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.AjouterClient.resources
 C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.AjouterPeinture.resources
 C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.AjouterPieces.resources
 C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.AjouterProjet.resources
@@ -133,7 +132,9 @@ C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\Qual
 C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.application
 C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.AjoutEchantillon.resources
 C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.AjoutProjet.resources
-C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.PiecePeintureProjet.resources
-C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.TestPiecePeinture.resources
-C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.AjoutProduit.resources
-C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.ResultatTest.resources
+D:\Users\Pierre\Desktop\Mission1\QualiteSPPP\QualiteSPPP.WF\bin\Debug\QualiteSPPP.WinForm.exe.manifest
+D:\Users\Pierre\Desktop\Mission1\QualiteSPPP\QualiteSPPP.WF\bin\Debug\QualiteSPPP.WinForm.application
+D:\Users\Pierre\Desktop\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.AjoutEchantillon.resources
+D:\Users\Pierre\Desktop\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.AjoutProjet.resources
+D:\Users\Pierre\Desktop\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.exe.manifest
+D:\Users\Pierre\Desktop\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.application

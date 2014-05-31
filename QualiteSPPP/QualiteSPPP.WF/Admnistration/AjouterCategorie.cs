@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QualiteSPPP.DB;
 
 namespace QualiteSPPP.WinForm
 {
@@ -24,7 +25,9 @@ namespace QualiteSPPP.WinForm
 
         private void buttonAjouter_Click(object sender, EventArgs e)
         {
-            //fonction d'ajout categorie
+            Categorie C = new Categorie();
+            C.Nom = this.TBnom.Text;
+            CategorieDB.Insert(C);
             this.Close();
         }
     }

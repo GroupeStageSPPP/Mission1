@@ -18,7 +18,7 @@ namespace QualiteSPPP.DB
             List<Ech_Resultat> listeEch_Resultat = new List<Ech_Resultat>();
 
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete  
             String requete = select + ";";
@@ -37,7 +37,7 @@ namespace QualiteSPPP.DB
             {
                 Ech_Resultat ech_resultat = new Ech_Resultat();
                 ech_resultat.Identifiant = dataReader.GetInt32(0);
-                ech_resultat.Resultat = dataReader.GetFloat(1);
+                ech_resultat.Resultat = dataReader.GetDouble(1);
                 ech_resultat.ID_Echantillon = dataReader.GetInt32(2);
                 ech_resultat.ID_Test = dataReader.GetInt32(3);
                 ech_resultat.ID_Constructeur = dataReader.GetInt32(4);
@@ -56,7 +56,7 @@ namespace QualiteSPPP.DB
             Ech_Resultat ech_resultat = new Ech_Resultat();
 
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete  
             String requete = select + " WHERE Identifiant = @Identifiant;";
@@ -71,8 +71,9 @@ namespace QualiteSPPP.DB
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
             ech_resultat.Identifiant = dataReader.GetInt32(0);
-            ech_resultat.Resultat = dataReader.GetFloat(1);
+            ech_resultat.Resultat = dataReader.GetDouble(1);
             ech_resultat.ID_Echantillon = dataReader.GetInt32(2);
             ech_resultat.ID_Test = dataReader.GetInt32(3);
             ech_resultat.ID_Constructeur = dataReader.GetInt32(4);
@@ -86,7 +87,7 @@ namespace QualiteSPPP.DB
         public static Boolean Insert(Ech_Resultat ech_resultat)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"INSERT INTO Ech_Resultat (" + champs + ") VALUES (@Resultat,@ID_Echantillon,@ID_Test,@ID_Constructeur,@ID_Teinte);";
@@ -111,7 +112,7 @@ namespace QualiteSPPP.DB
         public static Boolean Update(Ech_Resultat ech_resultat)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"UPDATE Ech_Resultat
@@ -140,7 +141,7 @@ namespace QualiteSPPP.DB
         public static Boolean Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"DELETE Ech_Resultat

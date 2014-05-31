@@ -206,19 +206,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>/Qw6QYbik/lA8ixPmxEQzaiXcMs=</dsig:DigestValue>
+        <dsig:DigestValue>kDOuS/NpPkcTHB3tv/U1iZaGGEs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QualiteSPPP.WinForm.exe" size="867840">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QualiteSPPP.WinForm.exe" size="1972224">
       <assemblyIdentity name="QualiteSPPP.WinForm" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>8va4khIPFcUrswQi4h4YiBIHfkg=</dsig:DigestValue>
+        <dsig:DigestValue>HeE8IVqjq/jnKpDZ4MQSocPHKb0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

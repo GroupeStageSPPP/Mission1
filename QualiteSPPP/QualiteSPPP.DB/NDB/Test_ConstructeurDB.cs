@@ -13,20 +13,22 @@ namespace QualiteSPPP.DB
 	    public static String select = "SELECT Identifiant,"+champs+" FROM Test_Constructeur";
 	            
 
-	    public static List<Test_Constructeur> List()
+	    public static List<Test_Constructeur> List(Int32 ID_Constructeur)
 	    {
 	        List<Test_Constructeur> listeTest_Constructeur = new List<Test_Constructeur>();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
-	        String requete = select+";";
-	   
+	        String requete = select+" WHERE ID_Constructeur=@ID_Constructeur;";
+
 	        //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
 
-
+            //Parametres
+            commande.Parameters.AddWithValue("ID_Constructeur", ID_Constructeur);
+            
             //Execution
             connection.Open();
 
@@ -36,12 +38,14 @@ namespace QualiteSPPP.DB
             {
                 Test_Constructeur test_constructeur = new Test_Constructeur(); 
 	            test_constructeur.Identifiant     = dataReader.GetInt32(0);
-                test_constructeur.Min             = dataReader.GetFloat(1);
-                test_constructeur.Norme           = dataReader.GetFloat(2);
-                test_constructeur.Max             = dataReader.GetFloat(3);
+                test_constructeur.Min             = dataReader.GetDouble(1);
+                test_constructeur.Norme           = dataReader.GetDouble(2);
+                test_constructeur.Max             = dataReader.GetDouble(3);
                 test_constructeur.ID_Test         = dataReader.GetInt32(4);
                 test_constructeur.ID_Constructeur = dataReader.GetInt32(5);
-	            listeTest_Constructeur.Add(test_constructeur);
+
+	            test_constructeur.Nom = (TestDB.Get(test_constructeur.ID_Test)).Nom+" "+(ConstructeurDB.Get(test_constructeur.ID_Constructeur)).Nom;
+                listeTest_Constructeur.Add(test_constructeur);
             }
 
             dataReader.Close();
@@ -55,7 +59,7 @@ namespace QualiteSPPP.DB
 	        Test_Constructeur test_constructeur = new Test_Constructeur();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+" WHERE Identifiant = @Identifiant;";
@@ -70,10 +74,11 @@ namespace QualiteSPPP.DB
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
             test_constructeur.Identifiant     = dataReader.GetInt32(0);
-            test_constructeur.Min             = dataReader.GetFloat(1);
-            test_constructeur.Norme           = dataReader.GetFloat(2);
-            test_constructeur.Max             = dataReader.GetFloat(3);
+            test_constructeur.Min             = dataReader.GetDouble(1);
+            test_constructeur.Norme           = dataReader.GetDouble(2);
+            test_constructeur.Max             = dataReader.GetDouble(3);
             test_constructeur.ID_Test         = dataReader.GetInt32(4);
             test_constructeur.ID_Constructeur = dataReader.GetInt32(5);
             dataReader.Close();
@@ -85,7 +90,7 @@ namespace QualiteSPPP.DB
         public static Boolean Insert(Test_Constructeur test_constructeur)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"INSERT INTO Test_Constructeur ("+champs+") VALUES (@Min,@Norme,@Max,@ID_Test,@ID_Constructeur);"; 
@@ -111,7 +116,7 @@ namespace QualiteSPPP.DB
         public static Boolean Update(Test_Constructeur test_constructeur)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"UPDATE Test_Constructeur
@@ -140,7 +145,7 @@ namespace QualiteSPPP.DB
         public static Boolean Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"DELETE Test_Constructeur
