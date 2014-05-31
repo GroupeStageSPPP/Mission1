@@ -37,8 +37,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panelEcranPrincipal = new System.Windows.Forms.Panel();
             this.panelOptionAcceuil = new System.Windows.Forms.Panel();
+            this.buttonAjoutEchantillionOPTIONAccueil = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.label46 = new System.Windows.Forms.Label();
             this.panelLABORATOIRENouvelEchantillon = new System.Windows.Forms.Panel();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
@@ -515,33 +515,34 @@
             // 
             // panelOptionAcceuil
             // 
+            this.panelOptionAcceuil.Controls.Add(this.buttonAjoutEchantillionOPTIONAccueil);
             this.panelOptionAcceuil.Controls.Add(this.button4);
             this.panelOptionAcceuil.Controls.Add(this.button3);
-            this.panelOptionAcceuil.Controls.Add(this.label46);
             this.panelOptionAcceuil.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelOptionAcceuil.Location = new System.Drawing.Point(0, 0);
             this.panelOptionAcceuil.Name = "panelOptionAcceuil";
             this.panelOptionAcceuil.Size = new System.Drawing.Size(1223, 585);
             this.panelOptionAcceuil.TabIndex = 1;
             // 
+            // buttonAjoutEchantillionOPTIONAccueil
+            // 
+            this.buttonAjoutEchantillionOPTIONAccueil.Location = new System.Drawing.Point(27, 344);
+            this.buttonAjoutEchantillionOPTIONAccueil.Name = "buttonAjoutEchantillionOPTIONAccueil";
+            this.buttonAjoutEchantillionOPTIONAccueil.Size = new System.Drawing.Size(291, 138);
+            this.buttonAjoutEchantillionOPTIONAccueil.TabIndex = 3;
+            this.buttonAjoutEchantillionOPTIONAccueil.Text = "Gérer les echantillons";
+            this.buttonAjoutEchantillionOPTIONAccueil.UseVisualStyleBackColor = true;
+            this.buttonAjoutEchantillionOPTIONAccueil.Click += new System.EventHandler(this.buttonAjoutEchantillionOPTIONAccueil_Click);
+            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(163, 138);
+            this.button3.Location = new System.Drawing.Point(260, 178);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(291, 138);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Ajouter un Projet";
+            this.button3.Text = "Gérer les projets";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(585, 286);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(42, 13);
-            this.label46.TabIndex = 1;
-            this.label46.Text = "Accueil";
             // 
             // panelLABORATOIRENouvelEchantillon
             // 
@@ -3247,13 +3248,13 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(504, 135);
+            this.button4.Location = new System.Drawing.Point(538, 20);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(291, 138);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Ajouter des Echantillons";
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Gérer les constructeurs";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.button3_Click);
             // 
             // Acceuil
             // 
@@ -3276,7 +3277,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelEcranPrincipal.ResumeLayout(false);
             this.panelOptionAcceuil.ResumeLayout(false);
-            this.panelOptionAcceuil.PerformLayout();
             this.panelLABORATOIRENouvelEchantillon.ResumeLayout(false);
             this.splitContainer5.Panel1.ResumeLayout(false);
             this.splitContainer5.Panel2.ResumeLayout(false);
@@ -3585,7 +3585,6 @@
         private System.Windows.Forms.ToolStripMenuItem ajouterUneCategorieToolStripMenuItem;
         private System.Windows.Forms.Panel panelAdministrationNouveauCategorie;
         private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Panel panelAdministrationNouveauPiece;
         private System.Windows.Forms.SplitContainer splitContainer10;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel35;
@@ -3656,6 +3655,7 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonAjoutEchantillionOPTIONAccueil;
         private System.Windows.Forms.Button button4;
 
 

@@ -1,0 +1,14 @@
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.Test\bin\Debug\QualiteSPPP.Test.exe.config
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.Test\obj\Debug\QualiteSPPP.Test.csprojResolveAssemblyReference.cache
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.Test\obj\Debug\QualiteSPPP.Test.AjouterPeinture.resources
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.Test\obj\Debug\QualiteSPPP.Test.CreerConstructeur.resources
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.Test\obj\Debug\QualiteSPPP.Test.Form1.resources
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.Test\obj\Debug\QualiteSPPP.Test.GestionConstructeur.resources
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.Test\obj\Debug\QualiteSPPP.Test.Properties.Resources.resources
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.Test\obj\Debug\QualiteSPPP.Test.csproj.GenerateResource.Cache
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.Test\bin\Debug\QualiteSPPP.Test.exe
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.Test\bin\Debug\QualiteSPPP.Test.pdb
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.Test\bin\Debug\QualiteSPPP.DB.dll
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.Test\bin\Debug\QualiteSPPP.DB.pdb
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.Test\obj\Debug\QualiteSPPP.Test.exe
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.Test\obj\Debug\QualiteSPPP.Test.pdb

@@ -93,23 +93,17 @@
     <Compile Include="Admnistration\AjouterCategorie.Designer.cs">
       <DependentUpon>AjouterCategorie.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admnistration\AjouterClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admnistration\AjouterClient.Designer.cs">
-      <DependentUpon>AjouterClient.cs</DependentUpon>
-    </Compile>
     <Compile Include="Admnistration\AjouterConstructeur.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admnistration\AjouterConstructeur.Designer.cs">
       <DependentUpon>AjouterConstructeur.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admnistration\AjouterPeinture.cs">
+    <Compile Include="Admnistration\AjouterTeinte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admnistration\AjouterPeinture.Designer.cs">
-      <DependentUpon>AjouterPeinture.cs</DependentUpon>
+    <Compile Include="Admnistration\AjouterTeinte.Designer.cs">
+      <DependentUpon>AjouterTeinte.cs</DependentUpon>
     </Compile>
     <Compile Include="Admnistration\AjouterPieces.cs">
       <SubType>Form</SubType>
@@ -135,23 +129,11 @@
     <Compile Include="Admnistration\AjouterVehicule.Designer.cs">
       <DependentUpon>AjouterVehicule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Projet\AjoutProduit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Projet\AjoutProduit.Designer.cs">
-      <DependentUpon>AjoutProduit.cs</DependentUpon>
-    </Compile>
     <Compile Include="Labo\AjoutEchantillon.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Labo\AjoutEchantillon.Designer.cs">
       <DependentUpon>AjoutEchantillon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Projet\PiecePeintureProjet.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Projet\PiecePeintureProjet.Designer.cs">
-      <DependentUpon>PiecePeintureProjet.cs</DependentUpon>
     </Compile>
     <Compile Include="Projet\AjoutProjet.cs">
       <SubType>Form</SubType>
@@ -159,10 +141,10 @@
     <Compile Include="Projet\AjoutProjet.Designer.cs">
       <DependentUpon>AjoutProjet.cs</DependentUpon>
     </Compile>
-    <Compile Include="GraphiquePeinture.cs">
+    <Compile Include="Autres\GraphiquePeinture.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GraphiquePeinture.Designer.cs">
+    <Compile Include="Autres\GraphiquePeinture.Designer.cs">
       <DependentUpon>GraphiquePeinture.cs</DependentUpon>
     </Compile>
     <Compile Include="Admnistration\Identification_Page.cs">
@@ -171,37 +153,25 @@
     <Compile Include="Admnistration\Identification_Page.Designer.cs">
       <DependentUpon>Identification_Page.cs</DependentUpon>
     </Compile>
-    <Compile Include="NouveauTestNonNumerique.cs">
+    <Compile Include="Autres\NouveauTestNonNumerique.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NouveauTestNonNumerique.Designer.cs">
+    <Compile Include="Autres\NouveauTestNonNumerique.Designer.cs">
       <DependentUpon>NouveauTestNonNumerique.cs</DependentUpon>
     </Compile>
-    <Compile Include="NouveauTestNumerique.cs">
+    <Compile Include="Autres\NouveauTestNumerique.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NouveauTestNumerique.Designer.cs">
+    <Compile Include="Autres\NouveauTestNumerique.Designer.cs">
       <DependentUpon>NouveauTestNumerique.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuitterConfirmation.cs">
+    <Compile Include="Autres\QuitterConfirmation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuitterConfirmation.Designer.cs">
+    <Compile Include="Autres\QuitterConfirmation.Designer.cs">
       <DependentUpon>QuitterConfirmation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Projet\TestPiecePeinture.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Projet\TestPiecePeinture.Designer.cs">
-      <DependentUpon>TestPiecePeinture.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Labo\ResultatTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Labo\ResultatTest.Designer.cs">
-      <DependentUpon>ResultatTest.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Admnistration\Acceuil.resx">
       <DependentUpon>Acceuil.cs</DependentUpon>
@@ -209,14 +179,11 @@
     <EmbeddedResource Include="Admnistration\AjouterCategorie.resx">
       <DependentUpon>AjouterCategorie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admnistration\AjouterClient.resx">
-      <DependentUpon>AjouterClient.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Admnistration\AjouterConstructeur.resx">
       <DependentUpon>AjouterConstructeur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admnistration\AjouterPeinture.resx">
-      <DependentUpon>AjouterPeinture.cs</DependentUpon>
+    <EmbeddedResource Include="Admnistration\AjouterTeinte.resx">
+      <DependentUpon>AjouterTeinte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admnistration\AjouterPieces.resx">
       <DependentUpon>AjouterPieces.cs</DependentUpon>
@@ -230,7 +197,7 @@
     <EmbeddedResource Include="Admnistration\AjouterVehicule.resx">
       <DependentUpon>AjouterVehicule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GraphiquePeinture.resx">
+    <EmbeddedResource Include="Autres\GraphiquePeinture.resx">
       <DependentUpon>GraphiquePeinture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admnistration\Identification_Page.resx">
@@ -239,26 +206,14 @@
     <EmbeddedResource Include="Labo\AjoutEchantillon.resx">
       <DependentUpon>AjoutEchantillon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Labo\ResultatTest.resx">
-      <DependentUpon>ResultatTest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NouveauTestNonNumerique.resx">
+    <EmbeddedResource Include="Autres\NouveauTestNonNumerique.resx">
       <DependentUpon>NouveauTestNonNumerique.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NouveauTestNumerique.resx">
+    <EmbeddedResource Include="Autres\NouveauTestNumerique.resx">
       <DependentUpon>NouveauTestNumerique.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Projet\AjoutProduit.resx">
-      <DependentUpon>AjoutProduit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Projet\AjoutProjet.resx">
       <DependentUpon>AjoutProjet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Projet\PiecePeintureProjet.resx">
-      <DependentUpon>PiecePeintureProjet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Projet\TestPiecePeinture.resx">
-      <DependentUpon>TestPiecePeinture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -270,7 +225,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="QuitterConfirmation.resx">
+    <EmbeddedResource Include="Autres\QuitterConfirmation.resx">
       <DependentUpon>QuitterConfirmation.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

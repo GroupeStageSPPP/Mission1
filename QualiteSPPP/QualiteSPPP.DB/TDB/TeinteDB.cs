@@ -11,22 +11,23 @@ namespace QualiteSPPP.DB
     {	    
 	    public static String champs = "Nom,RisqueTeinte,ReferenceBase,L,A,B,Min,Norme,Max,ID_Constructeur,ID_Appret,ID_Vernis";
 	    public static String select = "SELECT Identifiant,"+champs+" FROM Teinte";
-	            
 
-	    public static List<Teinte> List()
+
+        public static List<Teinte> List(Int32 ID_Constructeur)
 	    {
 	        List<Teinte> listeTeinte = new List<Teinte>();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
-	        String requete = select+";";
+            String requete = select + " WHERE ID_Constructeur = @ID_Constructeur;";
 	   
 	        //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Parametres
+            commande.Parameters.AddWithValue("ID_Constructeur", ID_Constructeur);
 
             //Execution
             connection.Open();
@@ -43,9 +44,9 @@ namespace QualiteSPPP.DB
                 teinte.L = dataReader.GetInt32(4);
                 teinte.A = dataReader.GetInt32(5);
                 teinte.B = dataReader.GetInt32(6);
-                teinte.Min = dataReader.GetFloat(7);
-                teinte.Norm = dataReader.GetFloat(8);
-                teinte.Max = dataReader.GetFloat(9);
+                teinte.Min = dataReader.GetDouble(7);
+                teinte.Norme = dataReader.GetDouble(8);
+                teinte.Max = dataReader.GetDouble(9);
                 teinte.ID_Constructeur = dataReader.GetInt32(10);
                 teinte.ID_Appret = dataReader.GetInt32(11);
                 teinte.ID_Vernis = dataReader.GetInt32(12);
@@ -63,7 +64,7 @@ namespace QualiteSPPP.DB
 	        Teinte teinte = new Teinte();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+" WHERE Identifiant = @Identifiant;";
@@ -78,6 +79,7 @@ namespace QualiteSPPP.DB
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
             teinte.Identifiant      = dataReader.GetInt32(0);
             teinte.Nom              = dataReader.GetString(1);
             teinte.RisqueTeinte     = dataReader.GetString(2);
@@ -85,9 +87,9 @@ namespace QualiteSPPP.DB
             teinte.L                = dataReader.GetInt32(4);
             teinte.A                = dataReader.GetInt32(5);
             teinte.B                = dataReader.GetInt32(6);
-            teinte.Min              = dataReader.GetFloat(7);
-            teinte.Norm             = dataReader.GetFloat(8);
-            teinte.Max              = dataReader.GetFloat(9);
+            teinte.Min              = dataReader.GetDouble(7);
+            teinte.Norme            = dataReader.GetDouble(8);
+            teinte.Max              = dataReader.GetDouble(9);
             teinte.ID_Constructeur  = dataReader.GetInt32(10);
             teinte.ID_Appret        = dataReader.GetInt32(11);
             teinte.ID_Vernis        = dataReader.GetInt32(12);
@@ -100,7 +102,7 @@ namespace QualiteSPPP.DB
         public static Boolean Insert(Teinte teinte)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"INSERT INTO Teinte ("+champs+") VALUES (@Nom,@RisqueTeinte,@ReferenceBase,@L,@A,@B,@Min,@Norme,@Max,@ID_Constructeur,@ID_Appret,@ID_Vernis);"; 
@@ -117,7 +119,7 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("A",teinte.A);
             commande.Parameters.AddWithValue("B",teinte.B);
             commande.Parameters.AddWithValue("Min",teinte.Min);
-            commande.Parameters.AddWithValue("Norm",teinte.Norm);
+            commande.Parameters.AddWithValue("Norme",teinte.Norme);
             commande.Parameters.AddWithValue("Max",teinte.Max);
             commande.Parameters.AddWithValue("ID_Constructeur",teinte.ID_Constructeur);
             commande.Parameters.AddWithValue("ID_Appret",teinte.ID_Appret);
@@ -132,7 +134,7 @@ namespace QualiteSPPP.DB
         public static Boolean Update(Teinte teinte)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"UPDATE Teinte
@@ -154,7 +156,7 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("A",teinte.A);
             commande.Parameters.AddWithValue("B",teinte.B);
             commande.Parameters.AddWithValue("Min",teinte.Min);
-            commande.Parameters.AddWithValue("Norm",teinte.Norm);
+            commande.Parameters.AddWithValue("Norme",teinte.Norme);
             commande.Parameters.AddWithValue("Max",teinte.Max);
             commande.Parameters.AddWithValue("ID_Constructeur",teinte.ID_Constructeur);
             commande.Parameters.AddWithValue("ID_Appret",teinte.ID_Appret);
@@ -171,7 +173,7 @@ namespace QualiteSPPP.DB
         public static Boolean Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"DELETE Teinte
@@ -196,7 +198,7 @@ namespace QualiteSPPP.DB
 	        Int32 Identifiant = 0;
 	        
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
             //Requete
             String requete = @"SELECT  MAX(Identifiant) FROM Teinte;";
 
@@ -205,6 +207,7 @@ namespace QualiteSPPP.DB
 	    
 	        connection.Open();
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
 	        Identifiant = dataReader.GetInt32(0);
             connection.Close();
             return Identifiant; 

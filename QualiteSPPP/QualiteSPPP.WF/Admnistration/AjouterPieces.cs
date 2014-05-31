@@ -15,13 +15,11 @@ namespace QualiteSPPP.WinForm
         public AjouterPieces()
         {
             InitializeComponent();
-            //Fonction pour récuperer le nom du véhicule initialisé just avant.
-            comboBoxVehiculeAjoutPiece.Text = "[Nom du véhicule donné juste avant]";
         }
 
         private void buttonAjouterADMINISTRATIONPiece_Click(object sender, EventArgs e)
         {
-            if ((textBoxLibelleAjoutPiece.Text != "") && (textBoxReferenceAjoutPiece.Text != "") && (comboBoxVehiculeAjoutPiece.Text != "") && (comboBoxClientAjoutPiece.Text != "") && (comboBoxTypeAjoutPiece.Text != ""))
+            if (false)
             {
                 //fonction ajout pièce puis refresh listbox
             }
@@ -36,7 +34,7 @@ namespace QualiteSPPP.WinForm
         }
         private void buttonFinalisationAjoutPiece_Click(object sender, EventArgs e)
         {
-            if (listBoxPieces.Items.Count != 0)
+            if (LBCategorie.Items.Count != 0)
             {
                 //fonction creer pièces pour vehicule
             }

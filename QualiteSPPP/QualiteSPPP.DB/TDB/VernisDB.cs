@@ -18,7 +18,7 @@ namespace QualiteSPPP.DB
             List<Vernis> listeVernis = new List<Vernis>();
 
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete  
             String requete = select + ";";
@@ -38,9 +38,9 @@ namespace QualiteSPPP.DB
                 Vernis vernis = new Vernis();
                 vernis.Identifiant = dataReader.GetInt32(0);
                 vernis.Reference = dataReader.GetString(1);
-                vernis.Min = dataReader.GetFloat(2);
-                vernis.Norme = dataReader.GetFloat(3);
-                vernis.Max = dataReader.GetFloat(4);
+                vernis.Min = dataReader.GetDouble(2);
+                vernis.Norme = dataReader.GetDouble(3);
+                vernis.Max = dataReader.GetDouble(4);
                 listeVernis.Add(vernis);
             }
 
@@ -55,7 +55,7 @@ namespace QualiteSPPP.DB
             Vernis vernis = new Vernis();
 
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete  
             String requete = select + " WHERE Identifiant = @Identifiant;";
@@ -70,11 +70,12 @@ namespace QualiteSPPP.DB
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
             vernis.Identifiant = dataReader.GetInt32(0);
             vernis.Reference = dataReader.GetString(1);
-            vernis.Min = dataReader.GetFloat(2);
-            vernis.Norme = dataReader.GetFloat(3);
-            vernis.Max = dataReader.GetFloat(4);
+            vernis.Min = dataReader.GetDouble(2);
+            vernis.Norme = dataReader.GetDouble(3);
+            vernis.Max = dataReader.GetDouble(4);
             dataReader.Close();
             connection.Close();
 
@@ -84,7 +85,7 @@ namespace QualiteSPPP.DB
         public static Boolean Insert(Vernis vernis)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"INSERT INTO Vernis (" + champs + ") VALUES (@Reference,@Min,@Norme,@Max);";
@@ -109,7 +110,7 @@ namespace QualiteSPPP.DB
         public static Boolean Update(Vernis vernis)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"UPDATE Vernis
@@ -137,7 +138,7 @@ namespace QualiteSPPP.DB
         public static Boolean Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"DELETE Vernis
@@ -162,7 +163,7 @@ namespace QualiteSPPP.DB
         {
             Int32 Identifiant = 0;
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
             //Requete
             String requete = @"SELECT  MAX(Identifiant) FROM Vernis;";
 
@@ -171,6 +172,7 @@ namespace QualiteSPPP.DB
 
             connection.Open();
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
             Identifiant = dataReader.GetInt32(0);
             connection.Close();
             return Identifiant;

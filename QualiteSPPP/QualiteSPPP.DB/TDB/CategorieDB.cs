@@ -18,7 +18,7 @@ namespace QualiteSPPP.DB
 	        List<Categorie> listeCategorie = new List<Categorie>();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+";";
@@ -52,7 +52,7 @@ namespace QualiteSPPP.DB
 	        Categorie categorie = new Categorie();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+" WHERE Identifiant = @Identifiant;";
@@ -67,6 +67,7 @@ namespace QualiteSPPP.DB
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
             categorie.Identifiant = dataReader.GetInt32(0);
             categorie.Nom         = dataReader.GetString(1);
 
@@ -79,7 +80,7 @@ namespace QualiteSPPP.DB
         public static Boolean Insert(Categorie categorie)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"INSERT INTO Categorie ("+champs+") VALUES (@Nom);"; 
@@ -100,7 +101,7 @@ namespace QualiteSPPP.DB
         public static Boolean Update(Categorie categorie)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"UPDATE Categorie
@@ -125,7 +126,7 @@ namespace QualiteSPPP.DB
         public static Boolean Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"DELETE Categorie
@@ -149,7 +150,7 @@ namespace QualiteSPPP.DB
 	    {
 	        Int32 Identifiant = 0;
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
             //Requete
             String requete = @"SELECT  MAX(Identifiant) FROM Categorie;";
 
@@ -158,6 +159,7 @@ namespace QualiteSPPP.DB
 	    
 	        connection.Open();
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
 	        Identifiant = dataReader.GetInt32(0);
             connection.Close();
             return Identifiant; 

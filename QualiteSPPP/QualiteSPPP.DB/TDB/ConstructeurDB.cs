@@ -18,7 +18,7 @@ namespace QualiteSPPP.DB
 	        List<Constructeur> listeConstructeur = new List<Constructeur>();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+";";
@@ -52,7 +52,7 @@ namespace QualiteSPPP.DB
 	        Constructeur constructeur = new Constructeur();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+" WHERE Identifiant = @Identifiant;";
@@ -67,6 +67,7 @@ namespace QualiteSPPP.DB
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
             constructeur.Identifiant = dataReader.GetInt32(0);
             constructeur.Nom         = dataReader.GetString(1);
 
@@ -79,7 +80,7 @@ namespace QualiteSPPP.DB
         public static Boolean Insert(Constructeur constructeur)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"INSERT INTO Constructeur ("+champs+") VALUES (@Nom);"; 
@@ -100,7 +101,7 @@ namespace QualiteSPPP.DB
         public static Boolean Update(Constructeur constructeur)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"UPDATE Constructeur
@@ -125,7 +126,7 @@ namespace QualiteSPPP.DB
         public static Boolean Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"DELETE Constructeur
@@ -147,18 +148,21 @@ namespace QualiteSPPP.DB
         }	
         public static Int32 LastID()
 	    {
-	        Int32 Identifiant = 0;
+	        Int32 Identifiant;
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
             //Requete
-            String requete = @"SELECT  MAX(Identifiant) FROM Constructeur;";
+            String requete = @"SELECT Max(Identifiant) FROM Constructeur";
 
             //Commande
-            SqlCommand commande = new SqlCommand(requete, connection);
-	    
+	        SqlCommand commande = new SqlCommand(requete, connection);
 	        connection.Open();
+            
+
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
 	        Identifiant = dataReader.GetInt32(0);
+            dataReader.Close();
             connection.Close();
             return Identifiant; 
 	    } 

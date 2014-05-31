@@ -18,7 +18,7 @@ namespace QualiteSPPP.DB
 	        List<Echantillon> listeEchantillon = new List<Echantillon>();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+";";
@@ -39,7 +39,7 @@ namespace QualiteSPPP.DB
 	       echantillon.Identifiant = dataReader.GetInt32(0);
 	       echantillon.NumLot = dataReader.GetString(1);
            echantillon.DatePeinture = dataReader.GetDateTime(2);
-           echantillon.ISconforme = dataReader.GetByte(3);
+           echantillon.ISconforme = dataReader.GetInt16(3);
            echantillon.ID_Produit = dataReader.GetInt32(4);
 	       listeEchantillon.Add(echantillon);
             }
@@ -55,7 +55,7 @@ namespace QualiteSPPP.DB
 	        Echantillon echantillon = new Echantillon();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+" WHERE Identifiant = @Identifiant;";
@@ -70,10 +70,11 @@ namespace QualiteSPPP.DB
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
             echantillon.Identifiant  = dataReader.GetInt32(0);
             echantillon.NumLot       = dataReader.GetString(1);
             echantillon.DatePeinture = dataReader.GetDateTime(2);
-            echantillon.ISconforme   = dataReader.GetByte(3);
+            echantillon.ISconforme   = dataReader.GetInt16(3);
             echantillon.ID_Produit   = dataReader.GetInt32(4);
 
             dataReader.Close();
@@ -85,7 +86,7 @@ namespace QualiteSPPP.DB
         public static Boolean Insert(Echantillon echantillon)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"INSERT INTO Echantillon (" + champs + ") VALUES (@NumLot,@DatePeinture,@ISconforme,@ID_Produit);"; 
@@ -109,7 +110,7 @@ namespace QualiteSPPP.DB
         public static Boolean Update(Echantillon echantillon)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"UPDATE Echantillon
@@ -137,7 +138,7 @@ namespace QualiteSPPP.DB
         public static Boolean Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"DELETE Echantillon
@@ -162,7 +163,7 @@ namespace QualiteSPPP.DB
 	{
 	    Int32 Identifiant = 0;
 	    //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
             //Requete
             String requete = @"SELECT  MAX(Identifiant) FROM Echantillon;";
 
@@ -171,6 +172,7 @@ namespace QualiteSPPP.DB
 	    
 	    connection.Open();
             SqlDataReader dataReader = commande.ExecuteReader();
+        dataReader.Read();
 	    Identifiant = dataReader.GetInt32(0);
             connection.Close();
 	    return Identifiant; 

@@ -18,7 +18,7 @@ namespace QualiteSPPP.DB
             List<Test_Ctor_Teinte> listeTest_Ctor_Teinte = new List<Test_Ctor_Teinte>();
 
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete  
             String requete = select + ";";
@@ -32,14 +32,15 @@ namespace QualiteSPPP.DB
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
 
             while (dataReader.Read())
             {
                 Test_Ctor_Teinte test_ctor_teinte = new Test_Ctor_Teinte();
                 test_ctor_teinte.Identifiant = dataReader.GetInt32(0);
-                test_ctor_teinte.Min = dataReader.GetFloat(1);
-                test_ctor_teinte.Norme = dataReader.GetFloat(2);
-                test_ctor_teinte.Max = dataReader.GetFloat(3);
+                test_ctor_teinte.Min = dataReader.GetDouble(1);
+                test_ctor_teinte.Norme = dataReader.GetDouble(2);
+                test_ctor_teinte.Max = dataReader.GetDouble(3);
                 test_ctor_teinte.ID_Test = dataReader.GetInt32(4);
                 test_ctor_teinte.ID_Constructeur = dataReader.GetInt32(5);
                 test_ctor_teinte.ID_Teinte = dataReader.GetInt32(6);
@@ -57,7 +58,7 @@ namespace QualiteSPPP.DB
             Test_Ctor_Teinte test_ctor_teinte = new Test_Ctor_Teinte();
 
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete  
             String requete = select + " WHERE Identifiant = @Identifiant;";
@@ -72,10 +73,11 @@ namespace QualiteSPPP.DB
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
             test_ctor_teinte.Identifiant = dataReader.GetInt32(0);
-            test_ctor_teinte.Min = dataReader.GetFloat(1);
-            test_ctor_teinte.Norme = dataReader.GetFloat(2);
-            test_ctor_teinte.Max = dataReader.GetFloat(3);
+            test_ctor_teinte.Min = dataReader.GetDouble(1);
+            test_ctor_teinte.Norme = dataReader.GetDouble(2);
+            test_ctor_teinte.Max = dataReader.GetDouble(3);
             test_ctor_teinte.ID_Test = dataReader.GetInt32(4);
             test_ctor_teinte.ID_Constructeur = dataReader.GetInt32(5);
             test_ctor_teinte.ID_Teinte = dataReader.GetInt32(6);
@@ -88,7 +90,7 @@ namespace QualiteSPPP.DB
         public static Boolean Insert(Test_Ctor_Teinte test_ctor_teinte)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"INSERT INTO Test_Ctor_Teinte (" + champs + ") VALUES (@Min,@Norme,@Max,@ID_Test,@ID_Constructeur,@ID_Teinte);";
@@ -114,7 +116,7 @@ namespace QualiteSPPP.DB
         public static Boolean Update(Test_Ctor_Teinte test_ctor_teinte)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"UPDATE Test_Ctor_Teinte
@@ -144,7 +146,7 @@ namespace QualiteSPPP.DB
         public static Boolean Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"DELETE Test_Ctor_Teinte

@@ -471,22 +471,20 @@ namespace QualiteSPPP.WinForm
             }
         #endregion
 
-            private void button11_Click(object sender, EventArgs e)
+        private void button11_Click(object sender, EventArgs e)
+        {
+            AjouterVehicule ajouterVehicule = new AjouterVehicule();
+            ajouterVehicule.ShowDialog();
+        }
+        private void button3_Click(object sender, EventArgs e)
             {
-                AjouterVehicule ajouterVehicule = new AjouterVehicule();
-                ajouterVehicule.ShowDialog();
+                AjoutProjet ajoutProjet = new AjoutProjet();
+                ajoutProjet.ShowDialog();
             }
-
-            private void button3_Click(object sender, EventArgs e)
-            {
-                AjoutProjet AP = new AjoutProjet();
-                AP.ShowDialog();
-            }
-
-            private void button4_Click(object sender, EventArgs e)
-            {
-                AjoutEchantillon AE = new AjoutEchantillon();
-                AE.ShowDialog();
-            }
+        private void buttonAjoutEchantillionOPTIONAccueil_Click(object sender, EventArgs e)
+        {
+            AjoutEchantillon ajoutEchantillon = new AjoutEchantillon();
+            ajoutEchantillon.ShowDialog();
+        }
     }
 }

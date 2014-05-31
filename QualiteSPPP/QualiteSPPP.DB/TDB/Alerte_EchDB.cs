@@ -18,7 +18,7 @@ namespace QualiteSPPP.DB
 	        List<Alerte_Ech> listeAlerte_Ech = new List<Alerte_Ech>();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+";";
@@ -54,7 +54,7 @@ namespace QualiteSPPP.DB
 	        Alerte_Ech alerte_Ech = new Alerte_Ech();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+" WHERE Identifiant = @Identifiant;";
@@ -69,6 +69,7 @@ namespace QualiteSPPP.DB
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
             alerte_Ech.Identifiant = dataReader.GetInt32(0);
             alerte_Ech.Message = dataReader.GetString(1);
             alerte_Ech.Date = dataReader.GetDateTime(2);
@@ -82,7 +83,7 @@ namespace QualiteSPPP.DB
         public static Boolean Insert(Alerte_Ech alerte_Ech)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"INSERT INTO Alerte_Ech (" + champs + ") VALUES (Message,Date,ID_Echantillon);"; 
@@ -105,7 +106,7 @@ namespace QualiteSPPP.DB
         public static Boolean Update(Alerte_Ech alerte_Ech)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"UPDATE Alerte_Ech
@@ -132,7 +133,7 @@ namespace QualiteSPPP.DB
         public static Boolean Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"DELETE Alerte_Ech
@@ -157,7 +158,7 @@ namespace QualiteSPPP.DB
 	{
 	    Int32 Identifiant = 0;
 	    //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
             //Requete
             String requete = @"SELECT  MAX(Identifiant) FROM Alerte_Ech;";
 
@@ -165,7 +166,8 @@ namespace QualiteSPPP.DB
             SqlCommand commande = new SqlCommand(requete, connection);
 	    
 	    connection.Open();
-            SqlDataReader dataReader = commande.ExecuteReader();
+        SqlDataReader dataReader = commande.ExecuteReader();
+        dataReader.Read();
 	    Identifiant = dataReader.GetInt32(0);
             connection.Close();
 	    return Identifiant; 

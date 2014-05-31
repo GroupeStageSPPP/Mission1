@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QualiteSPPP.DB;
 
 namespace QualiteSPPP.WinForm
 {
@@ -24,7 +25,9 @@ namespace QualiteSPPP.WinForm
 
         private void buttonAjoutConstructeur_Click(object sender, EventArgs e)
         {
-            //Fonction ajouter constructeur
+            Constructeur C = new Constructeur();
+            C.Nom = this.TBnom.Text;
+            ConstructeurDB.Insert(C);
             Close();
         }
     }

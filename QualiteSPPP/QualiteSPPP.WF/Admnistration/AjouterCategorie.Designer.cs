@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TBnom = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonRetour = new System.Windows.Forms.Button();
             this.buttonAjouter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // TBnom
             // 
-            this.textBox1.Location = new System.Drawing.Point(55, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 20);
-            this.textBox1.TabIndex = 7;
+            this.TBnom.Location = new System.Drawing.Point(55, 6);
+            this.TBnom.Name = "TBnom";
+            this.TBnom.Size = new System.Drawing.Size(151, 20);
+            this.TBnom.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
+            this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Libelle";
+            this.label1.Text = "Nom";
             // 
             // buttonRetour
             // 
@@ -76,7 +76,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(224, 64);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TBnom);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonRetour);
             this.Controls.Add(this.buttonAjouter);
@@ -90,7 +90,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TBnom;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonRetour;
         private System.Windows.Forms.Button buttonAjouter;

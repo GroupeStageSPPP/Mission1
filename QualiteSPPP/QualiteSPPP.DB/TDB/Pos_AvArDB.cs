@@ -18,7 +18,7 @@ namespace QualiteSPPP.DB
 	        List<Pos_AvAr> listePos_AvAr = new List<Pos_AvAr>();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+";";
@@ -52,7 +52,7 @@ namespace QualiteSPPP.DB
 	        Pos_AvAr pos_AvAr = new Pos_AvAr();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+" WHERE Identifiant = @Identifiant;";
@@ -67,6 +67,7 @@ namespace QualiteSPPP.DB
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
             pos_AvAr.Identifiant = dataReader.GetInt32(0);
             pos_AvAr.Position         = dataReader.GetString(1);
 
@@ -79,7 +80,7 @@ namespace QualiteSPPP.DB
         public static Boolean Insert(Pos_AvAr pos_AvAr)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"INSERT INTO Pos_AvAr ("+champs+") VALUES (@Position);"; 
@@ -100,7 +101,7 @@ namespace QualiteSPPP.DB
         public static Boolean Update(Pos_AvAr pos_AvAr)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"UPDATE Pos_AvAr
@@ -125,7 +126,7 @@ namespace QualiteSPPP.DB
         public static Boolean Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"DELETE Pos_AvAr
@@ -149,7 +150,7 @@ namespace QualiteSPPP.DB
 	    {
 	        Int32 Identifiant = 0;
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
             //Requete
             String requete = @"SELECT  MAX(Identifiant) FROM Pos_AvAr;";
 
@@ -158,6 +159,7 @@ namespace QualiteSPPP.DB
 	    
 	        connection.Open();
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
 	        Identifiant = dataReader.GetInt32(0);
             connection.Close();
             return Identifiant; 

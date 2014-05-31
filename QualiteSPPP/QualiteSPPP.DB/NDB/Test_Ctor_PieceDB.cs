@@ -18,7 +18,7 @@ namespace QualiteSPPP.DB
 	        List<Test_Ctor_Piece> listeTest_Ctor_Piece = new List<Test_Ctor_Piece>();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
 	        String requete = select+";";
@@ -54,7 +54,7 @@ namespace QualiteSPPP.DB
 	        Test_Ctor_Piece test_ctor_piece = new Test_Ctor_Piece();
 	   
 	        //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
             String requete = select + " WHERE Identifiant = @Identifiant;";
@@ -69,6 +69,7 @@ namespace QualiteSPPP.DB
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
             test_ctor_piece.Identifiant = dataReader.GetInt32(0);
             test_ctor_piece.ID_Test = dataReader.GetInt32(1);
             test_ctor_piece.ID_Constructeur = dataReader.GetInt32(2);
@@ -82,7 +83,7 @@ namespace QualiteSPPP.DB
         public static Boolean Insert(Test_Ctor_Piece test_ctor_piece)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"INSERT INTO Test_Ctor_Piece ("+champs+") VALUES (@ID_Test,@ID_Constructeur,@ID_Piece);"; 
@@ -105,7 +106,7 @@ namespace QualiteSPPP.DB
         public static Boolean Update(Test_Ctor_Piece test_ctor_piece)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"UPDATE Test_Ctor_Piece
@@ -132,7 +133,7 @@ namespace QualiteSPPP.DB
         public static Boolean Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.Connection;
+            SqlConnection connection = DataBase.Connection();
 
             //Requete
             String requete = @"DELETE Test_Ctor_Piece
