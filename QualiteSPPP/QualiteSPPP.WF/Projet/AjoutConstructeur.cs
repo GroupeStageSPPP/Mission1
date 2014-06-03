@@ -704,7 +704,6 @@ namespace QualiteSPPP.WinForm
             
         }
 
-
         private void RefreshCBE3()
         {
             this.LBtestE3.DataSource = TestDB.List();
@@ -717,6 +716,14 @@ namespace QualiteSPPP.WinForm
 
             this.AddTestCtor.Visible = false;
             this.UpdateTestCtor.Visible = false;
+        }
+
+        private void BsuivantAjoutConstructeurEtape3_Click(object sender, EventArgs e)
+        {
+            panelAjoutConstructeurEtape1.Visible = false;
+            panelAjoutConstructeurEtape2.Visible = false;
+            panelAjoutConstructeurEtape3.Visible = false;
+            panelAjoutConstructeurEtape4.Visible = true;
         }
         #endregion
         #region Etape 4
@@ -906,5 +913,6 @@ namespace QualiteSPPP.WinForm
 
 
         #endregion
+
     }
 }

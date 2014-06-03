@@ -43,19 +43,8 @@
             this.BupdateTestCtorE3 = new System.Windows.Forms.Button();
             this.BdeleteTestCtorE3 = new System.Windows.Forms.Button();
             this.PanelTestCtor = new System.Windows.Forms.Panel();
-            this.AddTestCtor = new System.Windows.Forms.Panel();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.TBmaxAddE3 = new System.Windows.Forms.TextBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.TBnormeAddE3 = new System.Windows.Forms.TextBox();
-            this.TBminAddE3 = new System.Windows.Forms.TextBox();
-            this.TBtypeAddE3 = new System.Windows.Forms.TextBox();
-            this.TBdescAddE3 = new System.Windows.Forms.RichTextBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.BvAddE3 = new System.Windows.Forms.Button();
             this.UpdateTestCtor = new System.Windows.Forms.Panel();
+            this.BaUpdateE3 = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.TBmaxUpdateE3 = new System.Windows.Forms.TextBox();
@@ -67,6 +56,19 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.BvUpdateE3 = new System.Windows.Forms.Button();
+            this.AddTestCtor = new System.Windows.Forms.Panel();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.TBmaxAddE3 = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.TBnormeAddE3 = new System.Windows.Forms.TextBox();
+            this.TBminAddE3 = new System.Windows.Forms.TextBox();
+            this.TBtypeAddE3 = new System.Windows.Forms.TextBox();
+            this.TBdescAddE3 = new System.Windows.Forms.RichTextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.BaAddE3 = new System.Windows.Forms.Button();
+            this.BvAddE3 = new System.Windows.Forms.Button();
             this.TestCtorError = new System.Windows.Forms.Label();
             this.BsuivantAjoutConstructeurEtape3 = new System.Windows.Forms.Button();
             this.LBtestCtorE3 = new System.Windows.Forms.ListBox();
@@ -214,8 +216,6 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.BaAddE3 = new System.Windows.Forms.Button();
-            this.BaUpdateE3 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -226,8 +226,8 @@
             this.panelEcranPrincipal.SuspendLayout();
             this.panelAjoutConstructeurEtape3.SuspendLayout();
             this.PanelTestCtor.SuspendLayout();
-            this.AddTestCtor.SuspendLayout();
             this.UpdateTestCtor.SuspendLayout();
+            this.AddTestCtor.SuspendLayout();
             this.panelAjoutConstructeurEtape1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer9)).BeginInit();
             this.splitContainer9.Panel1.SuspendLayout();
@@ -464,6 +464,131 @@
             this.PanelTestCtor.Size = new System.Drawing.Size(234, 223);
             this.PanelTestCtor.TabIndex = 107;
             // 
+            // UpdateTestCtor
+            // 
+            this.UpdateTestCtor.Controls.Add(this.BaUpdateE3);
+            this.UpdateTestCtor.Controls.Add(this.label27);
+            this.UpdateTestCtor.Controls.Add(this.label28);
+            this.UpdateTestCtor.Controls.Add(this.TBmaxUpdateE3);
+            this.UpdateTestCtor.Controls.Add(this.label29);
+            this.UpdateTestCtor.Controls.Add(this.TBnormeUpdateE3);
+            this.UpdateTestCtor.Controls.Add(this.TBminUpdateE3);
+            this.UpdateTestCtor.Controls.Add(this.TBtypeUpdateE3);
+            this.UpdateTestCtor.Controls.Add(this.TBdescUpdateE3);
+            this.UpdateTestCtor.Controls.Add(this.label30);
+            this.UpdateTestCtor.Controls.Add(this.label31);
+            this.UpdateTestCtor.Controls.Add(this.BvUpdateE3);
+            this.UpdateTestCtor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UpdateTestCtor.Location = new System.Drawing.Point(0, 0);
+            this.UpdateTestCtor.Margin = new System.Windows.Forms.Padding(0);
+            this.UpdateTestCtor.Name = "UpdateTestCtor";
+            this.UpdateTestCtor.Size = new System.Drawing.Size(234, 223);
+            this.UpdateTestCtor.TabIndex = 2;
+            this.UpdateTestCtor.Visible = false;
+            // 
+            // BaUpdateE3
+            // 
+            this.BaUpdateE3.Location = new System.Drawing.Point(12, 193);
+            this.BaUpdateE3.Name = "BaUpdateE3";
+            this.BaUpdateE3.Size = new System.Drawing.Size(91, 23);
+            this.BaUpdateE3.TabIndex = 104;
+            this.BaUpdateE3.Text = "Annuler";
+            this.BaUpdateE3.UseVisualStyleBackColor = true;
+            this.BaUpdateE3.Click += new System.EventHandler(this.BaUpdateE3_Click);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(43, 146);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(51, 13);
+            this.label27.TabIndex = 100;
+            this.label27.Text = "Maximum";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(4, 120);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(90, 13);
+            this.label28.TabIndex = 101;
+            this.label28.Text = "Recommandation";
+            // 
+            // TBmaxUpdateE3
+            // 
+            this.TBmaxUpdateE3.Location = new System.Drawing.Point(100, 146);
+            this.TBmaxUpdateE3.Name = "TBmaxUpdateE3";
+            this.TBmaxUpdateE3.Size = new System.Drawing.Size(121, 20);
+            this.TBmaxUpdateE3.TabIndex = 97;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(46, 94);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(48, 13);
+            this.label29.TabIndex = 102;
+            this.label29.Text = "Minimum";
+            // 
+            // TBnormeUpdateE3
+            // 
+            this.TBnormeUpdateE3.Location = new System.Drawing.Point(100, 120);
+            this.TBnormeUpdateE3.Name = "TBnormeUpdateE3";
+            this.TBnormeUpdateE3.Size = new System.Drawing.Size(121, 20);
+            this.TBnormeUpdateE3.TabIndex = 98;
+            // 
+            // TBminUpdateE3
+            // 
+            this.TBminUpdateE3.Location = new System.Drawing.Point(100, 94);
+            this.TBminUpdateE3.Name = "TBminUpdateE3";
+            this.TBminUpdateE3.Size = new System.Drawing.Size(121, 20);
+            this.TBminUpdateE3.TabIndex = 99;
+            // 
+            // TBtypeUpdateE3
+            // 
+            this.TBtypeUpdateE3.Location = new System.Drawing.Point(100, 60);
+            this.TBtypeUpdateE3.Name = "TBtypeUpdateE3";
+            this.TBtypeUpdateE3.ReadOnly = true;
+            this.TBtypeUpdateE3.Size = new System.Drawing.Size(121, 20);
+            this.TBtypeUpdateE3.TabIndex = 96;
+            // 
+            // TBdescUpdateE3
+            // 
+            this.TBdescUpdateE3.Location = new System.Drawing.Point(100, 7);
+            this.TBdescUpdateE3.Name = "TBdescUpdateE3";
+            this.TBdescUpdateE3.ReadOnly = true;
+            this.TBdescUpdateE3.Size = new System.Drawing.Size(121, 47);
+            this.TBdescUpdateE3.TabIndex = 95;
+            this.TBdescUpdateE3.Text = "";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(63, 64);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(31, 13);
+            this.label30.TabIndex = 93;
+            this.label30.Text = "Type";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(34, 10);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(60, 13);
+            this.label31.TabIndex = 94;
+            this.label31.Text = "Description";
+            // 
+            // BvUpdateE3
+            // 
+            this.BvUpdateE3.Location = new System.Drawing.Point(130, 193);
+            this.BvUpdateE3.Name = "BvUpdateE3";
+            this.BvUpdateE3.Size = new System.Drawing.Size(91, 23);
+            this.BvUpdateE3.TabIndex = 83;
+            this.BvUpdateE3.Text = "Valider";
+            this.BvUpdateE3.UseVisualStyleBackColor = true;
+            this.BvUpdateE3.Click += new System.EventHandler(this.BvUpdateE3_Click);
+            // 
             // AddTestCtor
             // 
             this.AddTestCtor.Controls.Add(this.label32);
@@ -569,6 +694,16 @@
             this.label37.TabIndex = 106;
             this.label37.Text = "Description";
             // 
+            // BaAddE3
+            // 
+            this.BaAddE3.Location = new System.Drawing.Point(8, 191);
+            this.BaAddE3.Name = "BaAddE3";
+            this.BaAddE3.Size = new System.Drawing.Size(91, 23);
+            this.BaAddE3.TabIndex = 103;
+            this.BaAddE3.Text = "Annuler";
+            this.BaAddE3.UseVisualStyleBackColor = true;
+            this.BaAddE3.Click += new System.EventHandler(this.BaAddE3_Click);
+            // 
             // BvAddE3
             // 
             this.BvAddE3.Location = new System.Drawing.Point(135, 191);
@@ -578,121 +713,6 @@
             this.BvAddE3.Text = "Valider";
             this.BvAddE3.UseVisualStyleBackColor = true;
             this.BvAddE3.Click += new System.EventHandler(this.BvAddE3_Click);
-            // 
-            // UpdateTestCtor
-            // 
-            this.UpdateTestCtor.Controls.Add(this.BaUpdateE3);
-            this.UpdateTestCtor.Controls.Add(this.label27);
-            this.UpdateTestCtor.Controls.Add(this.label28);
-            this.UpdateTestCtor.Controls.Add(this.TBmaxUpdateE3);
-            this.UpdateTestCtor.Controls.Add(this.label29);
-            this.UpdateTestCtor.Controls.Add(this.TBnormeUpdateE3);
-            this.UpdateTestCtor.Controls.Add(this.TBminUpdateE3);
-            this.UpdateTestCtor.Controls.Add(this.TBtypeUpdateE3);
-            this.UpdateTestCtor.Controls.Add(this.TBdescUpdateE3);
-            this.UpdateTestCtor.Controls.Add(this.label30);
-            this.UpdateTestCtor.Controls.Add(this.label31);
-            this.UpdateTestCtor.Controls.Add(this.BvUpdateE3);
-            this.UpdateTestCtor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UpdateTestCtor.Location = new System.Drawing.Point(0, 0);
-            this.UpdateTestCtor.Margin = new System.Windows.Forms.Padding(0);
-            this.UpdateTestCtor.Name = "UpdateTestCtor";
-            this.UpdateTestCtor.Size = new System.Drawing.Size(234, 223);
-            this.UpdateTestCtor.TabIndex = 2;
-            this.UpdateTestCtor.Visible = false;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(43, 146);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(51, 13);
-            this.label27.TabIndex = 100;
-            this.label27.Text = "Maximum";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(4, 120);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(90, 13);
-            this.label28.TabIndex = 101;
-            this.label28.Text = "Recommandation";
-            // 
-            // TBmaxUpdateE3
-            // 
-            this.TBmaxUpdateE3.Location = new System.Drawing.Point(100, 146);
-            this.TBmaxUpdateE3.Name = "TBmaxUpdateE3";
-            this.TBmaxUpdateE3.Size = new System.Drawing.Size(121, 20);
-            this.TBmaxUpdateE3.TabIndex = 97;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(46, 94);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(48, 13);
-            this.label29.TabIndex = 102;
-            this.label29.Text = "Minimum";
-            // 
-            // TBnormeUpdateE3
-            // 
-            this.TBnormeUpdateE3.Location = new System.Drawing.Point(100, 120);
-            this.TBnormeUpdateE3.Name = "TBnormeUpdateE3";
-            this.TBnormeUpdateE3.Size = new System.Drawing.Size(121, 20);
-            this.TBnormeUpdateE3.TabIndex = 98;
-            // 
-            // TBminUpdateE3
-            // 
-            this.TBminUpdateE3.Location = new System.Drawing.Point(100, 94);
-            this.TBminUpdateE3.Name = "TBminUpdateE3";
-            this.TBminUpdateE3.Size = new System.Drawing.Size(121, 20);
-            this.TBminUpdateE3.TabIndex = 99;
-            // 
-            // TBtypeUpdateE3
-            // 
-            this.TBtypeUpdateE3.Location = new System.Drawing.Point(100, 60);
-            this.TBtypeUpdateE3.Name = "TBtypeUpdateE3";
-            this.TBtypeUpdateE3.ReadOnly = true;
-            this.TBtypeUpdateE3.Size = new System.Drawing.Size(121, 20);
-            this.TBtypeUpdateE3.TabIndex = 96;
-            // 
-            // TBdescUpdateE3
-            // 
-            this.TBdescUpdateE3.Location = new System.Drawing.Point(100, 7);
-            this.TBdescUpdateE3.Name = "TBdescUpdateE3";
-            this.TBdescUpdateE3.ReadOnly = true;
-            this.TBdescUpdateE3.Size = new System.Drawing.Size(121, 47);
-            this.TBdescUpdateE3.TabIndex = 95;
-            this.TBdescUpdateE3.Text = "";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(63, 64);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(31, 13);
-            this.label30.TabIndex = 93;
-            this.label30.Text = "Type";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(34, 10);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(60, 13);
-            this.label31.TabIndex = 94;
-            this.label31.Text = "Description";
-            // 
-            // BvUpdateE3
-            // 
-            this.BvUpdateE3.Location = new System.Drawing.Point(130, 193);
-            this.BvUpdateE3.Name = "BvUpdateE3";
-            this.BvUpdateE3.Size = new System.Drawing.Size(91, 23);
-            this.BvUpdateE3.TabIndex = 83;
-            this.BvUpdateE3.Text = "Valider";
-            this.BvUpdateE3.UseVisualStyleBackColor = true;
-            this.BvUpdateE3.Click += new System.EventHandler(this.BvUpdateE3_Click);
             // 
             // TestCtorError
             // 
@@ -712,6 +732,7 @@
             this.BsuivantAjoutConstructeurEtape3.TabIndex = 102;
             this.BsuivantAjoutConstructeurEtape3.Text = "Suivant";
             this.BsuivantAjoutConstructeurEtape3.UseVisualStyleBackColor = true;
+            this.BsuivantAjoutConstructeurEtape3.Click += new System.EventHandler(this.BsuivantAjoutConstructeurEtape3_Click);
             // 
             // LBtestCtorE3
             // 
@@ -2219,26 +2240,6 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
-            // BaAddE3
-            // 
-            this.BaAddE3.Location = new System.Drawing.Point(8, 191);
-            this.BaAddE3.Name = "BaAddE3";
-            this.BaAddE3.Size = new System.Drawing.Size(91, 23);
-            this.BaAddE3.TabIndex = 103;
-            this.BaAddE3.Text = "Annuler";
-            this.BaAddE3.UseVisualStyleBackColor = true;
-            this.BaAddE3.Click += new System.EventHandler(this.BaAddE3_Click);
-            // 
-            // BaUpdateE3
-            // 
-            this.BaUpdateE3.Location = new System.Drawing.Point(12, 193);
-            this.BaUpdateE3.Name = "BaUpdateE3";
-            this.BaUpdateE3.Size = new System.Drawing.Size(91, 23);
-            this.BaUpdateE3.TabIndex = 104;
-            this.BaUpdateE3.Text = "Annuler";
-            this.BaUpdateE3.UseVisualStyleBackColor = true;
-            this.BaUpdateE3.Click += new System.EventHandler(this.BaUpdateE3_Click);
-            // 
             // AjoutConstructeur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2263,10 +2264,10 @@
             this.panelAjoutConstructeurEtape3.ResumeLayout(false);
             this.panelAjoutConstructeurEtape3.PerformLayout();
             this.PanelTestCtor.ResumeLayout(false);
-            this.AddTestCtor.ResumeLayout(false);
-            this.AddTestCtor.PerformLayout();
             this.UpdateTestCtor.ResumeLayout(false);
             this.UpdateTestCtor.PerformLayout();
+            this.AddTestCtor.ResumeLayout(false);
+            this.AddTestCtor.PerformLayout();
             this.panelAjoutConstructeurEtape1.ResumeLayout(false);
             this.splitContainer9.Panel1.ResumeLayout(false);
             this.splitContainer9.Panel2.ResumeLayout(false);
