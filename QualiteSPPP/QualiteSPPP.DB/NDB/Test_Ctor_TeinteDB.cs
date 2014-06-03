@@ -52,6 +52,40 @@ namespace QualiteSPPP.DB
 
             return listeTest_Ctor_Teinte;
         }
+        public static Test_Ctor_Teinte Get(Int32 ID_Test, Int32 ID_Teinte)
+        {
+            Test_Ctor_Teinte test_ctor_teinte = new Test_Ctor_Teinte();
+
+            //Connection
+            SqlConnection connection = DataBase.Connection();
+
+            //Requete  
+            String requete = select + " WHERE ID_Test=@ID_Test AND ID_Teinte=@ID_Teinte;";
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("ID_Test", ID_Test);
+            commande.Parameters.AddWithValue("ID_Teinte", ID_Teinte);
+
+            //Execution
+            connection.Open();
+
+            SqlDataReader dataReader = commande.ExecuteReader();
+            dataReader.Read();
+            test_ctor_teinte.Identifiant = dataReader.GetInt32(0);
+            test_ctor_teinte.Min = dataReader.GetDouble(1);
+            test_ctor_teinte.Norme = dataReader.GetDouble(2);
+            test_ctor_teinte.Max = dataReader.GetDouble(3);
+            test_ctor_teinte.ID_Test = dataReader.GetInt32(4);
+            test_ctor_teinte.ID_Constructeur = dataReader.GetInt32(5);
+            test_ctor_teinte.ID_Teinte = dataReader.GetInt32(6);
+            dataReader.Close();
+            connection.Close();
+
+            return test_ctor_teinte;
+        }
 
         public static Test_Ctor_Teinte Get(Int32 Identifiant)
         {
@@ -87,6 +121,8 @@ namespace QualiteSPPP.DB
             return test_ctor_teinte;
         }
 
+        
+
         public static Boolean Insert(Test_Ctor_Teinte test_ctor_teinte)
         {
             //Connection
@@ -104,7 +140,6 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Norme", test_ctor_teinte.Norme);
             commande.Parameters.AddWithValue("Max", test_ctor_teinte.Max);
             commande.Parameters.AddWithValue("ID_Test", test_ctor_teinte.ID_Test);
-            commande.Parameters.AddWithValue("ID_Constructeur", test_ctor_teinte.ID_Constructeur);
             commande.Parameters.AddWithValue("ID_Teinte", test_ctor_teinte.ID_Teinte);
             //Execution
             connection.Open();

@@ -54,6 +54,49 @@ namespace QualiteSPPP.DB
 	        return listeProduit;
 	    }
 
+        public static List<Produit> List(Int32 ID_Piece, Int32 ID_Teinte)
+        {
+            List<Produit> listeProduit = new List<Produit>();
+
+            //Connection
+            SqlConnection connection = DataBase.Connection();
+
+            //Requete  
+            String requete = select + " WHERE ID_Piece=@ID_Piece, ID_Teinte=@ID_Teinte;";
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("ID_Piece", ID_Piece);
+            commande.Parameters.AddWithValue("ID_Teinte", ID_Teinte);
+
+            //Execution
+            connection.Open();
+
+            SqlDataReader dataReader = commande.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                Produit produit = new Produit();
+                produit.Identifiant = dataReader.GetInt32(0);
+                produit.Nom = dataReader.GetString(1);
+                produit.ISconforme = dataReader.GetInt16(2);
+                produit.SuiteConforme = dataReader.GetInt32(3);
+                produit.ISactif = dataReader.GetInt16(4);
+                produit.ID_Piece = dataReader.GetInt32(5);
+                produit.ID_Teinte = dataReader.GetInt32(6);
+                produit.ID_PosAvAr = dataReader.GetInt32(7);
+                produit.ID_PosGD = dataReader.GetInt32(8);
+                listeProduit.Add(produit);
+            }
+
+            dataReader.Close();
+            connection.Close();
+
+            return listeProduit;
+        }
+
         public static Produit Get(Int32 Identifiant)
 	    {
 	        Produit produit = new Produit();

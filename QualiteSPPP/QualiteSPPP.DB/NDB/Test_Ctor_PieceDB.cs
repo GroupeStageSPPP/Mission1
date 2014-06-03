@@ -49,6 +49,43 @@ namespace QualiteSPPP.DB
 	        return listeTest_Ctor_Piece;
 	    }
 
+        public static List<Test_Ctor_Piece> List(Int32 ID_Piece)
+        {
+            List<Test_Ctor_Piece> listeTest_Ctor_Piece = new List<Test_Ctor_Piece>();
+
+            //Connection
+            SqlConnection connection = DataBase.Connection();
+
+            //Requete  
+            String requete = select + " WHERE ID_Piece=@ID_Piece;";
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("ID_Piece", ID_Piece);
+
+            //Execution
+            connection.Open();
+
+            SqlDataReader dataReader = commande.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                Test_Ctor_Piece test_ctor_piece = new Test_Ctor_Piece();
+                test_ctor_piece.Identifiant = dataReader.GetInt32(0);
+                test_ctor_piece.ID_Test = dataReader.GetInt32(1);
+                test_ctor_piece.ID_Constructeur = dataReader.GetInt32(2);
+                test_ctor_piece.ID_Piece = dataReader.GetInt32(3);
+                listeTest_Ctor_Piece.Add(test_ctor_piece);
+            }
+
+            dataReader.Close();
+            connection.Close();
+
+            return listeTest_Ctor_Piece;
+        }
+
         public static Test_Ctor_Piece Get(Int32 Identifiant)
 	    {
 	        Test_Ctor_Piece test_ctor_piece = new Test_Ctor_Piece();

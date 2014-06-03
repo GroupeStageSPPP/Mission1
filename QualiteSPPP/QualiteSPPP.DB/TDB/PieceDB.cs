@@ -13,7 +13,7 @@ namespace QualiteSPPP.DB
 	    public static String select = "SELECT Identifiant,"+champs+" FROM Piece";
 	            
 
-	    public static List<Piece> List()
+	    public static List<Piece> List(Int32 ID_Vehicule)
 	    {
 	        List<Piece> listePiece = new List<Piece>();
 	   
@@ -21,12 +21,13 @@ namespace QualiteSPPP.DB
             SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
-	        String requete = select+";";
+            String requete = select + " WHERE ID_Vehicule=@ID_Vehicule;";
 	   
 	        //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Parametres
+            commande.Parameters.AddWithValue("ID_Vehicule", ID_Vehicule);
 
             //Execution
             connection.Open();
@@ -39,7 +40,8 @@ namespace QualiteSPPP.DB
 	           piece.Identifiant = dataReader.GetInt32(0);
 	           piece.ID_Vehicule = dataReader.GetInt32(1);
                piece.ID_SousCat = dataReader.GetInt32(2);
-	           listePiece.Add(piece);
+	           piece.Nom = SousCatDB.Get(piece.ID_SousCat).Nom;
+               listePiece.Add(piece);
             }
 
             dataReader.Close();
@@ -72,6 +74,7 @@ namespace QualiteSPPP.DB
             piece.Identifiant = dataReader.GetInt32(0);
             piece.ID_Vehicule = dataReader.GetInt32(1);
             piece.ID_SousCat = dataReader.GetInt32(2);
+            piece.Nom = SousCatDB.Get(piece.ID_SousCat).Nom;
             dataReader.Close();
             connection.Close();
 

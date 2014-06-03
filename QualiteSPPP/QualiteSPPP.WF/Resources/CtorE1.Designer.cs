@@ -1,4 +1,4 @@
-﻿namespace QualiteSPPP.WinForm
+﻿namespace QualiteSPPP.WF
 {
     partial class AjouterPeinture
     {
@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.Bannuler = new System.Windows.Forms.Button();
-            this.label25 = new System.Windows.Forms.Label();
             this.CBvernis = new System.Windows.Forms.ComboBox();
             this.CBappret = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -56,56 +53,31 @@
             this.Bajouter = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.TBnom = new System.Windows.Forms.TextBox();
-            this.CBctor = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.Bannuler = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumBN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumRV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumJB)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(220, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 84;
-            this.label1.Text = "Constructeur";
-            // 
-            // Bannuler
-            // 
-            this.Bannuler.Location = new System.Drawing.Point(12, 292);
-            this.Bannuler.Name = "Bannuler";
-            this.Bannuler.Size = new System.Drawing.Size(75, 23);
-            this.Bannuler.TabIndex = 83;
-            this.Bannuler.Text = "Annuler";
-            this.Bannuler.UseVisualStyleBackColor = true;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-            this.label25.Location = new System.Drawing.Point(148, 9);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(149, 17);
-            this.label25.TabIndex = 82;
-            this.label25.Text = "Ajout d\'une teinte";
-            // 
             // CBvernis
             // 
             this.CBvernis.FormattingEnabled = true;
-            this.CBvernis.Location = new System.Drawing.Point(223, 92);
+            this.CBvernis.Location = new System.Drawing.Point(227, 92);
             this.CBvernis.Name = "CBvernis";
-            this.CBvernis.Size = new System.Drawing.Size(210, 21);
-            this.CBvernis.TabIndex = 81;
+            this.CBvernis.Size = new System.Drawing.Size(208, 21);
+            this.CBvernis.TabIndex = 42;
             // 
             // CBappret
             // 
             this.CBappret.FormattingEnabled = true;
-            this.CBappret.Location = new System.Drawing.Point(6, 92);
+            this.CBappret.Location = new System.Drawing.Point(6, 90);
             this.CBappret.Name = "CBappret";
             this.CBappret.Size = new System.Drawing.Size(208, 21);
-            this.CBappret.TabIndex = 80;
+            this.CBappret.TabIndex = 41;
             // 
             // groupBox2
             // 
@@ -129,7 +101,7 @@
             this.groupBox2.Location = new System.Drawing.Point(6, 119);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(429, 167);
-            this.groupBox2.TabIndex = 79;
+            this.groupBox2.TabIndex = 40;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Base";
             // 
@@ -192,9 +164,9 @@
             // 
             // TBrisque
             // 
-            this.TBrisque.Location = new System.Drawing.Point(217, 32);
+            this.TBrisque.Location = new System.Drawing.Point(219, 32);
             this.TBrisque.Name = "TBrisque";
-            this.TBrisque.Size = new System.Drawing.Size(206, 20);
+            this.TBrisque.Size = new System.Drawing.Size(204, 20);
             this.TBrisque.TabIndex = 36;
             // 
             // TBrefBase
@@ -207,7 +179,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(214, 16);
+            this.label7.Location = new System.Drawing.Point(218, 16);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 13);
             this.label7.TabIndex = 26;
@@ -216,7 +188,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 16);
+            this.label2.Location = new System.Drawing.Point(6, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 13);
             this.label2.TabIndex = 26;
@@ -273,37 +245,38 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(3, 76);
+            this.label35.Location = new System.Drawing.Point(1, 74);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(38, 13);
-            this.label35.TabIndex = 78;
+            this.label35.TabIndex = 39;
             this.label35.Text = "Appret";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(220, 76);
+            this.label19.Location = new System.Drawing.Point(222, 75);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(36, 13);
-            this.label19.TabIndex = 77;
+            this.label19.TabIndex = 38;
             this.label19.Text = "Vernis";
             // 
             // Bajouter
             // 
-            this.Bajouter.Location = new System.Drawing.Point(358, 292);
+            this.Bajouter.Location = new System.Drawing.Point(356, 292);
             this.Bajouter.Name = "Bajouter";
             this.Bajouter.Size = new System.Drawing.Size(75, 23);
-            this.Bajouter.TabIndex = 76;
+            this.Bajouter.TabIndex = 37;
             this.Bajouter.Text = "Ajouter";
             this.Bajouter.UseVisualStyleBackColor = true;
+            this.Bajouter.Click += new System.EventHandler(this.buttonAjouterADMINISTRATIONPeinture_Click);
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(3, 35);
+            this.label23.Location = new System.Drawing.Point(1, 35);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(29, 13);
-            this.label23.TabIndex = 75;
+            this.label23.TabIndex = 36;
             this.label23.Text = "Nom";
             // 
             // TBnom
@@ -311,23 +284,51 @@
             this.TBnom.Location = new System.Drawing.Point(6, 51);
             this.TBnom.Name = "TBnom";
             this.TBnom.Size = new System.Drawing.Size(210, 20);
-            this.TBnom.TabIndex = 74;
+            this.TBnom.TabIndex = 35;
             // 
-            // CBctor
+            // label25
             // 
-            this.CBctor.FormattingEnabled = true;
-            this.CBctor.Location = new System.Drawing.Point(224, 50);
-            this.CBctor.Name = "CBctor";
-            this.CBctor.Size = new System.Drawing.Size(210, 21);
-            this.CBctor.TabIndex = 85;
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+            this.label25.Location = new System.Drawing.Point(148, 9);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(149, 17);
+            this.label25.TabIndex = 70;
+            this.label25.Text = "Ajout d\'une teinte";
+            // 
+            // Bannuler
+            // 
+            this.Bannuler.Location = new System.Drawing.Point(12, 292);
+            this.Bannuler.Name = "Bannuler";
+            this.Bannuler.Size = new System.Drawing.Size(75, 23);
+            this.Bannuler.TabIndex = 71;
+            this.Bannuler.Text = "Annuler";
+            this.Bannuler.UseVisualStyleBackColor = true;
+            this.Bannuler.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(222, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 72;
+            this.label1.Text = "Constructeur";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(223, 51);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(210, 20);
+            this.textBox1.TabIndex = 35;
             // 
             // AjouterPeinture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(443, 329);
-            this.Controls.Add(this.CBctor);
+            this.ClientSize = new System.Drawing.Size(443, 327);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Bannuler);
             this.Controls.Add(this.label25);
@@ -338,11 +339,13 @@
             this.Controls.Add(this.label19);
             this.Controls.Add(this.Bajouter);
             this.Controls.Add(this.label23);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.TBnom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AjouterPeinture";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AjouterPeinture";
+            this.Load += new System.EventHandler(this.AjouterPeinture_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumBN)).EndInit();
@@ -355,23 +358,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button Bannuler;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.ComboBox CBvernis;
         private System.Windows.Forms.ComboBox CBappret;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox TBmax;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TBnorme;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TBmin;
-        private System.Windows.Forms.TextBox TBrisque;
-        private System.Windows.Forms.TextBox TBrefBase;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
@@ -383,7 +372,20 @@
         private System.Windows.Forms.Button Bajouter;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox TBnom;
-        private System.Windows.Forms.ComboBox CBctor;
-
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Button Bannuler;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox TBmax;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox TBnorme;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox TBmin;
+        private System.Windows.Forms.TextBox TBrisque;
+        private System.Windows.Forms.TextBox TBrefBase;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

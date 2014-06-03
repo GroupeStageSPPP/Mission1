@@ -477,14 +477,68 @@ namespace QualiteSPPP.WinForm
             ajouterVehicule.ShowDialog();
         }
         private void button3_Click(object sender, EventArgs e)
-            {
-                AjoutProjet ajoutProjet = new AjoutProjet();
-                ajoutProjet.ShowDialog();
-            }
+        {
+            AjoutProjet ajoutProjet = new AjoutProjet();
+            ajoutProjet.ShowDialog();
+        }
         private void buttonAjoutEchantillionOPTIONAccueil_Click(object sender, EventArgs e)
         {
             AjoutEchantillon ajoutEchantillon = new AjoutEchantillon();
             ajoutEchantillon.ShowDialog();
+        }
+
+
+
+        private void label36_Click(object sender, EventArgs e)
+        {
+            //-->  Gestion des Projets
+            AjoutProjet ajoutProjet = new AjoutProjet();
+            this.Hide();
+            ajoutProjet.ShowDialog();
+            this.Show();
+        }
+        private void label37_Click(object sender, EventArgs e)
+        {
+            //-->  Gestion des Echantillons
+            AjoutEchantillon ajoutEchantillon = new AjoutEchantillon();
+            this.Hide();
+            ajoutEchantillon.ShowDialog();
+            this.Show();
+        }
+        private void label38_Click(object sender, EventArgs e)
+        {
+            //-->  Gestion des Constructeurs
+            AjoutConstructeur ajoutConstructeur = new AjoutConstructeur();
+            this.Hide();
+            ajoutConstructeur.ShowDialog();
+            this.Show();
+        }
+
+        private void panelGestionProjetsOPTIONAccueil_MouseEnter(object sender, EventArgs e)
+        {
+            panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+        }
+        private void panelGestionProjetsOPTIONAccueil_MouseLeave(object sender, EventArgs e)
+        {
+            panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+        }
+
+        private void panelGestionEchantillonsOPTIONAccueil_MouseEnter(object sender, EventArgs e)
+        {
+            panel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+        }
+        private void panelGestionEchantillonsOPTIONAccueil_MouseLeave(object sender, EventArgs e)
+        {
+            panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+        }
+
+        private void panelGestionConstructeurOPTIONAccueil_MouseEnter(object sender, EventArgs e)
+        {
+            panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+        }
+        private void panelGestionConstructeurOPTIONAccueil_MouseLeave(object sender, EventArgs e)
+        {
+            panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
         }
     }
 }

@@ -11,9 +11,45 @@ namespace QualiteSPPP.DB
     {	    
 	    public static String champs = "NumLot,DatePeinture,ISconforme,ID_Produit";
 	    public static String select = "SELECT Identifiant,"+champs+" FROM Echantillon";
-	            
 
-	    public static List<Echantillon> List()
+        public static List<Echantillon> List()
+        {
+            List<Echantillon> listeEchantillon = new List<Echantillon>();
+
+            //Connection
+            SqlConnection connection = DataBase.Connection();
+
+            //Requete  
+            String requete = select + ";";
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+
+            //Execution
+            connection.Open();
+
+            SqlDataReader dataReader = commande.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                Echantillon echantillon = new Echantillon();
+                echantillon.Identifiant = dataReader.GetInt32(0);
+                echantillon.NumLot = dataReader.GetString(1);
+                echantillon.DatePeinture = dataReader.GetDateTime(2);
+                echantillon.ISconforme = dataReader.GetInt16(3);
+                echantillon.ID_Produit = dataReader.GetInt32(4);
+                listeEchantillon.Add(echantillon);
+            }
+
+            dataReader.Close();
+            connection.Close();
+
+            return listeEchantillon;
+        }
+
+	    public static List<Echantillon> List(Int16 Conforme)
 	    {
 	        List<Echantillon> listeEchantillon = new List<Echantillon>();
 	   
@@ -21,12 +57,13 @@ namespace QualiteSPPP.DB
             SqlConnection connection = DataBase.Connection();
 	   
 	        //Requete  
-	        String requete = select+";";
+	        String requete = select+" WHERE ISconforme =@Conforme;";
 	   
 	        //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Parametres
+            commande.Parameters.AddWithValue("Conforme", Conforme);
 
             //Execution
             connection.Open();

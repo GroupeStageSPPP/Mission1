@@ -129,6 +129,42 @@
     <Compile Include="Admnistration\AjouterVehicule.Designer.cs">
       <DependentUpon>AjouterVehicule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Projet\AjoutConstructeur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Projet\AjoutConstructeur.Designer.cs">
+      <DependentUpon>AjoutConstructeur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\CtorE1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\CtorE1.Designer.cs">
+      <DependentUpon>CtorE1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtorE1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CtorE1.Designer.cs">
+      <DependentUpon>CtorE1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtorE2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CtorE2.Designer.cs">
+      <DependentUpon>CtorE2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtorE0.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CtorE0.Designer.cs">
+      <DependentUpon>CtorE0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionConstructeur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionConstructeur.Designer.cs">
+      <DependentUpon>GestionConstructeur.cs</DependentUpon>
+    </Compile>
     <Compile Include="Labo\AjoutEchantillon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,11 +233,29 @@
     <EmbeddedResource Include="Admnistration\AjouterVehicule.resx">
       <DependentUpon>AjouterVehicule.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Projet\AjoutConstructeur.resx">
+      <DependentUpon>AjoutConstructeur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CtorE1.resx">
+      <DependentUpon>CtorE1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtorE1.resx">
+      <DependentUpon>CtorE1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtorE2.resx">
+      <DependentUpon>CtorE2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Autres\GraphiquePeinture.resx">
       <DependentUpon>GraphiquePeinture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admnistration\Identification_Page.resx">
       <DependentUpon>Identification_Page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtorE0.resx">
+      <DependentUpon>CtorE0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionConstructeur.resx">
+      <DependentUpon>GestionConstructeur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Labo\AjoutEchantillon.resx">
       <DependentUpon>AjoutEchantillon.cs</DependentUpon>
