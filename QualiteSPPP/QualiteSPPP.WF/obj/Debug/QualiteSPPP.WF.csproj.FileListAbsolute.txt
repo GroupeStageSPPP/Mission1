@@ -159,3 +159,4 @@ C:\Users\jb\Desktop\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.Wi
 C:\Users\jb\Desktop\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.pdb
 D:\Users\Pierre\Desktop\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.Alerte.resources
 D:\Users\Pierre\Desktop\Mission1\QualiteSPPP\QualiteSPPP.WF\obj\Debug\QualiteSPPP.WinForm.Graphiques.resources
+C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.WF\bin\Debug\QualiteSPPP.WinForm.exe.config

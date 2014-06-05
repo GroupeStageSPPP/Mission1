@@ -142,7 +142,6 @@ namespace QualiteSPPP.DB
             //Requete
             String requete = @"INSERT INTO Produit (" + champs + ") VALUES (@Nom,@ISconforme,@SuiteConforme,@ISactif,@ID_Piece,@ID_Teinte,@ID_PosAvAr,@ID_PosGD);"; 
 
-
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
 
