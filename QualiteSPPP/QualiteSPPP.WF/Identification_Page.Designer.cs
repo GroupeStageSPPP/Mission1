@@ -46,6 +46,7 @@
             this.TBpassword.PasswordChar = '●';
             this.TBpassword.Size = new System.Drawing.Size(156, 20);
             this.TBpassword.TabIndex = 12;
+            this.TBpassword.Text = "admin";
             // 
             // labelMotDePasse
             // 
@@ -73,6 +74,7 @@
             this.TBlogin.Name = "TBlogin";
             this.TBlogin.Size = new System.Drawing.Size(156, 20);
             this.TBlogin.TabIndex = 9;
+            this.TBlogin.Text = "admin";
             // 
             // buttonSeConnecter
             // 

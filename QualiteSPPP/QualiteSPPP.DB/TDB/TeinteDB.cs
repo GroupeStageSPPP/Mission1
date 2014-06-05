@@ -9,7 +9,7 @@ namespace QualiteSPPP.DB
 {
     public static class TeinteDB
     {	    
-	    public static String champs = "ReferenceBase,RisqueTeinte,L,A,B,Min,Norme,Max,ID_Constructeur,ID_Appret,ID_Vernis";
+	    public static String champs = "ReferenceTeinte,RisqueTeinte,L,A,B,Min,Norme,Max,ID_Constructeur,ID_Appret,ID_Vernis";
 	    public static String select = "SELECT Identifiant,"+champs+" FROM Teinte";
 
 
@@ -40,7 +40,7 @@ namespace QualiteSPPP.DB
                 {
                     Teinte teinte = new Teinte(); 
 	                teinte.Identifiant = dataReader.GetInt32(0);
-                    teinte.ReferenceBase = dataReader.GetString(1);
+                    teinte.ReferenceTeinte = dataReader.GetString(1);
                     teinte.RisqueTeinte = dataReader.GetString(2);
                     teinte.L = dataReader.GetInt32(3);
                     teinte.A = dataReader.GetInt32(4);
@@ -56,17 +56,17 @@ namespace QualiteSPPP.DB
 
                 dataReader.Close();
 
-	            return listeTeinte;
+
             }
             catch (Exception)
             {
-                return null;
+                listeTeinte = null;
             }
             finally
             {
                 connection.Close();
             }
-
+	            return listeTeinte;
 	    }
 
         public static Teinte Get(Int32 Identifiant)
@@ -94,7 +94,7 @@ namespace QualiteSPPP.DB
                 dataReader.Read();
                 teinte.Identifiant = dataReader.GetInt32(0);
                 teinte.Identifiant = dataReader.GetInt32(0);
-                teinte.ReferenceBase = dataReader.GetString(1);
+                teinte.ReferenceTeinte = dataReader.GetString(1);
                 teinte.RisqueTeinte = dataReader.GetString(2);
                 teinte.L = dataReader.GetInt32(3);
                 teinte.A = dataReader.GetInt32(4);
@@ -107,17 +107,17 @@ namespace QualiteSPPP.DB
                 teinte.ID_Vernis = dataReader.GetInt32(11);
                 dataReader.Close();
 
-	            return teinte;
+
             }
             catch (Exception)
             {
-                return null;
+                teinte = null;
             }
             finally
             {
                 connection.Close();
             }
-
+	            return teinte;
 	    }
 
         public static Boolean Insert(Teinte teinte)
@@ -126,14 +126,14 @@ namespace QualiteSPPP.DB
             SqlConnection connection = DataBase.Connection();
 
             //Requete
-            String requete = @"INSERT INTO Teinte (" + champs + ") VALUES (@ReferenceBase,@RisqueTeinte,@L,@A,@B,@Min,@Norme,@Max,@ID_Constructeur,@ID_Appret,@ID_Vernis);"; 
+            String requete = @"INSERT INTO Teinte (" + champs + ") VALUES (@ReferenceTeinte,@RisqueTeinte,@L,@A,@B,@Min,@Norme,@Max,@ID_Constructeur,@ID_Appret,@ID_Vernis);"; 
 
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Parametres
-            commande.Parameters.AddWithValue("ReferenceBase",teinte.ReferenceBase);
+            commande.Parameters.AddWithValue("ReferenceTeinte",teinte.ReferenceTeinte);
             commande.Parameters.AddWithValue("RisqueTeinte",teinte.RisqueTeinte);
             commande.Parameters.AddWithValue("L",teinte.L);
             commande.Parameters.AddWithValue("A",teinte.A);
@@ -168,7 +168,7 @@ namespace QualiteSPPP.DB
 
             //Requete
             String requete = @"UPDATE Teinte
-                               SET ReferenceBase=@ReferenceBase,RisqueTeinte=@RisqueTeinte,
+                               SET ReferenceTeinte=@ReferenceTeinte,RisqueTeinte=@RisqueTeinte,
                                    L=@L,A=@A,B=@B,
                                    Min=@Min,Norme=@Norme,Max=@Max,
                                    ID_Constructeur=@ID_Constructeur,ID_Appret=@ID_Appret,ID_Vernis=@ID_Vernis
@@ -179,7 +179,7 @@ namespace QualiteSPPP.DB
 
             //Parametres
             commande.Parameters.AddWithValue("Identifiant",teinte.Identifiant);
-            commande.Parameters.AddWithValue("ReferenceBase",teinte.ReferenceBase);
+            commande.Parameters.AddWithValue("ReferenceTeinte",teinte.ReferenceTeinte);
             commande.Parameters.AddWithValue("RisqueTeinte",teinte.RisqueTeinte);
             commande.Parameters.AddWithValue("L",teinte.L);
             commande.Parameters.AddWithValue("A",teinte.A);

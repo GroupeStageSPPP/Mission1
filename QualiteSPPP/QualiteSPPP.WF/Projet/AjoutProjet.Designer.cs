@@ -472,6 +472,7 @@
             this.BtE3.TabIndex = 25;
             this.BtE3.Text = "Terminer";
             this.BtE3.UseVisualStyleBackColor = true;
+            this.BtE3.Click += new System.EventHandler(this.BtE3_Click);
             // 
             // tableLayoutPanel8
             // 
@@ -479,7 +480,7 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.3311F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.6689F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel8.Controls.Add(this.panelE2, 2, 0);
             this.tableLayoutPanel8.Controls.Add(this.panelE1, 1, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -511,10 +512,10 @@
             this.panelE2.Controls.Add(this.LBpieceE2);
             this.panelE2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelE2.Enabled = false;
-            this.panelE2.Location = new System.Drawing.Point(609, 0);
+            this.panelE2.Location = new System.Drawing.Point(608, 0);
             this.panelE2.Margin = new System.Windows.Forms.Padding(0);
             this.panelE2.Name = "panelE2";
-            this.panelE2.Size = new System.Drawing.Size(605, 270);
+            this.panelE2.Size = new System.Drawing.Size(603, 270);
             this.panelE2.TabIndex = 0;
             // 
             // BretourE2
@@ -554,7 +555,6 @@
             this.CBtestE2.Name = "CBtestE2";
             this.CBtestE2.Size = new System.Drawing.Size(191, 21);
             this.CBtestE2.TabIndex = 22;
-            this.CBtestE2.SelectedIndexChanged += new System.EventHandler(this.CBcatE2_SelectedIndexChanged);
             // 
             // CBcatE2
             // 
@@ -686,7 +686,7 @@
             this.panelE1.Location = new System.Drawing.Point(20, 0);
             this.panelE1.Margin = new System.Windows.Forms.Padding(0);
             this.panelE1.Name = "panelE1";
-            this.panelE1.Size = new System.Drawing.Size(589, 270);
+            this.panelE1.Size = new System.Drawing.Size(588, 270);
             this.panelE1.TabIndex = 1;
             // 
             // TBnomCtor

@@ -29,24 +29,40 @@ namespace QualiteSPPP.DB
             //Parametres
 
             //Execution
-            connection.Open();
 
-            SqlDataReader dataReader = commande.ExecuteReader();
-	    
-	        while (dataReader.Read())
+	        
+            try
             {
-               Alerte_Pro alerte_Pro = new Alerte_Pro(); 
-	       alerte_Pro.Identifiant = dataReader.GetInt32(0);
-	       alerte_Pro.Message = dataReader.GetString(1);
-           alerte_Pro.Date = dataReader.GetDateTime(2);
-           alerte_Pro.ID_Produit = dataReader.GetInt32(3);
-	       listeAlerte_Pro.Add(alerte_Pro);
+                connection.Open();
+
+                SqlDataReader dataReader = commande.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    
+                   Alerte_Pro alerte_Pro = new Alerte_Pro(); 
+	               alerte_Pro.Identifiant = dataReader.GetInt32(0);
+	               alerte_Pro.Message = dataReader.GetString(1);
+                   alerte_Pro.Date = dataReader.GetDateTime(2);
+                   alerte_Pro.ID_Produit = dataReader.GetInt32(3);
+	               listeAlerte_Pro.Add(alerte_Pro);
+                }
+
+                dataReader.Close();
+
+
+            }
+            catch (Exception)
+            {
+                listeAlerte_Pro = null;
+            }
+            finally
+            {
+                connection.Close();
             }
 
-            dataReader.Close();
-            connection.Close();
-
-	        return listeAlerte_Pro;
+            return listeAlerte_Pro;
+         
 	    }
 
         public static Alerte_Pro Get(Int32 Identifiant)
@@ -66,19 +82,37 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
+            try
+            {
+                connection.Open();
 
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-            alerte_Pro.Identifiant = dataReader.GetInt32(0);
-            alerte_Pro.Message = dataReader.GetString(1);
-            alerte_Pro.Date = dataReader.GetDateTime(2);
-            alerte_Pro.ID_Produit = dataReader.GetInt32(3);
-            dataReader.Close();
-            connection.Close();
+                SqlDataReader dataReader = commande.ExecuteReader();
 
-	        return alerte_Pro;
+                while (dataReader.Read())
+                {
+
+                    alerte_Pro.Identifiant = dataReader.GetInt32(0);
+                    alerte_Pro.Message = dataReader.GetString(1);
+                    alerte_Pro.Date = dataReader.GetDateTime(2);
+                    alerte_Pro.ID_Produit = dataReader.GetInt32(3);
+                }
+
+                dataReader.Close();
+
+
+            }
+            catch (Exception)
+            {
+                alerte_Pro = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return alerte_Pro;
 	    }
+
 
         public static Boolean Insert(Alerte_Pro alerte_Pro)
         {
@@ -97,10 +131,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Date", alerte_Pro.Date);
             commande.Parameters.AddWithValue("ID_Produit", alerte_Pro.ID_Produit);
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Update(Alerte_Pro alerte_Pro)
@@ -123,11 +167,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_Produit", alerte_Pro.ID_Produit);
             
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Delete(Int32 Identifiant)
@@ -147,11 +200,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 	
 	public static Int32 LastID()
@@ -164,13 +226,25 @@ namespace QualiteSPPP.DB
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
-	    
-	    connection.Open();
-            SqlDataReader dataReader = commande.ExecuteReader();
-        dataReader.Read();
-	    Identifiant = dataReader.GetInt32(0);
-            connection.Close();
-	    return Identifiant; 
+
+            try
+            {
+                connection.Open();
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+                Identifiant = dataReader.GetInt32(0);
+                connection.Close();
+                return Identifiant;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
 	}    
     }
 }

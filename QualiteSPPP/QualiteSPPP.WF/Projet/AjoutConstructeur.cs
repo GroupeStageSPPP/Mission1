@@ -28,6 +28,18 @@ namespace QualiteSPPP.WinForm
             InitializeComponent();
 
             RefreshLBctorE1();
+
+            CBappretE2.DataSource = AppretDB.List();
+            CBappretE2.DisplayMember = "Reference";
+            CBappretE2.ValueMember = "Identifiant";
+
+            CBvernisE2.DataSource = VernisDB.List();
+            CBvernisE2.DisplayMember = "Reference";
+            CBvernisE2.ValueMember = "Identifiant";
+
+            LBtestE3.DataSource = TestDB.List();
+            LBtestE3.DisplayMember = "Nom";
+            LBtestE3.ValueMember = "Identifiant";
         }
 
         private void AjoutConstructeur_Load(object sender, EventArgs e)
@@ -50,17 +62,21 @@ namespace QualiteSPPP.WinForm
       
             private void buttonAjouterAjoutConstructeurEtape1_Click(object sender, EventArgs e)
             {
-                Ctor = new Constructeur();
-                Ctor.Nom = this.TBnomE1.Text;
-                ConstructeurDB.Insert(Ctor);
-                Ctor.Identifiant = ConstructeurDB.LastID();
-                panelAjoutConstructeurEtape1.Visible = false;
-                panelAjoutConstructeurEtape2.Visible = true;
-                panelAjoutConstructeurEtape3.Visible = false;
-                panelAjoutConstructeurEtape4.Visible = false;
-                RefreshLBctorE1();
-                TBnomE1.Text = "";
-                TBnomE2.Text = Ctor.Nom;
+                if (TBnomE1.Text != null)
+                {
+                    Ctor = new Constructeur();
+                    Ctor.Nom = this.TBnomE1.Text;
+                    ConstructeurDB.Insert(Ctor);
+                    Ctor.Identifiant = ConstructeurDB.LastID();
+                    panelAjoutConstructeurEtape1.Visible = false;
+                    panelAjoutConstructeurEtape2.Visible = true;
+                    panelAjoutConstructeurEtape3.Visible = false;
+                    panelAjoutConstructeurEtape4.Visible = false;
+                    RefreshLBctorE1();
+                    TBnomE1.Text = "";
+                    TBnomE2.Text = Ctor.Nom;                    
+                }
+
             }
             
             private void buttonAnnulerAjoutConstructeurEtape1_Click(object sender, EventArgs e)
@@ -70,7 +86,7 @@ namespace QualiteSPPP.WinForm
 
             private void buttonModifierAjoutConstructeurEtape1_Click(object sender, EventArgs e)
             {
-                if (Ctor != null)
+                if (listBoxConstructeurAjoutConstructeurEtape1.SelectedItem != null)
                 {
                     Ctor = (Constructeur)listBoxConstructeurAjoutConstructeurEtape1.SelectedItem;
                 
@@ -80,6 +96,7 @@ namespace QualiteSPPP.WinForm
                     panelAjoutConstructeurEtape4.Visible = false;
                     TBnomE1.Text = "";
                     TBnomE2.Text = Ctor.Nom;
+                    RefreshE2();
                 }
                 
             }
@@ -105,8 +122,11 @@ namespace QualiteSPPP.WinForm
             private void LBteinteE2_SelectedIndexChanged(object sender, EventArgs e)
             {
                 Teinte = (Teinte)LBteinteE2.SelectedItem;
-
-                TBrefBaseE2.Text = Teinte.ReferenceBase;
+                
+                CBappretE2.SelectedIndex = ResearchAppretE2();
+                CBvernisE2.SelectedIndex = ResearchVernisE2();
+                
+                TBrefBaseE2.Text = Teinte.ReferenceTeinte;
                 TBminE2.Text =  Teinte.Min.ToString();
                 TBnormeE2.Text= Teinte.Norme.ToString();
                 TBmaxE2.Text =  Teinte.Max.ToString();
@@ -115,8 +135,7 @@ namespace QualiteSPPP.WinForm
                 NumRVe2.Value = Teinte.A;
                 NumJBe2.Value = Teinte.B;
 
-                CBappretE2.SelectedIndex = ResearchAppretE2();
-                CBvernisE2.SelectedIndex = ResearchVernisE2();
+
 
             }
 
@@ -136,6 +155,22 @@ namespace QualiteSPPP.WinForm
                 CBvernisE2.SelectedIndex = 0;  
             }
 
+            private void ResetE2()
+            {
+                Teinte = new Teinte();
+                TBrefBaseE2.Text = "";
+                TBminE2.Text = "";
+                TBnormeE2.Text = "";
+                TBmaxE2.Text = "";
+
+                NumBNe2.Value = 0;
+                NumRVe2.Value = 0;
+                NumJBe2.Value = 0;
+
+                CBappretE2.SelectedIndex = 0;
+                CBvernisE2.SelectedIndex = 0;
+            }
+
             private void BaddE2_Click(object sender, EventArgs e)
             {
                 Int32 I;
@@ -149,7 +184,7 @@ namespace QualiteSPPP.WinForm
                 {
                     Teinte = new Teinte();
 
-                    Teinte.ReferenceBase = TBrefBaseE2.Text;
+                    Teinte.ReferenceTeinte = TBrefBaseE2.Text;
                     
                     Teinte.Min  = Int32.Parse(TBminE2.Text);
                     Teinte.Norme= Int32.Parse(TBnormeE2.Text);
@@ -180,7 +215,7 @@ namespace QualiteSPPP.WinForm
                   && TBmaxE2.Text != ""
                   && Teinte != null)
                 {
-                    Teinte.ReferenceBase = TBrefBaseE2.Text;
+                    Teinte.ReferenceTeinte = TBrefBaseE2.Text;
 
                     Teinte.Min = Int32.Parse(TBminE2.Text);
                     Teinte.Norme = Int32.Parse(TBnormeE2.Text);
@@ -190,7 +225,7 @@ namespace QualiteSPPP.WinForm
                     Teinte.A = (Int32)NumRVe2.Value;
                     Teinte.B = (Int32)NumJBe2.Value;
 
-                    Teinte.ID_Appret = ((Vernis)CBappretE2.SelectedItem).Identifiant;
+                    Teinte.ID_Appret = ((Appret)CBappretE2.SelectedItem).Identifiant;
                     Teinte.ID_Vernis = ((Vernis)CBvernisE2.SelectedItem).Identifiant;
                     
                     TeinteDB.Update(Teinte);
@@ -219,40 +254,59 @@ namespace QualiteSPPP.WinForm
             {
                 panelAjoutConstructeurEtape2.Visible = false;
                 panelAjoutConstructeurEtape3.Visible = true;
+
+                LBtestCtorE3.DataSource = Test_ConstructeurDB.List(Ctor.Identifiant);
+                LBtestCtorE3.DisplayMember = "Nom";
+                LBtestCtorE3.ValueMember = "Identifiant";
             }
             
             private void RefreshE2()
             {
-                LBteinteE2.DataSource = TeinteDB.List(Ctor.Identifiant);
-                LBteinteE2.DisplayMember = "ReferenceBase";
+                List<Teinte> Lteinte = TeinteDB.List(Ctor.Identifiant);
+                if (Lteinte == null)
+                {
+                    TeinteError.Text = "Probleme lors du chargement des teintes!";
+                }
+                LBteinteE2.DataSource = Lteinte;
+                LBteinteE2.DisplayMember = "ReferenceTeinte";
+                LBteinteE2.ValueMember = "Identifiant";
+                ResetE2();
             }
 
             private int ResearchAppretE2()
             {
                 int i = 0;
-                foreach (Appret A in AppretDB.List())
+                int ID =0;
+                Teinte = (Teinte)LBteinteE2.SelectedItem;
+                List<Appret> La = AppretDB.List();
+                foreach (Appret A in La)
                 {
-                    if (A.Identifiant != Teinte.ID_Appret)
+                    if (A.Identifiant == Teinte.ID_Appret)
                     {
-                        i++;                        
+                        ID = i;                
                     }
+                    i++; 
                 }
 
-                return i;
+                return ID;
             }
             
             private int ResearchVernisE2()
             {
                 int i = 0;
-                foreach (Appret V in AppretDB.List())
+                int ID =0;
+                Teinte = (Teinte)LBteinteE2.SelectedItem;
+                List<Vernis> Lv = VernisDB.List();
+                foreach (Vernis V in Lv)
                 {
-                    if (V.Identifiant != Teinte.ID_Vernis)
+                    if (V.Identifiant == Teinte.ID_Vernis)
                     {
-                        i++;
+                        ID = i;
                     }
+                    i++;
                 }
 
-                return i;
+                return ID;
             }
                    
         #endregion
@@ -270,36 +324,53 @@ namespace QualiteSPPP.WinForm
                   && Double.TryParse(TBnormeE3.Text, out D) == true
                   && Double.TryParse(TBminE3.Text, out D) == true
                   && LBtestE3.SelectedItem != null)
-                {
                 
                     Test = (Test)LBtestE3.SelectedItem;
                     Tctor = new Test_Constructeur();
                     Tctor.ID_Test = Test.Identifiant;
                     Tctor.ID_Constructeur = Ctor.Identifiant;
-                    this.TBdescE3.Text = Test.Description;
+                    
                     switch (Test.TypeTest)
                     {
                         case 1:
-                            Tctor.Min = Double.Parse(TBminE3.Text);
-                            Tctor.Norme = Double.Parse(TBnormeE3.Text);
-                            Tctor.Max = 0;
+                            if (Double.TryParse(TBminE3.Text, out D) == true
+                             && Double.TryParse(TBnormeE3.Text, out D) == true
+                             && LBtestE3.SelectedItem != null)
+                             { 
+                                Tctor.Min = Double.Parse(TBminE3.Text);
+                                Tctor.Norme = Double.Parse(TBnormeE3.Text);
+                                Tctor.Max = 0;                               
+                             }
+
                             break;
                         case 2:
-                            Tctor.Min = Double.Parse(TBminE3.Text);
-                            Tctor.Norme = Double.Parse(TBnormeE3.Text);
-                            Tctor.Max = Double.Parse(TBmaxE3.Text);
+                            if (Double.TryParse(TBminE3.Text, out D) == true
+                             && Double.TryParse(TBnormeE3.Text, out D) == true
+                             && Double.TryParse(TBmaxE3.Text, out D) == true
+                             && LBtestE3.SelectedItem != null)
+                            {
+                                Tctor.Min = Double.Parse(TBminE3.Text);
+                                Tctor.Norme = Double.Parse(TBnormeE3.Text);
+                                Tctor.Max = Double.Parse(TBmaxE3.Text);
+                            }
+
                             break;
                         case 3:
-                            Tctor.Min = 0;
-                            Tctor.Norme = Double.Parse(TBnormeE3.Text);
-                            Tctor.Max = Double.Parse(TBmaxE3.Text);
+                            if (Double.TryParse(TBnormeE3.Text, out D) == true
+                             && Double.TryParse(TBmaxE3.Text, out D) == true
+                             && LBtestE3.SelectedItem != null)
+                            {
+                                Tctor.Min = 0;
+                                Tctor.Norme = Double.Parse(TBnormeE3.Text);
+                                Tctor.Max = Double.Parse(TBmaxE3.Text);
+                            }
+
                             break;
                         default:
                             break;
                     }
                     Test_ConstructeurDB.Insert(Tctor);
                     RefreshE3();
-                }
             }
 
             private void BupdateTestCtorE3_Click(object sender, EventArgs e)
@@ -341,7 +412,12 @@ namespace QualiteSPPP.WinForm
 
             private void BdeleteTestCtorE3_Click(object sender, EventArgs e)
             {
-
+                if (LBtestCtorE3.SelectedItem != null)
+                {
+                     Tctor = (Test_Constructeur)LBtestCtorE3.SelectedItem;
+                     RefreshE3();
+                }
+               
             }
 
             private void LBtestE3_SelectedIndexChanged(object sender, EventArgs e)
@@ -461,67 +537,58 @@ namespace QualiteSPPP.WinForm
         public List<Test_Constructeur> LtCtor { get; set; }
         public List<Test_Ctor_Teinte> Ltct { get; set; }
 
-        private void LBteinteE4_SelectedIndexChanged(object sender, EventArgs e)
+        private void LbE4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.TBteinteE4.Text = ((Teinte)this.LBteinteE4.SelectedItem).ReferenceBase;
-        }
-
-        private void LBtestE4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.TBtestE4.Text = ((Test_Constructeur)this.LBtestE4.SelectedItem).Nom;
-
-            TcT = new Test_Ctor_Teinte();
-            TcT.ID_Constructeur = ((Test_Constructeur)this.LBtestE4.SelectedItem).ID_Constructeur;
-            TcT.ID_Teinte = ((Teinte)this.LBteinteE4.SelectedItem).Identifiant;
-            TcT.ID_Test = ((Test_Constructeur)this.LBtestE4.SelectedItem).ID_Test;
-            TcT.Min = ((Test_Constructeur)this.LBtestE4.SelectedItem).Min;
-            TcT.Norme = ((Test_Constructeur)this.LBtestE4.SelectedItem).Norme;
-            TcT.Max = ((Test_Constructeur)this.LBtestE4.SelectedItem).Max;
-
-            Test = TestDB.Get(TcT.ID_Test);
-            this.TBdescE4.Text = Test.Description;
-
-            switch (Test.TypeTest)
+            if (LBtestE4.SelectedItem != null && LBteinteE4.SelectedItem != null)
             {
-                case 1:
-                    this.TBtypeE4.Text = "Minimum et Norme";
-                    this.TBminE4.ReadOnly = false;
-                    this.TBnormeE4.ReadOnly = false;
-                    this.TBmaxE4.ReadOnly = true;
+                TcT = Test_Ctor_TeinteDB.Get(((Test_Constructeur)this.LBtestE4.SelectedItem).ID_Test, ((Teinte)this.LBteinteE4.SelectedItem).Identifiant);
+                if (TcT != null)
+                {
+                    Test = TestDB.Get(TcT.ID_Test);
+                    this.TBdescE4.Text = Test.Description;
 
-                    this.TBminE4.Text = TcT.Min.ToString();
-                    this.TBnormeE4.Text = TcT.Norme.ToString();
-                    this.TBmaxE4.Text = "";
-                    break;
-                case 2:
-                    this.TBtypeE4.Text = "Minimum, Norme et Maximum";
-                    this.TBminE4.ReadOnly = false;
-                    this.TBnormeE4.ReadOnly = false;
-                    this.TBmaxE4.ReadOnly = false;
+                    switch (Test.TypeTest)
+                    {
+                        case 1:
+                            this.TBtypeE4.Text = "Minimum et Norme";
+                            this.TBminE4.ReadOnly = false;
+                            this.TBnormeE4.ReadOnly = false;
+                            this.TBmaxE4.ReadOnly = true;
 
-                    this.TBminE4.Text = TcT.Min.ToString();
-                    this.TBnormeE4.Text = TcT.Norme.ToString();
-                    this.TBmaxE4.Text = TcT.Max.ToString();
-                    break;
-                case 3:
-                    this.TBtypeE4.Text = "Norme et Maximum";
-                    this.TBminE4.ReadOnly = true;
-                    this.TBnormeE4.ReadOnly = false;
-                    this.TBmaxE4.ReadOnly = false;
+                            this.TBminE4.Text = TcT.Min.ToString();
+                            this.TBnormeE4.Text = TcT.Norme.ToString();
+                            this.TBmaxE4.Text = "";
+                            break;
+                        case 2:
+                            this.TBtypeE4.Text = "Minimum, Norme et Maximum";
+                            this.TBminE4.ReadOnly = false;
+                            this.TBnormeE4.ReadOnly = false;
+                            this.TBmaxE4.ReadOnly = false;
 
-                    this.TBminE4.Text = "";
-                    this.TBnormeE4.Text = TcT.Norme.ToString();
-                    this.TBmaxE4.Text = TcT.Max.ToString();
-                    break;
-                default:
-                    break;
+                            this.TBminE4.Text = TcT.Min.ToString();
+                            this.TBnormeE4.Text = TcT.Norme.ToString();
+                            this.TBmaxE4.Text = TcT.Max.ToString();
+                            break;
+                        case 3:
+                            this.TBtypeE4.Text = "Norme et Maximum";
+                            this.TBminE4.ReadOnly = true;
+                            this.TBnormeE4.ReadOnly = false;
+                            this.TBmaxE4.ReadOnly = false;
+
+                            this.TBminE4.Text = "";
+                            this.TBnormeE4.Text = TcT.Norme.ToString();
+                            this.TBmaxE4.Text = TcT.Max.ToString();
+                            break;
+                        default:
+                            break;
+                    }
+                } 
             }
         } 
         
         private void BvaliderE4_Click(object sender, EventArgs e)
         {
             Double D;
-
             switch (Test.TypeTest)
             {
                 case 1:
@@ -529,10 +596,13 @@ namespace QualiteSPPP.WinForm
                      && Double.TryParse(this.TBnormeE4.Text, out D) == true)
                     {
                         this.TestCtorError.Text = "";
+                        TcT.ID_Teinte = ((Teinte)LBteinteE4.SelectedItem).Identifiant;
+                        TcT.ID_Test = ((Test)LBtestE4.SelectedItem).Identifiant;
+                        TcT.ID_Constructeur = Ctor.Identifiant;
                         TcT.Min = Double.Parse(this.TBminE4.Text);
                         TcT.Norme = Double.Parse(this.TBnormeE4.Text);
+                        TcT.Max = 0; 
                         Test_Ctor_TeinteDB.Update(TcT);
-                        RefreshE4();
                     }
                     else
                     {
@@ -560,6 +630,7 @@ namespace QualiteSPPP.WinForm
                      && Double.TryParse(this.TBmaxE4.Text, out D) == true)
                     {
                         this.TestCtorError.Text = "";
+                        TcT.Min = 0;
                         TcT.Norme = Double.Parse(this.TBnormeE4.Text);
                         TcT.Max = Double.Parse(this.TBmaxE4.Text);
                         Test_Ctor_TeinteDB.Update(TcT);
@@ -585,7 +656,6 @@ namespace QualiteSPPP.WinForm
        
         private void RefreshE4()
         {
-            InitializeComponent();
             this.TBnomE4.Text = Ctor.Nom;
 
 
@@ -624,14 +694,15 @@ namespace QualiteSPPP.WinForm
             }
 
 
-            this.LBteinteE4.DataSource = Lteinte;
-            this.LBteinteE4.DisplayMember = "ReferenceBase";
+            this.LBteinteE4.DataSource = TeinteDB.List(Ctor.Identifiant);
+            this.LBteinteE4.DisplayMember = "ReferenceTeinte";
             this.LBteinteE4.ValueMember = "Identifiant";
             
-            this.LBtestE4.DataSource = LtCtor;
+            this.LBtestE4.DataSource = Test_ConstructeurDB.List(Ctor.Identifiant);
             this.LBtestE4.DisplayMember = "Nom";
             this.LBtestE4.ValueMember = "Identifiant";
         }
         #endregion
+
     }
 }

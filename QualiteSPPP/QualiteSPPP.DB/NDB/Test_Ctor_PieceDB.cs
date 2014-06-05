@@ -91,7 +91,7 @@ namespace QualiteSPPP.DB
                     test_ctor_piece.ID_Test = dataReader.GetInt32(1);
                     test_ctor_piece.ID_Constructeur = dataReader.GetInt32(2);
                     test_ctor_piece.ID_Piece = dataReader.GetInt32(3);
-                    test_ctor_piece.Nom = PieceDB.Get(test_ctor_piece.ID_Piece) + " " + TestDB.Get(test_ctor_piece.ID_Test);
+                    test_ctor_piece.Nom = PieceDB.Get(test_ctor_piece.ID_Piece).Nom + " " + TestDB.Get(test_ctor_piece.ID_Test).Nom;
                     listeTest_Ctor_Piece.Add(test_ctor_piece);
                 }
 

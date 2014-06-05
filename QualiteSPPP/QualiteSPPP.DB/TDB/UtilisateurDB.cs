@@ -152,6 +152,49 @@ namespace QualiteSPPP.DB
 
         }
 
+        public static Utilisateur Get(String Login, String Password)
+        {
+            Utilisateur utilisateur = new Utilisateur();
+
+            //Connection
+            SqlConnection connection = DataBase.Connection();
+
+            //Requete  
+            String requete = select + " WHERE Login=@Login AND Password=@Password  ;";
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("Login", Login);
+            commande.Parameters.AddWithValue("Password", Password);
+            //Execution
+            try
+            {
+                connection.Open();
+
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+                utilisateur.Identifiant = dataReader.GetInt32(0);
+                utilisateur.Login = dataReader.GetString(1);
+                utilisateur.Password = dataReader.GetString(2);
+                utilisateur.Groupe = dataReader.GetInt16(3);
+
+                dataReader.Close();
+
+            }
+            catch (Exception)
+            {   
+                utilisateur = null;
+                
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return utilisateur; 
+        }
+
         public static Boolean Insert(Utilisateur utilisateur)
         {
             //Connection

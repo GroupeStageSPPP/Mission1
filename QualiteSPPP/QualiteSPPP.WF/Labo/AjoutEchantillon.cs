@@ -65,7 +65,7 @@ namespace QualiteSPPP.WinForm
             CBpiece.DisplayMember = "Nom";
             CBpiece.ValueMember = "Identifiant";
 
-            CBpiece.SelectedIndex = -1;
+            CBpiece.SelectedIndex = 0;
         }
 
         private void CBpiece_SelectedIndexChanged(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace QualiteSPPP.WinForm
             CBteinte.DisplayMember = "Nom";
             CBteinte.ValueMember = "Identifiant";
 
-            CBteinte.SelectedIndex = -1;
+            CBteinte.SelectedIndex = 0;
         }
 
         private void CBteinte_SelectedIndexChanged(object sender, EventArgs e)

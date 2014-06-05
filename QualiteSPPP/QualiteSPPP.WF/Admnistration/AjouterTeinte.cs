@@ -22,7 +22,7 @@ namespace QualiteSPPP.WinForm
         {
             Teinte T = new Teinte();
             T.RisqueTeinte = this.TBrisque.Text;
-            T.ReferenceBase = this.TBrefBase.Text;
+            T.ReferenceTeinte = this.TBrefBase.Text;
             T.L = (Int32)this.NumBN.Value;
             T.A = (Int32)this.NumRV.Value;
             T.B = (Int32)this.NumJB.Value;

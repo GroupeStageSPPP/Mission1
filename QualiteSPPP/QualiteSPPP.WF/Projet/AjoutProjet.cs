@@ -28,6 +28,7 @@ namespace QualiteSPPP.WinForm
             CBcatE2.DisplayMember = "Nom";
             CBcatE2.ValueMember = "Identifiant";
 
+
         }
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -76,6 +77,7 @@ namespace QualiteSPPP.WinForm
                     RefreshE1();
                 }
             }
+            
             private void BannulerE1_Click(object sender, EventArgs e)
             {
                 this.Close();
@@ -116,6 +118,7 @@ namespace QualiteSPPP.WinForm
 
                 RefreshE1();
                 RefreshPieceE2();
+                RefreshTcpE2();
                 RefreshPieceE3();
                 RefreshProduit();
                 RefreshE3();
@@ -124,19 +127,12 @@ namespace QualiteSPPP.WinForm
         #endregion
         
         #region Etape 2
-        
-            private void RefreshPieceE2()
-            { 
-                LBpieceE2.DataSource = PieceDB.List(Vehicule.Identifiant);
-                LBpieceE2.DisplayMember = "Nom";    
-                LBpieceE2.ValueMember = "Identifiant";  
-            }
 
             private void LBpieceE2_SelectedIndexChanged(object sender, EventArgs e)
             {
                 LBtcpE2.DataSource = Test_Ctor_PieceDB.List(((Piece)LBpieceE2.SelectedItem).Identifiant);
                 LBpieceE2.DisplayMember = "Nom";    
-                LBpieceE2.ValueMember = "Identifiant";  
+                LBpieceE2.ValueMember = "Identifiant";
             }            
             
             private void CBcatE2_SelectedIndexChanged(object sender, EventArgs e)
@@ -174,11 +170,9 @@ namespace QualiteSPPP.WinForm
                 {
                     Test_Ctor_Piece tcp = new Test_Ctor_Piece();
                     tcp.ID_Constructeur = Vehicule.ID_Constructeur;
-                    tcp.ID_Test = (Int32)LBpieceE2.SelectedValue;
-                    tcp.ID_Piece = (Int32)CBtestE2.SelectedValue;
+                    tcp.ID_Piece = (Int32)LBpieceE2.SelectedValue;
+                    tcp.ID_Test = (Int32)CBtestE2.SelectedValue;
                     Test_Ctor_PieceDB.Insert(tcp);
-
-                    RefreshTcpE2();
                 }
             }
 
@@ -198,6 +192,14 @@ namespace QualiteSPPP.WinForm
                     LBtcpE2.DisplayMember = "Nom";
                     LBtcpE2.ValueMember = "Identifiant";            
             }
+
+            private void RefreshPieceE2()
+            {
+                LBpieceE2.DataSource = PieceDB.List(Vehicule.Identifiant);
+                LBpieceE2.DisplayMember = "Nom";
+                LBpieceE2.ValueMember = "Identifiant";
+            }
+            
             private void BcE2_Click(object sender, EventArgs e)
             {
                 panelE1.Enabled = false;
@@ -207,6 +209,7 @@ namespace QualiteSPPP.WinForm
                 RefreshPieceE3();
 
             }
+            
             private void BrE2_Click(object sender, EventArgs e)
             {
                 panelE1.Enabled = false;
@@ -232,7 +235,7 @@ namespace QualiteSPPP.WinForm
             private void RefreshE3()
             {
                 LBteinteE3.DataSource = TeinteDB.List(Vehicule.ID_Constructeur);
-                LBteinteE3.DisplayMember = "Nom";
+                LBteinteE3.DisplayMember = "ReferenceTeinte";
                 LBteinteE3.ValueMember = "Identifiant";
 
                 CBAvArE3.DataSource = Pos_AvArDB.List();
@@ -308,5 +311,10 @@ namespace QualiteSPPP.WinForm
             }
 
         #endregion
+
+            private void BtE3_Click(object sender, EventArgs e)
+            {
+                this.Close();
+            }
     }
 }

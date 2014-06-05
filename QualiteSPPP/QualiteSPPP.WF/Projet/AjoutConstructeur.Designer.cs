@@ -37,6 +37,26 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panelEcranPrincipal = new System.Windows.Forms.Panel();
+            this.panelAjoutConstructeurEtape4 = new System.Windows.Forms.Panel();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.BterminerE4 = new System.Windows.Forms.Button();
+            this.TBmaxE4 = new System.Windows.Forms.TextBox();
+            this.LBtestE4 = new System.Windows.Forms.ListBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.LBteinteE4 = new System.Windows.Forms.ListBox();
+            this.TBnormeE4 = new System.Windows.Forms.TextBox();
+            this.LBtest = new System.Windows.Forms.Label();
+            this.TBminE4 = new System.Windows.Forms.TextBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.TBtypeE4 = new System.Windows.Forms.TextBox();
+            this.TBnomE4 = new System.Windows.Forms.TextBox();
+            this.TBdescE4 = new System.Windows.Forms.RichTextBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.BvaliderE4 = new System.Windows.Forms.Button();
+            this.label45 = new System.Windows.Forms.Label();
             this.panelAjoutConstructeurEtape2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
@@ -115,29 +135,6 @@
             this.buttonAjouterAjoutConstructeurEtape1 = new System.Windows.Forms.Button();
             this.buttonModifierAjoutConstructeurEtape1 = new System.Windows.Forms.Button();
             this.buttonSupprimerAjoutConstructeurEtape1 = new System.Windows.Forms.Button();
-            this.panelAjoutConstructeurEtape4 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.TBtestE4 = new System.Windows.Forms.TextBox();
-            this.TBteinteE4 = new System.Windows.Forms.TextBox();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.TBmaxE4 = new System.Windows.Forms.TextBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.TBnormeE4 = new System.Windows.Forms.TextBox();
-            this.TBminE4 = new System.Windows.Forms.TextBox();
-            this.TBtypeE4 = new System.Windows.Forms.TextBox();
-            this.TBdescE4 = new System.Windows.Forms.RichTextBox();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.BvaliderE4 = new System.Windows.Forms.Button();
-            this.label46 = new System.Windows.Forms.Label();
-            this.BterminerE4 = new System.Windows.Forms.Button();
-            this.LBtestE4 = new System.Windows.Forms.ListBox();
-            this.LBteinteE4 = new System.Windows.Forms.ListBox();
-            this.LBtest = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.TBnomE4 = new System.Windows.Forms.TextBox();
-            this.label48 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItemPROJET = new System.Windows.Forms.ToolStripMenuItem();
@@ -176,6 +173,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelEcranPrincipal.SuspendLayout();
+            this.panelAjoutConstructeurEtape4.SuspendLayout();
             this.panelAjoutConstructeurEtape2.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
@@ -198,8 +196,6 @@
             this.tableLayoutPanel31.SuspendLayout();
             this.tableLayoutPanel32.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.panelAjoutConstructeurEtape4.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -314,15 +310,208 @@
             // panelEcranPrincipal
             // 
             this.panelEcranPrincipal.Controls.Add(this.panelAjoutConstructeurEtape4);
-            this.panelEcranPrincipal.Controls.Add(this.panelAjoutConstructeurEtape1);
             this.panelEcranPrincipal.Controls.Add(this.panelAjoutConstructeurEtape2);
             this.panelEcranPrincipal.Controls.Add(this.panelAjoutConstructeurEtape3);
+            this.panelEcranPrincipal.Controls.Add(this.panelAjoutConstructeurEtape1);
             this.panelEcranPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEcranPrincipal.Location = new System.Drawing.Point(21, 0);
             this.panelEcranPrincipal.Margin = new System.Windows.Forms.Padding(0);
             this.panelEcranPrincipal.Name = "panelEcranPrincipal";
             this.panelEcranPrincipal.Size = new System.Drawing.Size(1223, 585);
             this.panelEcranPrincipal.TabIndex = 6;
+            // 
+            // panelAjoutConstructeurEtape4
+            // 
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.label41);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.label46);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.label42);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.BterminerE4);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.TBmaxE4);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.LBtestE4);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.label43);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.LBteinteE4);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.TBnormeE4);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.LBtest);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.TBminE4);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.label47);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.TBtypeE4);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.TBnomE4);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.TBdescE4);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.label48);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.label44);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.BvaliderE4);
+            this.panelAjoutConstructeurEtape4.Controls.Add(this.label45);
+            this.panelAjoutConstructeurEtape4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAjoutConstructeurEtape4.Location = new System.Drawing.Point(0, 0);
+            this.panelAjoutConstructeurEtape4.Name = "panelAjoutConstructeurEtape4";
+            this.panelAjoutConstructeurEtape4.Size = new System.Drawing.Size(1223, 585);
+            this.panelAjoutConstructeurEtape4.TabIndex = 112;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(765, 273);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(51, 13);
+            this.label41.TabIndex = 100;
+            this.label41.Text = "Maximum";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.ForeColor = System.Drawing.Color.Red;
+            this.label46.Location = new System.Drawing.Point(738, 104);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(29, 13);
+            this.label46.TabIndex = 116;
+            this.label46.Text = "Error";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(726, 247);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(90, 13);
+            this.label42.TabIndex = 101;
+            this.label42.Text = "Recommandation";
+            // 
+            // BterminerE4
+            // 
+            this.BterminerE4.Location = new System.Drawing.Point(718, 411);
+            this.BterminerE4.Name = "BterminerE4";
+            this.BterminerE4.Size = new System.Drawing.Size(257, 107);
+            this.BterminerE4.TabIndex = 115;
+            this.BterminerE4.Text = "Terminer";
+            this.BterminerE4.UseVisualStyleBackColor = true;
+            this.BterminerE4.Click += new System.EventHandler(this.BterminerE4_Click);
+            // 
+            // TBmaxE4
+            // 
+            this.TBmaxE4.Location = new System.Drawing.Point(822, 273);
+            this.TBmaxE4.Name = "TBmaxE4";
+            this.TBmaxE4.Size = new System.Drawing.Size(150, 20);
+            this.TBmaxE4.TabIndex = 97;
+            // 
+            // LBtestE4
+            // 
+            this.LBtestE4.FormattingEnabled = true;
+            this.LBtestE4.Location = new System.Drawing.Point(488, 127);
+            this.LBtestE4.Name = "LBtestE4";
+            this.LBtestE4.Size = new System.Drawing.Size(157, 394);
+            this.LBtestE4.TabIndex = 113;
+            this.LBtestE4.SelectedIndexChanged += new System.EventHandler(this.LbE4_SelectedIndexChanged);
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(768, 221);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(48, 13);
+            this.label43.TabIndex = 102;
+            this.label43.Text = "Minimum";
+            // 
+            // LBteinteE4
+            // 
+            this.LBteinteE4.FormattingEnabled = true;
+            this.LBteinteE4.Location = new System.Drawing.Point(250, 127);
+            this.LBteinteE4.Name = "LBteinteE4";
+            this.LBteinteE4.Size = new System.Drawing.Size(157, 394);
+            this.LBteinteE4.TabIndex = 114;
+            this.LBteinteE4.SelectedIndexChanged += new System.EventHandler(this.LbE4_SelectedIndexChanged);
+            // 
+            // TBnormeE4
+            // 
+            this.TBnormeE4.Location = new System.Drawing.Point(822, 247);
+            this.TBnormeE4.Name = "TBnormeE4";
+            this.TBnormeE4.Size = new System.Drawing.Size(150, 20);
+            this.TBnormeE4.TabIndex = 98;
+            // 
+            // LBtest
+            // 
+            this.LBtest.AutoSize = true;
+            this.LBtest.Location = new System.Drawing.Point(485, 104);
+            this.LBtest.Name = "LBtest";
+            this.LBtest.Size = new System.Drawing.Size(77, 13);
+            this.LBtest.TabIndex = 111;
+            this.LBtest.Text = "Liste des tests ";
+            // 
+            // TBminE4
+            // 
+            this.TBminE4.Location = new System.Drawing.Point(822, 221);
+            this.TBminE4.Name = "TBminE4";
+            this.TBminE4.Size = new System.Drawing.Size(150, 20);
+            this.TBminE4.TabIndex = 99;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(247, 104);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(83, 13);
+            this.label47.TabIndex = 112;
+            this.label47.Text = "Liste des teintes";
+            // 
+            // TBtypeE4
+            // 
+            this.TBtypeE4.Location = new System.Drawing.Point(822, 187);
+            this.TBtypeE4.Name = "TBtypeE4";
+            this.TBtypeE4.ReadOnly = true;
+            this.TBtypeE4.Size = new System.Drawing.Size(150, 20);
+            this.TBtypeE4.TabIndex = 96;
+            // 
+            // TBnomE4
+            // 
+            this.TBnomE4.Location = new System.Drawing.Point(363, 63);
+            this.TBnomE4.Name = "TBnomE4";
+            this.TBnomE4.ReadOnly = true;
+            this.TBnomE4.Size = new System.Drawing.Size(114, 20);
+            this.TBnomE4.TabIndex = 110;
+            // 
+            // TBdescE4
+            // 
+            this.TBdescE4.Location = new System.Drawing.Point(822, 134);
+            this.TBdescE4.Name = "TBdescE4";
+            this.TBdescE4.ReadOnly = true;
+            this.TBdescE4.Size = new System.Drawing.Size(150, 47);
+            this.TBdescE4.TabIndex = 95;
+            this.TBdescE4.Text = "";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(251, 66);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(106, 13);
+            this.label48.TabIndex = 109;
+            this.label48.Text = "Nom du constructeur";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(785, 191);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(31, 13);
+            this.label44.TabIndex = 93;
+            this.label44.Text = "Type";
+            // 
+            // BvaliderE4
+            // 
+            this.BvaliderE4.Location = new System.Drawing.Point(878, 375);
+            this.BvaliderE4.Name = "BvaliderE4";
+            this.BvaliderE4.Size = new System.Drawing.Size(91, 23);
+            this.BvaliderE4.TabIndex = 83;
+            this.BvaliderE4.Text = "Valider";
+            this.BvaliderE4.UseVisualStyleBackColor = true;
+            this.BvaliderE4.Click += new System.EventHandler(this.BvaliderE4_Click);
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(756, 137);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(60, 13);
+            this.label45.TabIndex = 94;
+            this.label45.Text = "Description";
             // 
             // panelAjoutConstructeurEtape2
             // 
@@ -1235,227 +1424,6 @@
             this.buttonSupprimerAjoutConstructeurEtape1.UseVisualStyleBackColor = false;
             this.buttonSupprimerAjoutConstructeurEtape1.Click += new System.EventHandler(this.buttonSupprimerAjoutConstructeurEtape1_Click);
             // 
-            // panelAjoutConstructeurEtape4
-            // 
-            this.panelAjoutConstructeurEtape4.Controls.Add(this.panel2);
-            this.panelAjoutConstructeurEtape4.Controls.Add(this.label46);
-            this.panelAjoutConstructeurEtape4.Controls.Add(this.BterminerE4);
-            this.panelAjoutConstructeurEtape4.Controls.Add(this.LBtestE4);
-            this.panelAjoutConstructeurEtape4.Controls.Add(this.LBteinteE4);
-            this.panelAjoutConstructeurEtape4.Controls.Add(this.LBtest);
-            this.panelAjoutConstructeurEtape4.Controls.Add(this.label47);
-            this.panelAjoutConstructeurEtape4.Controls.Add(this.TBnomE4);
-            this.panelAjoutConstructeurEtape4.Controls.Add(this.label48);
-            this.panelAjoutConstructeurEtape4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAjoutConstructeurEtape4.Location = new System.Drawing.Point(0, 0);
-            this.panelAjoutConstructeurEtape4.Name = "panelAjoutConstructeurEtape4";
-            this.panelAjoutConstructeurEtape4.Size = new System.Drawing.Size(1223, 585);
-            this.panelAjoutConstructeurEtape4.TabIndex = 112;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.TBtestE4);
-            this.panel2.Controls.Add(this.TBteinteE4);
-            this.panel2.Controls.Add(this.label41);
-            this.panel2.Controls.Add(this.label42);
-            this.panel2.Controls.Add(this.TBmaxE4);
-            this.panel2.Controls.Add(this.label43);
-            this.panel2.Controls.Add(this.TBnormeE4);
-            this.panel2.Controls.Add(this.TBminE4);
-            this.panel2.Controls.Add(this.TBtypeE4);
-            this.panel2.Controls.Add(this.TBdescE4);
-            this.panel2.Controls.Add(this.label44);
-            this.panel2.Controls.Add(this.label45);
-            this.panel2.Controls.Add(this.BvaliderE4);
-            this.panel2.Location = new System.Drawing.Point(718, 127);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(257, 281);
-            this.panel2.TabIndex = 117;
-            this.panel2.Visible = false;
-            // 
-            // TBtestE4
-            // 
-            this.TBtestE4.Location = new System.Drawing.Point(140, 3);
-            this.TBtestE4.Name = "TBtestE4";
-            this.TBtestE4.ReadOnly = true;
-            this.TBtestE4.Size = new System.Drawing.Size(114, 20);
-            this.TBtestE4.TabIndex = 109;
-            // 
-            // TBteinteE4
-            // 
-            this.TBteinteE4.Location = new System.Drawing.Point(3, 3);
-            this.TBteinteE4.Name = "TBteinteE4";
-            this.TBteinteE4.ReadOnly = true;
-            this.TBteinteE4.Size = new System.Drawing.Size(114, 20);
-            this.TBteinteE4.TabIndex = 109;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(47, 203);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(51, 13);
-            this.label41.TabIndex = 100;
-            this.label41.Text = "Maximum";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(8, 177);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(90, 13);
-            this.label42.TabIndex = 101;
-            this.label42.Text = "Recommandation";
-            // 
-            // TBmaxE4
-            // 
-            this.TBmaxE4.Location = new System.Drawing.Point(104, 203);
-            this.TBmaxE4.Name = "TBmaxE4";
-            this.TBmaxE4.Size = new System.Drawing.Size(150, 20);
-            this.TBmaxE4.TabIndex = 97;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(50, 151);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(48, 13);
-            this.label43.TabIndex = 102;
-            this.label43.Text = "Minimum";
-            // 
-            // TBnormeE4
-            // 
-            this.TBnormeE4.Location = new System.Drawing.Point(104, 177);
-            this.TBnormeE4.Name = "TBnormeE4";
-            this.TBnormeE4.Size = new System.Drawing.Size(150, 20);
-            this.TBnormeE4.TabIndex = 98;
-            // 
-            // TBminE4
-            // 
-            this.TBminE4.Location = new System.Drawing.Point(104, 151);
-            this.TBminE4.Name = "TBminE4";
-            this.TBminE4.Size = new System.Drawing.Size(150, 20);
-            this.TBminE4.TabIndex = 99;
-            // 
-            // TBtypeE4
-            // 
-            this.TBtypeE4.Location = new System.Drawing.Point(104, 117);
-            this.TBtypeE4.Name = "TBtypeE4";
-            this.TBtypeE4.ReadOnly = true;
-            this.TBtypeE4.Size = new System.Drawing.Size(150, 20);
-            this.TBtypeE4.TabIndex = 96;
-            // 
-            // TBdescE4
-            // 
-            this.TBdescE4.Location = new System.Drawing.Point(104, 64);
-            this.TBdescE4.Name = "TBdescE4";
-            this.TBdescE4.ReadOnly = true;
-            this.TBdescE4.Size = new System.Drawing.Size(150, 47);
-            this.TBdescE4.TabIndex = 95;
-            this.TBdescE4.Text = "";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(67, 121);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(31, 13);
-            this.label44.TabIndex = 93;
-            this.label44.Text = "Type";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(38, 67);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(60, 13);
-            this.label45.TabIndex = 94;
-            this.label45.Text = "Description";
-            // 
-            // BvaliderE4
-            // 
-            this.BvaliderE4.Location = new System.Drawing.Point(163, 250);
-            this.BvaliderE4.Name = "BvaliderE4";
-            this.BvaliderE4.Size = new System.Drawing.Size(91, 23);
-            this.BvaliderE4.TabIndex = 83;
-            this.BvaliderE4.Text = "Valider";
-            this.BvaliderE4.UseVisualStyleBackColor = true;
-            this.BvaliderE4.Click += new System.EventHandler(this.BvaliderE4_Click);
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.ForeColor = System.Drawing.Color.Red;
-            this.label46.Location = new System.Drawing.Point(738, 104);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(29, 13);
-            this.label46.TabIndex = 116;
-            this.label46.Text = "Error";
-            // 
-            // BterminerE4
-            // 
-            this.BterminerE4.Location = new System.Drawing.Point(718, 411);
-            this.BterminerE4.Name = "BterminerE4";
-            this.BterminerE4.Size = new System.Drawing.Size(257, 107);
-            this.BterminerE4.TabIndex = 115;
-            this.BterminerE4.Text = "Terminer";
-            this.BterminerE4.UseVisualStyleBackColor = true;
-            this.BterminerE4.Click += new System.EventHandler(this.BterminerE4_Click);
-            // 
-            // LBtestE4
-            // 
-            this.LBtestE4.FormattingEnabled = true;
-            this.LBtestE4.Location = new System.Drawing.Point(488, 127);
-            this.LBtestE4.Name = "LBtestE4";
-            this.LBtestE4.Size = new System.Drawing.Size(157, 394);
-            this.LBtestE4.TabIndex = 113;
-            this.LBtestE4.SelectedIndexChanged += new System.EventHandler(this.LBtestE4_SelectedIndexChanged);
-            // 
-            // LBteinteE4
-            // 
-            this.LBteinteE4.FormattingEnabled = true;
-            this.LBteinteE4.Location = new System.Drawing.Point(250, 127);
-            this.LBteinteE4.Name = "LBteinteE4";
-            this.LBteinteE4.Size = new System.Drawing.Size(157, 394);
-            this.LBteinteE4.TabIndex = 114;
-            this.LBteinteE4.SelectedIndexChanged += new System.EventHandler(this.LBteinteE4_SelectedIndexChanged);
-            // 
-            // LBtest
-            // 
-            this.LBtest.AutoSize = true;
-            this.LBtest.Location = new System.Drawing.Point(485, 104);
-            this.LBtest.Name = "LBtest";
-            this.LBtest.Size = new System.Drawing.Size(77, 13);
-            this.LBtest.TabIndex = 111;
-            this.LBtest.Text = "Liste des tests ";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(247, 104);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(83, 13);
-            this.label47.TabIndex = 112;
-            this.label47.Text = "Liste des teintes";
-            // 
-            // TBnomE4
-            // 
-            this.TBnomE4.Location = new System.Drawing.Point(363, 63);
-            this.TBnomE4.Name = "TBnomE4";
-            this.TBnomE4.ReadOnly = true;
-            this.TBnomE4.Size = new System.Drawing.Size(114, 20);
-            this.TBnomE4.TabIndex = 110;
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(251, 66);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(106, 13);
-            this.label48.TabIndex = 109;
-            this.label48.Text = "Nom du constructeur";
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
@@ -1733,6 +1701,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelEcranPrincipal.ResumeLayout(false);
+            this.panelAjoutConstructeurEtape4.ResumeLayout(false);
+            this.panelAjoutConstructeurEtape4.PerformLayout();
             this.panelAjoutConstructeurEtape2.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
@@ -1762,10 +1732,6 @@
             this.tableLayoutPanel32.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            this.panelAjoutConstructeurEtape4.ResumeLayout(false);
-            this.panelAjoutConstructeurEtape4.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -1869,9 +1835,6 @@
         private System.Windows.Forms.Button BdeleteTestCtorE3;
         private System.Windows.Forms.Button BAnnulerAjoutConstructeurEtape3;
         private System.Windows.Forms.Panel panelAjoutConstructeurEtape4;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox TBtestE4;
-        private System.Windows.Forms.TextBox TBteinteE4;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.TextBox TBmaxE4;

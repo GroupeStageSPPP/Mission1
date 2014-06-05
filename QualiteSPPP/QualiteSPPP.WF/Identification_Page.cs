@@ -27,18 +27,9 @@ namespace QualiteSPPP.WinForm
 
         private void pictureBoxButtonSeConnecter_Click(object sender, EventArgs e)
         {
-            Boolean Status = false;
-            Utilisateur User = new Utilisateur();
-
-            foreach (Utilisateur user in UtilisateurDB.List())
-            {
-                if (user.Login == TBlogin.Text&& user.Password == TBpassword.Text)
-                {
-                    User = user;
-                    Status = true;
-                }
-            }
-            if (Status == true)
+            Utilisateur User = UtilisateurDB.Get(TBlogin.Text, TBpassword.Text);
+            
+            if (User != null)
             {
                 this.Hide();
                 Acceuil acceuil = new Acceuil(User);

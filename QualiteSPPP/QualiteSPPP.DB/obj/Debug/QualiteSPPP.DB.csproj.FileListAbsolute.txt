@@ -10,12 +10,6 @@ C:\Users\msi\Documents\GitHub\Mission1\QualiteSPPP\QualiteSPPP.DB\bin\Debug\Qual
 C:\Users\msi\Documents\GitHub\Mission1\QualiteSPPP\QualiteSPPP.DB\bin\Debug\QualiteSPPP.DB.dll
 C:\Users\msi\Documents\GitHub\Mission1\QualiteSPPP\QualiteSPPP.DB\bin\Debug\QualiteSPPP.DB.pdb
 C:\Users\msi\Documents\GitHub\Mission1\QualiteSPPP\QualiteSPPP.DB\obj\Debug\QualiteSPPP.DB.pdb
-C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.DB\bin\Debug\QualiteSPPP.DB.dll.config
-C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.DB\bin\Debug\QualiteSPPP.DB.dll
-C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.DB\bin\Debug\QualiteSPPP.DB.pdb
-C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.DB\obj\Debug\QualiteSPPP.DB.dll
-C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.DB\obj\Debug\QualiteSPPP.DB.pdb
-C:\Users\jbblois\Desktop\SPPP\Mission1\QualiteSPPP\QualiteSPPP.DB\obj\Debug\QualiteSPPP.DB.csprojResolveAssemblyReference.cache
 C:\Users\jb\Desktop\Mission1\QualiteSPPP\QualiteSPPP.DB\obj\Debug\QualiteSPPP.DB.csprojResolveAssemblyReference.cache
 C:\Users\jb\Desktop\Mission1\QualiteSPPP\QualiteSPPP.DB\obj\Debug\QualiteSPPP.DB.dll
 C:\Users\jb\Desktop\Mission1\QualiteSPPP\QualiteSPPP.DB\bin\Debug\QualiteSPPP.DB.dll.config

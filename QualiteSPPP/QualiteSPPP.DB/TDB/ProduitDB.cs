@@ -135,6 +135,7 @@ namespace QualiteSPPP.DB
 
         public static Boolean Insert(Produit produit)
         {
+            produit.Nom = NomProduit(produit);
             //Connection
             SqlConnection connection = DataBase.Connection();
 
@@ -163,6 +164,7 @@ namespace QualiteSPPP.DB
 
         public static Boolean Update(Produit produit)
         {
+            produit.Nom = NomProduit(produit);
             //Connection
             SqlConnection connection = DataBase.Connection();
 
@@ -234,6 +236,20 @@ namespace QualiteSPPP.DB
 	        Identifiant = dataReader.GetInt32(0);
             connection.Close();
 	        return Identifiant; 
-	    }    
+	    }
+
+        public static String NomProduit(Produit produit)
+        {
+            Piece piece = PieceDB.Get(produit.ID_Piece);
+            String nVehicule = VehiculeDB.Get(piece.ID_Vehicule).Nom;
+            String nCategorie = CategorieDB.Get(SousCatDB.Get(piece.ID_SousCat).ID_Categorie).Nom;
+            String nType = SousCatDB.Get(piece.ID_SousCat).Nom;
+            String nAvar = Pos_AvArDB.Get(produit.ID_PosAvAr).Position;
+            String nGd = Pos_GdDB.Get(produit.ID_PosGD).Position;
+            String nTeinte = TeinteDB.Get(produit.ID_Teinte).ReferenceTeinte;
+
+            String Nom = nVehicule + " " + nCategorie + " " + nType + " " + nAvar + " " + nGd + " " + nTeinte;
+            return Nom;
+        }
     }
 }

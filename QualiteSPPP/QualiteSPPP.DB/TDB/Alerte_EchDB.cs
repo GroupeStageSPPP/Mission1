@@ -38,32 +38,34 @@ namespace QualiteSPPP.DB
 	            while (dataReader.Read())
                 {
                    Alerte_Ech alerte_Ech = new Alerte_Ech(); 
-	           alerte_Ech.Identifiant = dataReader.GetInt32(0);
-	           alerte_Ech.Message = dataReader.GetString(1);
-               alerte_Ech.Date = dataReader.GetDateTime(2);
-               alerte_Ech.ID_Echantillon = dataReader.GetInt32(3);
-	           listeAlerte_Ech.Add(alerte_Ech);
+	               alerte_Ech.Identifiant = dataReader.GetInt32(0);
+	               alerte_Ech.Message = dataReader.GetString(1);
+                   alerte_Ech.Date = dataReader.GetDateTime(2);
+                   alerte_Ech.ID_Echantillon = dataReader.GetInt32(3);
+	               listeAlerte_Ech.Add(alerte_Ech);
                 }
 
                 dataReader.Close();
 
-	            return listeAlerte_Ech;
+	            
             }
             catch (Exception)
             {
-                return null;
+                listeAlerte_Ech =  null;
             }
             finally
             {
                 connection.Close();
             }
-            
 
-	    }
+            return listeAlerte_Ech;
+        }           
+
+	    
 
         public static Alerte_Ech Get(Int32 Identifiant)
 	    {
-	        Alerte_Ech alerte_Ech = new Alerte_Ech();
+            Alerte_Ech alerte_Ech = new Alerte_Ech();
 	   
 	        //Connection
             SqlConnection connection = DataBase.Connection();
@@ -78,19 +80,36 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
+            try
+            {
+                connection.Open();
 
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-            alerte_Ech.Identifiant = dataReader.GetInt32(0);
-            alerte_Ech.Message = dataReader.GetString(1);
-            alerte_Ech.Date = dataReader.GetDateTime(2);
-            alerte_Ech.ID_Echantillon = dataReader.GetInt32(3);
-            dataReader.Close();
-            connection.Close();
+                SqlDataReader dataReader = commande.ExecuteReader();
 
-	        return alerte_Ech;
-	    }
+                while (dataReader.Read())
+                {
+                    
+                    alerte_Ech.Identifiant = dataReader.GetInt32(0);
+                    alerte_Ech.Message = dataReader.GetString(1);
+                    alerte_Ech.Date = dataReader.GetDateTime(2);
+                    alerte_Ech.ID_Echantillon = dataReader.GetInt32(3);
+                }
+
+                dataReader.Close();
+
+
+            }
+            catch (Exception)
+            {
+                alerte_Ech = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return alerte_Ech;
+        } 
 
         public static Boolean Insert(Alerte_Ech alerte_Ech)
         {
@@ -125,6 +144,7 @@ namespace QualiteSPPP.DB
             }
         }
 
+
         public static Boolean Update(Alerte_Ech alerte_Ech)
         {
             //Connection
@@ -145,11 +165,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_Echantillon", alerte_Ech.ID_Echantillon);
             
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Delete(Int32 Identifiant)
@@ -169,11 +198,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 	
 	public static Int32 LastID()
@@ -186,13 +224,25 @@ namespace QualiteSPPP.DB
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
-	    
-	    connection.Open();
-        SqlDataReader dataReader = commande.ExecuteReader();
-        dataReader.Read();
-	    Identifiant = dataReader.GetInt32(0);
-            connection.Close();
-	    return Identifiant; 
+
+            try
+            {
+                connection.Open();
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+                Identifiant = dataReader.GetInt32(0);
+                connection.Close();
+                return Identifiant;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
 	}    
     }
 }
