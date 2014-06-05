@@ -29,24 +29,36 @@ namespace QualiteSPPP.DB
             //Parametres
 
             //Execution
-            connection.Open();
-
-            SqlDataReader dataReader = commande.ExecuteReader();
-	    
-	        while (dataReader.Read())
+            try
             {
-               Alerte_Ech alerte_Ech = new Alerte_Ech(); 
-	       alerte_Ech.Identifiant = dataReader.GetInt32(0);
-	       alerte_Ech.Message = dataReader.GetString(1);
-           alerte_Ech.Date = dataReader.GetDateTime(2);
-           alerte_Ech.ID_Echantillon = dataReader.GetInt32(3);
-	       listeAlerte_Ech.Add(alerte_Ech);
+                connection.Open();
+
+                SqlDataReader dataReader = commande.ExecuteReader();
+	    
+	            while (dataReader.Read())
+                {
+                   Alerte_Ech alerte_Ech = new Alerte_Ech(); 
+	           alerte_Ech.Identifiant = dataReader.GetInt32(0);
+	           alerte_Ech.Message = dataReader.GetString(1);
+               alerte_Ech.Date = dataReader.GetDateTime(2);
+               alerte_Ech.ID_Echantillon = dataReader.GetInt32(3);
+	           listeAlerte_Ech.Add(alerte_Ech);
+                }
+
+                dataReader.Close();
+
+	            return listeAlerte_Ech;
             }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            
 
-            dataReader.Close();
-            connection.Close();
-
-	        return listeAlerte_Ech;
 	    }
 
         public static Alerte_Ech Get(Int32 Identifiant)
@@ -97,10 +109,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Date", alerte_Ech.Date);
             commande.Parameters.AddWithValue("ID_Echantillon", alerte_Ech.ID_Echantillon);
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Update(Alerte_Ech alerte_Ech)

@@ -846,7 +846,6 @@
             this.panelLABORATOIRENouvelEchantillon.Name = "panelLABORATOIRENouvelEchantillon";
             this.panelLABORATOIRENouvelEchantillon.Size = new System.Drawing.Size(1223, 585);
             this.panelLABORATOIRENouvelEchantillon.TabIndex = 0;
-            this.panelLABORATOIRENouvelEchantillon.VisibleChanged += new System.EventHandler(this.panelLABORATOIRENouvelEchantillon_VisibleChanged);
             // 
             // splitContainer5
             // 
@@ -1249,7 +1248,6 @@
             this.panelAdministrationNouveauPiece.Name = "panelAdministrationNouveauPiece";
             this.panelAdministrationNouveauPiece.Size = new System.Drawing.Size(1223, 585);
             this.panelAdministrationNouveauPiece.TabIndex = 30;
-            this.panelAdministrationNouveauPiece.VisibleChanged += new System.EventHandler(this.panelAdministrationNouveauPiece_VisibleChanged);
             // 
             // splitContainer10
             // 
@@ -1443,7 +1441,6 @@
             this.button11.TabIndex = 21;
             this.button11.Text = "Ajouter un vehicule";
             this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // label55
             // 
@@ -3064,7 +3061,6 @@
             this.panelAdministrationNouveauVehicule.Name = "panelAdministrationNouveauVehicule";
             this.panelAdministrationNouveauVehicule.Size = new System.Drawing.Size(1223, 585);
             this.panelAdministrationNouveauVehicule.TabIndex = 2;
-            this.panelAdministrationNouveauVehicule.VisibleChanged += new System.EventHandler(this.panelAdministrationNouveauVehicule_VisibleChanged);
             // 
             // splitContainer2
             // 

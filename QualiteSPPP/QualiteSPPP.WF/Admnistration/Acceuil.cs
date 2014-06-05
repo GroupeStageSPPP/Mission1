@@ -14,30 +14,21 @@ namespace QualiteSPPP.WinForm
 {
     public partial class Acceuil : Form
     {
-        public Identification Status;
+        public Utilisateur Status;
 
-        public Acceuil(Identification entreUtilistateur)
+        public Acceuil(Utilisateur entreUtilistateur)
         {
-            Status = new Identification();
+            Status = new Utilisateur();
 
             Status.Identifiant = entreUtilistateur.Identifiant;
-            Status.Status = entreUtilistateur.Status;
-            Status.AdminAcess = entreUtilistateur.AdminAcess;
+            Status.Password = entreUtilistateur.Password;
+            Status.Groupe = entreUtilistateur.Groupe;
 
             InitializeComponent();
         }
         private void Acceuil_Load(object sender, EventArgs e)
         {
             ouvrirEcran("OPTION_Acceuil");
-
-            if (Status.AdminAcess == true)
-            {
-                administrationToolStripMenuItem.Enabled = true;
-            }
-            else
-            {
-                administrationToolStripMenuItem.Enabled = false;
-            }
         }
 
         #region Fonctions
@@ -223,19 +214,6 @@ namespace QualiteSPPP.WinForm
                     //  --> LABORATOIRE/Nouvel Echantillon
                     ouvrirEcran("LABORATOIRE_NouvelEchantillon");
                 }
-                private void panelLABORATOIRENouvelEchantillon_VisibleChanged(object sender, EventArgs e)
-                {
-                    if(Status.AdminAcess == true)
-                    {
-                        buttonModifierLABORATOIREAjouterEchantillon.Visible = true;
-                        buttonSupprimerLABORATOIREAjouterEchantillon.Visible = true;
-                    }
-                    else
-                    {
-                        buttonModifierLABORATOIREAjouterEchantillon.Visible = false;
-                        buttonSupprimerLABORATOIREAjouterEchantillon.Visible = false;
-	                }
-                }
                 private void buttonCommencerTest_Click(object sender, EventArgs e)
                 {
                     if (listBoxEchantillon.SelectedItem != null)
@@ -319,10 +297,10 @@ namespace QualiteSPPP.WinForm
                     ouvrirEcran("ADMINISTRATION_Nouveau_Peinture");
                 }
                 private void buttonNouveauConstructeurPeinture_Click(object sender, EventArgs e)
-            {
-                AjouterConstructeur constructeur = new AjouterConstructeur();
-                constructeur.ShowDialog();
-            }
+                {
+                    AjoutConstructeur constructeur = new AjoutConstructeur();
+                    constructeur.ShowDialog();
+                }
             #endregion
             #region Projet
             private void ajouterUnProjetToolStripMenuItem_Click(object sender, EventArgs e)
@@ -361,19 +339,6 @@ namespace QualiteSPPP.WinForm
                     //  --> ADMINISTRATION/Nouveau/Vehicule
                     ouvrirEcran("ADMINISTRATION_Nouveau_Vehicule");
                 }
-                private void panelAdministrationNouveauVehicule_VisibleChanged(object sender, EventArgs e)
-                {
-                    if (Status.AdminAcess == true)
-                    {
-                        buttonModifierADMINISTRATIONVehicule.Visible = true;
-                        buttonSupprimerADMINISTRATIONVehicule.Visible = true;
-                    }
-                    else
-                    {
-                        buttonModifierADMINISTRATIONVehicule.Visible = false;
-                        buttonSupprimerADMINISTRATIONVehicule.Visible = false;
-                    }
-                }
                 private void comboBoxConstructeur_SelectedIndexChanged(object sender, EventArgs e)
                 {
                     if (comboBoxConstructeurADMINISTRATIONVehicule.SelectedItem == "Autre")
@@ -387,15 +352,15 @@ namespace QualiteSPPP.WinForm
                 }
                 private void buttonNouveauConstructeur_Click(object sender, EventArgs e)
                 {
-                    AjouterConstructeur constructeur = new AjouterConstructeur();
+                    AjoutConstructeur constructeur = new AjoutConstructeur();
                     constructeur.ShowDialog();
                 }
                 private void buttonAjouterADMINISTRATIONVehicule_Click(object sender, EventArgs e)
-            {
-                MessageBox.Show("           Véhicule Enregistré.\nVeuillez maintenant entrer les pièces de ce véhicule.");
-                AjouterPieces ajouterPieces = new AjouterPieces();
-                ajouterPieces.ShowDialog();
-            }
+                {
+                    MessageBox.Show("           Véhicule Enregistré.\nVeuillez maintenant entrer les pièces de ce véhicule.");
+                    AjouterPieces ajouterPieces = new AjouterPieces();
+                    ajouterPieces.ShowDialog();
+                }
             #endregion
             #region Type
             private void ajouterUnTypeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -425,19 +390,6 @@ namespace QualiteSPPP.WinForm
                 {
                     //ouvrir ADMINISTRATION/Ajouter une pièce
                     ouvrirEcran("ADMINISTRATION_Nouveau_Piece");
-                }
-                private void panelAdministrationNouveauPiece_VisibleChanged(object sender, EventArgs e)
-                {
-                    if (Status.AdminAcess == true)
-                    {
-                        buttonModifierADMINISTRATIONPiece.Visible = true;
-                        buttonSupprimerADMINISTRATIONPiece.Visible = true;
-                    }
-                    else
-                    {
-                        buttonModifierADMINISTRATIONPiece.Visible = false;
-                        buttonSupprimerADMINISTRATIONPiece.Visible = false;
-                    }
                 }
             #endregion
         #endregion
@@ -539,11 +491,6 @@ namespace QualiteSPPP.WinForm
             #endregion
         #endregion
 
-        private void button11_Click(object sender, EventArgs e)
-        {
-            AjouterVehicule ajouterVehicule = new AjouterVehicule();
-            ajouterVehicule.ShowDialog();
-        }
         private void button3_Click(object sender, EventArgs e)
         {
             AjoutProjet ajoutProjet = new AjoutProjet();

@@ -39,7 +39,7 @@ namespace QualiteSPPP.DB
                 {
                    Vehicule vehicule = new Vehicule(); 
 	               vehicule.Identifiant = dataReader.GetInt32(0);
-                   vehicule.Nom         = dataReader.GetString(1);
+                   vehicule.Nom= dataReader.GetString(1);
                    vehicule.ID_Constructeur= dataReader.GetInt32(2);
 	               listeVehicule.Add(vehicule);
                 }
