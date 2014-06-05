@@ -53,17 +53,17 @@ namespace QualiteSPPP.DB
                 dataReader.Close();
                 connection.Close();
 
-	            return listeTest_Constructeur;
+	            
             }
             catch (Exception)
             {
-                return null;
+                listeTest_Constructeur = null;
             }
             finally
             {
                 connection.Close();
             }
-            
+            return listeTest_Constructeur;
 	    }
 
         public static Test_Constructeur Get(Int32 Identifiant)
@@ -98,17 +98,17 @@ namespace QualiteSPPP.DB
                 dataReader.Close();
                 connection.Close();
 
-	            return test_constructeur;
+	           
             }
             catch (Exception)
             {
-                return null;
+                test_constructeur =  null;
             }
             finally
             {
                 connection.Close();
             }
-
+            return test_constructeur;
 	    }
 
         public static Boolean Insert(Test_Constructeur test_constructeur)

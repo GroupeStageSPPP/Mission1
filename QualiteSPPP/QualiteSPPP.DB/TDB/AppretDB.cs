@@ -29,23 +29,36 @@ namespace QualiteSPPP.DB
             //Parametres
 
             //Execution
-            connection.Open();
 
-            SqlDataReader dataReader = commande.ExecuteReader();
-	    
-	        while (dataReader.Read())
+            try
             {
-               Appret appret = new Appret();
-               appret.Identifiant = dataReader.GetInt32(0);
-               appret.Reference   = dataReader.GetString(1);
-               appret.Min         = dataReader.GetInt32(2);
-               appret.Norme       = dataReader.GetInt32(3);
-               appret.Max         = dataReader.GetInt32(4);
-	           listeAppret.Add(appret);
-            }
+                connection.Open();
 
-            dataReader.Close();
-            connection.Close();
+                SqlDataReader dataReader = commande.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Appret appret = new Appret();
+                    appret.Identifiant = dataReader.GetInt32(0);
+                    appret.Reference = dataReader.GetString(1);
+                    appret.Min = dataReader.GetInt32(2);
+                    appret.Norme = dataReader.GetInt32(3);
+                    appret.Max = dataReader.GetInt32(4);
+                    listeAppret.Add(appret);
+                }
+
+                dataReader.Close();
+
+
+            }
+            catch (Exception)
+            {
+                listeAppret = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
 
 	        return listeAppret;
 	    }
@@ -67,18 +80,35 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
+            try
+            {
+                connection.Open();
 
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-            appret.Identifiant = dataReader.GetInt32(0);
-            appret.Reference = dataReader.GetString(1);
-            appret.Min = dataReader.GetInt32(2);
-            appret.Norme = dataReader.GetInt32(3);
-            appret.Max = dataReader.GetInt32(4);
-            dataReader.Close();
-            connection.Close();
+                SqlDataReader dataReader = commande.ExecuteReader();
 
+                while (dataReader.Read())
+                {
+
+                    appret.Identifiant = dataReader.GetInt32(0);
+                    appret.Reference = dataReader.GetString(1);
+                    appret.Min = dataReader.GetInt32(2);
+                    appret.Norme = dataReader.GetInt32(3);
+                    appret.Max = dataReader.GetInt32(4);
+                }
+
+                dataReader.Close();
+
+
+
+            }
+            catch (Exception)
+            {
+                appret = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
 	        return appret;
 	    }
 
@@ -101,10 +131,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Max", appret.Max);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Update(Appret appret)
@@ -128,11 +168,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Max", appret.Max);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Delete(Int32 Identifiant)
@@ -152,11 +201,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 	
 	public static Int32 LastID()
@@ -169,13 +227,25 @@ namespace QualiteSPPP.DB
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
-	    
-	    connection.Open();
-            SqlDataReader dataReader = commande.ExecuteReader();
-        dataReader.Read();
-	    Identifiant = dataReader.GetInt32(0);
-            connection.Close();
-	    return Identifiant; 
+
+            try
+            {
+                connection.Open();
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+                Identifiant = dataReader.GetInt32(0);
+                connection.Close();
+                return Identifiant;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
 	}    
     }
 }

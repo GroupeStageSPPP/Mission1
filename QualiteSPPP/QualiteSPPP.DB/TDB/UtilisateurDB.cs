@@ -95,17 +95,17 @@ namespace QualiteSPPP.DB
 
                 dataReader.Close();
 
-                return listeUtilisateur;
+                
             }
             catch (Exception)
             {
-                return null;
+                listeUtilisateur =  null;
             }
             finally
             {
                 connection.Close();
             }
-
+            return listeUtilisateur;
         }
 
         public static Utilisateur Get(Int32 Identifiant)
@@ -139,17 +139,17 @@ namespace QualiteSPPP.DB
 
                 dataReader.Close();
 
-                return utilisateur;
+                
             }
             catch (Exception)
             {
-                return null;
+                utilisateur = null;
             }
             finally
             {
                 connection.Close();
             }
-
+            return utilisateur;
         }
 
         public static Boolean Insert(Utilisateur utilisateur)

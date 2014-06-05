@@ -30,24 +30,35 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_Vehicule", ID_Vehicule);
 
             //Execution
-            connection.Open();
-
-            SqlDataReader dataReader = commande.ExecuteReader();
-	    
-	        while (dataReader.Read())
+            try
             {
-               Piece piece = new Piece(); 
-	           piece.Identifiant = dataReader.GetInt32(0);
-	           piece.ID_Vehicule = dataReader.GetInt32(1);
-               piece.ID_SousCat = dataReader.GetInt32(2);
-               piece.Nom = SousCatDB.Get(piece.ID_SousCat).Nom;
-                
-               listePiece.Add(piece);
+                connection.Open();
+
+                SqlDataReader dataReader = commande.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Piece piece = new Piece();
+                    piece.Identifiant = dataReader.GetInt32(0);
+                    piece.ID_Vehicule = dataReader.GetInt32(1);
+                    piece.ID_SousCat = dataReader.GetInt32(2);
+                    piece.Nom = SousCatDB.Get(piece.ID_SousCat).Nom;
+
+                    listePiece.Add(piece);
+                }
+
+                dataReader.Close();
+
+
             }
-
-            dataReader.Close();
-            connection.Close();
-
+            catch (Exception)
+            {
+                listePiece = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
 	        return listePiece;
 	    }
 
@@ -68,16 +79,32 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
+            try
+            {
+                connection.Open();
 
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-            piece.Identifiant = dataReader.GetInt32(0);
-            piece.ID_Vehicule = dataReader.GetInt32(1);
-            piece.ID_SousCat = dataReader.GetInt32(2);
-            piece.Nom = SousCatDB.Get(piece.ID_SousCat).Nom;
-            dataReader.Close();
-            connection.Close();
+                SqlDataReader dataReader = commande.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    piece.Identifiant = dataReader.GetInt32(0);
+                    piece.ID_Vehicule = dataReader.GetInt32(1);
+                    piece.ID_SousCat = dataReader.GetInt32(2);
+                    piece.Nom = SousCatDB.Get(piece.ID_SousCat).Nom;
+                }
+
+                dataReader.Close();
+
+
+            }
+            catch (Exception)
+            {
+                piece = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
 
 	        return piece;
 	    }
@@ -98,10 +125,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_Vehicule", piece.ID_Vehicule);
             commande.Parameters.AddWithValue("ID_SousCat", piece.ID_SousCat);
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Update(Piece piece)
@@ -122,11 +159,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_Vehicule", piece.ID_Vehicule);
             commande.Parameters.AddWithValue("ID_SousCat", piece.ID_SousCat);
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Delete(Int32 Identifiant)
@@ -146,30 +192,51 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
-	
-	public static Int32 LastID()
-	{
-	    Int32 Identifiant = 0;
-	    //Connection
+
+        public static Int32 LastID()
+        {
+            Int32 Identifiant = 0;
+            //Connection
             SqlConnection connection = DataBase.Connection();
             //Requete
             String requete = @"SELECT  MAX(Identifiant) FROM Piece;";
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
-	    
-	    connection.Open();
-        SqlDataReader dataReader = commande.ExecuteReader();
-        dataReader.Read();
-	    Identifiant = dataReader.GetInt32(0);
-            connection.Close();
-	    return Identifiant; 
-	}    
+
+            try
+            {
+                connection.Open();
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+                Identifiant = dataReader.GetInt32(0);
+                connection.Close();
+                return Identifiant;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+    
     }
 }

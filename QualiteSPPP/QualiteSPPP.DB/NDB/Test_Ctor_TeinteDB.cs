@@ -52,17 +52,17 @@ namespace QualiteSPPP.DB
                 dataReader.Close();
                 connection.Close();
 
-                return listeTest_Ctor_Teinte;
+                
             }
             catch (Exception)
             {
-                return null;
+                listeTest_Ctor_Teinte = null;
             }
             finally
             {
                 connection.Close();
             }
-
+            return listeTest_Ctor_Teinte;
         }
 
         public static List<Test_Ctor_Teinte> List(Test_Constructeur Tctor)
@@ -106,17 +106,17 @@ namespace QualiteSPPP.DB
                 dataReader.Close();
                 connection.Close();
 
-                return listeTest_Ctor_Teinte;
+                
             }
             catch (Exception)
             {
-                return null;
+                listeTest_Ctor_Teinte = null;
             }
             finally
             {
                 connection.Close();
             }
-
+            return listeTest_Ctor_Teinte;
         }
 
         public static Test_Ctor_Teinte Get(Int32 ID_Test, Int32 ID_Teinte)
@@ -153,17 +153,17 @@ namespace QualiteSPPP.DB
                 dataReader.Close();
                 connection.Close();
 
-                return test_ctor_teinte;
+                
             }
             catch (Exception)
             {
-                return null;
+                test_ctor_teinte = null;
             }
             finally
             {
                 connection.Close();
             }
-
+            return test_ctor_teinte;
         }
 
         public static Test_Ctor_Teinte Get(Int32 Identifiant)
@@ -199,16 +199,17 @@ namespace QualiteSPPP.DB
                 dataReader.Close();
                 connection.Close();
 
-                return test_ctor_teinte;
+                
             }
             catch (Exception)
             {
-                return null;
+                test_ctor_teinte = null;
             }
             finally
             {
                 connection.Close();
             }
+            return test_ctor_teinte;
 
         }
 

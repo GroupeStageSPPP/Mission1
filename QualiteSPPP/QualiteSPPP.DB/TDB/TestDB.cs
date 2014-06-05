@@ -47,16 +47,17 @@ namespace QualiteSPPP.DB
 
             dataReader.Close();
 
-	        return listeTest;
+	        
             }
             catch (Exception)
             {
-                return null;
+                listeTest =  null;
             }
             finally
             {
                 connection.Close();
             }
+            return listeTest;
 	    }
 
         public static Test Get(Int32 Identifiant)
@@ -87,17 +88,17 @@ namespace QualiteSPPP.DB
                 test.TypeTest    = dataReader.GetInt16(3);
                 dataReader.Close();
 
-	            return test;
+	            
             }
             catch (Exception)
             {
-                return null;
+                test = null;
             }
             finally
             {
                 connection.Close();
             }
-
+            return test;
 	    }
 
         public static Boolean Insert(Test test)

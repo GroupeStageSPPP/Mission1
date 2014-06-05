@@ -46,17 +46,17 @@ namespace QualiteSPPP.DB
 
                 dataReader.Close();
 
-	            return listeSousCat;
+	            
             }
             catch (Exception)
             {
-                return null;
+                listeSousCat = null;
             }
             finally
             {
                 connection.Close();
             }
-            
+            return listeSousCat;
 
 	    }
 
@@ -94,17 +94,17 @@ namespace QualiteSPPP.DB
                 }
                 
                 dataReader.Close();
-                return listeSousCat;
+                
             }
             catch (Exception)
             {
-                return null;
+                listeSousCat = null;
             }
             finally
             {
                 connection.Close();
             }
-            
+            return listeSousCat;
         }
 
         public static SousCat Get(Int32 Identifiant)
@@ -136,16 +136,17 @@ namespace QualiteSPPP.DB
 
                 dataReader.Close();
 
-	            return sousCat;
+	            
             }
             catch (Exception)
             {
-                return null;
+                sousCat =  null;
             }
             finally
             {
                 connection.Close();
             }
+            return sousCat;
 
 	    }
 

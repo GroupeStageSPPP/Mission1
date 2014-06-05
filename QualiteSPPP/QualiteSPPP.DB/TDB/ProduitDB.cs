@@ -29,27 +29,39 @@ namespace QualiteSPPP.DB
             //Parametres
 
             //Execution
-            connection.Open();
-
-            SqlDataReader dataReader = commande.ExecuteReader();
-	    
-	        while (dataReader.Read())
+            try
             {
-               Produit produit = new Produit(); 
-	           produit.Identifiant   = dataReader.GetInt32(0);
-	           produit.Nom           = dataReader.GetString(1);
-               produit.ISconforme    = dataReader.GetInt16(2);
-               produit.SuiteConforme = dataReader.GetInt32(3);
-               produit.ISactif       = dataReader.GetInt16(4);
-               produit.ID_Piece      = dataReader.GetInt32(5);
-               produit.ID_Teinte     = dataReader.GetInt32(6);
-               produit.ID_PosAvAr    = dataReader.GetInt32(7);
-               produit.ID_PosGD      = dataReader.GetInt32(8);
-	           listeProduit.Add(produit);
-            }
+                connection.Open();
 
-            dataReader.Close();
-            connection.Close();
+                SqlDataReader dataReader = commande.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Produit produit = new Produit();
+                    produit.Identifiant = dataReader.GetInt32(0);
+                    produit.Nom = dataReader.GetString(1);
+                    produit.ISconforme = dataReader.GetInt16(2);
+                    produit.SuiteConforme = dataReader.GetInt32(3);
+                    produit.ISactif = dataReader.GetInt16(4);
+                    produit.ID_Piece = dataReader.GetInt32(5);
+                    produit.ID_Teinte = dataReader.GetInt32(6);
+                    produit.ID_PosAvAr = dataReader.GetInt32(7);
+                    produit.ID_PosGD = dataReader.GetInt32(8);
+                    listeProduit.Add(produit);
+                }
+
+                dataReader.Close();
+
+
+            }
+            catch (Exception)
+            {
+                listeProduit = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
 
 	        return listeProduit;
 	    }
@@ -72,27 +84,40 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_Teinte", ID_Teinte);
 
             //Execution
-            connection.Open();
-
-            SqlDataReader dataReader = commande.ExecuteReader();
-
-            while (dataReader.Read())
+            try
             {
-                Produit produit = new Produit();
-                produit.Identifiant = dataReader.GetInt32(0);
-                produit.Nom = dataReader.GetString(1);
-                produit.ISconforme = dataReader.GetInt16(2);
-                produit.SuiteConforme = dataReader.GetInt32(3);
-                produit.ISactif = dataReader.GetInt16(4);
-                produit.ID_Piece = dataReader.GetInt32(5);
-                produit.ID_Teinte = dataReader.GetInt32(6);
-                produit.ID_PosAvAr = dataReader.GetInt32(7);
-                produit.ID_PosGD = dataReader.GetInt32(8);
-                listeProduit.Add(produit);
+                connection.Open();
+
+                SqlDataReader dataReader = commande.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Produit produit = new Produit();
+                    produit.Identifiant = dataReader.GetInt32(0);
+                    produit.Nom = dataReader.GetString(1);
+                    produit.ISconforme = dataReader.GetInt16(2);
+                    produit.SuiteConforme = dataReader.GetInt32(3);
+                    produit.ISactif = dataReader.GetInt16(4);
+                    produit.ID_Piece = dataReader.GetInt32(5);
+                    produit.ID_Teinte = dataReader.GetInt32(6);
+                    produit.ID_PosAvAr = dataReader.GetInt32(7);
+                    produit.ID_PosGD = dataReader.GetInt32(8);
+                    listeProduit.Add(produit);
+                }
+
+                dataReader.Close();
+
+
+            }
+            catch (Exception)
+            {
+                listeProduit = null;
+            }
+            finally
+            {
+                connection.Close();
             }
 
-            dataReader.Close();
-            connection.Close();
 
             return listeProduit;
         }
@@ -114,22 +139,37 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
+            try
+            {
+                connection.Open();
 
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-            produit.Identifiant = dataReader.GetInt32(0);
-            produit.Nom = dataReader.GetString(1);
-            produit.ISconforme = dataReader.GetInt16(2);
-            produit.SuiteConforme = dataReader.GetInt32(3);
-            produit.ISactif = dataReader.GetInt16(4);
-            produit.ID_Piece = dataReader.GetInt32(5);
-            produit.ID_Teinte = dataReader.GetInt32(6);
-            produit.ID_PosAvAr = dataReader.GetInt32(7);
-            produit.ID_PosGD = dataReader.GetInt32(8);
-            dataReader.Close();
-            connection.Close();
+                SqlDataReader dataReader = commande.ExecuteReader();
 
+                while (dataReader.Read())
+                {
+                    produit.Identifiant = dataReader.GetInt32(0);
+                    produit.Nom = dataReader.GetString(1);
+                    produit.ISconforme = dataReader.GetInt16(2);
+                    produit.SuiteConforme = dataReader.GetInt32(3);
+                    produit.ISactif = dataReader.GetInt16(4);
+                    produit.ID_Piece = dataReader.GetInt32(5);
+                    produit.ID_Teinte = dataReader.GetInt32(6);
+                    produit.ID_PosAvAr = dataReader.GetInt32(7);
+                    produit.ID_PosGD = dataReader.GetInt32(8);
+                }
+
+                dataReader.Close();
+
+
+            }
+            catch (Exception)
+            {
+                produit = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
 	        return produit;
 	    }
 
@@ -155,10 +195,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_PosAvAr", produit.ID_PosAvAr);
             commande.Parameters.AddWithValue("ID_PosGD", produit.ID_PosGD);
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Update(Produit produit)
@@ -186,11 +236,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_PosGD", produit.ID_PosGD);
             
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Delete(Int32 Identifiant)
@@ -210,11 +269,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 	
 	    public static Int32 LastID()
@@ -228,12 +296,24 @@ namespace QualiteSPPP.DB
                 //Commande
                 SqlCommand commande = new SqlCommand(requete, connection);
 	    
-	        connection.Open();
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-	        Identifiant = dataReader.GetInt32(0);
-            connection.Close();
-	        return Identifiant; 
+            try
+            {
+                connection.Open();
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+                Identifiant = dataReader.GetInt32(0);
+                connection.Close();
+                return Identifiant;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
 	    }    
     }
 }

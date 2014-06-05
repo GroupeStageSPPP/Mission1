@@ -50,17 +50,17 @@ namespace QualiteSPPP.DB
                 dataReader.Close();
                
 
-                return listeEch_Resultat;
+                
             }
             catch (Exception)
             {
-                return null;
+                listeEch_Resultat = null;
             }
             finally
             {
                
             }
-
+            return listeEch_Resultat;
         }
 
         public static List<Ech_Resultat> List(Int16 Conforme)
@@ -99,17 +99,17 @@ namespace QualiteSPPP.DB
                 }
 
                 dataReader.Close();            
-                return listeEch_Resultat;
+                
             }
             catch (Exception)
             {
-                return null;
+                listeEch_Resultat = null;
             }
             finally
             {
                 connection.Close();
             }
-
+            return listeEch_Resultat;
 
         }
 
@@ -153,17 +153,17 @@ namespace QualiteSPPP.DB
                 dataReader.Close();
                 ;
 
-                return listeEch_Resultat;
+                
             }
             catch (Exception)
             {
-                return null;
+                listeEch_Resultat = null;
             }
             finally
             {
                 connection.Close();
             }
-
+            return listeEch_Resultat;
         }
 
         public static Ech_Resultat Get(Int32 Identifiant)
@@ -198,17 +198,17 @@ namespace QualiteSPPP.DB
                 ech_resultat.ISconforme = dataReader.GetInt16(6);
                 dataReader.Close();
 
-                return ech_resultat;
+                
             }
             catch (Exception)
             {
-                return null;
+                ech_resultat = null;
             }
             finally
             {
                 connection.Close();
             }
-
+            return ech_resultat;
         }
 
         public static Boolean Insert(Ech_Resultat ech_resultat)

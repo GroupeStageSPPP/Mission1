@@ -48,16 +48,17 @@ namespace QualiteSPPP.DB
                 dataReader.Close();
                 connection.Close();
 
-	            return listeTest_Ctor_Piece;
+	            
             }
             catch (Exception)
             {
-                return null;
+                listeTest_Ctor_Piece =  null;
             }
             finally
             {
                 connection.Close();
             }
+            return listeTest_Ctor_Piece;
 
 	    }
 
@@ -98,16 +99,17 @@ namespace QualiteSPPP.DB
                 dataReader.Close();
                 connection.Close();
 
-                return listeTest_Ctor_Piece;
+                
             }
             catch (Exception)
             {
-                return null;
+                listeTest_Ctor_Piece = null;
             }
             finally
             {
                 connection.Close();
             }
+            return listeTest_Ctor_Piece;
 
         }
 
@@ -141,16 +143,17 @@ namespace QualiteSPPP.DB
                 dataReader.Close();
                 connection.Close();
 
-	            return test_ctor_piece;
+	            
             }
             catch (Exception)
             {
-                return null;
+                test_ctor_piece =  null;
             }
             finally
             {
                 connection.Close();
             }
+            return test_ctor_piece;
 
 	    }
 
