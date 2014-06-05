@@ -29,20 +29,33 @@ namespace QualiteSPPP.DB
             //Parametres
 
             //Execution
-            connection.Open();
-
-            SqlDataReader dataReader = commande.ExecuteReader();
-	    
-	        while (dataReader.Read())
+            try
             {
+                connection.Open();
+
+                SqlDataReader dataReader = commande.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+
                Categorie categorie = new Categorie(); 
 	           categorie.Identifiant = dataReader.GetInt32(0);
                categorie.Nom         = dataReader.GetString(1);
 	           listeCategorie.Add(categorie);
-            }
+                }
 
-            dataReader.Close();
-            connection.Close();
+                dataReader.Close();
+
+
+            }
+            catch (Exception)
+            {
+                listeCategorie = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
 
 	        return listeCategorie;
 	    }
@@ -64,15 +77,32 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
 
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-            categorie.Identifiant = dataReader.GetInt32(0);
-            categorie.Nom         = dataReader.GetString(1);
+            try
+            {
+                connection.Open();
 
-            dataReader.Close();
-            connection.Close();
+                SqlDataReader dataReader = commande.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+
+                    categorie.Identifiant = dataReader.GetInt32(0);
+                    categorie.Nom = dataReader.GetString(1);
+                }
+
+                dataReader.Close();
+
+
+            }
+            catch (Exception)
+            {
+                categorie = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
 
 	        return categorie;
 	    }
@@ -92,10 +122,20 @@ namespace QualiteSPPP.DB
             //Parametres
             commande.Parameters.AddWithValue("Nom", categorie.Nom);
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Update(Categorie categorie)
@@ -116,11 +156,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Nom",categorie.Nom );
             
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Delete(Int32 Identifiant)
@@ -140,11 +189,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }	
         public static Int32 LastID()
 	    {
@@ -156,13 +214,25 @@ namespace QualiteSPPP.DB
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
-	    
-	        connection.Open();
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-	        Identifiant = dataReader.GetInt32(0);
-            connection.Close();
-            return Identifiant; 
+
+            try
+            {
+                connection.Open();
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+                Identifiant = dataReader.GetInt32(0);
+                connection.Close();
+                return Identifiant;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
 	    } 
     }
 }

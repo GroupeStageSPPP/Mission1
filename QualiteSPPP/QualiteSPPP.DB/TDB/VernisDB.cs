@@ -52,12 +52,14 @@ namespace QualiteSPPP.DB
             }
             catch (Exception)
             {
-                return null;
+                listeVernis =  null;
             }
             finally
             {
                 connection.Close();
             }
+
+            return listeVernis;
             
         }
 
@@ -91,17 +93,17 @@ namespace QualiteSPPP.DB
                 vernis.Max = dataReader.GetInt32(4);
                 dataReader.Close();
 
-                return vernis;
+                
             }
             catch (Exception)
             {
-                return null;
+                vernis = null;
             }
             finally
             {
                 connection.Close();
-            }            
-            
+            }
+            return vernis;
         }
 
         public static Boolean Insert(Vernis vernis)

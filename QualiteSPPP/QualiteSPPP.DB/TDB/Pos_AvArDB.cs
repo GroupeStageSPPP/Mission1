@@ -29,22 +29,35 @@ namespace QualiteSPPP.DB
             //Parametres
 
             //Execution
-            connection.Open();
-
-            SqlDataReader dataReader = commande.ExecuteReader();
-	    
-	        while (dataReader.Read())
+            try
             {
-               Pos_AvAr pos_AvAr = new Pos_AvAr(); 
-	           pos_AvAr.Identifiant = dataReader.GetInt32(0);
-               pos_AvAr.Position         = dataReader.GetString(1);
-	           listePos_AvAr.Add(pos_AvAr);
+                connection.Open();
+
+                SqlDataReader dataReader = commande.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Pos_AvAr pos_AvAr = new Pos_AvAr();
+                    pos_AvAr.Identifiant = dataReader.GetInt32(0);
+                    pos_AvAr.Position = dataReader.GetString(1);
+                    listePos_AvAr.Add(pos_AvAr);
+                }
+
+                dataReader.Close();
+
+
+            }
+            catch (Exception)
+            {
+                listePos_AvAr = null;
+            }
+            finally
+            {
+                connection.Close();
             }
 
-            dataReader.Close();
-            connection.Close();
+            return listePos_AvAr;
 
-	        return listePos_AvAr;
 	    }
 
         public static Pos_AvAr Get(Int32 Identifiant)
@@ -64,16 +77,30 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
+            try
+            {
+                connection.Open();
 
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-            pos_AvAr.Identifiant = dataReader.GetInt32(0);
-            pos_AvAr.Position         = dataReader.GetString(1);
+                SqlDataReader dataReader = commande.ExecuteReader();
 
-            dataReader.Close();
-            connection.Close();
+                while (dataReader.Read())
+                {
+                    pos_AvAr.Identifiant = dataReader.GetInt32(0);
+                    pos_AvAr.Position = dataReader.GetString(1);
+                }
 
+                dataReader.Close();
+
+
+            }
+            catch (Exception)
+            {
+                pos_AvAr = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
 	        return pos_AvAr;
 	    }
 
@@ -92,10 +119,20 @@ namespace QualiteSPPP.DB
             //Parametres
             commande.Parameters.AddWithValue("Position", pos_AvAr.Position);
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Update(Pos_AvAr pos_AvAr)
@@ -116,11 +153,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Position",pos_AvAr.Position );
             
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Delete(Int32 Identifiant)
@@ -140,11 +186,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }	
         public static Int32 LastID()
 	    {
@@ -156,13 +211,24 @@ namespace QualiteSPPP.DB
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
-	    
-	        connection.Open();
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-	        Identifiant = dataReader.GetInt32(0);
-            connection.Close();
-            return Identifiant; 
+            try
+            {
+                connection.Open();
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+                Identifiant = dataReader.GetInt32(0);
+                connection.Close();
+                return Identifiant;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
 	    } 
     }
 }

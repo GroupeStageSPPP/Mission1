@@ -46,17 +46,17 @@ namespace QualiteSPPP.DB
 
                 dataReader.Close();
 
-	            return listeVehicule;
+	            
             }
             catch (Exception)
             {
-                return null;
+                listeVehicule = null;
             }
             finally
             {
                 connection.Close();
             }
-            
+            return listeVehicule;
 
 	    }
 

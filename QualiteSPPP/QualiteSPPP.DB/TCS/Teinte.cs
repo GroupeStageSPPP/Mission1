@@ -8,7 +8,7 @@ namespace QualiteSPPP.DB
     public class Teinte
     {
         public Int32 Identifiant { get; set; }
-        public String ReferenceBase { get; set; }
+        public String ReferenceTeinte { get; set; }
         public String RisqueTeinte { get; set; }
         
         public Int32 L { get; set; }
