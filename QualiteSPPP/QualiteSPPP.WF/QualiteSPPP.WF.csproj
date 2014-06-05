@@ -123,11 +123,11 @@
     <Compile Include="Admnistration\Alerte.Designer.cs">
       <DependentUpon>Alerte.cs</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Alerte.cs">
+    <Compile Include="Graphiques.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Resources\Alerte.Designer.cs">
-      <DependentUpon>Alerte.cs</DependentUpon>
+    <Compile Include="Graphiques.Designer.cs">
+      <DependentUpon>Graphiques.cs</DependentUpon>
     </Compile>
     <Compile Include="Projet\AjoutConstructeur.cs">
       <SubType>Form</SubType>
@@ -200,6 +200,9 @@
     <EmbeddedResource Include="Admnistration\Alerte.resx">
       <DependentUpon>Alerte.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Graphiques.resx">
+      <DependentUpon>Graphiques.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Projet\AjoutConstructeur.resx">
       <DependentUpon>AjoutConstructeur.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,9 +236,6 @@
     </Compile>
     <EmbeddedResource Include="Autres\QuitterConfirmation.resx">
       <DependentUpon>QuitterConfirmation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Alerte.resx">
-      <DependentUpon>Alerte.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

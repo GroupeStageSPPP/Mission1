@@ -12,10 +12,8 @@
             {
                 connection.Close();
             }
-			
-			
-			
-			try
+		
+	    try
             {
 
             }

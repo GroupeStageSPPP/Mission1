@@ -79,7 +79,7 @@
             this.buttonSeConnecter.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.buttonSeConnecter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSeConnecter.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSeConnecter.Location = new System.Drawing.Point(143, 91);
+            this.buttonSeConnecter.Location = new System.Drawing.Point(152, 93);
             this.buttonSeConnecter.Name = "buttonSeConnecter";
             this.buttonSeConnecter.Size = new System.Drawing.Size(126, 23);
             this.buttonSeConnecter.TabIndex = 16;
