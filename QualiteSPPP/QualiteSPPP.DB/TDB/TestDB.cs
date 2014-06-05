@@ -29,6 +29,8 @@ namespace QualiteSPPP.DB
             //Parametres
 
             //Execution
+            try
+            {
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
@@ -44,9 +46,17 @@ namespace QualiteSPPP.DB
             }
 
             dataReader.Close();
-            connection.Close();
 
 	        return listeTest;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
 	    }
 
         public static Test Get(Int32 Identifiant)
@@ -65,18 +75,29 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
+            try
+            {
+                connection.Open();
 
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-            test.Identifiant = dataReader.GetInt32(0);
-            test.Nom         = dataReader.GetString(1);
-            test.Description = dataReader.GetString(2);
-            test.TypeTest    = dataReader.GetInt16(3);
-            dataReader.Close();
-            connection.Close();
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+                test.Identifiant = dataReader.GetInt32(0);
+                test.Nom         = dataReader.GetString(1);
+                test.Description = dataReader.GetString(2);
+                test.TypeTest    = dataReader.GetInt16(3);
+                dataReader.Close();
 
-	        return test;
+	            return test;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
 	    }
 
         public static Boolean Insert(Test test)
@@ -96,10 +117,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Description", test.Description);
             commande.Parameters.AddWithValue("TypeTest", test.TypeTest);
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Update(Test test)
@@ -122,11 +153,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("TypeTest", test.TypeTest);
             
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Delete(Int32 Identifiant)
@@ -146,30 +186,50 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 	
 	    public static Int32 LastID()
 	    {
 	        Int32 Identifiant = 0;
 	        //Connection
-                SqlConnection connection = DataBase.Connection();
-                //Requete
-                String requete = @"SELECT  MAX(Identifiant) FROM Test;";
+            SqlConnection connection = DataBase.Connection();
+            //Requete
+            String requete = @"SELECT  MAX(Identifiant) FROM Test;";
 
-                //Commande
-                SqlCommand commande = new SqlCommand(requete, connection);
-	    
-	        connection.Open();
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+            try
+            {
+	            connection.Open();
                 SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-	        Identifiant = dataReader.GetInt32(0);
+                dataReader.Read();
+	            Identifiant = dataReader.GetInt32(0);
                 connection.Close();
-	        return Identifiant; 
+	            return Identifiant; 
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
 	    }    
     }
 }

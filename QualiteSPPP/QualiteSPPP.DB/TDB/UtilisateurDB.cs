@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 
 namespace QualiteSPPP.DB
 {
-    public static class SousCatDB
-    {	    
-	    public static String champs = "Nom,ID_Categorie";
-	    public static String select = "SELECT Identifiant,"+champs+" FROM SousCat";
-	            
+    public static class UtilisateurDB
+    {
+        public static String champs = "Login,Password,Groupe";
+        public static String select = "SELECT Identifiant," + champs + " FROM Utilisateur";
 
-	    public static List<SousCat> List()
-	    {
-	        List<SousCat> listeSousCat = new List<SousCat>();
-	   
-	        //Connection
+
+        public static List<Utilisateur> List()
+        {
+            List<Utilisateur> listeUtilisateur = new List<Utilisateur>();
+
+            //Connection
             SqlConnection connection = DataBase.Connection();
-	   
-	        //Requete  
-	        String requete = select+";";
-	   
-	        //Commande
+
+            //Requete  
+            String requete = select + ";";
+
+            //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Parametres
@@ -34,19 +34,20 @@ namespace QualiteSPPP.DB
                 connection.Open();
 
                 SqlDataReader dataReader = commande.ExecuteReader();
-	    
-	            while (dataReader.Read())
+
+                while (dataReader.Read())
                 {
-                   SousCat sousCat = new SousCat(); 
-	               sousCat.Identifiant = dataReader.GetInt32(0);
-                   sousCat.Nom         = dataReader.GetString(1);
-                   sousCat.ID_Categorie= dataReader.GetInt32(2);
-	               listeSousCat.Add(sousCat);
+                    Utilisateur utilisateur = new Utilisateur();
+                    utilisateur.Identifiant = dataReader.GetInt32(0);
+                    utilisateur.Login = dataReader.GetString(1);
+                    utilisateur.Password = dataReader.GetString(2);
+                    utilisateur.Groupe = dataReader.GetInt32(3);
+                    listeUtilisateur.Add(utilisateur);
                 }
 
                 dataReader.Close();
 
-	            return listeSousCat;
+                return listeUtilisateur;
             }
             catch (Exception)
             {
@@ -56,25 +57,24 @@ namespace QualiteSPPP.DB
             {
                 connection.Close();
             }
-            
 
-	    }
+        }
 
-        public static List<SousCat> List(Int32 ID_Categorie)
+        public static List<Utilisateur> List(Int32 Groupe)
         {
-            List<SousCat> listeSousCat = new List<SousCat>();
+            List<Utilisateur> listeUtilisateur = new List<Utilisateur>();
 
             //Connection
             SqlConnection connection = DataBase.Connection();
 
             //Requete  
-            String requete = select + " WHERE ID_Categorie=@ID_Categorie;";
+            String requete = select + " WHERE Groupe > @Groupe;";
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
-
+            
             //Parametres
-            commande.Parameters.AddWithValue("ID_Categorie", ID_Categorie);
+            commande.Parameters.AddWithValue("Groupe", Groupe);
             
             //Execution
             try
@@ -85,16 +85,17 @@ namespace QualiteSPPP.DB
 
                 while (dataReader.Read())
                 {
-                    SousCat sousCat = new SousCat();
-                    sousCat.Identifiant = dataReader.GetInt32(0);
-                    sousCat.Nom = dataReader.GetString(1);
-                    sousCat.ID_Categorie = dataReader.GetInt32(2);
-                    listeSousCat.Add(sousCat);
-                    
+                    Utilisateur utilisateur = new Utilisateur();
+                    utilisateur.Identifiant = dataReader.GetInt32(0);
+                    utilisateur.Login = dataReader.GetString(1);
+                    utilisateur.Password = dataReader.GetString(2);
+                    utilisateur.Groupe = dataReader.GetInt32(3);
+                    listeUtilisateur.Add(utilisateur);
                 }
-                
+
                 dataReader.Close();
-                return listeSousCat;
+
+                return listeUtilisateur;
             }
             catch (Exception)
             {
@@ -104,20 +105,20 @@ namespace QualiteSPPP.DB
             {
                 connection.Close();
             }
-            
+
         }
 
-        public static SousCat Get(Int32 Identifiant)
-	    {
-	        SousCat sousCat = new SousCat();
-	   
-	        //Connection
+        public static Utilisateur Get(Int32 Identifiant)
+        {
+            Utilisateur utilisateur = new Utilisateur();
+
+            //Connection
             SqlConnection connection = DataBase.Connection();
-	   
-	        //Requete  
-	        String requete = select+" WHERE Identifiant = @Identifiant;";
-	   
-	        //Commande
+
+            //Requete  
+            String requete = select + " WHERE Identifiant = @Identifiant;";
+
+            //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Parametres
@@ -130,13 +131,15 @@ namespace QualiteSPPP.DB
 
                 SqlDataReader dataReader = commande.ExecuteReader();
                 dataReader.Read();
-                sousCat.Identifiant = dataReader.GetInt32(0);
-                sousCat.Nom= dataReader.GetString(1);
-                sousCat.ID_Categorie = dataReader.GetInt32(2);
+                utilisateur.Identifiant = dataReader.GetInt32(0);
+                utilisateur.Identifiant = dataReader.GetInt32(0);
+                utilisateur.Login = dataReader.GetString(1);
+                utilisateur.Password = dataReader.GetString(2);
+                utilisateur.Groupe = dataReader.GetInt32(3);
 
                 dataReader.Close();
 
-	            return sousCat;
+                return utilisateur;
             }
             catch (Exception)
             {
@@ -147,23 +150,24 @@ namespace QualiteSPPP.DB
                 connection.Close();
             }
 
-	    }
+        }
 
-        public static Boolean Insert(SousCat sousCat)
+        public static Boolean Insert(Utilisateur utilisateur)
         {
             //Connection
             SqlConnection connection = DataBase.Connection();
 
             //Requete
-            String requete = @"INSERT INTO SousCat (" + champs + ") VALUES (@Nom,@ID_Categorie);"; 
+            String requete = @"INSERT INTO Utilisateur (" + champs + ") VALUES (@Login,@Password,@Groupe);";
 
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Parametres
-            commande.Parameters.AddWithValue("Nom", sousCat.Nom);
-            commande.Parameters.AddWithValue("ID_Categorie", sousCat.ID_Categorie);
+            commande.Parameters.AddWithValue("Login", utilisateur.Login);
+            commande.Parameters.AddWithValue("Password", utilisateur.Password);
+            commande.Parameters.AddWithValue("Groupe", utilisateur.Groupe);
             //Execution
             try
             {
@@ -181,24 +185,24 @@ namespace QualiteSPPP.DB
             }
         }
 
-        public static Boolean Update(SousCat sousCat)
+        public static Boolean Update(Utilisateur utilisateur)
         {
             //Connection
             SqlConnection connection = DataBase.Connection();
 
             //Requete
-            String requete = @"UPDATE SousCat
-                               SET Nom=@Nom,ID_Categorie=@ID_Categorie
+            String requete = @"UPDATE Utilisateur
+                               SET Login=@Login,Password=@Password,Groupe=@Groupe
                                WHERE Identifiant=@Identifiant ;";
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Parametres
-            commande.Parameters.AddWithValue("Identifiant",sousCat.Identifiant);
-            commande.Parameters.AddWithValue("Nom",sousCat.Nom );
-            commande.Parameters.AddWithValue("ID_Categorie", sousCat.ID_Categorie);
-            
+            commande.Parameters.AddWithValue("Identifiant", utilisateur.Identifiant);
+            commande.Parameters.AddWithValue("Login", utilisateur.Login);
+            commande.Parameters.AddWithValue("Password", utilisateur.Password);
+            commande.Parameters.AddWithValue("Groupe", utilisateur.Groupe);
             //Execution
             try
             {
@@ -222,7 +226,7 @@ namespace QualiteSPPP.DB
             SqlConnection connection = DataBase.Connection();
 
             //Requete
-            String requete = @"DELETE SousCat
+            String requete = @"DELETE Utilisateur
                                WHERE Identifiant=@Identifiant ;";
 
 
@@ -247,24 +251,25 @@ namespace QualiteSPPP.DB
             {
                 connection.Close();
             }
-        }	
+        }
+        
         public static Int32 LastID()
-	    {
-	        Int32 Identifiant = 0;
-	        //Connection
+        {
+            Int32 Identifiant = 0;
+            //Connection
             SqlConnection connection = DataBase.Connection();
             //Requete
-            String requete = @"SELECT  MAX(Identifiant) FROM SousCat;";
+            String requete = @"SELECT  MAX(Identifiant) FROM Utilisateur;";
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
 
             try
             {
-	            connection.Open();
+                connection.Open();
                 SqlDataReader dataReader = commande.ExecuteReader();
                 dataReader.Read();
-	            Identifiant = dataReader.GetInt32(0);
+                Identifiant = dataReader.GetInt32(0);
                 connection.Close();
                 return Identifiant;
             }
@@ -276,10 +281,10 @@ namespace QualiteSPPP.DB
             {
                 connection.Close();
             }
- 
-	    } 
+
+        }
     }
 }
 
 
-   
+

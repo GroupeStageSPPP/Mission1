@@ -45,10 +45,10 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.CBvehicule = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.CBpiece = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.CBteinte = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.LBproduit = new System.Windows.Forms.ListBox();
             this.LBechantillon = new System.Windows.Forms.ListBox();
@@ -351,10 +351,10 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 153F));
             this.tableLayoutPanel7.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.CBvehicule, 2, 0);
-            this.tableLayoutPanel7.Controls.Add(this.label3, 3, 0);
             this.tableLayoutPanel7.Controls.Add(this.CBpiece, 4, 0);
             this.tableLayoutPanel7.Controls.Add(this.label4, 5, 0);
             this.tableLayoutPanel7.Controls.Add(this.CBteinte, 6, 0);
+            this.tableLayoutPanel7.Controls.Add(this.label3, 3, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 37);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
@@ -390,20 +390,6 @@
             this.CBvehicule.Size = new System.Drawing.Size(150, 21);
             this.CBvehicule.TabIndex = 4;
             this.CBvehicule.SelectedIndexChanged += new System.EventHandler(this.CBvehicule_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(450, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 29);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Pièce";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // CBpiece
             // 
@@ -444,6 +430,20 @@
             this.CBteinte.Size = new System.Drawing.Size(150, 21);
             this.CBteinte.TabIndex = 8;
             this.CBteinte.SelectedIndexChanged += new System.EventHandler(this.CBteinte_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(450, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 29);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Piéce";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tableLayoutPanel8
             // 

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxMotDePasse = new System.Windows.Forms.TextBox();
+            this.TBpassword = new System.Windows.Forms.TextBox();
             this.labelMotDePasse = new System.Windows.Forms.Label();
             this.labelIndentifiant = new System.Windows.Forms.Label();
-            this.textBoxIdentifiant = new System.Windows.Forms.TextBox();
+            this.TBlogin = new System.Windows.Forms.TextBox();
             this.buttonSeConnecter = new System.Windows.Forms.Button();
             this.pictureBoxButtonClose = new System.Windows.Forms.PictureBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
@@ -39,13 +39,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBoxMotDePasse
+            // TBpassword
             // 
-            this.textBoxMotDePasse.Location = new System.Drawing.Point(113, 50);
-            this.textBoxMotDePasse.Name = "textBoxMotDePasse";
-            this.textBoxMotDePasse.PasswordChar = '●';
-            this.textBoxMotDePasse.Size = new System.Drawing.Size(156, 20);
-            this.textBoxMotDePasse.TabIndex = 12;
+            this.TBpassword.Location = new System.Drawing.Point(113, 50);
+            this.TBpassword.Name = "TBpassword";
+            this.TBpassword.PasswordChar = '●';
+            this.TBpassword.Size = new System.Drawing.Size(156, 20);
+            this.TBpassword.TabIndex = 12;
             // 
             // labelMotDePasse
             // 
@@ -67,12 +67,12 @@
             this.labelIndentifiant.TabIndex = 10;
             this.labelIndentifiant.Text = "Identifiant :";
             // 
-            // textBoxIdentifiant
+            // TBlogin
             // 
-            this.textBoxIdentifiant.Location = new System.Drawing.Point(113, 25);
-            this.textBoxIdentifiant.Name = "textBoxIdentifiant";
-            this.textBoxIdentifiant.Size = new System.Drawing.Size(156, 20);
-            this.textBoxIdentifiant.TabIndex = 9;
+            this.TBlogin.Location = new System.Drawing.Point(113, 25);
+            this.TBlogin.Name = "TBlogin";
+            this.TBlogin.Size = new System.Drawing.Size(156, 20);
+            this.TBlogin.TabIndex = 9;
             // 
             // buttonSeConnecter
             // 
@@ -119,10 +119,10 @@
             this.ClientSize = new System.Drawing.Size(282, 140);
             this.Controls.Add(this.buttonSeConnecter);
             this.Controls.Add(this.pictureBoxButtonClose);
-            this.Controls.Add(this.textBoxMotDePasse);
+            this.Controls.Add(this.TBpassword);
             this.Controls.Add(this.labelMotDePasse);
             this.Controls.Add(this.labelIndentifiant);
-            this.Controls.Add(this.textBoxIdentifiant);
+            this.Controls.Add(this.TBlogin);
             this.Controls.Add(this.pictureBoxLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(282, 140);
@@ -140,11 +140,11 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxButtonClose;
-        private System.Windows.Forms.TextBox textBoxMotDePasse;
+        private System.Windows.Forms.TextBox TBpassword;
         private System.Windows.Forms.Label labelMotDePasse;
         private System.Windows.Forms.Label labelIndentifiant;
-        private System.Windows.Forms.TextBox textBoxIdentifiant;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Button buttonSeConnecter;
+        private System.Windows.Forms.TextBox TBlogin;
     }
 }

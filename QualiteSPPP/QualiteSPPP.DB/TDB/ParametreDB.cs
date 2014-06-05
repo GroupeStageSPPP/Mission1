@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 
 namespace QualiteSPPP.DB
 {
-    public static class AppretDB
-    {	    
-	    public static String champs = "Reference,Min,Norme,Max";
-	    public static String select = "SELECT Identifiant,"+champs+" FROM Appret";
-	            
+    public static class ParametreDB
+    {
+        public static String champs = "Nom,Valeur";
+        public static String select = "SELECT Identifiant," + champs + " FROM Parametre";
 
-	    public static List<Appret> List()
-	    {
-	        List<Appret> listeAppret = new List<Appret>();
-	   
-	        //Connection
+
+        public static List<Parametre> List()
+        {
+            List<Parametre> listeParametre = new List<Parametre>();
+
+            //Connection
             SqlConnection connection = DataBase.Connection();
-	   
-	        //Requete  
-	        String requete = select+";";
-	   
-	        //Commande
+
+            //Requete  
+            String requete = select + ";";
+
+            //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Parametres
@@ -32,35 +32,33 @@ namespace QualiteSPPP.DB
             connection.Open();
 
             SqlDataReader dataReader = commande.ExecuteReader();
-	    
-	        while (dataReader.Read())
+
+            while (dataReader.Read())
             {
-               Appret appret = new Appret();
-               appret.Identifiant = dataReader.GetInt32(0);
-               appret.Reference   = dataReader.GetString(1);
-               appret.Min         = dataReader.GetInt32(2);
-               appret.Norme       = dataReader.GetInt32(3);
-               appret.Max         = dataReader.GetInt32(4);
-	           listeAppret.Add(appret);
+                Parametre parametre = new Parametre();
+                parametre.Identifiant = dataReader.GetInt32(0);
+                parametre.Nom = dataReader.GetString(1);
+                parametre.Valeur = dataReader.GetString(2);
+                listeParametre.Add(parametre);
             }
 
             dataReader.Close();
             connection.Close();
 
-	        return listeAppret;
-	    }
+            return listeParametre;
+        }
 
-        public static Appret Get(Int32 Identifiant)
-	    {
-	        Appret appret = new Appret();
-	   
-	        //Connection
+        public static Parametre Get(Int32 Identifiant)
+        {
+            Parametre parametre = new Parametre();
+
+            //Connection
             SqlConnection connection = DataBase.Connection();
-	   
-	        //Requete  
-	        String requete = select+" WHERE Identifiant = @Identifiant;";
-	   
-	        //Commande
+
+            //Requete  
+            String requete = select + " WHERE Identifiant = @Identifiant;";
+
+            //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Parametres
@@ -71,35 +69,32 @@ namespace QualiteSPPP.DB
 
             SqlDataReader dataReader = commande.ExecuteReader();
             dataReader.Read();
-            appret.Identifiant = dataReader.GetInt32(0);
-            appret.Reference = dataReader.GetString(1);
-            appret.Min = dataReader.GetInt32(2);
-            appret.Norme = dataReader.GetInt32(3);
-            appret.Max = dataReader.GetInt32(4);
+            parametre.Identifiant = dataReader.GetInt32(0);
+            parametre.Identifiant = dataReader.GetInt32(0);
+            parametre.Nom = dataReader.GetString(1);
+            parametre.Valeur = dataReader.GetString(2);
+
             dataReader.Close();
             connection.Close();
 
-	        return appret;
-	    }
+            return parametre;
+        }
 
-        public static Boolean Insert(Appret appret)
+        public static Boolean Insert(Parametre parametre)
         {
             //Connection
             SqlConnection connection = DataBase.Connection();
 
             //Requete
-            String requete = @"INSERT INTO Appret (" + champs + ") VALUES (@Reference,@Min,@Norme,@Max);"; 
+            String requete = @"INSERT INTO Parametre (" + champs + ") VALUES (@Nom,@Valeur);";
 
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Parametres
-            commande.Parameters.AddWithValue("Reference", appret.Reference);
-            commande.Parameters.AddWithValue("Min", appret.Min);
-            commande.Parameters.AddWithValue("Norme", appret.Norme);
-            commande.Parameters.AddWithValue("Max", appret.Max);
-
+            commande.Parameters.AddWithValue("Nom", parametre.Nom);
+            commande.Parameters.AddWithValue("Valeur", parametre.Valeur);
             //Execution
             connection.Open();
             commande.ExecuteNonQuery();
@@ -107,25 +102,23 @@ namespace QualiteSPPP.DB
             return true;
         }
 
-        public static Boolean Update(Appret appret)
+        public static Boolean Update(Parametre parametre)
         {
             //Connection
             SqlConnection connection = DataBase.Connection();
 
             //Requete
-            String requete = @"UPDATE Appret
-                               SET Reference=@Reference,Min=@Min,Norme=@Norme,Max=@Max
+            String requete = @"UPDATE Parametre
+                               SET Nom=@Nom,Valeur=@Valeur
                                WHERE Identifiant=@Identifiant ;";
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Parametres
-            commande.Parameters.AddWithValue("Identifiant",appret.Identifiant);
-            commande.Parameters.AddWithValue("Reference", appret.Reference);
-            commande.Parameters.AddWithValue("Min", appret.Min);
-            commande.Parameters.AddWithValue("Norme", appret.Norme);
-            commande.Parameters.AddWithValue("Max", appret.Max);
+            commande.Parameters.AddWithValue("Identifiant", parametre.Identifiant);
+            commande.Parameters.AddWithValue("Nom", parametre.Nom);
+            commande.Parameters.AddWithValue("Valeur", parametre.Valeur);
 
             //Execution
             connection.Open();
@@ -141,7 +134,7 @@ namespace QualiteSPPP.DB
             SqlConnection connection = DataBase.Connection();
 
             //Requete
-            String requete = @"DELETE Appret
+            String requete = @"DELETE Parametre
                                WHERE Identifiant=@Identifiant ;";
 
 
@@ -158,24 +151,26 @@ namespace QualiteSPPP.DB
 
             return true;
         }
-	
-	public static Int32 LastID()
-	{
-	    Int32 Identifiant = 0;
-	    //Connection
+        public static Int32 LastID()
+        {
+            Int32 Identifiant = 0;
+            //Connection
             SqlConnection connection = DataBase.Connection();
             //Requete
-            String requete = @"SELECT  MAX(Identifiant) FROM Appret;";
+            String requete = @"SELECT  MAX(Identifiant) FROM Parametre;";
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
-	    
-	    connection.Open();
+
+            connection.Open();
             SqlDataReader dataReader = commande.ExecuteReader();
-        dataReader.Read();
-	    Identifiant = dataReader.GetInt32(0);
+            dataReader.Read();
+            Identifiant = dataReader.GetInt32(0);
             connection.Close();
-	    return Identifiant; 
-	}    
+            return Identifiant;
+        }
     }
 }
+
+
+

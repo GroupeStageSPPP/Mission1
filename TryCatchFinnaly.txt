@@ -1,0 +1,33 @@
+            try
+            {
+                connection.Open();
+                 commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+			
+			
+			
+			try
+            {
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+			
+			
+			
+ProduitDB

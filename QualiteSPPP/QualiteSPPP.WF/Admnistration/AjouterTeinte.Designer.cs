@@ -54,8 +54,6 @@
             this.label35 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.Bajouter = new System.Windows.Forms.Button();
-            this.label23 = new System.Windows.Forms.Label();
-            this.TBnom = new System.Windows.Forms.TextBox();
             this.CBctor = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumBN)).BeginInit();
@@ -66,7 +64,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(220, 35);
+            this.label1.Location = new System.Drawing.Point(2, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 84;
@@ -297,26 +295,10 @@
             this.Bajouter.Text = "Ajouter";
             this.Bajouter.UseVisualStyleBackColor = true;
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(3, 35);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(29, 13);
-            this.label23.TabIndex = 75;
-            this.label23.Text = "Nom";
-            // 
-            // TBnom
-            // 
-            this.TBnom.Location = new System.Drawing.Point(6, 51);
-            this.TBnom.Name = "TBnom";
-            this.TBnom.Size = new System.Drawing.Size(210, 20);
-            this.TBnom.TabIndex = 74;
-            // 
             // CBctor
             // 
             this.CBctor.FormattingEnabled = true;
-            this.CBctor.Location = new System.Drawing.Point(224, 50);
+            this.CBctor.Location = new System.Drawing.Point(6, 52);
             this.CBctor.Name = "CBctor";
             this.CBctor.Size = new System.Drawing.Size(210, 21);
             this.CBctor.TabIndex = 85;
@@ -337,8 +319,6 @@
             this.Controls.Add(this.label35);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.Bajouter);
-            this.Controls.Add(this.label23);
-            this.Controls.Add(this.TBnom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AjouterPeinture";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -381,8 +361,6 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button Bajouter;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox TBnom;
         private System.Windows.Forms.ComboBox CBctor;
 
     }

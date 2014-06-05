@@ -29,23 +29,35 @@ namespace QualiteSPPP.DB
             //Parametres
 
             //Execution
-            connection.Open();
-
-            SqlDataReader dataReader = commande.ExecuteReader();
-	    
-	        while (dataReader.Read())
+            try
             {
-               Vehicule vehicule = new Vehicule(); 
-	           vehicule.Identifiant = dataReader.GetInt32(0);
-               vehicule.Nom         = dataReader.GetString(1);
-               vehicule.ID_Constructeur= dataReader.GetInt32(2);
-	           listeVehicule.Add(vehicule);
+                connection.Open();
+
+                SqlDataReader dataReader = commande.ExecuteReader();
+	    
+	            while (dataReader.Read())
+                {
+                   Vehicule vehicule = new Vehicule(); 
+	               vehicule.Identifiant = dataReader.GetInt32(0);
+                   vehicule.Nom         = dataReader.GetString(1);
+                   vehicule.ID_Constructeur= dataReader.GetInt32(2);
+	               listeVehicule.Add(vehicule);
+                }
+
+                dataReader.Close();
+
+	            return listeVehicule;
             }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            
 
-            dataReader.Close();
-            connection.Close();
-
-	        return listeVehicule;
 	    }
 
         public static Vehicule Get(Int32 Identifiant)
@@ -65,18 +77,30 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
+            try
+            {
+                connection.Open();
 
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-            vehicule.Identifiant = dataReader.GetInt32(0);
-            vehicule.Nom         = dataReader.GetString(1);
-            vehicule.ID_Constructeur = dataReader.GetInt32(2);
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+                vehicule.Identifiant = dataReader.GetInt32(0);
+                vehicule.Nom= dataReader.GetString(1);
+                vehicule.ID_Constructeur = dataReader.GetInt32(2);
 
-            dataReader.Close();
-            connection.Close();
+                dataReader.Close();
 
-	        return vehicule;
+	            return vehicule;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            
+
 	    }
 
         public static Boolean Insert(Vehicule vehicule)
@@ -95,10 +119,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Nom", vehicule.Nom);
             commande.Parameters.AddWithValue("ID_Constructeur", vehicule.ID_Constructeur);
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Update(Vehicule vehicule)
@@ -120,11 +154,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_Constructeur", vehicule.ID_Constructeur);
             
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Delete(Int32 Identifiant)
@@ -144,12 +187,22 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }	
+        
         public static Int32 LastID()
 	    {
 	        Int32 Identifiant = 0;
@@ -160,13 +213,24 @@ namespace QualiteSPPP.DB
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
-	    
-	        connection.Open();
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-	        Identifiant = dataReader.GetInt32(0);
-            connection.Close();
-            return Identifiant; 
+            try
+            {
+                connection.Open();
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+	            Identifiant = dataReader.GetInt32(0);
+                connection.Close();
+                return Identifiant; 
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
 	    } 
     }
 }

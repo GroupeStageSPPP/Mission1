@@ -29,24 +29,36 @@ namespace QualiteSPPP.DB
             //Parametres
 
             //Execution
-            connection.Open();
-
-            SqlDataReader dataReader = commande.ExecuteReader();
-	    
-	        while (dataReader.Read())
+            try
             {
-                Test_Ctor_Piece test_ctor_piece = new Test_Ctor_Piece(); 
-	            test_ctor_piece.Identifiant = dataReader.GetInt32(0);
-                test_ctor_piece.ID_Test = dataReader.GetInt32(1);
-                test_ctor_piece.ID_Constructeur = dataReader.GetInt32(2);
-                test_ctor_piece.ID_Piece = dataReader.GetInt32(3);
-	            listeTest_Ctor_Piece.Add(test_ctor_piece);
+                connection.Open();
+
+                SqlDataReader dataReader = commande.ExecuteReader();
+	    
+	            while (dataReader.Read())
+                {
+                    Test_Ctor_Piece test_ctor_piece = new Test_Ctor_Piece(); 
+	                test_ctor_piece.Identifiant = dataReader.GetInt32(0);
+                    test_ctor_piece.ID_Test = dataReader.GetInt32(1);
+                    test_ctor_piece.ID_Constructeur = dataReader.GetInt32(2);
+                    test_ctor_piece.ID_Piece = dataReader.GetInt32(3);
+	                listeTest_Ctor_Piece.Add(test_ctor_piece);
+                }
+
+                dataReader.Close();
+                connection.Close();
+
+	            return listeTest_Ctor_Piece;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
             }
 
-            dataReader.Close();
-            connection.Close();
-
-	        return listeTest_Ctor_Piece;
 	    }
 
         public static List<Test_Ctor_Piece> List(Int32 ID_Piece)
@@ -66,24 +78,37 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_Piece", ID_Piece);
 
             //Execution
-            connection.Open();
-
-            SqlDataReader dataReader = commande.ExecuteReader();
-
-            while (dataReader.Read())
+            try
             {
-                Test_Ctor_Piece test_ctor_piece = new Test_Ctor_Piece();
-                test_ctor_piece.Identifiant = dataReader.GetInt32(0);
-                test_ctor_piece.ID_Test = dataReader.GetInt32(1);
-                test_ctor_piece.ID_Constructeur = dataReader.GetInt32(2);
-                test_ctor_piece.ID_Piece = dataReader.GetInt32(3);
-                listeTest_Ctor_Piece.Add(test_ctor_piece);
+                connection.Open();
+
+                SqlDataReader dataReader = commande.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Test_Ctor_Piece test_ctor_piece = new Test_Ctor_Piece();
+                    test_ctor_piece.Identifiant = dataReader.GetInt32(0);
+                    test_ctor_piece.ID_Test = dataReader.GetInt32(1);
+                    test_ctor_piece.ID_Constructeur = dataReader.GetInt32(2);
+                    test_ctor_piece.ID_Piece = dataReader.GetInt32(3);
+                    test_ctor_piece.Nom = PieceDB.Get(test_ctor_piece.ID_Piece) + " " + TestDB.Get(test_ctor_piece.ID_Test);
+                    listeTest_Ctor_Piece.Add(test_ctor_piece);
+                }
+
+                dataReader.Close();
+                connection.Close();
+
+                return listeTest_Ctor_Piece;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
             }
 
-            dataReader.Close();
-            connection.Close();
-
-            return listeTest_Ctor_Piece;
         }
 
         public static Test_Ctor_Piece Get(Int32 Identifiant)
@@ -103,18 +128,30 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
+            try
+            {
+                connection.Open();
 
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-            test_ctor_piece.Identifiant = dataReader.GetInt32(0);
-            test_ctor_piece.ID_Test = dataReader.GetInt32(1);
-            test_ctor_piece.ID_Constructeur = dataReader.GetInt32(2);
-            test_ctor_piece.ID_Piece = dataReader.GetInt32(3);
-            dataReader.Close();
-            connection.Close();
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+                test_ctor_piece.Identifiant = dataReader.GetInt32(0);
+                test_ctor_piece.ID_Test = dataReader.GetInt32(1);
+                test_ctor_piece.ID_Constructeur = dataReader.GetInt32(2);
+                test_ctor_piece.ID_Piece = dataReader.GetInt32(3);
+                dataReader.Close();
+                connection.Close();
 
-	        return test_ctor_piece;
+	            return test_ctor_piece;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
 	    }
 
         public static Boolean Insert(Test_Ctor_Piece test_ctor_piece)
@@ -134,10 +171,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_Constructeur", test_ctor_piece.ID_Constructeur);
             commande.Parameters.AddWithValue("ID_Piece", test_ctor_piece.ID_Piece);
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Update(Test_Ctor_Piece test_ctor_piece)
@@ -160,11 +207,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_Piece", test_ctor_piece.ID_Piece);
             
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Delete(Int32 Identifiant)
@@ -184,11 +240,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }

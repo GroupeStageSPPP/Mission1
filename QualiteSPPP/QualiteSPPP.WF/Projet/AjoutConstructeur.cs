@@ -22,23 +22,12 @@ namespace QualiteSPPP.WinForm
 
         public AjoutConstructeur()
         {
-
-
             Ctor = new Constructeur();
             Teinte = new Teinte();
             
             InitializeComponent();
-            //E1
+
             RefreshLBctorE1();
-            //E2
-            RefreshTeinteE2();
-            RefreshCBE2();
-            //E3
-            RefreshCBE3();
-
-            //E4
-
-
         }
 
         private void AjoutConstructeur_Load(object sender, EventArgs e)
@@ -50,6 +39,7 @@ namespace QualiteSPPP.WinForm
 
             this.TeinteError.Text = "";
         }
+
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             QuitterConfirmation quitterConfirmation = new QuitterConfirmation();
@@ -61,7 +51,7 @@ namespace QualiteSPPP.WinForm
             private void buttonAjouterAjoutConstructeurEtape1_Click(object sender, EventArgs e)
             {
                 Ctor = new Constructeur();
-                Ctor.Nom = this.textBoxNomAjoutConstructeurEtape1.Text;
+                Ctor.Nom = this.TBnomE1.Text;
                 ConstructeurDB.Insert(Ctor);
                 Ctor.Identifiant = ConstructeurDB.LastID();
                 panelAjoutConstructeurEtape1.Visible = false;
@@ -69,8 +59,8 @@ namespace QualiteSPPP.WinForm
                 panelAjoutConstructeurEtape3.Visible = false;
                 panelAjoutConstructeurEtape4.Visible = false;
                 RefreshLBctorE1();
-                RefreshCBE2();
-                RefreshTeinteE2();
+                TBnomE1.Text = "";
+                TBnomE2.Text = Ctor.Nom;
             }
             
             private void buttonAnnulerAjoutConstructeurEtape1_Click(object sender, EventArgs e)
@@ -88,8 +78,8 @@ namespace QualiteSPPP.WinForm
                     panelAjoutConstructeurEtape2.Visible = true;
                     panelAjoutConstructeurEtape3.Visible = false;
                     panelAjoutConstructeurEtape4.Visible = false;
-                    RefreshCBE2();
-                    RefreshTeinteE2();
+                    TBnomE1.Text = "";
+                    TBnomE2.Text = Ctor.Nom;
                 }
                 
             }
@@ -109,810 +99,539 @@ namespace QualiteSPPP.WinForm
                 this.listBoxConstructeurAjoutConstructeurEtape1.ValueMember = "Identifiant";
             }
         #endregion
+        
         #region Etape 2
-
-            private void BvAddTeinte_Click(object sender, EventArgs e)
-            {
-                if (this.textBoxNomAddAjoutConstructeurEtape2.Text != ""
-                 && this.textBoxRisqueAddAjoutConstructeurEtape2.Text != ""
-                 && this.textBoxRefBaseAddAjoutConstructeurEtape2.Text != ""
-                 && this.textBoxMinAddAjoutConstructeurEtape2.Text != ""
-                 && this.textBoxNormeAddAjoutConstructeurEtape2.Text != ""
-                 && this.textBoxMaxAddAjoutConstructeurEtape2.Text != "")
-                {
-                    Double D;
-                    if (Double.TryParse(this.textBoxMinAddAjoutConstructeurEtape2.Text, out D) == true
-                     && Double.TryParse(this.textBoxNormeAddAjoutConstructeurEtape2.Text, out D) == true
-                     && Double.TryParse(this.textBoxMaxAddAjoutConstructeurEtape2.Text, out D) == true)
-                    {
-                        this.TeinteError.Text = "";
-                        Teinte teinte = new Teinte();
-                        teinte.Nom = this.textBoxNomAddAjoutConstructeurEtape2.Text;
-                        teinte.RisqueTeinte = this.textBoxRisqueAddAjoutConstructeurEtape2.Text;
-                        teinte.ReferenceBase = this.textBoxRefBaseAddAjoutConstructeurEtape2.Text;
-                        teinte.L = (Int32)this.NumBNaddAjoutConstructeurEtape2.Value;
-                        teinte.A = (Int32)this.NumRVaddAjoutConstructeurEtape2.Value;
-                        teinte.B = (Int32)this.NumJBaddAjoutConstructeurEtape2.Value;
-                        teinte.Min = Double.Parse                                                         (this.textBoxMinAddAjoutConstructeurEtape2.Text);
-                        teinte.Norme = Double.Parse                                                         (this.textBoxNormeAddAjoutConstructeurEtape2.Text);
-                        teinte.Max = Double.Parse(this.textBoxMaxAddAjoutConstructeurEtape2.Text);
-                        teinte.ID_Appret = Int32.Parse(this.CBappretUpdateE2.SelectedValue.ToString());
-                        teinte.ID_Vernis = Int32.Parse(this.CBvernisUpdateE2.SelectedValue.ToString());
-                        teinte.ID_Constructeur = Ctor.Identifiant;
-                        TeinteDB.Insert(teinte);
-                        this.AddTeinte.Visible = false;
-                        RefreshTeinteE2();;
-                    }
-                    else
-                    {
-                        this.TeinteError.Text = "Erreur de saisie, concernant les champs liés a l'épaisseur ";
-                    }
-                
-                }
-                else
-                {
-                    this.TeinteError.Text = "Il y a des champs nom remplis";
-                }
             
-            
-            }
-
-            private void BaAddTeinte_Click(object sender, EventArgs e)
-           {
-               this.AddTeinte.Visible = false;
-           }
-
-            private void BaUpdateTeinte_Click(object sender, EventArgs e)
+            private void LBteinteE2_SelectedIndexChanged(object sender, EventArgs e)
             {
-                this.UpdateTeinte.Visible = false;
-            }
+                Teinte = (Teinte)LBteinteE2.SelectedItem;
 
-            private void BvUpdateTeinte_Click(object sender, EventArgs e)
-            {
-                if (this.TBnomUpdateAjoutConstructeurE2.Text != ""
-                && this.TBrisqueUpdateAjoutConstructeurEtape2.Text != ""
-                && this.TBrefBaseUpdateAjoutConstructeurE2.Text != ""
-                && this.TBminUpdateAjoutConstructeurEtape2.Text != ""
-                && this.TBnormeUpdateAjoutConstructeurEtape2.Text != ""
-                && this.TBmaxUpdateAjoutConstructeurEtape2.Text != "")
-                {
-                    Double D;
-                    if (Double.TryParse(this.TBminUpdateAjoutConstructeurEtape2.Text, out D) == true
-                     && Double.TryParse(this.TBnormeUpdateAjoutConstructeurEtape2.Text, out D) == true
-                     && Double.TryParse(this.TBmaxUpdateAjoutConstructeurEtape2.Text, out D) == true)
-                    {
-                        this.TeinteError.Text = "";
-                        Teinte teinte = Teinte;
-                        teinte.Nom = this.TBnomUpdateAjoutConstructeurE2.Text;
-                        teinte.RisqueTeinte =this.TBrisqueUpdateAjoutConstructeurEtape2.Text;
-                        teinte.ReferenceBase =this.TBrefBaseUpdateAjoutConstructeurE2.Text;
-                        teinte.L = (Int32)this.NumBNupdateAjoutConstructeurEtape2.Value;
-                        teinte.A = (Int32)this.NumRVupdateAjoutConstructeurEtape2.Value;
-                        teinte.B = (Int32)this.NumJBupdateAjoutConstructeurEtape2.Value;
-                        teinte.Min = Double.Parse(this.TBminUpdateAjoutConstructeurEtape2.Text);
-                        teinte.Norme = Double.Parse(this.TBnormeUpdateAjoutConstructeurEtape2.Text);
-                        teinte.Max = Double.Parse(this.TBmaxUpdateAjoutConstructeurEtape2.Text);
-                        teinte.ID_Appret = Int32.Parse(this.CBappretUpdateE2.SelectedValue.ToString());
-                        teinte.ID_Vernis = Int32.Parse(this.CBvernisUpdateE2.SelectedValue.ToString());
-                        teinte.ID_Constructeur = Ctor.Identifiant;
-                        TeinteDB.Update(teinte);
-                        this.UpdateTeinte.Visible = false;
-                        RefreshTeinteE2();;
-                    }
-                    else
-                    {
-                        this.TeinteError.Text = "Erreur de saisie, concernant les champs liés a l'épaisseur ";
-                    }
-
-                }
-                else
-                {
-                    this.TeinteError.Text = "Il y a des champs nom remplis";
-                }
-
-                this.UpdateTeinte.Visible = false;
-            }
-
-            private void buttonAjouterAjoutConstructeurEtape2_Click(object sender, EventArgs e)
-            {
-                {
-                    if (this.UpdateTeinte.Visible == false)
-                    {
-                        this.UpdateTeinte.Visible = false;
-                        this.textBoxNomAddAjoutConstructeurEtape2.Text = "";
-                        this.textBoxRisqueAddAjoutConstructeurEtape2.Text = "";
-                        this.textBoxRefBaseAddAjoutConstructeurEtape2.Text = "";
-                        this.NumBNaddAjoutConstructeurEtape2.Value = 0;
-                        this.NumRVaddAjoutConstructeurEtape2.Value = 0;
-                        this.NumJBaddAjoutConstructeurEtape2.Value = 0;
-                        this.textBoxMinAddAjoutConstructeurEtape2.Text = "0";
-                        this.textBoxNormeAddAjoutConstructeurEtape2.Text = "0";
-                        this.textBoxMaxAddAjoutConstructeurEtape2.Text = "0";
-                        this.CBappretAjoutE2.SelectedIndex = -1;
-                        this.CBvernisAjoutE2.SelectedIndex = -1;
-                        this.AddTeinte.Visible = true;
-                    }
-                    else
-                    {
-                        this.TeinteError.Text = "Veuillez finir de modifier la teinte avant d'en ajouter une nouvelle";
-                    }
-
-
-                }
+                TBrefBaseE2.Text = Teinte.ReferenceBase;
+                TBminE2.Text =  Teinte.Min.ToString();
+                TBnormeE2.Text= Teinte.Norme.ToString();
+                TBmaxE2.Text =  Teinte.Max.ToString();
                 
-                
+                NumBNe2.Value = Teinte.L;
+                NumRVe2.Value = Teinte.A;
+                NumJBe2.Value = Teinte.B;
+
+                CBappretE2.SelectedIndex = ResearchAppretE2();
+                CBvernisE2.SelectedIndex = ResearchVernisE2();
+
             }
-            
-            private void buttonModifierAjoutConstructeurEtape2_Click(object sender, EventArgs e)
+
+            private void BresetE2_Click(object sender, EventArgs e)
             {
-                if (this.listBoxTeinteAjoutConstructeurEtape2.SelectedIndex != -1 && this.AddTeinte.Visible == false)
+                Teinte = new Teinte();
+                TBrefBaseE2.Text = "";
+                TBminE2.Text = "";
+                TBnormeE2.Text = "";
+                TBmaxE2.Text = "";
+
+                NumBNe2.Value = 0;
+                NumRVe2.Value = 0;
+                NumJBe2.Value = 0;
+
+                CBappretE2.SelectedIndex = 0;
+                CBvernisE2.SelectedIndex = 0;  
+            }
+
+            private void BaddE2_Click(object sender, EventArgs e)
+            {
+                Int32 I;
+                if ( Int32.TryParse(TBminE2.Text.ToString(), out I )== true 
+                  && Int32.TryParse(TBnormeE2.Text.ToString(), out I )== true
+                  && Int32.TryParse(TBmaxE2.Text.ToString(), out I)== true
+                  && TBnomE2.Text != ""
+                  && TBminE2.Text != ""
+                  && TBnormeE2.Text != ""
+                  && TBmaxE2.Text != "")
                 {
-                    Teinte = TeinteDB.Get(Int32.Parse(this.listBoxTeinteAjoutConstructeurEtape2.SelectedValue.ToString()));
-                    this.UpdateTeinte.Visible = false;
-                    this.TBnomUpdateAjoutConstructeurE2.Text = Teinte.Nom;
-                    this.TBrisqueUpdateAjoutConstructeurEtape2.Text = Teinte.RisqueTeinte;
-                    this.TBrefBaseUpdateAjoutConstructeurE2.Text = Teinte.ReferenceBase;
-                    this.NumBNupdateAjoutConstructeurEtape2.Value = Teinte.L;
-                    this.NumRVupdateAjoutConstructeurEtape2.Value = Teinte.A;
-                    this.NumJBupdateAjoutConstructeurEtape2.Value = Teinte.B;
-                    this.TBminUpdateAjoutConstructeurEtape2.Text = Teinte.Min.ToString();
-                    this.TBnormeUpdateAjoutConstructeurEtape2.Text = Teinte.Norme.ToString();
-                    this.TBmaxUpdateAjoutConstructeurEtape2.Text = Teinte.Max.ToString();
+                    Teinte = new Teinte();
 
-                    int i = 0;
-                    foreach (Appret appret in AppretDB.List())
-                    {
-                        if (appret.Identifiant == Teinte.ID_Appret)
-                        {
-                            this.CBappretUpdateE2.SelectedIndex = i;
-                        }
-                        else
-                        {
-                            i++;
-                        }
-                    }
-
-                    i = 0;
-                    foreach (Vernis vernis in VernisDB.List())
-                    {
-                        if (vernis.Identifiant == Teinte.ID_Vernis)
-                        {
-                            this.CBvernisUpdateE2.SelectedIndex = i;
-                        }
-                        else
-                        {
-                            i++;
-                        }
-                    }
+                    Teinte.ReferenceBase = TBrefBaseE2.Text;
                     
-                    //this.CBappretUpdateE2.SelectedItem = AppretDB.Get(Teinte.ID_Appret);
-                    //this.CBvernisUpdateE2.SelectedItem = VernisDB.Get(Teinte.ID_Vernis);
+                    Teinte.Min  = Int32.Parse(TBminE2.Text);
+                    Teinte.Norme= Int32.Parse(TBnormeE2.Text);
+                    Teinte.Max  = Int32.Parse(TBmaxE2.Text);
 
-                    this.UpdateTeinte.Visible = true;
+                    Teinte.L = (Int32)NumBNe2.Value;
+                    Teinte.A = (Int32)NumRVe2.Value;
+                    Teinte.B = (Int32)NumJBe2.Value;
 
-                }
-                else
-                {
-                    this.TeinteError.Text = "Veuillez finir la creation d'une nouvelle teinte.\n Ou veuillez selectionner une teinte a modifier";
+                    Teinte.ID_Appret = ((Vernis)CBappretE2.SelectedItem).Identifiant;
+                    Teinte.ID_Vernis = ((Vernis)CBvernisE2.SelectedItem).Identifiant;
+
+                    TeinteDB.Insert(Teinte);
+                    RefreshE2();
                 }
             }
 
-            private void buttonAnnulerAjoutConstructeurEtape2_Click(object sender, EventArgs e)
+            private void BupdateE2_Click(object sender, EventArgs e)
             {
-                panelAjoutConstructeurEtape1.Visible = true;
+                Int32 I;
+                if (
+                     Int32.TryParse(TBminE2.Text.ToString(), out I) == true
+                  && Int32.TryParse(TBnormeE2.Text.ToString(), out I) == true
+                  && Int32.TryParse(TBmaxE2.Text.ToString(), out I) == true
+                  && TBnomE2.Text != ""
+                  && TBminE2.Text != ""
+                  && TBnormeE2.Text != ""
+                  && TBmaxE2.Text != ""
+                  && Teinte != null)
+                {
+                    Teinte.ReferenceBase = TBrefBaseE2.Text;
+
+                    Teinte.Min = Int32.Parse(TBminE2.Text);
+                    Teinte.Norme = Int32.Parse(TBnormeE2.Text);
+                    Teinte.Max = Int32.Parse(TBmaxE2.Text);
+
+                    Teinte.L = (Int32)NumBNe2.Value;
+                    Teinte.A = (Int32)NumRVe2.Value;
+                    Teinte.B = (Int32)NumJBe2.Value;
+
+                    Teinte.ID_Appret = ((Vernis)CBappretE2.SelectedItem).Identifiant;
+                    Teinte.ID_Vernis = ((Vernis)CBvernisE2.SelectedItem).Identifiant;
+                    
+                    TeinteDB.Update(Teinte);
+                    RefreshE2();
+                }
+
+            }
+
+            private void BdeleteE2_Click(object sender, EventArgs e)
+            {
+                if (Teinte != null)
+                {
+                    TeinteDB.Delete(Teinte.Identifiant);
+                    RefreshE2();
+                }
+            }
+
+            private void BannulerE2_Click(object sender, EventArgs e)
+            {
                 panelAjoutConstructeurEtape2.Visible = false;
-                panelAjoutConstructeurEtape3.Visible = false;
-                panelAjoutConstructeurEtape4.Visible = false;
+                panelAjoutConstructeurEtape1.Visible = true;
+                
             }
 
-            private void buttonSupprimerAjoutConstructeurEtape2_Click(object sender, EventArgs e)
+            private void BsuivantE2_Click(object sender, EventArgs e)
             {
-                if (this.listBoxTeinteAjoutConstructeurEtape2.SelectedIndex != -1 && this.AddTeinte.Visible == false && this.UpdateTeinte.Visible == false)
-                {
-                   TeinteDB.Delete(Int32.Parse(this.listBoxTeinteAjoutConstructeurEtape2.SelectedValue.ToString()));
-                    RefreshTeinteE2();
-                }
-            }
-
-            private void buttonSuivantAjoutConstructeurEtape2_Click(object sender, EventArgs e)
-            {
-                panelAjoutConstructeurEtape1.Visible = false;
                 panelAjoutConstructeurEtape2.Visible = false;
                 panelAjoutConstructeurEtape3.Visible = true;
-                panelAjoutConstructeurEtape4.Visible = false;
             }
             
-            private void RefreshTeinteE2()
+            private void RefreshE2()
             {
-                this.TBnomCtorE2.Text = Ctor.Nom;
-                this.listBoxTeinteAjoutConstructeurEtape2.DataSource = TeinteDB.List(Ctor.Identifiant);
-                this.listBoxTeinteAjoutConstructeurEtape2.DisplayMember = "Nom";
-                this.listBoxTeinteAjoutConstructeurEtape2.ValueMember = "Identifiant";
-
-                this.AddTeinte.Visible = false;
-                this.UpdateTeinte.Visible = false;
+                LBteinteE2.DataSource = TeinteDB.List(Ctor.Identifiant);
+                LBteinteE2.DisplayMember = "ReferenceBase";
             }
 
-            private void RefreshCBE2()
+            private int ResearchAppretE2()
             {
-                this.CBappretAjoutE2.DataSource= AppretDB.List();
-                this.CBappretAjoutE2.DisplayMember = "Reference";
-                this.CBappretAjoutE2.ValueMember= "Identifiant";
+                int i = 0;
+                foreach (Appret A in AppretDB.List())
+                {
+                    if (A.Identifiant != Teinte.ID_Appret)
+                    {
+                        i++;                        
+                    }
+                }
 
-                this.CBvernisAjoutE2.DataSource = VernisDB.List();
-                this.CBvernisAjoutE2.DisplayMember = "Reference";
-                this.CBvernisAjoutE2.ValueMember = "Identifiant";
-
-                this.CBappretUpdateE2.DataSource = AppretDB.List();
-                this.CBappretUpdateE2.DisplayMember = "Reference";
-                this.CBappretUpdateE2.ValueMember = "Identifiant";
-
-                this.CBvernisUpdateE2.DataSource = VernisDB.List();
-                this.CBvernisUpdateE2.DisplayMember = "Reference";
-                this.CBvernisUpdateE2.ValueMember = "Identifiant";
-
-                this.AddTeinte.Visible = false;
-                this.UpdateTeinte.Visible = false;
+                return i;
             }
+            
+            private int ResearchVernisE2()
+            {
+                int i = 0;
+                foreach (Appret V in AppretDB.List())
+                {
+                    if (V.Identifiant != Teinte.ID_Vernis)
+                    {
+                        i++;
+                    }
+                }
+
+                return i;
+            }
+                   
         #endregion
+        
         #region Etape 3
 
             
             public Test Test { get; set; }
             public Test_Constructeur Tctor { get; set; }
 
-        private void BaddTestCtorE3_Click(object sender, EventArgs e)
-        {
-            if (this.LBtestE3.SelectedIndex != -1 && this.UpdateTestCtor.Visible == false)
+            private void BaddTestCtorE3_Click(object sender, EventArgs e)
             {
-                Tctor = new Test_Constructeur();
-                Tctor.ID_Constructeur = Ctor.Identifiant;
-                Tctor.ID_Test = (Int32)LBtestE3.SelectedValue;
-
-                TBdescAddE3.Text = ((Test)LBtestE3.SelectedItem).Description;
-
-                switch (((Test)LBtestE3.SelectedItem).TypeTest)
+                Double D;
+                if ( Double.TryParse(TBminE3.Text, out D) == true
+                  && Double.TryParse(TBnormeE3.Text, out D) == true
+                  && Double.TryParse(TBminE3.Text, out D) == true
+                  && LBtestE3.SelectedItem != null)
                 {
-                    case 1:
-                        TBtypeAddE3.Text = "Minimum et Norme";
-                        TBminAddE3.ReadOnly = false;
-                        TBnormeAddE3.ReadOnly = false;
-                        TBmaxAddE3.ReadOnly = true;
-                        
-                        TBminAddE3.Text = "";
-                        TBnormeAddE3.Text = "";
-                        TBmaxAddE3.Text = "";
-                        break;
-                    case 2:
-                        TBtypeAddE3.Text = "Minimum, Norme et Maximum";
-                        TBminAddE3.ReadOnly = false;
-                        TBnormeAddE3.ReadOnly = false;
-                        TBmaxAddE3.ReadOnly = false;
-                        
-                        TBminAddE3.Text = "";
-                        TBnormeAddE3.Text = "";
-                        TBmaxAddE3.Text = "";
-                        break;
-                    case 3:
-                        TBtypeAddE3.Text = "Norme, et Maximum";
-                        TBminAddE3.ReadOnly = true;
-                        TBnormeAddE3.ReadOnly = false;
-                        TBmaxAddE3.ReadOnly = false;
-                        
-                        TBminAddE3.Text = "";
-                        TBnormeAddE3.Text = "";
-                        TBmaxAddE3.Text = "";
-                        break;
-                }
-                this.AddTestCtor.Visible = true;
-            }
-            else
-            {
-                if (this.UpdateTestCtor.Visible == true)
-                {
-                    this.TestCtorError.Text = "Finissez de modifier le test!";
-                }
-                else
-                {
-                    this.TestCtorError.Text = "Selectionnez un test à ajouter!";
-                }
-
-            }
-        }
-
-        private void BupdateTestCtorE3_Click(object sender, EventArgs e)
-        {
-            if (this.LBtestCtorE3.SelectedIndex != -1 && this.AddTestCtor.Visible == false)
-            {
-
-                Tctor = (Test_Constructeur)LBtestCtorE3.SelectedItem;
-                Test = TestDB.Get(Tctor.ID_Test);
                 
+                    Test = (Test)LBtestE3.SelectedItem;
+                    Tctor = new Test_Constructeur();
+                    Tctor.ID_Test = Test.Identifiant;
+                    Tctor.ID_Constructeur = Ctor.Identifiant;
+                    this.TBdescE3.Text = Test.Description;
+                    switch (Test.TypeTest)
+                    {
+                        case 1:
+                            Tctor.Min = Double.Parse(TBminE3.Text);
+                            Tctor.Norme = Double.Parse(TBnormeE3.Text);
+                            Tctor.Max = 0;
+                            break;
+                        case 2:
+                            Tctor.Min = Double.Parse(TBminE3.Text);
+                            Tctor.Norme = Double.Parse(TBnormeE3.Text);
+                            Tctor.Max = Double.Parse(TBmaxE3.Text);
+                            break;
+                        case 3:
+                            Tctor.Min = 0;
+                            Tctor.Norme = Double.Parse(TBnormeE3.Text);
+                            Tctor.Max = Double.Parse(TBmaxE3.Text);
+                            break;
+                        default:
+                            break;
+                    }
+                    Test_ConstructeurDB.Insert(Tctor);
+                    RefreshE3();
+                }
+            }
 
-                TBdescAddE3.Text = Test.Description;
+            private void BupdateTestCtorE3_Click(object sender, EventArgs e)
+            {
+                Double D;
+                if (Double.TryParse(TBminE3.Text, out D) == true
+                  && Double.TryParse(TBnormeE3.Text, out D) == true
+                  && Double.TryParse(TBminE3.Text, out D) == true
+                  && LBtestCtorE3.SelectedItem != null)
+                {
+                    Tctor = (Test_Constructeur)LBtestCtorE3.SelectedItem;
+                    Tctor.ID_Test = Test.Identifiant;
+                    Tctor.ID_Constructeur = Ctor.Identifiant;
+                    this.TBdescE3.Text = Test.Description;
+                    switch (Test.TypeTest)
+                    {
+                        case 1:
+                            Tctor.Min = Double.Parse(TBminE3.Text);
+                            Tctor.Norme = Double.Parse(TBnormeE3.Text);
+                            Tctor.Max = 0;
+                            break;
+                        case 2:
+                            Tctor.Min = Double.Parse(TBminE3.Text);
+                            Tctor.Norme = Double.Parse(TBnormeE3.Text);
+                            Tctor.Max = Double.Parse(TBmaxE3.Text);
+                            break;
+                        case 3:
+                            Tctor.Min = 0;
+                            Tctor.Norme = Double.Parse(TBnormeE3.Text);
+                            Tctor.Max = Double.Parse(TBmaxE3.Text);
+                            break;
+                        default:
+                            break;
+                    }
+                    Test_ConstructeurDB.Update(Tctor);
+                    RefreshE3();
+                }
+            }
 
+            private void BdeleteTestCtorE3_Click(object sender, EventArgs e)
+            {
+
+            }
+
+            private void LBtestE3_SelectedIndexChanged(object sender, EventArgs e)
+            {
+                Test = (Test)LBtestE3.SelectedItem;
+
+                this.TBdescE3.Text = Test.Description;
                 switch (Test.TypeTest)
                 {
                     case 1:
-                        TBtypeAddE3.Text = "Minimum";
-                        TBminAddE3.ReadOnly = false;
-                        TBnormeAddE3.ReadOnly = false;
-                        TBmaxAddE3.ReadOnly = true;
-
-                        TBminAddE3.Text  = Tctor.Min.ToString();
-                        TBnormeAddE3.Text= Tctor.Norme.ToString();
-                        TBmaxAddE3.Text  = "";
+                        this.TBtypeE3.Text = "Minimum et Norme";
+                        this.TBminE3.ReadOnly = false;
+                        this.TBnormeE3.ReadOnly = false;
+                        this.TBmaxE3.ReadOnly = true;
                         break;
                     case 2:
-                        TBtypeAddE3.Text = "Minimum et Maximum";
-                        TBminAddE3.ReadOnly = false;
-                        TBnormeAddE3.ReadOnly = false;
-                        TBmaxAddE3.ReadOnly = false;
-
-                        TBminAddE3.Text  = Tctor.Min.ToString();
-                        TBnormeAddE3.Text= Tctor.Norme.ToString();
-                        TBmaxAddE3.Text  = Tctor.Max.ToString();
+                        this.TBtypeE3.Text = "Minimum, Norme et Maximum";
+                        this.TBminE3.ReadOnly = false;
+                        this.TBnormeE3.ReadOnly = false;
+                        this.TBmaxE3.ReadOnly = false;
                         break;
                     case 3:
-                        TBtypeAddE3.Text = "Maximum";
-                        TBminAddE3.ReadOnly = true;
-                        TBnormeAddE3.ReadOnly = false;
-                        TBmaxAddE3.ReadOnly = false;
+                        this.TBtypeE3.Text = "Norme et Maximum";
+                        this.TBminE3.ReadOnly = true;
+                        this.TBnormeE3.ReadOnly = false;
+                        this.TBmaxE3.ReadOnly = false;
+                        break;
+                    default:
+                        break;
+                }
+                this.TBminE3.Text = "";
+                this.TBnormeE3.Text = "";
+                this.TBmaxE3.Text = "";
+                this.TestCtorError.Text = "";
+            }
+        
+            private void LBtestCtorE3_SelectedIndexChanged(object sender, EventArgs e)
+            {
+                Test_Constructeur tCtor = (Test_Constructeur)this.LBtestCtorE3.SelectedItem;
+                Test = TestDB.Get(tCtor.ID_Test);
+                Tctor = tCtor;
 
-                        TBminAddE3.Text  = "";
-                        TBnormeAddE3.Text= Tctor.Norme.ToString();
-                        TBmaxAddE3.Text  = Tctor.Max.ToString();
+                this.TBdescE3.Text = Test.Description;
+                switch (Test.TypeTest)
+                {
+                    case 1:
+                        this.TBtypeE3.Text = "Minimum et Norme";
+                        this.TBminE3.ReadOnly = false;
+                        this.TBnormeE3.ReadOnly = false;
+                        this.TBmaxE3.ReadOnly = true;
+
+                        this.TBminE3.Text = tCtor.Min.ToString();
+                        this.TBnormeE3.Text = tCtor.Norme.ToString();
+                        this.TBmaxE3.Text = "";
+                        break;
+                    case 2:
+                        this.TBtypeE3.Text = "Minimum, Norme et Maximum";
+                        this.TBminE3.ReadOnly = false;
+                        this.TBnormeE3.ReadOnly = false;
+                        this.TBmaxE3.ReadOnly = false;
+
+                        this.TBminE3.Text = tCtor.Min.ToString();
+                        this.TBnormeE3.Text = tCtor.Norme.ToString();
+                        this.TBmaxE3.Text = tCtor.Max.ToString();
+                        break;
+                    case 3:
+                        this.TBtypeE3.Text = "Norme et Maximum";
+                        this.TBminE3.ReadOnly = true;
+                        this.TBnormeE3.ReadOnly = false;
+                        this.TBmaxE3.ReadOnly = false;
+
+                        this.TBminE3.Text = "";
+                        this.TBnormeE3.Text = tCtor.Norme.ToString();
+                        this.TBmaxE3.Text = tCtor.Max.ToString();
+                        break;
+                    default:
                         break;
                 }
 
-                this.UpdateTestCtor.Visible = true;
+                this.TestCtorError.Text = "";
             }
-            else
+
+            private void BAnnulerAjoutConstructeurEtape3_Click(object sender, EventArgs e)
             {
-                if (this.UpdateTestCtor.Visible == true)
-                {
-                    this.TestCtorError.Text = "Finissez d\'ajouter le test!";
-                }
-                else
-                {
-                    this.TestCtorError.Text = "Selectionnez un test à modifier!";
-                }
-            }
-        }
-
-        private void BvAddE3_Click(object sender, EventArgs e)
-        {
-            Double D;
-
-            switch (Test.TypeTest)
-            {
-                case 1:
-                    if (Double.TryParse(this.TBminAddE3.Text, out D) == true
-                     && Double.TryParse(this.TBnormeAddE3.Text, out D) == true)
-                    {
-                        this.TestCtorError.Text = "";
-                        Tctor.Min = Double.Parse(this.TBminAddE3.Text);
-                        Tctor.Norme = Double.Parse(this.TBnormeAddE3.Text);
-                        Test_ConstructeurDB.Insert(Tctor);
-                        this.AddTestCtor.Visible = false;
-                        RefreshCBE3();
-                    }
-                    else
-                    {
-                        this.TestCtorError.Text = "Erreur de saisie, concernant les valeurs du test";
-                    }
-                    break;
-                case 2:
-                    if (Double.TryParse(this.TBminAddE3.Text, out D) == true
-                     && Double.TryParse(this.TBnormeAddE3.Text, out D) == true
-                     && Double.TryParse(this.TBmaxAddE3.Text, out D) == true)
-                    {
-                        this.TestCtorError.Text = "";
-                        Tctor.Min = Double.Parse(this.TBminAddE3.Text);
-                        Tctor.Norme = Double.Parse(this.TBnormeAddE3.Text);
-                        Tctor.Max = Double.Parse(this.TBmaxAddE3.Text);
-                        Test_ConstructeurDB.Insert(Tctor);
-                        this.AddTestCtor.Visible = false;
-                        RefreshCBE3();
-                    }
-                    else
-                    {
-                        this.TestCtorError.Text = "Erreur de saisie, concernant les valeurs du test";
-                    }
-                    break;
-                case 3:
-                    if (Double.TryParse(this.TBnormeAddE3.Text, out D) == true
-                     && Double.TryParse(this.TBmaxAddE3.Text, out D) == true)
-                    {
-                        this.TestCtorError.Text = "";
-                        Tctor.Norme = Double.Parse(this.TBnormeAddE3.Text);
-                        Tctor.Max = Double.Parse(this.TBmaxAddE3.Text);
-                        Test_ConstructeurDB.Insert(Tctor);
-                        this.AddTestCtor.Visible = false;
-                        RefreshCBE3();
-                    }
-                    else
-                    {
-                        this.TestCtorError.Text = "Erreur de saisie, concernant les valeurs du test";
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void BaAddE3_Click(object sender, EventArgs e)
-        {
-            this.TestCtorError.Text = "";
-            this.AddTestCtor.Visible = false;
-        }
-
-        private void BvUpdateE3_Click(object sender, EventArgs e)
-        {
-            Double D;
-
-            switch (Test.TypeTest)
-            {
-                case 1:
-                    if (Double.TryParse(this.TBminUpdateE3.Text, out D) == true
-                     && Double.TryParse(this.TBnormeUpdateE3.Text, out D) == true)
-                    {
-                        this.TestCtorError.Text = "";
-                        Tctor.Min = Double.Parse(this.TBminUpdateE3.Text);
-                        Tctor.Norme = Double.Parse(this.TBnormeUpdateE3.Text);
-                        Test_ConstructeurDB.Update(Tctor);
-                        this.UpdateTestCtor.Visible = false;
-                        RefreshCBE3();
-                    }
-                    else
-                    {
-                        this.TestCtorError.Text = "Erreur de saisie, concernant les valeurs du test";
-                    }
-                    break;
-                case 2:
-                    if (Double.TryParse(this.TBminUpdateE3.Text, out D) == true
-                     && Double.TryParse(this.TBnormeUpdateE3.Text, out D) == true
-                     && Double.TryParse(this.TBmaxUpdateE3.Text, out D) == true)
-                    {
-                        this.TestCtorError.Text = "";
-                        Tctor.Min = Double.Parse(this.TBminUpdateE3.Text);
-                        Tctor.Norme = Double.Parse(this.TBnormeUpdateE3.Text);
-                        Tctor.Max = Double.Parse(this.TBmaxUpdateE3.Text);
-                        Test_ConstructeurDB.Update(Tctor);
-                        this.UpdateTestCtor.Visible = false;
-                        RefreshCBE3();
-                    }
-                    else
-                    {
-                        this.TestCtorError.Text = "Erreur de saisie, concernant les valeurs du test";
-                    }
-                    break;
-                case 3:
-                    if (Double.TryParse(this.TBnormeUpdateE3.Text, out D) == true
-                     && Double.TryParse(this.TBmaxUpdateE3.Text, out D) == true)
-                    {
-                        this.TestCtorError.Text = "";
-                        Tctor.Norme = Double.Parse(this.TBnormeUpdateE3.Text);
-                        Tctor.Max = Double.Parse(this.TBmaxUpdateE3.Text);
-                        Test_ConstructeurDB.Update(Tctor);
-                        this.UpdateTestCtor.Visible = false;
-                        RefreshCBE3();
-                    }
-                    else
-                    {
-                        this.TestCtorError.Text = "Erreur de saisie, concernant les valeurs du test";
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void BaUpdateE3_Click(object sender, EventArgs e)
-        {
-            this.TestCtorError.Text = "";
-            this.UpdateTestCtor.Visible = false;
-        }
-        
-        private void LBtest_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Test = (Test)this.LBtestE3.SelectedItem;
-            Tctor.ID_Test = Test.Identifiant;
-
-            this.TBdescAddE3.Text = Test.Description;
-            switch (Test.TypeTest)
-            {
-                case 1:
-                    this.TBtypeAddE3.Text = "Minimum et Norme";
-                    this.TBminAddE3.ReadOnly = false;
-                    this.TBnormeAddE3.ReadOnly = false;
-                    this.TBmaxAddE3.ReadOnly = true;
-                    break;
-                case 2:
-                    this.TBtypeAddE3.Text = "Minimum, Norme et Maximum";
-                    this.TBminAddE3.ReadOnly = false;
-                    this.TBnormeAddE3.ReadOnly = false;
-                    this.TBmaxAddE3.ReadOnly = false;
-                    break;
-                case 3:
-                    this.TBtypeAddE3.Text = "Norme et Maximum";
-                    this.TBminAddE3.ReadOnly = true;
-                    this.TBnormeAddE3.ReadOnly = false;
-                    this.TBmaxAddE3.ReadOnly = false;
-                    break;
-                default:
-                    break;
-            }
-            this.TBminAddE3.Text = "";
-            this.TBnormeAddE3.Text = "";
-            this.TBmaxAddE3.Text = "";
-            this.TestCtorError.Text = "";
-        }
-        
-        private void LBtestCtorE3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Test_Constructeur tCtor = (Test_Constructeur)this.LBtestCtorE3.SelectedItem;
-            Test = TestDB.Get(tCtor.ID_Test);
-            Tctor = tCtor;
-
-            this.TBdescUpdateE3.Text = Test.Description;
-            switch (Test.TypeTest)
-            {
-                case 1:
-                    this.TBtypeUpdateE3.Text = "Minimum et Norme";
-                    this.TBminUpdateE3.ReadOnly = false;
-                    this.TBnormeUpdateE3.ReadOnly = false;
-                    this.TBmaxUpdateE3.ReadOnly = true;
-
-                    this.TBminUpdateE3.Text = tCtor.Min.ToString();
-                    this.TBnormeUpdateE3.Text = tCtor.Norme.ToString();
-                    this.TBmaxUpdateE3.Text = "";
-                    break;
-                case 2:
-                    this.TBtypeUpdateE3.Text = "Minimum, Norme et Maximum";
-                    this.TBminUpdateE3.ReadOnly = false;
-                    this.TBnormeUpdateE3.ReadOnly = false;
-                    this.TBmaxUpdateE3.ReadOnly = false;
-
-                    this.TBminUpdateE3.Text = tCtor.Min.ToString();
-                    this.TBnormeUpdateE3.Text = tCtor.Norme.ToString();
-                    this.TBmaxUpdateE3.Text = tCtor.Max.ToString();
-                    break;
-                case 3:
-                    this.TBtypeUpdateE3.Text = "Norme et Maximum";
-                    this.TBminUpdateE3.ReadOnly = true;
-                    this.TBnormeUpdateE3.ReadOnly = false;
-                    this.TBmaxUpdateE3.ReadOnly = false;
-
-                    this.TBminUpdateE3.Text = "";
-                    this.TBnormeUpdateE3.Text = tCtor.Norme.ToString();
-                    this.TBmaxUpdateE3.Text = tCtor.Max.ToString();
-                    break;
-                default:
-                    break;
-            }
-
-            this.TestCtorError.Text = "";
-        }
-
-        private void BAnnulerAjoutConstructeurEtape3_Click(object sender, EventArgs e)
-        {
-            panelAjoutConstructeurEtape1.Visible = false;
-            panelAjoutConstructeurEtape2.Visible = true;
-            panelAjoutConstructeurEtape3.Visible = false;
-            panelAjoutConstructeurEtape4.Visible = false;
+                panelAjoutConstructeurEtape1.Visible = false;
+                panelAjoutConstructeurEtape2.Visible = true;
+                panelAjoutConstructeurEtape3.Visible = false;
+                panelAjoutConstructeurEtape4.Visible = false;
             
+            }
+
+            private void RefreshE3()
+            {
+                this.LBtestE3.DataSource = TestDB.List();
+                this.LBtestE3.DisplayMember = "Nom";
+                this.LBtestE3.ValueMember = "Identifiant";
+
+                this.LBtestCtorE3.DataSource = Test_ConstructeurDB.List(Ctor.Identifiant);
+                this.LBtestCtorE3.DisplayMember = "Nom";
+                this.LBtestCtorE3.ValueMember = "Identifiant";
+            }
+
+            private void BsuivantAjoutConstructeurEtape3_Click(object sender, EventArgs e)
+            {
+                panelAjoutConstructeurEtape1.Visible = false;
+                panelAjoutConstructeurEtape2.Visible = false;
+                panelAjoutConstructeurEtape3.Visible = false;
+                panelAjoutConstructeurEtape4.Visible = true;
+                this.TBnomE4.Text = Ctor.Nom;
+                RefreshE4();
+            }
+        #endregion
+
+        #region Etape 4
+        public Test_Ctor_Teinte TcT { get; set; }
+        public List<Teinte> Lteinte { get; set; }
+        public List<Test_Constructeur> LtCtor { get; set; }
+        public List<Test_Ctor_Teinte> Ltct { get; set; }
+
+        private void LBteinteE4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.TBteinteE4.Text = ((Teinte)this.LBteinteE4.SelectedItem).ReferenceBase;
         }
 
-        private void RefreshCBE3()
+        private void LBtestE4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.LBtestE3.DataSource = TestDB.List();
-            this.LBtestE3.DisplayMember = "Nom";
-            this.LBtestE3.ValueMember = "Identifiant";
+            this.TBtestE4.Text = ((Test_Constructeur)this.LBtestE4.SelectedItem).Nom;
 
-            this.LBtestCtorE3.DataSource = Test_ConstructeurDB.List(Ctor.Identifiant);
-            this.LBtestCtorE3.DisplayMember = "Nom";
-            this.LBtestCtorE3.ValueMember = "Identifiant";
+            TcT = new Test_Ctor_Teinte();
+            TcT.ID_Constructeur = ((Test_Constructeur)this.LBtestE4.SelectedItem).ID_Constructeur;
+            TcT.ID_Teinte = ((Teinte)this.LBteinteE4.SelectedItem).Identifiant;
+            TcT.ID_Test = ((Test_Constructeur)this.LBtestE4.SelectedItem).ID_Test;
+            TcT.Min = ((Test_Constructeur)this.LBtestE4.SelectedItem).Min;
+            TcT.Norme = ((Test_Constructeur)this.LBtestE4.SelectedItem).Norme;
+            TcT.Max = ((Test_Constructeur)this.LBtestE4.SelectedItem).Max;
 
-            this.AddTestCtor.Visible = false;
-            this.UpdateTestCtor.Visible = false;
+            Test = TestDB.Get(TcT.ID_Test);
+            this.TBdescE4.Text = Test.Description;
+
+            switch (Test.TypeTest)
+            {
+                case 1:
+                    this.TBtypeE4.Text = "Minimum et Norme";
+                    this.TBminE4.ReadOnly = false;
+                    this.TBnormeE4.ReadOnly = false;
+                    this.TBmaxE4.ReadOnly = true;
+
+                    this.TBminE4.Text = TcT.Min.ToString();
+                    this.TBnormeE4.Text = TcT.Norme.ToString();
+                    this.TBmaxE4.Text = "";
+                    break;
+                case 2:
+                    this.TBtypeE4.Text = "Minimum, Norme et Maximum";
+                    this.TBminE4.ReadOnly = false;
+                    this.TBnormeE4.ReadOnly = false;
+                    this.TBmaxE4.ReadOnly = false;
+
+                    this.TBminE4.Text = TcT.Min.ToString();
+                    this.TBnormeE4.Text = TcT.Norme.ToString();
+                    this.TBmaxE4.Text = TcT.Max.ToString();
+                    break;
+                case 3:
+                    this.TBtypeE4.Text = "Norme et Maximum";
+                    this.TBminE4.ReadOnly = true;
+                    this.TBnormeE4.ReadOnly = false;
+                    this.TBmaxE4.ReadOnly = false;
+
+                    this.TBminE4.Text = "";
+                    this.TBnormeE4.Text = TcT.Norme.ToString();
+                    this.TBmaxE4.Text = TcT.Max.ToString();
+                    break;
+                default:
+                    break;
+            }
+        } 
+        
+        private void BvaliderE4_Click(object sender, EventArgs e)
+        {
+            Double D;
+
+            switch (Test.TypeTest)
+            {
+                case 1:
+                    if (Double.TryParse(this.TBminE4.Text, out D) == true
+                     && Double.TryParse(this.TBnormeE4.Text, out D) == true)
+                    {
+                        this.TestCtorError.Text = "";
+                        TcT.Min = Double.Parse(this.TBminE4.Text);
+                        TcT.Norme = Double.Parse(this.TBnormeE4.Text);
+                        Test_Ctor_TeinteDB.Update(TcT);
+                        RefreshE4();
+                    }
+                    else
+                    {
+                        this.TestCtorError.Text = "Erreur de saisie, concernant les valeurs du test";
+                    }
+                    break;
+                case 2:
+                    if (Double.TryParse(this.TBminE4.Text, out D) == true
+                     && Double.TryParse(this.TBnormeE4.Text, out D) == true
+                     && Double.TryParse(this.TBmaxE4.Text, out D) == true)
+                    {
+                        this.TestCtorError.Text = "";
+                        TcT.Min = Double.Parse(this.TBminE4.Text);
+                        TcT.Norme = Double.Parse(this.TBnormeE4.Text);
+                        TcT.Max = Double.Parse(this.TBmaxE4.Text);
+                        Test_Ctor_TeinteDB.Update(TcT);
+                    }
+                    else
+                    {
+                        this.TestCtorError.Text = "Erreur de saisie, concernant les valeurs du test";
+                    }
+                    break;
+                case 3:
+                    if (Double.TryParse(this.TBnormeE4.Text, out D) == true
+                     && Double.TryParse(this.TBmaxE4.Text, out D) == true)
+                    {
+                        this.TestCtorError.Text = "";
+                        TcT.Norme = Double.Parse(this.TBnormeE4.Text);
+                        TcT.Max = Double.Parse(this.TBmaxE4.Text);
+                        Test_Ctor_TeinteDB.Update(TcT);
+                    }
+                    else
+                    {
+                        this.TestCtorError.Text = "Erreur de saisie, concernant les valeurs du test";
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
-
-        private void BsuivantAjoutConstructeurEtape3_Click(object sender, EventArgs e)
+        
+        private void BterminerE4_Click(object sender, EventArgs e)
         {
-            panelAjoutConstructeurEtape1.Visible = false;
+            panelAjoutConstructeurEtape1.Visible = true;
             panelAjoutConstructeurEtape2.Visible = false;
             panelAjoutConstructeurEtape3.Visible = false;
-            panelAjoutConstructeurEtape4.Visible = true;
-        }
-        #endregion
-        #region Etape 4
+            panelAjoutConstructeurEtape4.Visible = false;
 
-          
-            public Test_Ctor_Teinte TcT { get; set; }
-            public List<Teinte> Lteinte { get; set; }
-            public List<Test_Constructeur> LtCtor { get; set; }
-            public List<Test_Ctor_Teinte> Ltct { get; set; }
-
-
-        public void  AjouterTestCtorTeinte(Constructeur ctor)
+        }        
+       
+        private void RefreshE4()
         {
-            Ctor = ctor;
             InitializeComponent();
-            this.TBnomAjoutConstructeurEtape4.Text = Ctor.Nom;
+            this.TBnomE4.Text = Ctor.Nom;
 
 
             Lteinte = TeinteDB.List(Ctor.Identifiant);
             LtCtor = Test_ConstructeurDB.List(Ctor.Identifiant);
 
-
             foreach (Teinte teinte in Lteinte)
             {
                 foreach (Test_Constructeur tCtor in LtCtor)
                 {
-                    Test_Ctor_Teinte tCt = new Test_Ctor_Teinte();
-                    tCt.ID_Constructeur = tCtor.ID_Constructeur;
-                    tCt.ID_Teinte = teinte.Identifiant;
-                    tCt.ID_Test = tCtor.ID_Test;
 
-                    tCt.Min = tCtor.Min;
-                    tCt.Norme = tCtor.Norme;
-                    tCt.Max = tCtor.Max;
+                    List<Test_Ctor_Teinte> ListTCT = Test_Ctor_TeinteDB.List(tCtor);
+                    Boolean Exist = false;
+                    foreach (Test_Ctor_Teinte TcTexistant in ListTCT)
+                    {
+                        if (teinte.Identifiant == TcTexistant.ID_Teinte)
+                        {
+                            Exist = true;
+                        }
+                    }
+
+                    if (Exist == false)
+                    {
+                        Test_Ctor_Teinte tCt = new Test_Ctor_Teinte();
+                        tCt.ID_Constructeur = tCtor.ID_Constructeur;
+                        tCt.ID_Teinte = teinte.Identifiant;
+                        tCt.ID_Test = tCtor.ID_Test;
+                        tCt.Min = tCtor.Min;
+                        tCt.Norme = tCtor.Norme;
+                        tCt.Max = tCtor.Max;
 
                     Test_Ctor_TeinteDB.Insert(tCt);
+                    }
+
                 }
             }
 
 
-            this.LBteinteAjoutConstructeurEtape4.DataSource = Lteinte;
-            this.LBteinteAjoutConstructeurEtape4.DisplayMember = "Nom";
-            this.LBteinteAjoutConstructeurEtape4.ValueMember = "Identifiant";
+            this.LBteinteE4.DataSource = Lteinte;
+            this.LBteinteE4.DisplayMember = "ReferenceBase";
+            this.LBteinteE4.ValueMember = "Identifiant";
             
-            this.LBtestCtorAjoutConstructeurEtape4.DataSource = LtCtor;
-            this.LBtestCtorAjoutConstructeurEtape4.DisplayMember = "Nom";
-            this.LBtestCtorAjoutConstructeurEtape4.ValueMember = "Identifiant";
+            this.LBtestE4.DataSource = LtCtor;
+            this.LBtestE4.DisplayMember = "Nom";
+            this.LBtestE4.ValueMember = "Identifiant";
         }
-        private void AjouterTestCtorTeinte_Load(object sender, EventArgs e)
-        {
-            this.UpdateTestCtor.Visible = false;
-        }
-
-        private void LBteinte_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.TBteinteAjoutConstructeurEtape4.Text = ((Teinte)this.LBteinteAjoutConstructeurEtape4.SelectedItem).Nom;
-            this.UpdateTestCtor.Visible = false;
-        }
-
-        private void LBtestCtorE4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.TBtestAjoutConstructeurEtape4.Text = ((Test_Constructeur)this.LBtestCtorAjoutConstructeurEtape4.SelectedItem).Nom;
-
-            TcT = new Test_Ctor_Teinte();
-            TcT.ID_Constructeur = ((Test_Constructeur)                                                                          this.LBtestCtorAjoutConstructeurEtape4.SelectedItem).ID_Constructeur;
-            TcT.ID_Teinte = ((Teinte)this.LBteinteAjoutConstructeurEtape4.SelectedItem).Identifiant;
-            TcT.ID_Test = ((Test_Constructeur)this.LBtestCtorAjoutConstructeurEtape4.SelectedItem).ID_Test;
-            TcT.Min = ((Test_Constructeur)this.LBtestCtorAjoutConstructeurEtape4.SelectedItem).Min;
-            TcT.Norme = ((Test_Constructeur)this.LBtestCtorAjoutConstructeurEtape4.SelectedItem).Norme;
-            TcT.Max = ((Test_Constructeur)this.LBtestCtorAjoutConstructeurEtape4.SelectedItem).Max;
-
-            Test = TestDB.Get(TcT.ID_Test);
-            this.TBdescUpdateAjoutConstructeurEtape4.Text = Test.Description;
-
-            switch (Test.TypeTest)
-            {
-                case 1:
-                    this.TBtypeUpdateAjoutConstructeurEtape4.Text = "Minimum et Norme";
-                    this.TBminUpdateAjoutConstructeurEtape4.ReadOnly = false;
-                    this.TBnormeUpdateAjoutConstructeurEtape4.ReadOnly = false;
-                    this.TBmaxUpdateAjoutConstructeurEtape4.ReadOnly = true;
-
-                    this.TBminUpdateAjoutConstructeurEtape4.Text = TcT.Min.ToString();
-                    this.TBnormeUpdateAjoutConstructeurEtape4.Text = TcT.Norme.ToString();
-                    this.TBmaxUpdateAjoutConstructeurEtape4.Text = "";
-                    break;
-                case 2:
-                    this.TBtypeUpdateAjoutConstructeurEtape4.Text = "Minimum, Norme et Maximum";
-                    this.TBminUpdateAjoutConstructeurEtape4.ReadOnly = false;
-                    this.TBnormeUpdateAjoutConstructeurEtape4.ReadOnly = false;
-                    this.TBmaxUpdateAjoutConstructeurEtape4.ReadOnly = false;
-
-                    this.TBminUpdateAjoutConstructeurEtape4.Text = TcT.Min.ToString();
-                    this.TBnormeUpdateAjoutConstructeurEtape4.Text = TcT.Norme.ToString();
-                    this.TBmaxUpdateAjoutConstructeurEtape4.Text = TcT.Max.ToString();
-                    break;
-                case 3:
-                    this.TBtypeUpdateAjoutConstructeurEtape4.Text = "Norme et Maximum";
-                    this.TBminUpdateAjoutConstructeurEtape4.ReadOnly = true;
-                    this.TBnormeUpdateAjoutConstructeurEtape4.ReadOnly = false;
-                    this.TBmaxUpdateAjoutConstructeurEtape4.ReadOnly = false;
-
-                    this.TBminUpdateAjoutConstructeurEtape4.Text = "";
-                    this.TBnormeUpdateAjoutConstructeurEtape4.Text = TcT.Norme.ToString();
-                    this.TBmaxUpdateAjoutConstructeurEtape4.Text = TcT.Max.ToString();
-                    break;
-                default:
-                    break;
-            }
-            this.UpdateTestCtor.Visible = true;
-
-
-        }
-
-        private void BvUpdateTestCtorE4_Click(object sender, EventArgs e)
-        {
-            Double D;
-
-            switch (Test.TypeTest)
-            {
-                case 1:
-                    if (Double.TryParse(this.TBminUpdateAjoutConstructeurEtape4.Text, out D) == true
-                     && Double.TryParse(this.TBnormeUpdateAjoutConstructeurEtape4.Text, out D) == true)
-                    {
-                        this.TestCtorError.Text = "";
-                        TcT.Min = Double.Parse(this.TBminUpdateAjoutConstructeurEtape4.Text);
-                        TcT.Norme = Double.Parse(this.TBnormeUpdateAjoutConstructeurEtape4.Text);
-                        Test_Ctor_TeinteDB.Update(TcT);
-                        this.UpdateTestCtor.Visible = false;
-                    }
-                    else
-                    {
-                        this.TestCtorError.Text = "Erreur de saisie, concernant les valeurs du test";
-                    }
-                    break;
-                case 2:
-                    if (Double.TryParse(this.TBminUpdateAjoutConstructeurEtape4.Text, out D) == true
-                     && Double.TryParse(this.TBnormeUpdateAjoutConstructeurEtape4.Text, out D) == true
-                     && Double.TryParse(this.TBmaxUpdateAjoutConstructeurEtape4.Text, out D) == true)
-                    {
-                        this.TestCtorError.Text = "";
-                        TcT.Min = Double.Parse(this.TBminUpdateAjoutConstructeurEtape4.Text);
-                        TcT.Norme = Double.Parse(this.TBnormeUpdateAjoutConstructeurEtape4.Text);
-                        TcT.Max = Double.Parse(this.TBmaxUpdateAjoutConstructeurEtape4.Text);
-                        Test_Ctor_TeinteDB.Update(TcT);
-                        this.UpdateTestCtor.Visible = false;
-                    }
-                    else
-                    {
-                        this.TestCtorError.Text = "Erreur de saisie, concernant les valeurs du test";
-                    }
-                    break;
-                case 3:
-                    if (Double.TryParse(this.TBnormeUpdateAjoutConstructeurEtape4.Text, out D) == true
-                     && Double.TryParse(this.TBmaxUpdateAjoutConstructeurEtape4.Text, out D) == true)
-                    {
-                        this.TestCtorError.Text = "";
-                        TcT.Norme = Double.Parse(this.TBnormeUpdateAjoutConstructeurEtape4.Text);
-                        TcT.Max = Double.Parse(this.TBmaxUpdateAjoutConstructeurEtape4.Text);
-                        Test_Ctor_TeinteDB.Update(TcT);
-                        this.UpdateTestCtor.Visible = false;
-
-                    }
-                    else
-                    {
-                        this.TestCtorError.Text = "Erreur de saisie, concernant les valeurs du test";
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void Bterminer_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            
-            this.Close();
-        }
-
-            private void BterminerAjoutConstructeurEtape4_Click(object sender, EventArgs e)
-            {
-                this.Close();
-            }
-
-
-
-
         #endregion
-
     }
 }

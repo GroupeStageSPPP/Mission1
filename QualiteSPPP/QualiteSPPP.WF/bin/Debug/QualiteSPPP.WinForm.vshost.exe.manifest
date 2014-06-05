@@ -187,38 +187,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="fr\Microsoft.SqlServer.Types.resources.dll" size="48624">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="fr\Microsoft.SqlServer.Types.resources.dll" size="48744">
       <assemblyIdentity name="Microsoft.SqlServer.Types.resources" version="11.0.0.0" publicKeyToken="89845DCD8080CC91" language="fr" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>qiTcRwpRZdMkWzdyGGh40f0ycGY=</dsig:DigestValue>
+        <dsig:DigestValue>pi3daNhiHEK4TViqnwOAylg5JM4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QualiteSPPP.DB.dll" size="60928">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QualiteSPPP.DB.dll" size="67072">
       <assemblyIdentity name="QualiteSPPP.DB" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>s3vExneEwtd5CDt4WKXA7/BOvvI=</dsig:DigestValue>
+        <dsig:DigestValue>lasm0PVevhchaJqH+oHfoYIk8Mg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QualiteSPPP.WinForm.exe" size="3156480">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QualiteSPPP.WinForm.exe" size="3086848">
       <assemblyIdentity name="QualiteSPPP.WinForm" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>amH6XdA5mNIYlX40lGygg0sj2mA=</dsig:DigestValue>
+        <dsig:DigestValue>N4EJnd0EQ8OVOCynMWWI2R/llog=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

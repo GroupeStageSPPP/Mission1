@@ -29,29 +29,96 @@ namespace QualiteSPPP.DB
             //Parametres
 
             //Execution
-            connection.Open();
-
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-
-            while (dataReader.Read())
+            try
             {
-                Test_Ctor_Teinte test_ctor_teinte = new Test_Ctor_Teinte();
-                test_ctor_teinte.Identifiant = dataReader.GetInt32(0);
-                test_ctor_teinte.Min = dataReader.GetDouble(1);
-                test_ctor_teinte.Norme = dataReader.GetDouble(2);
-                test_ctor_teinte.Max = dataReader.GetDouble(3);
-                test_ctor_teinte.ID_Test = dataReader.GetInt32(4);
-                test_ctor_teinte.ID_Constructeur = dataReader.GetInt32(5);
-                test_ctor_teinte.ID_Teinte = dataReader.GetInt32(6);
-                listeTest_Ctor_Teinte.Add(test_ctor_teinte);
+                connection.Open();
+
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+
+                while (dataReader.Read())
+                {
+                    Test_Ctor_Teinte test_ctor_teinte = new Test_Ctor_Teinte();
+                    test_ctor_teinte.Identifiant = dataReader.GetInt32(0);
+                    test_ctor_teinte.Min = dataReader.GetDouble(1);
+                    test_ctor_teinte.Norme = dataReader.GetDouble(2);
+                    test_ctor_teinte.Max = dataReader.GetDouble(3);
+                    test_ctor_teinte.ID_Test = dataReader.GetInt32(4);
+                    test_ctor_teinte.ID_Constructeur = dataReader.GetInt32(5);
+                    test_ctor_teinte.ID_Teinte = dataReader.GetInt32(6);
+                    listeTest_Ctor_Teinte.Add(test_ctor_teinte);
+                }
+
+                dataReader.Close();
+                connection.Close();
+
+                return listeTest_Ctor_Teinte;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
             }
 
-            dataReader.Close();
-            connection.Close();
-
-            return listeTest_Ctor_Teinte;
         }
+
+        public static List<Test_Ctor_Teinte> List(Test_Constructeur Tctor)
+        {
+            List<Test_Ctor_Teinte> listeTest_Ctor_Teinte = new List<Test_Ctor_Teinte>();
+
+            //Connection
+            SqlConnection connection = DataBase.Connection();
+
+            //Requete  
+            String requete = select + " WHERE ID_Test=@ID_Test AND ID_Constructeur=@ID_Constructeur;";
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("ID_Test", Tctor.ID_Test);
+            commande.Parameters.AddWithValue("ID_Constructeur", Tctor.ID_Constructeur);
+
+            //Execution
+            try
+            {
+                connection.Open();
+
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+
+                while (dataReader.Read())
+                {
+                    Test_Ctor_Teinte test_ctor_teinte = new Test_Ctor_Teinte();
+                    test_ctor_teinte.Identifiant = dataReader.GetInt32(0);
+                    test_ctor_teinte.Min = dataReader.GetDouble(1);
+                    test_ctor_teinte.Norme = dataReader.GetDouble(2);
+                    test_ctor_teinte.Max = dataReader.GetDouble(3);
+                    test_ctor_teinte.ID_Test = dataReader.GetInt32(4);
+                    test_ctor_teinte.ID_Constructeur = dataReader.GetInt32(5);
+                    test_ctor_teinte.ID_Teinte = dataReader.GetInt32(6);
+                    listeTest_Ctor_Teinte.Add(test_ctor_teinte);
+                }
+
+                dataReader.Close();
+                connection.Close();
+
+                return listeTest_Ctor_Teinte;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+
         public static Test_Ctor_Teinte Get(Int32 ID_Test, Int32 ID_Teinte)
         {
             Test_Ctor_Teinte test_ctor_teinte = new Test_Ctor_Teinte();
@@ -70,21 +137,33 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_Teinte", ID_Teinte);
 
             //Execution
-            connection.Open();
+            try
+            {
+                connection.Open();
 
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-            test_ctor_teinte.Identifiant = dataReader.GetInt32(0);
-            test_ctor_teinte.Min = dataReader.GetDouble(1);
-            test_ctor_teinte.Norme = dataReader.GetDouble(2);
-            test_ctor_teinte.Max = dataReader.GetDouble(3);
-            test_ctor_teinte.ID_Test = dataReader.GetInt32(4);
-            test_ctor_teinte.ID_Constructeur = dataReader.GetInt32(5);
-            test_ctor_teinte.ID_Teinte = dataReader.GetInt32(6);
-            dataReader.Close();
-            connection.Close();
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+                test_ctor_teinte.Identifiant = dataReader.GetInt32(0);
+                test_ctor_teinte.Min = dataReader.GetDouble(1);
+                test_ctor_teinte.Norme = dataReader.GetDouble(2);
+                test_ctor_teinte.Max = dataReader.GetDouble(3);
+                test_ctor_teinte.ID_Test = dataReader.GetInt32(4);
+                test_ctor_teinte.ID_Constructeur = dataReader.GetInt32(5);
+                test_ctor_teinte.ID_Teinte = dataReader.GetInt32(6);
+                dataReader.Close();
+                connection.Close();
 
-            return test_ctor_teinte;
+                return test_ctor_teinte;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
         }
 
         public static Test_Ctor_Teinte Get(Int32 Identifiant)
@@ -104,21 +183,33 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
+            try
+            {
+                connection.Open();
 
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-            test_ctor_teinte.Identifiant = dataReader.GetInt32(0);
-            test_ctor_teinte.Min = dataReader.GetDouble(1);
-            test_ctor_teinte.Norme = dataReader.GetDouble(2);
-            test_ctor_teinte.Max = dataReader.GetDouble(3);
-            test_ctor_teinte.ID_Test = dataReader.GetInt32(4);
-            test_ctor_teinte.ID_Constructeur = dataReader.GetInt32(5);
-            test_ctor_teinte.ID_Teinte = dataReader.GetInt32(6);
-            dataReader.Close();
-            connection.Close();
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+                test_ctor_teinte.Identifiant = dataReader.GetInt32(0);
+                test_ctor_teinte.Min = dataReader.GetDouble(1);
+                test_ctor_teinte.Norme = dataReader.GetDouble(2);
+                test_ctor_teinte.Max = dataReader.GetDouble(3);
+                test_ctor_teinte.ID_Test = dataReader.GetInt32(4);
+                test_ctor_teinte.ID_Constructeur = dataReader.GetInt32(5);
+                test_ctor_teinte.ID_Teinte = dataReader.GetInt32(6);
+                dataReader.Close();
+                connection.Close();
 
-            return test_ctor_teinte;
+                return test_ctor_teinte;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
         }
 
         
@@ -142,10 +233,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_Test", test_ctor_teinte.ID_Test);
             commande.Parameters.AddWithValue("ID_Teinte", test_ctor_teinte.ID_Teinte);
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Update(Test_Ctor_Teinte test_ctor_teinte)
@@ -171,11 +272,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_Teinte", test_ctor_teinte.ID_Teinte);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Delete(Int32 Identifiant)
@@ -195,11 +305,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }

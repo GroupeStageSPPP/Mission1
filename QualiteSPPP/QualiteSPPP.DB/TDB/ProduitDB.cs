@@ -62,7 +62,7 @@ namespace QualiteSPPP.DB
             SqlConnection connection = DataBase.Connection();
 
             //Requete  
-            String requete = select + " WHERE ID_Piece=@ID_Piece, ID_Teinte=@ID_Teinte;";
+            String requete = select + " WHERE ID_Piece=@ID_Piece AND ID_Teinte=@ID_Teinte;";
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);

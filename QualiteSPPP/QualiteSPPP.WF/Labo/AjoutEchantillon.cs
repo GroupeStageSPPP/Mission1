@@ -20,6 +20,10 @@ namespace QualiteSPPP.WinForm
             InitializeComponent();
             TcT = new Test_Ctor_Teinte();
             EchRes = new Ech_Resultat();
+            
+            CBvehicule.DataSource = VehiculeDB.List();
+            CBvehicule.DisplayMember = "Nom";
+            CBvehicule.ValueMember = "Identifiant";
         }
         private void AjoutEchantillon_Load(object sender, EventArgs e)
         {
@@ -57,34 +61,44 @@ namespace QualiteSPPP.WinForm
 
         private void CBvehicule_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CBpiece.DataSource = PieceDB.List(Int32.Parse(CBvehicule.SelectedValue.ToString()));
+            CBpiece.DataSource = PieceDB.List( ((Vehicule)CBvehicule.SelectedItem).Identifiant );
             CBpiece.DisplayMember = "Nom";
             CBpiece.ValueMember = "Identifiant";
+
+            CBpiece.SelectedIndex = -1;
         }
 
         private void CBpiece_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CBteinte.DataSource = TeinteDB.List(((Vehicule)CBvehicule.SelectedItem).ID_Constructeur);
+            CBteinte.DataSource = TeinteDB.List( ((Vehicule)CBvehicule.SelectedItem).ID_Constructeur );
             CBteinte.DisplayMember = "Nom";
             CBteinte.ValueMember = "Identifiant";
+
+            CBteinte.SelectedIndex = -1;
         }
 
         private void CBteinte_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LBproduit.DataSource = ProduitDB.List((Int32)CBpiece.SelectedValue, (Int32)CBteinte.SelectedValue);
+            LBproduit.DataSource = ProduitDB.List( ((Piece)CBpiece.SelectedItem).Identifiant, ((Teinte)CBteinte.SelectedItem).Identifiant );
             LBproduit.DisplayMember = "Nom";
             LBproduit.ValueMember = "Identifiant";
+
         }
 
         private void BaddE1_Click(object sender, EventArgs e)
         {
-            Echantillon E= new Echantillon();
-            E.ID_Produit = Int32.Parse(LBproduit.SelectedValue.ToString());
-            E.ISconforme = -2;
-            E.NumLot = TBnumLotE1.Text;
-            E.DatePeinture = DTPpeintureE1.Value;
-            EchantillonDB.Insert(E);
-            RefreshE1();
+            if ( CBteinte.SelectedItem != null
+              && TBnumLotE1.Text != null)
+            {
+                Echantillon E= new Echantillon();
+                E.ID_Produit = Int32.Parse(LBproduit.SelectedValue.ToString());
+                E.ISconforme = -2;
+                E.NumLot = TBnumLotE1.Text;
+                E.DatePeinture = DTPpeintureE1.Value;
+                EchantillonDB.Insert(E);
+                RefreshE1();                
+            }
+
 
         }
 
