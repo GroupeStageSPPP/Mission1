@@ -464,11 +464,79 @@ namespace QualiteSPPP.WinForm
                 pleinÉcranToolStripMenuItem.Checked = false;
                 fenêtréToolStripMenuItem.Checked = true;
             }
-            private void toolStripMenuItem2_Click(object sender, EventArgs e)
-            {
-                //  --> OPTION/Acceuil
-                ouvrirEcran("OPTION_Acceuil");
-            }
+            #region Accueil
+                private void toolStripMenuItem2_Click(object sender, EventArgs e)
+                {
+                    //  --> OPTION/Acceuil
+                    ouvrirEcran("OPTION_Acceuil");
+                }
+
+                private void label36_Click(object sender, EventArgs e)
+                {
+                    //-->  Gestion des Projets
+                    AjoutProjet ajoutProjet = new AjoutProjet();
+                    this.Hide();
+                    ajoutProjet.ShowDialog();
+                    this.Show();
+                }
+                private void panelGestionProjetsOPTIONAccueil_MouseEnter(object sender, EventArgs e)
+                {
+                    panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+                }
+                private void panelGestionProjetsOPTIONAccueil_MouseLeave(object sender, EventArgs e)
+                {
+                    panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                }
+
+                private void label37_Click(object sender, EventArgs e)
+                {
+                    //-->  Gestion des Echantillons
+                    AjoutEchantillon ajoutEchantillon = new AjoutEchantillon();
+                    this.Hide();
+                    ajoutEchantillon.ShowDialog();
+                    this.Show();
+                }
+                private void panelGestionEchantillonsOPTIONAccueil_MouseEnter(object sender, EventArgs e)
+                {
+                    panel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+                }
+                private void panelGestionEchantillonsOPTIONAccueil_MouseLeave(object sender, EventArgs e)
+                {
+                    panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                }
+
+                private void label38_Click(object sender, EventArgs e)
+                {
+                    //-->  Gestion des Constructeurs
+                    AjoutConstructeur ajoutConstructeur = new AjoutConstructeur();
+                    this.Hide();
+                    ajoutConstructeur.ShowDialog();
+                    this.Show();
+                }
+                private void panelGestionConstructeurOPTIONAccueil_MouseEnter(object sender, EventArgs e)
+                {
+                    panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+                }
+                private void panelGestionConstructeurOPTIONAccueil_MouseLeave(object sender, EventArgs e)
+                {
+                    panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                }
+
+                private void label48_Click(object sender, EventArgs e)
+                {
+                    //-->  Affichage des alertes;
+                    Alerte alerte = new Alerte();
+                    alerte.Show();
+                }
+                private void panelGestionAlertesOPTIONAccueil_MouseEnter(object sender, EventArgs e)
+                {
+                    panel16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+                }
+                private void panelGestionAlertesOPTIONAccueil_MouseLeave(object sender, EventArgs e)
+                {
+                    panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                }
+            #endregion
         #endregion
 
         private void button11_Click(object sender, EventArgs e)
@@ -477,10 +545,10 @@ namespace QualiteSPPP.WinForm
             ajouterVehicule.ShowDialog();
         }
         private void button3_Click(object sender, EventArgs e)
-            {
-                AjoutProjet ajoutProjet = new AjoutProjet();
-                ajoutProjet.ShowDialog();
-            }
+        {
+            AjoutProjet ajoutProjet = new AjoutProjet();
+            ajoutProjet.ShowDialog();
+        }
         private void buttonAjoutEchantillionOPTIONAccueil_Click(object sender, EventArgs e)
         {
             AjoutEchantillon ajoutEchantillon = new AjoutEchantillon();

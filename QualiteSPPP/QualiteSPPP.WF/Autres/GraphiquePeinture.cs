@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZedGraph;
+using QualiteSPPP.DB;
 
 namespace QualiteSPPP.WinForm
 {
@@ -50,6 +51,14 @@ namespace QualiteSPPP.WinForm
             PointPairList spl2 = new PointPairList(x, minimum);
             PointPairList spl3 = new PointPairList(x, moyenne);
             PointPairList spl4 = new PointPairList(x, variable);
+            PointPairList Ppl = new PointPairList();
+            int y =0;
+            foreach (Ech_Resultat Er in Ech_ResultatDB.List())
+            {
+                y++;
+                PointPair Pp = new PointPair(y, Er.Resultat, EchantillonDB.Get(Er.ID_Echantillon).NumLot);
+                Ppl.Add(Pp);                
+            }
 
 
 
@@ -57,7 +66,7 @@ namespace QualiteSPPP.WinForm
             LineItem myCurve1 = myPane.AddCurve("", spl1, Color.DarkBlue, SymbolType.None);
             LineItem myCurve2 = myPane.AddCurve("Minimum Maximum", spl2, Color.DarkBlue, SymbolType.None);
             LineItem myCurve3 = myPane.AddCurve("moyenne", spl3, Color.Black, SymbolType.None);
-            LineItem myCurve4 = myPane.AddCurve("Resultat", spl4, Color.ForestGreen, SymbolType.Diamond);
+            LineItem myCurve4 = myPane.AddCurve("Resultat", Ppl, Color.ForestGreen, SymbolType.Diamond);
 
 
             myCurve1.Line.Width = 2.0F;

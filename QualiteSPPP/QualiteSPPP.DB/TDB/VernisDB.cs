@@ -29,25 +29,36 @@ namespace QualiteSPPP.DB
             //Parametres
 
             //Execution
-            connection.Open();
-
-            SqlDataReader dataReader = commande.ExecuteReader();
-
-            while (dataReader.Read())
+            try
             {
-                Vernis vernis = new Vernis();
-                vernis.Identifiant = dataReader.GetInt32(0);
-                vernis.Reference = dataReader.GetString(1);
-                vernis.Min = dataReader.GetDouble(2);
-                vernis.Norme = dataReader.GetDouble(3);
-                vernis.Max = dataReader.GetDouble(4);
-                listeVernis.Add(vernis);
+                connection.Open();
+
+                SqlDataReader dataReader = commande.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Vernis vernis = new Vernis();
+                    vernis.Identifiant = dataReader.GetInt32(0);
+                    vernis.Reference = dataReader.GetString(1);
+                    vernis.Min = dataReader.GetInt32(2);
+                    vernis.Norme = dataReader.GetInt32(3);
+                    vernis.Max = dataReader.GetInt32(4);
+                    listeVernis.Add(vernis);
+                }
+
+                dataReader.Close();
+
+                return listeVernis;
             }
-
-            dataReader.Close();
-            connection.Close();
-
-            return listeVernis;
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            
         }
 
         public static Vernis Get(Int32 Identifiant)
@@ -67,19 +78,30 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
+            try
+            {
+                connection.Open();
 
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-            vernis.Identifiant = dataReader.GetInt32(0);
-            vernis.Reference = dataReader.GetString(1);
-            vernis.Min = dataReader.GetDouble(2);
-            vernis.Norme = dataReader.GetDouble(3);
-            vernis.Max = dataReader.GetDouble(4);
-            dataReader.Close();
-            connection.Close();
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+                vernis.Identifiant = dataReader.GetInt32(0);
+                vernis.Reference = dataReader.GetString(1);
+                vernis.Min = dataReader.GetInt32(2);
+                vernis.Norme = dataReader.GetInt32(3);
+                vernis.Max = dataReader.GetInt32(4);
+                dataReader.Close();
 
-            return vernis;
+                return vernis;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }            
+            
         }
 
         public static Boolean Insert(Vernis vernis)
@@ -101,10 +123,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Max", vernis.Max);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Update(Vernis vernis)
@@ -128,11 +160,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Max", vernis.Max);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Delete(Int32 Identifiant)
@@ -152,11 +193,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Int32 LastID()
@@ -169,13 +219,25 @@ namespace QualiteSPPP.DB
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
+            //Execution
+            try
+            {
+                connection.Open();
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+                Identifiant = dataReader.GetInt32(0);
+                connection.Close();
+                return Identifiant;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
 
-            connection.Open();
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-            Identifiant = dataReader.GetInt32(0);
-            connection.Close();
-            return Identifiant;
         }
     }
 }

@@ -10,10 +10,12 @@ namespace QualiteSPPP.DB
         public Int32 Identifiant { get; set; }
 
         public Double Resultat { get; set; }
+        public Int16 ISconforme { get; set; }
 
         public Int32 ID_Echantillon { get; set; }
         public Int32 ID_Test { get; set; }
         public Int32 ID_Constructeur { get; set; }
         public Int32 ID_Teinte { get; set; }
+
     }
 }

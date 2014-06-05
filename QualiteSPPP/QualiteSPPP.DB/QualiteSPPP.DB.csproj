@@ -44,9 +44,12 @@
   <ItemGroup>
     <Compile Include="ALGO\Identification.cs" />
     <Compile Include="ALGO\IdentificationDB.cs" />
+    <Compile Include="TCS\Parametre.cs" />
     <Compile Include="TCS\Alerte_Pro.cs" />
+    <Compile Include="TCS\Utilisateur.cs" />
     <Compile Include="TDB\Alerte_ProDB.cs" />
     <Compile Include="TDB\EchantillonDB.cs" />
+    <Compile Include="TDB\ParametreDB.cs" />
     <Compile Include="TDB\PieceDB.cs" />
     <Compile Include="TDB\ProduitDB.cs" />
     <Compile Include="TCS\Echantillon.cs" />
@@ -84,6 +87,7 @@
     <Compile Include="TDB\TeinteDB.cs" />
     <Compile Include="TDB\TestDB.cs" />
     <Compile Include="TDB\VernisDB.cs" />
+    <Compile Include="TDB\UtilisateurDB.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\App.config" />

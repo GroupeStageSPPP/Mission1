@@ -30,28 +30,40 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_Constructeur", ID_Constructeur);
             
             //Execution
-            connection.Open();
-
-            SqlDataReader dataReader = commande.ExecuteReader();
-	    
-	        while (dataReader.Read())
+            try
             {
-                Test_Constructeur test_constructeur = new Test_Constructeur(); 
-	            test_constructeur.Identifiant     = dataReader.GetInt32(0);
-                test_constructeur.Min             = dataReader.GetDouble(1);
-                test_constructeur.Norme           = dataReader.GetDouble(2);
-                test_constructeur.Max             = dataReader.GetDouble(3);
-                test_constructeur.ID_Test         = dataReader.GetInt32(4);
-                test_constructeur.ID_Constructeur = dataReader.GetInt32(5);
+                connection.Open();
 
-	            test_constructeur.Nom = (TestDB.Get(test_constructeur.ID_Test)).Nom+" "+(ConstructeurDB.Get(test_constructeur.ID_Constructeur)).Nom;
-                listeTest_Constructeur.Add(test_constructeur);
+                SqlDataReader dataReader = commande.ExecuteReader();
+	    
+	            while (dataReader.Read())
+                {
+                    Test_Constructeur test_constructeur = new Test_Constructeur(); 
+	                test_constructeur.Identifiant     = dataReader.GetInt32(0);
+                    test_constructeur.Min             = dataReader.GetDouble(1);
+                    test_constructeur.Norme           = dataReader.GetDouble(2);
+                    test_constructeur.Max             = dataReader.GetDouble(3);
+                    test_constructeur.ID_Test         = dataReader.GetInt32(4);
+                    test_constructeur.ID_Constructeur = dataReader.GetInt32(5);
+
+	                test_constructeur.Nom = (TestDB.Get(test_constructeur.ID_Test)).Nom+" "+(ConstructeurDB.Get(test_constructeur.ID_Constructeur)).Nom;
+                    listeTest_Constructeur.Add(test_constructeur);
+                }
+
+                dataReader.Close();
+                connection.Close();
+
+	            return listeTest_Constructeur;
             }
-
-            dataReader.Close();
-            connection.Close();
-
-	        return listeTest_Constructeur;
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            
 	    }
 
         public static Test_Constructeur Get(Int32 Identifiant)
@@ -71,20 +83,32 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant );
 
             //Execution
-            connection.Open();
+            try
+            {
+                connection.Open();
 
-            SqlDataReader dataReader = commande.ExecuteReader();
-            dataReader.Read();
-            test_constructeur.Identifiant     = dataReader.GetInt32(0);
-            test_constructeur.Min             = dataReader.GetDouble(1);
-            test_constructeur.Norme           = dataReader.GetDouble(2);
-            test_constructeur.Max             = dataReader.GetDouble(3);
-            test_constructeur.ID_Test         = dataReader.GetInt32(4);
-            test_constructeur.ID_Constructeur = dataReader.GetInt32(5);
-            dataReader.Close();
-            connection.Close();
+                SqlDataReader dataReader = commande.ExecuteReader();
+                dataReader.Read();
+                test_constructeur.Identifiant     = dataReader.GetInt32(0);
+                test_constructeur.Min             = dataReader.GetDouble(1);
+                test_constructeur.Norme           = dataReader.GetDouble(2);
+                test_constructeur.Max             = dataReader.GetDouble(3);
+                test_constructeur.ID_Test         = dataReader.GetInt32(4);
+                test_constructeur.ID_Constructeur = dataReader.GetInt32(5);
+                dataReader.Close();
+                connection.Close();
 
-	        return test_constructeur;
+	            return test_constructeur;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
 	    }
 
         public static Boolean Insert(Test_Constructeur test_constructeur)
@@ -107,10 +131,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_Constructeur", test_constructeur.ID_Constructeur);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Update(Test_Constructeur test_constructeur)
@@ -135,11 +169,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("ID_Constructeur", test_constructeur.ID_Constructeur);
             
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static Boolean Delete(Int32 Identifiant)
@@ -159,11 +202,20 @@ namespace QualiteSPPP.DB
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
             //Execution
-            connection.Open();
-            commande.ExecuteNonQuery();
-            connection.Close();
-
-            return true;
+            try
+            {
+                connection.Open();
+                commande.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }

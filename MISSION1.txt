@@ -1,0 +1,5 @@
+Creer les alertes
+Creer les graphes
+Creer les frequences
+WF consulter alertes+ resolution error
+WF consulter graphes

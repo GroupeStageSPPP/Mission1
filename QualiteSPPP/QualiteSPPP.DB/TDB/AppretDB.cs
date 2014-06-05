@@ -38,9 +38,9 @@ namespace QualiteSPPP.DB
                Appret appret = new Appret();
                appret.Identifiant = dataReader.GetInt32(0);
                appret.Reference   = dataReader.GetString(1);
-               appret.Min         = dataReader.GetDouble(2);
-               appret.Norme       = dataReader.GetDouble(3);
-               appret.Max         = dataReader.GetDouble(4);
+               appret.Min         = dataReader.GetInt32(2);
+               appret.Norme       = dataReader.GetInt32(3);
+               appret.Max         = dataReader.GetInt32(4);
 	           listeAppret.Add(appret);
             }
 
@@ -73,9 +73,9 @@ namespace QualiteSPPP.DB
             dataReader.Read();
             appret.Identifiant = dataReader.GetInt32(0);
             appret.Reference = dataReader.GetString(1);
-            appret.Min = dataReader.GetDouble(2);
-            appret.Norme = dataReader.GetDouble(3);
-            appret.Max = dataReader.GetDouble(4);
+            appret.Min = dataReader.GetInt32(2);
+            appret.Norme = dataReader.GetInt32(3);
+            appret.Max = dataReader.GetInt32(4);
             dataReader.Close();
             connection.Close();
 
